@@ -1,6 +1,5 @@
-to write:
-/code/linux/190220BeginLearn.html
-/code/linux/190220install.html
-
-TO debug:
-There is error in /code/linux.html try to fix it.
+02.18: the new semester began, my feeling
+02.19: install ubuntu. fix the problem: cannot enter bios.
+https://www.howtogeek.com/116569/htg-explains-how-windows-8s-secure-boot-feature-works-what-it-means-for-linux/
+https://www.youtube.com/watch?v=WWGlJVV3djw from this video, I successfully installed ubuntu.
+Compare linux and windoes
