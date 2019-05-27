@@ -3,12 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Yi?
 subtitle:
 description:
 keywords:
-author: John Doe
+author: fuguigui
 language:
+  - zh-CN
+  - zh-HK
+  - en
+  - de
 timezone:
 
 # URL
@@ -73,9 +77,17 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:fuguigui/fuguigui.github.io.git
+  branch: blog_src
+
+
+# Social links
+social:
+  GitHub: https://github.com/fuguigui
+  Twitter: https://twitter.com/fuguipamela
