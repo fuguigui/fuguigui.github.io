@@ -1,8 +1,8 @@
 ---
-title: CIL course & review notes
+title: CIL review notes
 author: Guirong Fu
 date: 2019-08-26
-categories: Computational Intelligence Lab
+categories: Computational Intelligence
 tags: [courses, machine learning, data analysis]
 ---
 

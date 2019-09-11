@@ -41,7 +41,7 @@ pagination_dir: page
 deploy:
   type: git
   repo: git@github.com:fuguigui/fuguigui.github.io.git
-  branch: blog-src
+  branch: master
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
@@ -249,8 +249,8 @@ clicklove:
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
 profile:
   avatar: /medias/avatar.jpg
-  career: Data Scientist
-  introduction: Find simplicity in this complex world. Believe in the value of data. 
+  career: Data Science Master Student, ETH Zurich
+  introduction: Live in Zurich now. Believe in the value of data. My lfie philosophy is to simplify this complex world. 
 # config my projects informations in about page.
 # If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
 # 在“关于”页面配置"我的项目"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
