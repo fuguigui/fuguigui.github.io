@@ -1,6 +1,7 @@
 ---
 title: Topic Model
 date: 2019-07-09
+author: Guirong Fu
 categories: Computational Intelligence
 ---
 # Topic Model

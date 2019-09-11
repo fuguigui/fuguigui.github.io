@@ -1,7 +1,7 @@
 ---
 title: Neural Network
 date: 2019-07-17
-categories: Computational Intelligence Lab
+categories: Computational Intelligence
 ---
 
 # Neural Network

@@ -1,7 +1,7 @@
 ---
 title: Sparse Coding
 date: 2019-07-22
-categories: Computational Intelligence Lab
+categories: Computational Intelligence
 ---
 
 

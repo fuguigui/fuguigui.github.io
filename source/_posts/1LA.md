@@ -1,7 +1,7 @@
 ---
 title: Linear Autoencoder
 date: 2019-07-04
-categories: Computational Intelligence Lab
+categories: Computational Intelligence
 img: /source/images/CIL1.jpg
 top: true
 cover: true

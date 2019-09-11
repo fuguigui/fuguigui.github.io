@@ -1,7 +1,7 @@
 ---
 title: Generative Models
 date: 2019-07-18
-categories: Computational Intelligence Lab
+categories: Computational Intelligence
 ---
 
 

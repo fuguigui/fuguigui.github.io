@@ -1,7 +1,8 @@
 ---
 title: Data Clustering
 date: 2019-07-15
-categories: Computational Intelligence Lab
+author: Guirong Fu
+categories: Computational Intelligence
 ---
 
 # Data Clustering

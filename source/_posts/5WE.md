@@ -1,7 +1,8 @@
 ---
 title: Word Embeddings
 date: 2019-07-10
-categories: Computational Intelligence Lab
+author: Guirong Fu
+categories: Computational Intelligence
 ---
 
 #  Word Embeddings

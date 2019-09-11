@@ -1,7 +1,7 @@
 ---
 title: Matrix Completion
 date: 2019-07-05
-categories: Computational Intelligence Lab
+categories: Computational Intelligence
 ---
 
 
