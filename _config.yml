@@ -41,7 +41,7 @@ pagination_dir: page
 deploy:
   type: git
   repo: git@github.com:fuguigui/fuguigui.github.io.git
-  branch: blog_src
+  branch: blog-src
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
