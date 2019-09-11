@@ -15,8 +15,40 @@ language:
   - zh
   - de
 
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+
 url: https://fuguigui.github.io/
 permalink: :category/:title
+
+index_generator:
+  path: ''
+  per_page: 18
+  order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+per_page: 18
+pagination_dir: page
+
+deploy:
+  type: git
+  repo: git@github.com:fuguigui/fuguigui.github.io.git
+  branch: blog_src
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
 # main menu navigation url and icon
 # 配置菜单导航的名称、路径和图标icon.
 menu:
