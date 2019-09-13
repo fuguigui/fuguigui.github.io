@@ -202,6 +202,11 @@ reward:
   wechat: /medias/reward/wechat.jpg
   alipay: /medias/reward/ali.jpg
 
+# 是否激活文章末尾的分享功能
+share:
+  enable: false
+
+
 # Whether to activate the copyright information of the blog and author when copying the post content.
 # minCharNumber: Approve copyright information by copying at least how many characters.
 # 是否激活复制文章时追加博客和作者的版权信息.
@@ -316,12 +321,12 @@ postCalendar: true
 # Gitalk 评论模块的配置，默认为不激活
 gitalk:
   enable: true
-  owner: Guirong Fu
-  repo:
+  owner: 'fuguigui'
+  repo: 'Gitalk'
   oauth:
-    clientId: fa54df0d15d9e2730350
-    clientSecret: 4cc3c0d97f116ac295acd5eddf2cad065d56cc56
-  admin:
+    clientId: 'fa54df0d15d9e2730350'
+    clientSecret: '4cc3c0d97f116ac295acd5eddf2cad065d56cc56'
+  admin: ['fuguigui']
 
 # disqus config, default disabled
 # Disqus评论模块的配置，默认为不激活
