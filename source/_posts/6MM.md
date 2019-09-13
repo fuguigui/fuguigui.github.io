@@ -1,7 +1,7 @@
 ---
 title: Data Clustering
 date: 2019-07-15
-author: Guirong Fu
+tags: [courses, machine learning, data analysis]
 categories: Computational Intelligence
 ---
 

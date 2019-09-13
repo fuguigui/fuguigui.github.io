@@ -1,7 +1,7 @@
 ---
 title: Word Embeddings
 date: 2019-07-10
-author: Guirong Fu
+tags: [courses, machine learning, data analysis]
 categories: Computational Intelligence
 ---
 

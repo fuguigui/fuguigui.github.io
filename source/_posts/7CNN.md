@@ -1,6 +1,7 @@
 ---
 title: Neural Network
 date: 2019-07-17
+tags: [courses, machine learning, data analysis]
 categories: Computational Intelligence
 ---
 

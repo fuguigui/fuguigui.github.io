@@ -1,6 +1,7 @@
 ---
 title: Generative Models
 date: 2019-07-18
+tags: [courses, machine learning, data analysis]
 categories: Computational Intelligence
 ---
 

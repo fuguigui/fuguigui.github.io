@@ -1,11 +1,11 @@
 ---
 title: Linear Autoencoder
 date: 2019-07-04
-categories: Computational Intelligence
 img: /source/images/CIL1.jpg
-top: true
 cover: true
 coverImg: /source/images/CIL1.jpg
+tags: [courses, machine learning, data analysis]
+categories: Computational Intelligence
 ---
 
 

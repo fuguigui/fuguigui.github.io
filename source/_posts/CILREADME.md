@@ -2,6 +2,7 @@
 title: CIL review notes
 author: Guirong Fu
 date: 2019-08-26
+top: true
 categories: Computational Intelligence
 tags: [courses, machine learning, data analysis]
 ---
@@ -18,27 +19,27 @@ The values of these notes are my questions and thoughts. I believe question is t
 
 ## Autoencoder
 
-- [Linear autoencoder](1LA.md)
-- [Matrix completion](2MC.md)
-- [Non-negative matrix factorization](3NN.md)
+- [Linear autoencoder](../1la/index.html)
+- [Matrix completion](../2mc/index.html)
+- [Non-negative matrix factorization](../3nn/index.html)
 
 ## Word Embedding
 
-- [Word Embedding](5WE.md)
+- [Word Embedding](../5we/index.html)
 
 ## Data Clustering
 
-- [Clustering](6MM.md)
+- [Clustering](../6mm/index.html)
 
 ## Neural Network
 
-- [Neural Network](7CNN.md)
+- [Neural Network](../7cnn/index.html)
 
 ## Generative Model
 
-- [Generative Model](8GM.md)
+- [Generative Model](../8gm/index.html)
 
 ## Sparse Learning
 
-- [Sparse coding](9SC.md)
-- [Dictionary learning](10DL.md)
+- [Sparse coding](../9sc/index.html)
+- [Dictionary learning](../10dl/index.html)

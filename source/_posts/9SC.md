@@ -1,6 +1,7 @@
 ---
 title: Sparse Coding
 date: 2019-07-22
+tags: [courses, machine learning, data analysis]
 categories: Computational Intelligence
 ---
 

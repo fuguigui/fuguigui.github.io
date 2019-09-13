@@ -23,7 +23,7 @@ archive_dir: archives
 category_dir: categories
 
 url: https://fuguigui.github.io/
-permalink: :category/:title
+permalink: :category/:title/
 
 index_generator:
   path: ''
@@ -134,8 +134,8 @@ recommend:
 
 # Configure website favicon and LOGO
 # 配置网站favicon和网站LOGO
-favicon: /favicon.png
-logo: /medias/logo.png
+favicon: /aquarius.jpg
+logo: /aquarius.jpg
 
 # The configuration of the second button in the home banner,
 # including the display name of the button, the font awesome icon, and the hyperlink to the button.
@@ -315,23 +315,13 @@ postCalendar: true
 # the Gitalk config，default disabled
 # Gitalk 评论模块的配置，默认为不激活
 gitalk:
-  enable: false
-  owner:
+  enable: true
+  owner: Guirong Fu
   repo:
   oauth:
-    clientId:
-    clientSecret:
+    clientId: fa54df0d15d9e2730350
+    clientSecret: 4cc3c0d97f116ac295acd5eddf2cad065d56cc56
   admin:
-
-# the Gitment config，default disabled
-# Gitment 评论模块的配置，默认为不激活
-gitment:
-  enable: false
-  owner:
-  repo:
-  oauth:
-    clientId:
-    clientSecret:
 
 # disqus config, default disabled
 # Disqus评论模块的配置，默认为不激活

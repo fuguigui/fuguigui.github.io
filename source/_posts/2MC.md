@@ -1,6 +1,7 @@
 ---
 title: Matrix Completion
 date: 2019-07-05
+tags: [courses, machine learning, data analysis]
 categories: Computational Intelligence
 ---
 
