@@ -1,10 +1,7 @@
 ---
 title: Database Basics
 date: 2019-01-22
-img: /source/images/BD1.png
-top: true
-cover: true
-coverImg: /source/images/BD1.png
+img: /images/BD1.png
 tags: [courses, database, big data]
 categories: Big Data
 ---

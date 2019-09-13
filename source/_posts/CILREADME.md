@@ -43,3 +43,21 @@ The values of these notes are my questions and thoughts. I believe question is t
 
 - [Sparse coding](../9sc/index.html)
 - [Dictionary learning](../10dl/index.html)
+
+
+
+# Other Resources
+
+I also wrote the last minute summary and cheatsheet for this course.
+
+<br>
+
+{% pdf ./CILSummary.pdf %}
+
+<br>
+
+
+
+<br>{% pdf ./CILCheatSheet.pdf %}
+
+<br>
