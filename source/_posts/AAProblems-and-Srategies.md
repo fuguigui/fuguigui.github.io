@@ -2,6 +2,7 @@
 title: Problems and Srategies
 date: 2019-09-24
 tags: [Algorithms]
+categories: Advanced algorithms
 ---
 
 # Vertex cover

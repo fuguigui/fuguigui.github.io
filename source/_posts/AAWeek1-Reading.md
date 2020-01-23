@@ -2,7 +2,7 @@
 title: Week 1 Reading - Approximation Algorithms
 date: 2019-09-23
 tags: [Algorithms, reading]
-categories: Advanced Algorithms
+categories: Advanced algorithms
 ---
 
 # Advanced Algorithms (Vazirani)
