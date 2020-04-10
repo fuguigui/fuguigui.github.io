@@ -2,17 +2,116 @@
 title: Vocabulary 介词搭配
 author: Guirong Fu
 date: 2019-09-06
+update: 2020-03-06
 tags: [language, deutsch]
 categories: Deutsch
 ---
 
 ö ä ü ß
 
+| 只接三格       | 只接四格 | 三格/四格 |
+| -------------- | -------- | --------- |
+| aus, mit, nach | für, um  | an, in    |
+
+# 方位介词
+
+## 回答wo，在哪里
+
+[tingroom](http://de.tingroom.com/cihui/zhuanlan/24674.html)
+
+- an：
+  - 主要表示“在......边上，紧挨着，紧靠着”这样的概念，在某个边缘上
+  - 在某一个站点
+- auf：
+  - 通常表示“在......上面”，并且物体之间有明显的介词，而且是“垂直关系”
+  - 在……上，是一个开放的平的空间，如：auf dem Bauernhof在农场上，
+  - 在有的结构里面，介词固定用auf
+    - auf Land
+    - auf die Insel
+    - 
+- bei
+  - 可以用来表示“在......附近”，通常是“一个不知名的小地点在一个较为知名的大地点附近”
+  - 往往后面跟一个“具体的公司名称”，表示“在某个公司”。
+  - 后面跟一个人或者某种职业，表示“在某人处”。
+- in
+  - 主要强调“在......里面”，通常表示“在某个封闭的空间内”。
+  - 如果表示“文字在报纸上”，那么德国人的逻辑是“文字在报纸里”，所以还是要用介词in。例如：In der Zeitung steht eine wichtige Nachricht.  报纸上有一条重要的新闻。
+  - 后面加阳性和阴性的洲，国家，城市名
+
+## 重点辨析
+
+- nach/zu/in：
+
+  nach: 
+
+  - 洲/城市/没有介词的国家
+  - 地点副词
+  - 方向
+
+  in:
+
+  - 接有介词的国家
+
+  zu：
+
+  - 接人
+  - 地点（除了洲/城市/国家以外）
+
+- nach/zu Hause
+  - nach Hause: 回家。
+  - zu Hause: 在家。
+  - 例子: Ich gehe nach Hause. Ich habe zu Hause angerufen.
+
+# 时间介词
+
+um 16 Uhr: 在下午四点
+
+gegen 16 Uhr: 大概在下午四点
+
+am Morgen/Nachmittag/Abend
+
+in der Nacht
+
+接节日的时候：用an/zu。比如an/zu Ostern an/zu weihnachten.
+
+# 格的规律
+
+- mit dem Akkusativ: bis, durch, für, gegen, ohne, um
+- mit dem Dativ: ab, aus（从……里出来）, ausser（除……之外）, bei, entgegen（跟……相违背，与……相反）,  gegenüber（在……对面）, gemäss（根据）, mit, nach, samt（连同，连带，包括）, seit, von, zu
+- mit A/D: an, auf, hinter, in, neben, über, unter, vor, zwischen
+
+[zhihu](https://zhuanlan.zhihu.com/p/43492996)
+
+有些介词，后面既可接第四格，也可接第三格，这时就需要从句意上进行区分了。一般来说这类介词都是表示方位的词，
+
+- 用第四格的时候表示向一个目标移动，
+
+- 用第三格的时候表示保持在一个位置不变的状态
+
+- 即，“静三动四”
+
+  不过“静三动四”一定要灵活理解，并不是只要是有移动就是用第四格，比方下面这个例子：
+
+  Ich fahre ***in die\*** Stadt. 我开车/乘车去城里。
+
+  Ich fahre ***in der\*** Stadt. 我在城里开车/乘车。
+
+
+
+在这里，in后面用第三格和第四格都是成立的，关键就在于“我”的位置和Stadt的关系：用第四格的时候，是从城外移动到城里面，也就是相对于Stadt，“我”的位置是变化的；用第三格的时候，指的是在城里面行驶，也就是“我”其实是一直在城里，相对于Stadt来说，没有发生位置变化。
+
+
+
+- mit Genitiv
+- 
+
 # an
 
 类似英文里的on
 
 ## 名词
+
+静三动四
 
 位于它后面的名词：
 
@@ -171,9 +270,13 @@ durch und durch:完完全全
 
 类似于in，在……里
 
+三四格皆可，遵循静三动四
+
 # mit
 
 类似于with
+
+接三格
 
 # nach
 
@@ -204,6 +307,16 @@ einer nach dem anderen: 一个接一个地
 nach und nach: 逐渐地
 
 nach wie vor: 一贯地
+
+# um
+
+只接四格
+
+环绕；(表示钟点)在…时
+
+Sie ist um die Ecke gegangen.
+
+她围着角落转。
 
 # über
 
@@ -282,3 +395,4 @@ nach wie vor: 一贯，一向
 ## 固定搭配
 
 zu dritt/zweit:成两个/三个地
+

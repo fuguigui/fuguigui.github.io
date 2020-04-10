@@ -5,8 +5,6 @@ tags: [courses, Probability, AI]
 categories: Probabilistic Artificial Intelligence
 ---
 
-![active](http://latex.codecogs.com/svg.latex?
-
 # Inference
 
 ## Typical queries

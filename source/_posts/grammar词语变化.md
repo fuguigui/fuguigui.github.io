@@ -209,30 +209,87 @@ der-selbe/jenige:
 | |  ||| |
 | A | den -en |die -e|das -e| die -en |
 
+## 无冠词（强变化）
 
+|      | M    | F    | N    | pl.  |
+| ---- | ---- | ---- | ---- | ---- |
+| N    | -er  | -e   | -es  | -e   |
+| G    | -en  | -er  | -en  | -er  |
+| D    | -em  | -er  | -em  | -en  |
+| A    | -en  | -e   | -es  | -e   |
 
 ## 不定冠词和物主代词
 
-|      | M                         | F                     | N                     | pl.                |
-| ---- | ------------------------- | --------------------- | --------------------- | ------------------ |
-| N    | ein -er<br />mein -er     | eine -e<br />meine -e | ein -es<br />mein -es | -e<br />meine -en  |
-|      |                           |                       |                       |                    |
-|      |                           |                       |                       |                    |
-| A    | einen -en<br />meinen -en | eine -e<br />meine -e | ein -es<br />mein -es | -e<br />meine  -en |
+- Dativ, Plural: Die Adjektivendung ist im Dativ und im Plural immer -en. z.B: 
+  - mit einem alt**en** Mann (m), mit einer jung**en** Frau (f), mit einem klein**en** Kind(n), 
+  - mit traurig**en** Leuten (pl./D) verschieden**en** Menschen (N), alten Männer (A)
+- Nominativ/Akkusativ (Singular): Das Adjektiv erhält die Signalendung des bestimmten Arkikels, z.B:
+  - ein kleines(das) Kind; eine schöne (die) Blume; einen hohen (den) Berg.
+
+|      | M                         | F                     | N                     | pl.                       |
+| ---- | ------------------------- | --------------------- | --------------------- | ------------------------- |
+| N    | ein -er<br />mein -er     | eine -e<br />meine -e | ein -es<br />mein -es | eine -en<br />meine -en   |
+| G    | eines -en                 | einer -en             | eines -en             | einer -en                 |
+| D    | einem -en                 | einer -en             | einem -en             | seien -en                 |
+| A    | einen -en<br />meinen -en | eine -e<br />meine -e | ein -es<br />mein -es | seine -en<br />meine  -en |
 
 # Personalpronomen
 
 | Nominativ | Dativ | Akkusativ |
 | --------- | ----- | --------- |
-| ich       | mir   |           |
-| du        | dir   |           |
-| er        | ihm   |           |
-| sie       | ihr   |           |
-| es        | ihm   |           |
-| wir       | uns   |           |
-| ihr       | euch  |           |
-| sie       | ihnen |           |
-| Sie       | ihnen |           |
+| ich       | mir   | mich      |
+| du        | dir   | dich      |
+| er        | ihm   | sich      |
+| sie       | ihr   | sich      |
+| es        | ihm   | sich      |
+| wir       | uns   | uns       |
+| ihr       | euch  | euch      |
+| sie       | ihnen | sich      |
+| Sie       | ihnen | sich      |
+
+
+
+## Relexivpronomen
+
+只有在一个akkusativ-object存在的情况下，反身代词用Dativ。如果不存在，反身代词就用Akkusativ
+
+例子：
+
+Ich kämme mir die Haare. (存在充当akkusativ的对象die Haare，用mir做Dativ)
+
+--> Ich kämme mich. （不存在充当akkusativ的对象，用mich做Akkusativ）
+
+
+
+## 冠词的变化
+
+冠词直接作代词（后面不需要加名词）时，diese, jede, ein,  kein, mein 都随der的变化形式而变化
+
+冠词不直接作代词（后面加名词）与这个不同，如：ein Bus = einer, kein Geschaft = keines
+
+| 冠词直接作代词 | Nominativ                                 | Dativ                                         | Akkusativ                                 |
+| -------------- | ----------------------------------------- | --------------------------------------------- | ----------------------------------------- |
+| m              | der<br />dieser/jeder/einer/keiner/meiner | dem<br />diesem/jedem/einem/keinem/meinem     | den<br />diesen/jeden/einen/keinen/meinen |
+| f              | die<br />diese/jede/eine/keine/meine      | der<br />dieser/jeder/einer/keiner/meiner     | die<br />diese/jede/eine/keine/meine      |
+| n              | das<br />dieses/jedes/eins/keins/meins    | dem<br />diesem/jedem/einem/keinem/meinem     | das<br />dieses/jedes/eins/keins/meins    |
+| pl             | die<br />diese/alle/welche/keine/meine    | denen<br />diesen/allen/welchen/keinen/meinen | die<br />diese/alle/welche/keine/meine    |
+
+| 冠词接名词 | Nominativ                          | Dativ                                      | Akkusativ                               |
+| ---------- | ---------------------------------- | ------------------------------------------ | --------------------------------------- |
+| m          | der<br /> diese/jede/ein/kein/mein | dem diesem/jedem/einem/keinem/meinem       | den diesen/jeden/einen/keinen/meinen    |
+| f          | die diese/jede/eine/keine/meine    | der <br />dieser/jeder/einer/keiner/meiner | die <br />diese/jede/eine/keine/meine   |
+| n          | das diese/jede/ein/kein/mein       | dem diesem/jedem/einem/keinem/meinem       | das <br />diese/jede/ein/kein/mein      |
+| pl         | die diese/alle/welche/keine/meine  | denen diesen/allen/welchen/keinen/meinen   | die <br />diese/alle/welche/keine/meine |
+
+## 动词辨析
+
+| 静三动四 | 静（状态）              | 动（动作，加反身动词） | 例子                                                         |
+| -------- | ----------------------- | ---------------------- | ------------------------------------------------------------ |
+| 躺       | liegen (lag, gelegen)   | legen                  | Er liegt noch im Bett.<br />Er hat **sich** ins Bett gelegt. |
+| 坐       | sitzen (sass, gesessen) | setzen                 | Er sitzt vor seiner Frau.<br />Er hat **sich** vor seine Frau gesetzt. |
+| 站       | stehen                  | stellen                | Er steht vor seiner Frau.<br />Er hat **sich** vor seine Frau gestellt. |
+| 挂       | hängen                  | hängen                 | Die Landkarte hängt an der Wand.<br />Er hat die Landkarte an die Wand gehängt. |
+| 粘       | kleben                  | kleben                 | Ein Zettel klebt an der Tur.<br />Er hat einen Zettel an die Tur geklebt. |
 
 
 

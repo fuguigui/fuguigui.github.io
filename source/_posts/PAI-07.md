@@ -5,8 +5,6 @@ tags: [courses, Probability, AI]
 categories: Probabilistic Artificial Intelligence
 ---
 
-![active](http://latex.codecogs.com/svg.latex?
-
 So far, we talk about how to use a given model to do some tasks, e.g. inference, planning. But where do these models come from? Now, we turn attention to learn models from training data.
 
 # Learning BN from data

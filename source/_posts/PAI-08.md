@@ -5,8 +5,6 @@ tags: [courses, Probability, AI]
 categories: Probabilistic Artificial Intelligence
 ---
 
-![active](http://latex.codecogs.com/svg.latex?
-
 The data is assumed to be drawn from some distributions. In reinforcement learning, we learn by interacting with environment. For example, one agent could perform some actions, and these actions will give him different rewards. He wants to learn how to take actions. One big issue is that the reward is based on a sequence of actions, not only one action. Considering the case that a sequence of actions leads to some reward, how to figure out exactly which action is responsible for this reward. Generally, it is impossible. We need some assumptions.
 
 # Background

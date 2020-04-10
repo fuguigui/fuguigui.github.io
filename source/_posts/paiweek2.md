@@ -1,11 +1,9 @@
 ---
 title: Probability & Bayesian Networks
 date: 2019-10-01
-tags: [AI, Probability]
-categories: Probabilistic AI
+tags: [courses, Probability, AI]
+categories: Probabilistic Artificial Intelligence
 ---
-
-![decomp](http://latex.codecogs.com/svg.latex?
 
 ## Important points
 
