@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fuguigui.github.io/"/>
-  <updated>2020-10-19T20:25:49.818Z</updated>
+  <updated>2020-10-19T21:09:47.187Z</updated>
   <id>https://fuguigui.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://fuguigui.github.io/diary/2020-10-18-a-week-summary/"/>
     <id>https://fuguigui.github.io/diary/2020-10-18-a-week-summary/</id>
     <published>2020-10-17T22:00:00.000Z</published>
-    <updated>2020-10-19T20:25:49.818Z</updated>
+    <updated>2020-10-19T21:09:47.187Z</updated>
     
     <summary type="html">
     
@@ -40,7 +40,7 @@
     </summary>
     
     
-      <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
+      <category term="diary" scheme="https://fuguigui.github.io/categories/diary/"/>
     
     
       <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
@@ -50,11 +50,43 @@
   </entry>
   
   <entry>
+    <title>Hexo配置加闲聊</title>
+    <link href="https://fuguigui.github.io/misc/tools/"/>
+    <id>https://fuguigui.github.io/misc/tools/</id>
+    <published>2020-08-22T14:12:38.079Z</published>
+    <updated>2020-10-19T21:12:56.050Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;俗话说“跑程序一小时，配环境一整天”。&lt;/p&gt;
+&lt;p&gt;第一步就是要配置环境。这有一个&lt;a href=&quot;https://hexo.io/zh-cn/docs/&quot;&gt;官方教程&lt;/a&gt;，可以参考&lt;/p&gt;
+&lt;p&gt;其实只要环境配置好了，后续的操作都非常简单。&lt;/p&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+    
+      <category term="misc" scheme="https://fuguigui.github.io/categories/misc/"/>
+    
+    
+      <category term="hexo" scheme="https://fuguigui.github.io/tags/hexo/"/>
+    
+      <category term="blog" scheme="https://fuguigui.github.io/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
     <title>German grammar:时态</title>
-    <link href="https://fuguigui.github.io/deutsch/grammar-shi-tai/"/>
-    <id>https://fuguigui.github.io/deutsch/grammar-shi-tai/</id>
+    <link href="https://fuguigui.github.io/language/grammar-shi-tai/"/>
+    <id>https://fuguigui.github.io/language/grammar-shi-tai/</id>
     <published>2020-04-08T22:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.870Z</updated>
+    <updated>2020-10-19T20:52:39.810Z</updated>
     
     <summary type="html">
     
@@ -69,10 +101,8 @@
     </summary>
     
     
-      <category term="Deutsch" scheme="https://fuguigui.github.io/categories/Deutsch/"/>
+      <category term="language" scheme="https://fuguigui.github.io/categories/language/"/>
     
-    
-      <category term="language" scheme="https://fuguigui.github.io/tags/language/"/>
     
       <category term="deutsch" scheme="https://fuguigui.github.io/tags/deutsch/"/>
     
@@ -80,10 +110,10 @@
   
   <entry>
     <title>机器学习面试</title>
-    <link href="https://fuguigui.github.io/uncategorized/mian-shi-ji-qi-xue-xi-pian/"/>
-    <id>https://fuguigui.github.io/uncategorized/mian-shi-ji-qi-xue-xi-pian/</id>
+    <link href="https://fuguigui.github.io/job/mian-shi-ji-qi-xue-xi-pian/"/>
+    <id>https://fuguigui.github.io/job/mian-shi-ji-qi-xue-xi-pian/</id>
     <published>2020-03-28T23:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.873Z</updated>
+    <updated>2020-10-19T21:09:32.575Z</updated>
     
     <summary type="html">
     
@@ -98,71 +128,19 @@
     </summary>
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>From Willnum</title>
-    <link href="https://fuguigui.github.io/paper/0227willump/"/>
-    <id>https://fuguigui.github.io/paper/0227willump/</id>
-    <published>2020-02-26T23:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.855Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Paper: &lt;a href=&quot;https://arxiv.org/abs/1906.01974&quot;&gt;Willump&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;New-Area&quot;&gt;&lt;a href=&quot;#New-Area&quot; class=&quot;headerlink&quot; title=&quot;New
-        
-      
-    
-    </summary>
+      <category term="job" scheme="https://fuguigui.github.io/categories/job/"/>
     
     
-      <category term="Paper" scheme="https://fuguigui.github.io/categories/Paper/"/>
-    
-    
-      <category term="Machine Learning" scheme="https://fuguigui.github.io/tags/Machine-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>From P2B</title>
-    <link href="https://fuguigui.github.io/paper/0226p2b/"/>
-    <id>https://fuguigui.github.io/paper/0226p2b/</id>
-    <published>2020-02-25T23:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.855Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Paper: &lt;a href=&quot;https://arxiv.org/abs/1909.04421&quot;&gt;Privacy-preserving bandits&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;New-areas&quot;&gt;&lt;a href=&quot;#New-areas&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Paper" scheme="https://fuguigui.github.io/categories/Paper/"/>
-    
-    
-      <category term="Machine Learning" scheme="https://fuguigui.github.io/tags/Machine-Learning/"/>
+      <category term="machine learning" scheme="https://fuguigui.github.io/tags/machine-learning/"/>
     
   </entry>
   
   <entry>
     <title>SysML提前看</title>
-    <link href="https://fuguigui.github.io/paper/2020-02-24-sysml-ti-qian-kan/"/>
-    <id>https://fuguigui.github.io/paper/2020-02-24-sysml-ti-qian-kan/</id>
+    <link href="https://fuguigui.github.io/paper-reading/2020-02-24-sysml-ti-qian-kan/"/>
+    <id>https://fuguigui.github.io/paper-reading/2020-02-24-sysml-ti-qian-kan/</id>
     <published>2020-02-23T23:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.857Z</updated>
+    <updated>2020-10-19T20:44:13.912Z</updated>
     
     <summary type="html">
     
@@ -178,7 +156,7 @@
     </summary>
     
     
-      <category term="Paper" scheme="https://fuguigui.github.io/categories/Paper/"/>
+      <category term="Paper reading" scheme="https://fuguigui.github.io/categories/Paper-reading/"/>
     
     
       <category term="Machine Learning" scheme="https://fuguigui.github.io/tags/Machine-Learning/"/>
@@ -187,10 +165,10 @@
   
   <entry>
     <title>German grammar:动词介词的格</title>
-    <link href="https://fuguigui.github.io/deutsch/grammar-ge/"/>
-    <id>https://fuguigui.github.io/deutsch/grammar-ge/</id>
+    <link href="https://fuguigui.github.io/language/grammar-ge/"/>
+    <id>https://fuguigui.github.io/language/grammar-ge/</id>
     <published>2020-02-06T23:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.870Z</updated>
+    <updated>2020-10-19T20:52:50.247Z</updated>
     
     <summary type="html">
     
@@ -207,10 +185,8 @@
     </summary>
     
     
-      <category term="Deutsch" scheme="https://fuguigui.github.io/categories/Deutsch/"/>
+      <category term="language" scheme="https://fuguigui.github.io/categories/language/"/>
     
-    
-      <category term="language" scheme="https://fuguigui.github.io/tags/language/"/>
     
       <category term="deutsch" scheme="https://fuguigui.github.io/tags/deutsch/"/>
     
@@ -218,10 +194,10 @@
   
   <entry>
     <title>Reinforcement Learning</title>
-    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-08/"/>
-    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-08/</id>
+    <link href="https://fuguigui.github.io/course-notes/pai-08/"/>
+    <id>https://fuguigui.github.io/course-notes/pai-08/</id>
     <published>2020-01-28T23:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.870Z</updated>
+    <updated>2020-10-19T21:03:14.361Z</updated>
     
     <summary type="html">
     
@@ -236,23 +212,21 @@
     </summary>
     
     
-      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
     
     
-      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+      <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
     
-      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
-    
-      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+      <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
     
   </entry>
   
   <entry>
     <title>Reasoning over Time</title>
-    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-05/"/>
-    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-05/</id>
+    <link href="https://fuguigui.github.io/course-notes/pai-05/"/>
+    <id>https://fuguigui.github.io/course-notes/pai-05/</id>
     <published>2020-01-27T23:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.869Z</updated>
+    <updated>2020-10-19T21:02:48.513Z</updated>
     
     <summary type="html">
     
@@ -267,23 +241,21 @@
     </summary>
     
     
-      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
     
     
-      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+      <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
     
-      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
-    
-      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+      <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
     
   </entry>
   
   <entry>
     <title>Probabilistic Planning</title>
-    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-06/"/>
-    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-06/</id>
+    <link href="https://fuguigui.github.io/course-notes/pai-06/"/>
+    <id>https://fuguigui.github.io/course-notes/pai-06/</id>
     <published>2020-01-27T23:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.869Z</updated>
+    <updated>2020-10-19T21:02:56.797Z</updated>
     
     <summary type="html">
     
@@ -299,23 +271,21 @@
     </summary>
     
     
-      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
     
     
-      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+      <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
     
-      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
-    
-      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+      <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
     
   </entry>
   
   <entry>
     <title>Learning</title>
-    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-07/"/>
-    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-07/</id>
+    <link href="https://fuguigui.github.io/course-notes/pai-07/"/>
+    <id>https://fuguigui.github.io/course-notes/pai-07/</id>
     <published>2020-01-27T23:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.869Z</updated>
+    <updated>2020-10-19T21:03:06.211Z</updated>
     
     <summary type="html">
     
@@ -330,23 +300,21 @@
     </summary>
     
     
-      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
     
     
-      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+      <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
     
-      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
-    
-      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+      <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
     
   </entry>
   
   <entry>
     <title>Bayesian Network 2 - Inference</title>
-    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-04/"/>
-    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-04/</id>
+    <link href="https://fuguigui.github.io/course-notes/pai-04/"/>
+    <id>https://fuguigui.github.io/course-notes/pai-04/</id>
     <published>2020-01-25T23:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.868Z</updated>
+    <updated>2020-10-19T21:02:39.648Z</updated>
     
     <summary type="html">
     
@@ -361,23 +329,21 @@
     </summary>
     
     
-      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
     
     
-      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+      <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
     
-      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
-    
-      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+      <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
     
   </entry>
   
   <entry>
     <title>Introduction</title>
-    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-01/"/>
-    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-01/</id>
+    <link href="https://fuguigui.github.io/course-notes/pai-01/"/>
+    <id>https://fuguigui.github.io/course-notes/pai-01/</id>
     <published>2020-01-22T23:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.868Z</updated>
+    <updated>2020-10-19T21:02:12.711Z</updated>
     
     <summary type="html">
     
@@ -392,23 +358,21 @@
     </summary>
     
     
-      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
     
     
-      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+      <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
     
-      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
-    
-      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+      <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
     
   </entry>
   
   <entry>
     <title>Probability review</title>
-    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-02/"/>
-    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-02/</id>
+    <link href="https://fuguigui.github.io/course-notes/pai-02/"/>
+    <id>https://fuguigui.github.io/course-notes/pai-02/</id>
     <published>2020-01-22T23:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.868Z</updated>
+    <updated>2020-10-19T21:02:21.903Z</updated>
     
     <summary type="html">
     
@@ -423,23 +387,21 @@
     </summary>
     
     
-      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
     
     
-      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+      <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
     
-      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
-    
-      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+      <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
     
   </entry>
   
   <entry>
     <title>Bayesian Network 1 - Basic</title>
-    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-03/"/>
-    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-03/</id>
+    <link href="https://fuguigui.github.io/course-notes/pai-03/"/>
+    <id>https://fuguigui.github.io/course-notes/pai-03/</id>
     <published>2020-01-22T23:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.868Z</updated>
+    <updated>2020-10-19T21:02:30.433Z</updated>
     
     <summary type="html">
     
@@ -455,23 +417,21 @@
     </summary>
     
     
-      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
     
     
-      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+      <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
     
-      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
-    
-      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+      <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
     
   </entry>
   
   <entry>
     <title>Advanced algorithms</title>
-    <link href="https://fuguigui.github.io/advanced-algorithms/aareview/"/>
-    <id>https://fuguigui.github.io/advanced-algorithms/aareview/</id>
+    <link href="https://fuguigui.github.io/course-notes/aa-review/"/>
+    <id>https://fuguigui.github.io/course-notes/aa-review/</id>
     <published>2020-01-21T23:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.859Z</updated>
+    <updated>2020-10-19T20:45:04.710Z</updated>
     
     <summary type="html">
     
@@ -486,21 +446,19 @@
     </summary>
     
     
-      <category term="Advanced algorithms" scheme="https://fuguigui.github.io/categories/Advanced-algorithms/"/>
+      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
     
     
-      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
-    
-      <category term="algorithms" scheme="https://fuguigui.github.io/tags/algorithms/"/>
+      <category term="advanced algorithms" scheme="https://fuguigui.github.io/tags/advanced-algorithms/"/>
     
   </entry>
   
   <entry>
     <title>Probability &amp; Bayesian Networks</title>
-    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/paiweek2/"/>
-    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/paiweek2/</id>
+    <link href="https://fuguigui.github.io/course-notes/pai-week2/"/>
+    <id>https://fuguigui.github.io/course-notes/pai-week2/</id>
     <published>2019-09-30T22:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.872Z</updated>
+    <updated>2020-10-19T21:03:23.927Z</updated>
     
     <summary type="html">
     
@@ -515,23 +473,21 @@
     </summary>
     
     
-      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
     
     
-      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+      <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
     
-      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
-    
-      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+      <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
     
   </entry>
   
   <entry>
     <title>Week 2 Reading - Approximation Algorithms</title>
-    <link href="https://fuguigui.github.io/advanced-algorithms/aaweek-2-reading/"/>
-    <id>https://fuguigui.github.io/advanced-algorithms/aaweek-2-reading/</id>
+    <link href="https://fuguigui.github.io/course-notes-book-reading/aa-week2-reading/"/>
+    <id>https://fuguigui.github.io/course-notes-book-reading/aa-week2-reading/</id>
     <published>2019-09-26T22:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.859Z</updated>
+    <updated>2020-10-19T20:45:52.240Z</updated>
     
     <summary type="html">
     
@@ -546,21 +502,47 @@
     </summary>
     
     
-      <category term="Advanced algorithms" scheme="https://fuguigui.github.io/categories/Advanced-algorithms/"/>
+      <category term="course notes, book reading" scheme="https://fuguigui.github.io/categories/course-notes-book-reading/"/>
     
     
-      <category term="Algorithms" scheme="https://fuguigui.github.io/tags/Algorithms/"/>
+      <category term="advanced algorithms" scheme="https://fuguigui.github.io/tags/advanced-algorithms/"/>
     
-      <category term="reading" scheme="https://fuguigui.github.io/tags/reading/"/>
+  </entry>
+  
+  <entry>
+    <title>German grammar:祈使句</title>
+    <link href="https://fuguigui.github.io/language/grammar-qi-shi-ju/"/>
+    <id>https://fuguigui.github.io/language/grammar-qi-shi-ju/</id>
+    <published>2019-09-23T22:00:00.000Z</published>
+    <updated>2020-10-19T20:52:59.603Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;ö ä ü ß&lt;/p&gt;
+&lt;h1 id=&quot;Imperativ&quot;&gt;&lt;a href=&quot;#Imperativ&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="language" scheme="https://fuguigui.github.io/categories/language/"/>
+    
+    
+      <category term="deutsch" scheme="https://fuguigui.github.io/tags/deutsch/"/>
     
   </entry>
   
   <entry>
     <title>Problems and Srategies</title>
-    <link href="https://fuguigui.github.io/advanced-algorithms/aaproblems-and-srategies/"/>
-    <id>https://fuguigui.github.io/advanced-algorithms/aaproblems-and-srategies/</id>
+    <link href="https://fuguigui.github.io/course-notes/aa-problems-and-srategies/"/>
+    <id>https://fuguigui.github.io/course-notes/aa-problems-and-srategies/</id>
     <published>2019-09-23T22:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.859Z</updated>
+    <updated>2020-10-19T20:44:50.095Z</updated>
     
     <summary type="html">
     
@@ -577,19 +559,19 @@
     </summary>
     
     
-      <category term="Advanced algorithms" scheme="https://fuguigui.github.io/categories/Advanced-algorithms/"/>
+      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
     
     
-      <category term="Algorithms" scheme="https://fuguigui.github.io/tags/Algorithms/"/>
+      <category term="advanced algorithms" scheme="https://fuguigui.github.io/tags/advanced-algorithms/"/>
     
   </entry>
   
   <entry>
-    <title>German grammar:祈使句</title>
-    <link href="https://fuguigui.github.io/deutsch/grammar-qi-shi-ju/"/>
-    <id>https://fuguigui.github.io/deutsch/grammar-qi-shi-ju/</id>
-    <published>2019-09-23T22:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.871Z</updated>
+    <title>Vocabulary 动词</title>
+    <link href="https://fuguigui.github.io/language/vocabulary-dong-ci/"/>
+    <id>https://fuguigui.github.io/language/vocabulary-dong-ci/</id>
+    <published>2019-09-22T22:00:00.000Z</published>
+    <updated>2020-10-19T21:09:03.688Z</updated>
     
     <summary type="html">
     
@@ -598,17 +580,15 @@
         
         
           &lt;p&gt;ö ä ü ß&lt;/p&gt;
-&lt;h1 id=&quot;Imperativ&quot;&gt;&lt;a href=&quot;#Imperativ&quot; class=&quot;headerlink&quot;
+&lt;h1 id=&quot;动词与格&quot;&gt;&lt;a href=&quot;#动词与格&quot; class=&quot;headerlink&quot; title=&quot;动词与格&quot;&gt;&lt;/a&gt;动词与格&lt;/h1&gt;&lt;h2 id=&quot;mit-Dativ-Objekt&quot;&gt;&lt;a
         
       
     
     </summary>
     
     
-      <category term="Deutsch" scheme="https://fuguigui.github.io/categories/Deutsch/"/>
+      <category term="language" scheme="https://fuguigui.github.io/categories/language/"/>
     
-    
-      <category term="language" scheme="https://fuguigui.github.io/tags/language/"/>
     
       <category term="deutsch" scheme="https://fuguigui.github.io/tags/deutsch/"/>
     
