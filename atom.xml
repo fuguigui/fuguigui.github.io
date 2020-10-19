@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fuguigui.github.io/"/>
-  <updated>2020-09-14T22:59:27.870Z</updated>
+  <updated>2020-10-19T20:25:49.818Z</updated>
   <id>https://fuguigui.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>A week summary</title>
+    <link href="https://fuguigui.github.io/diary/2020-10-18-a-week-summary/"/>
+    <id>https://fuguigui.github.io/diary/2020-10-18-a-week-summary/</id>
+    <published>2020-10-17T22:00:00.000Z</published>
+    <updated>2020-10-19T20:25:49.818Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本周的总结：&lt;/p&gt;
+&lt;p&gt;初步了解了higher-order graph的一些模型，重点了解用simplicial complex进行建模的理论基础和实际案例。&lt;/p&gt;
+&lt;p&gt;主要入手的几篇论文：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;simplicial neural
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
+    
+    
+      <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
+    
+      <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
+    
+  </entry>
   
   <entry>
     <title>German grammar:时态</title>
@@ -578,35 +611,6 @@
       <category term="language" scheme="https://fuguigui.github.io/tags/language/"/>
     
       <category term="deutsch" scheme="https://fuguigui.github.io/tags/deutsch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Week 1 Reading - Approximation Algorithms</title>
-    <link href="https://fuguigui.github.io/advanced-algorithms/aaweek1-reading/"/>
-    <id>https://fuguigui.github.io/advanced-algorithms/aaweek1-reading/</id>
-    <published>2019-09-22T22:00:00.000Z</published>
-    <updated>2020-09-14T22:59:27.859Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Advanced-Algorithms-Vazirani&quot;&gt;&lt;a href=&quot;#Advanced-Algorithms-Vazirani&quot; class=&quot;headerlink&quot; title=&quot;Advanced Algorithms
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Advanced algorithms" scheme="https://fuguigui.github.io/categories/Advanced-algorithms/"/>
-    
-    
-      <category term="Algorithms" scheme="https://fuguigui.github.io/tags/Algorithms/"/>
-    
-      <category term="reading" scheme="https://fuguigui.github.io/tags/reading/"/>
     
   </entry>
   

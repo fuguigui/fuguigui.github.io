@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="German grammar:时态, Maths,Coding,Life,Enjoy">
+    <meta name="keywords" content="A week summary, Maths,Coding,Life,Enjoy">
     <meta name="description" content="Warning! You accidently rushed into another world of lulu. Maybe something here will scare you. Remeber, everything is created by heart.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>German grammar:时态 | Fululu</title>
+    <title>A week summary | Fululu</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">German grammar:时态</h1>
+                    <h1 class="description center-align post-title">A week summary</h1>
                 </div>
             </div>
         </div>
@@ -432,12 +432,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/language/">
-                                <span class="chip bg-color">language</span>
+                            <a href="/tags/academic/">
+                                <span class="chip bg-color">academic</span>
                             </a>
                         
-                            <a href="/tags/deutsch/">
-                                <span class="chip bg-color">deutsch</span>
+                            <a href="/tags/life/">
+                                <span class="chip bg-color">life</span>
                             </a>
                         
                     </div>
@@ -448,8 +448,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Deutsch/" class="post-category">
-                                Deutsch
+                            <a href="/categories/Diary/" class="post-category">
+                                Diary
                             </a>
                         
                     </div>
@@ -461,7 +461,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-04-09
+                    2020-10-18
                 </div>
                 
 
@@ -477,20 +477,55 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="过去完成时"><a href="#过去完成时" class="headerlink" title="过去完成时"></a>过去完成时</h1><p>用法：用于描述过去的过去，即在一个过去动作之前的动作。</p>
-<p>构成：hatten/waren+动词第二分词变位</p>
-<p>何时用hatten，何时用waren？</p>
+                <p>本周的总结：</p>
+<p>初步了解了higher-order graph的一些模型，重点了解用simplicial complex进行建模的理论基础和实际案例。</p>
+<p>主要入手的几篇论文：</p>
 <ul>
-<li><p>hatten:大多数的动词</p>
-</li>
-<li><p>waren: </p>
+<li>simplicial neural network：这篇文章在simplicial complex上定义了laplacian，进而根据卷积定理定义了convolution操作，融入到现有的神经网络框架中。</li>
+<li>hodgenet：这篇文章关注于edge层面的hodge laplacian，把hodge laplacian融入到现有的网络框架中，解决edge相关的一些问题。 </li>
+<li>random walk … normalized hodge laplacian：使用Hodge laplacian在边上定义random walk，来解决与边相关的一系列问题。</li>
+</ul>
+<p>十分推荐在理解simplicial complex的理论性质时，参考论文：HODGE LAPLACIANS ON GRAPHS。这篇论文的第二三四章主要讲解hodge的一些理论基础。由浅入深，其中第二章很容易理解，其他两章在第二章的基础上也可以理解。第五章讲证明，可以跳过。</p>
+<p>此外，推荐一篇hyper场景下的综述文章：Networks beyond pairwise interactions: structure and dynamics。可以用作闲着的时候的读物。</p>
+<p>个人感受，simplicial complex模型的局限性比较大，对item的要求严格，而且理论性质多应用于同度（k）的边之间，不适用于higher-order不一致的情况，而我认为后者可能才是主流。</p>
+<p>解决的想法：使用hypergraph这个模型。对于higher-order的理论研究非常多，能不能遵循graph中的模型发展路径，将其类比迁移到hypergraph上？</p>
+<p>下周的计划：</p>
+<p>Graph Paper：</p>
 <ul>
-<li><p>必须是不及物的，同时必须指示位置和情况的变化。</p>
-</li>
-<li><p>sein (是), bleiben (待／保持),  passieren (发生) 这三个动词。例子：waren gewesen.</p>
-</li>
+<li><p>normal graph</p>
+<ul>
+<li><input disabled="" type="checkbox"> How Powerful are Graph Neural Networks?</li>
+<li><input disabled="" type="checkbox"> graph models and codes and analysis</li>
 </ul>
 </li>
+<li><p>higher-order graph</p>
+<ul>
+<li><input disabled="" type="checkbox"> Weisfeiler and Leman Go Neural: Higher-order Graph Neural Networks</li>
+<li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8">🌟</span> A. R. Benson, D. F. Gleich, and J. Leskovec, Higher-order organization of complex networks, Science, 353 (2016), pp. 163–166.</li>
+<li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8">🌟</span> Simultaneous group and individual centralities. <strong>Phillip Bonacich</strong>. Soc. Netw., 13(2):155–168, 1991.</li>
+<li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8">⭐</span> Random walks and diffusion on networks, Physics Reports, N. Masuda, M. A. Porter, and R. Lambiotte, 2017.</li>
+<li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8">🌟</span> Learning with hypergraphs: Clustering, classification, and embedding. Dengyong Zhou, Jiayuan Huang, and Bernhard Scho ̈lkopf.  NIPS2007.</li>
+<li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8">🌟</span>High-ordered random walks and generalized Laplacians on hypergraphs.  Linyuan Lu and Xing Peng. In International Workshop on Algorithms and Models for the Web-Graph, pages 14–25. Springer, 2011.</li>
+<li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8">🌟</span> Random walks on hypergraphs. Timoteo Carletti, Federico Battiston, Giulia Cencetti, and Duccio Fanelli. Phys. Rev. E, 101(2):022308, 2020.</li>
+</ul>
+</li>
+</ul>
+<p>Optimization:</p>
+<ul>
+<li><input disabled="" type="checkbox"> September all lecture video and notes</li>
+</ul>
+<p>Misc</p>
+<ul>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://archwalker.github.io/blog/2019/11/10/GNN-Go-Through-Main-Models.html">https://archwalker.github.io/blog/2019/11/10/GNN-Go-Through-Main-Models.html</a></li>
+</ul>
+<p>Video:</p>
+<ul>
+<li><input disabled="" type="checkbox"> Game of thrones: Season 6 Episode 5 - Episode 7</li>
+<li><input disabled="" type="checkbox"> Deutsch lehrnen: 2-4</li>
+</ul>
+<p>Game:</p>
+<ul>
+<li><input disabled="" type="checkbox"> Minecraft</li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -525,7 +560,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Guirong Fu</a>
+                    <a href="/about" rel="external nofollow noreferrer">Gui</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -535,7 +570,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://fuguigui.github.io/deutsch/grammar-shi-tai/">https://fuguigui.github.io/deutsch/grammar-shi-tai/</a>
+                    <a href="https://fuguigui.github.io/diary/2020-10-18-a-week-summary/">https://fuguigui.github.io/diary/2020-10-18-a-week-summary/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -548,7 +583,7 @@
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint polocy. If reproduced, please indicate source
-                    <a href="/about" target="_blank">Guirong Fu</a>
+                    <a href="/about" target="_blank">Gui</a>
                     !
                 </span>
             </div>
@@ -573,12 +608,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/language/">
-                                    <span class="chip bg-color">language</span>
+                                <a href="/tags/academic/">
+                                    <span class="chip bg-color">academic</span>
                                 </a>
                             
-                                <a href="/tags/deutsch/">
-                                    <span class="chip bg-color">deutsch</span>
+                                <a href="/tags/life/">
+                                    <span class="chip bg-color">life</span>
                                 </a>
                             
                         </div>
@@ -746,9 +781,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/diary/2020-10-18-a-week-summary/">
                     <div class="card-image">
@@ -766,9 +802,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -781,6 +817,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -803,13 +840,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/uncategorized/mian-shi-ji-qi-xue-xi-pian/">
+                <a href="/deutsch/grammar-shi-tai/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="机器学习面试">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="German grammar:时态">
                         
-                        <span class="card-title">机器学习面试</span>
+                        <span class="card-title">German grammar:时态</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -820,15 +857,31 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Guirong
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Deutsch/" class="post-category">
+                                    Deutsch
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/language/">
+                        <span class="chip bg-color">language</span>
+                    </a>
+                    
+                    <a href="/tags/deutsch/">
+                        <span class="chip bg-color">deutsch</span>
+                    </a>
+                    
                 </div>
                 
             </div>
