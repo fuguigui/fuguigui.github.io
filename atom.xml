@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Fululu</title>
   
-  <subtitle>Another Version</subtitle>
+  <subtitle>Keep Exploring</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fuguigui.github.io/"/>
@@ -10,7 +10,7 @@
   <id>https://fuguigui.github.io/</id>
   
   <author>
-    <name>Guirong Fu</name>
+    <name>Guirong</name>
     
   </author>
   
