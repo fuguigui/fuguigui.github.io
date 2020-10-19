@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Fululu</title>
+  
+  <subtitle>Another Version</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://fuguigui.github.io/"/>
+  <updated>2020-09-14T22:59:27.870Z</updated>
+  <id>https://fuguigui.github.io/</id>
+  
+  <author>
+    <name>Guirong Fu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>German grammar:时态</title>
+    <link href="https://fuguigui.github.io/deutsch/grammar-shi-tai/"/>
+    <id>https://fuguigui.github.io/deutsch/grammar-shi-tai/</id>
+    <published>2020-04-08T22:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.870Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;过去完成时&quot;&gt;&lt;a href=&quot;#过去完成时&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Deutsch" scheme="https://fuguigui.github.io/categories/Deutsch/"/>
+    
+    
+      <category term="language" scheme="https://fuguigui.github.io/tags/language/"/>
+    
+      <category term="deutsch" scheme="https://fuguigui.github.io/tags/deutsch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习面试</title>
+    <link href="https://fuguigui.github.io/uncategorized/mian-shi-ji-qi-xue-xi-pian/"/>
+    <id>https://fuguigui.github.io/uncategorized/mian-shi-ji-qi-xue-xi-pian/</id>
+    <published>2020-03-28T23:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.873Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;各种经典机器学习模型&quot;&gt;&lt;a href=&quot;#各种经典机器学习模型&quot; class=&quot;headerlink&quot; title=&quot;各种经典机器学习模型&quot;&gt;&lt;/a&gt;各种经典机器学习模型&lt;/h1&gt;&lt;h2 id=&quot;SVM&quot;&gt;&lt;a href=&quot;#SVM&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>From Willnum</title>
+    <link href="https://fuguigui.github.io/paper/0227willump/"/>
+    <id>https://fuguigui.github.io/paper/0227willump/</id>
+    <published>2020-02-26T23:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.855Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Paper: &lt;a href=&quot;https://arxiv.org/abs/1906.01974&quot;&gt;Willump&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;New-Area&quot;&gt;&lt;a href=&quot;#New-Area&quot; class=&quot;headerlink&quot; title=&quot;New
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Paper" scheme="https://fuguigui.github.io/categories/Paper/"/>
+    
+    
+      <category term="Machine Learning" scheme="https://fuguigui.github.io/tags/Machine-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>From P2B</title>
+    <link href="https://fuguigui.github.io/paper/0226p2b/"/>
+    <id>https://fuguigui.github.io/paper/0226p2b/</id>
+    <published>2020-02-25T23:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.855Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Paper: &lt;a href=&quot;https://arxiv.org/abs/1909.04421&quot;&gt;Privacy-preserving bandits&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;New-areas&quot;&gt;&lt;a href=&quot;#New-areas&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Paper" scheme="https://fuguigui.github.io/categories/Paper/"/>
+    
+    
+      <category term="Machine Learning" scheme="https://fuguigui.github.io/tags/Machine-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SysML提前看</title>
+    <link href="https://fuguigui.github.io/paper/2020-02-24-sysml-ti-qian-kan/"/>
+    <id>https://fuguigui.github.io/paper/2020-02-24-sysml-ti-qian-kan/</id>
+    <published>2020-02-23T23:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.857Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;机器学习本质上是一系列的数值计算。当需要计算的数据量很大或者计算模型很大时，就需要设计一个合适的平台来进行这种计算。机器学习系统就是针对此方面的研究，即开发一类特殊的系统，用于支持和部署机器学习模型。&lt;/p&gt;
+&lt;p&gt;在本篇提前看中，我们从不同的角度选择三篇文章，以求对机器学
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Paper" scheme="https://fuguigui.github.io/categories/Paper/"/>
+    
+    
+      <category term="Machine Learning" scheme="https://fuguigui.github.io/tags/Machine-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>German grammar:动词介词的格</title>
+    <link href="https://fuguigui.github.io/deutsch/grammar-ge/"/>
+    <id>https://fuguigui.github.io/deutsch/grammar-ge/</id>
+    <published>2020-02-06T23:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.870Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;ö ä ü ß&lt;/p&gt;
+&lt;p&gt;动词+介词+四格（Akkusativ）&lt;/p&gt;
+&lt;p&gt;Kochs &lt;strong&gt;haben&lt;/strong&gt; lange &lt;em&gt;auf einen Tisch&lt;/em&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Deutsch" scheme="https://fuguigui.github.io/categories/Deutsch/"/>
+    
+    
+      <category term="language" scheme="https://fuguigui.github.io/tags/language/"/>
+    
+      <category term="deutsch" scheme="https://fuguigui.github.io/tags/deutsch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reinforcement Learning</title>
+    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-08/"/>
+    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-08/</id>
+    <published>2020-01-28T23:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.870Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;The data is assumed to be drawn from some distributions. In reinforcement learning, we learn by interacting with environment. For
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+    
+    
+      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+    
+      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
+    
+      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reasoning over Time</title>
+    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-05/"/>
+    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-05/</id>
+    <published>2020-01-27T23:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.869Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Before, we talk about static models, which means variables don’t change possible values. For temporal models, in which variables’ value
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+    
+    
+      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+    
+      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
+    
+      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Probabilistic Planning</title>
+    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-06/"/>
+    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-06/</id>
+    <published>2020-01-27T23:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.869Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;How do we use inference we keep tracking over time in order to act? &lt;/p&gt;
+&lt;h1 id=&quot;Markov-Decision-Process&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+    
+    
+      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+    
+      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
+    
+      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Learning</title>
+    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-07/"/>
+    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-07/</id>
+    <published>2020-01-27T23:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.869Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;So far, we talk about how to use a given model to do some tasks, e.g. inference, planning. But where do these models come from? Now, we
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+    
+    
+      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+    
+      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
+    
+      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bayesian Network 2 - Inference</title>
+    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-04/"/>
+    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-04/</id>
+    <published>2020-01-25T23:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.868Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Inference&quot;&gt;&lt;a href=&quot;#Inference&quot; class=&quot;headerlink&quot; title=&quot;Inference&quot;&gt;&lt;/a&gt;Inference&lt;/h1&gt;&lt;h2 id=&quot;Typical-queries&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+    
+    
+      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+    
+      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
+    
+      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Introduction</title>
+    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-01/"/>
+    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-01/</id>
+    <published>2020-01-22T23:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.868Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;I took part in the course &lt;a href=&quot;https://las.inf.ethz.ch/pai-f19&quot;&gt;Probabilistic Artifical Intelligence&lt;/a&gt; in the autumn festival
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+    
+    
+      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+    
+      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
+    
+      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Probability review</title>
+    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-02/"/>
+    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-02/</id>
+    <published>2020-01-22T23:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.868Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Probability-Review&quot;&gt;&lt;a href=&quot;#Probability-Review&quot; class=&quot;headerlink&quot; title=&quot;Probability Review&quot;&gt;&lt;/a&gt;Probability Review&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+    
+    
+      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+    
+      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
+    
+      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bayesian Network 1 - Basic</title>
+    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-03/"/>
+    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/pai-03/</id>
+    <published>2020-01-22T23:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.868Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Questions&quot;&gt;&lt;a href=&quot;#Questions&quot; class=&quot;headerlink&quot; title=&quot;Questions&quot;&gt;&lt;/a&gt;Questions&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;why to say the conditional
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+    
+    
+      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+    
+      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
+    
+      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Advanced algorithms</title>
+    <link href="https://fuguigui.github.io/advanced-algorithms/aareview/"/>
+    <id>https://fuguigui.github.io/advanced-algorithms/aareview/</id>
+    <published>2020-01-21T23:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.859Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Preface&quot;&gt;&lt;a href=&quot;#Preface&quot; class=&quot;headerlink&quot; title=&quot;Preface&quot;&gt;&lt;/a&gt;Preface&lt;/h1&gt;&lt;p&gt;In 2019 fall semester, I took part in the course
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Advanced algorithms" scheme="https://fuguigui.github.io/categories/Advanced-algorithms/"/>
+    
+    
+      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+    
+      <category term="algorithms" scheme="https://fuguigui.github.io/tags/algorithms/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Probability &amp; Bayesian Networks</title>
+    <link href="https://fuguigui.github.io/probabilistic-artificial-intelligence/paiweek2/"/>
+    <id>https://fuguigui.github.io/probabilistic-artificial-intelligence/paiweek2/</id>
+    <published>2019-09-30T22:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.872Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Important-points&quot;&gt;&lt;a href=&quot;#Important-points&quot; class=&quot;headerlink&quot; title=&quot;Important points&quot;&gt;&lt;/a&gt;Important
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Probabilistic Artificial Intelligence" scheme="https://fuguigui.github.io/categories/Probabilistic-Artificial-Intelligence/"/>
+    
+    
+      <category term="courses" scheme="https://fuguigui.github.io/tags/courses/"/>
+    
+      <category term="Probability" scheme="https://fuguigui.github.io/tags/Probability/"/>
+    
+      <category term="AI" scheme="https://fuguigui.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Week 2 Reading - Approximation Algorithms</title>
+    <link href="https://fuguigui.github.io/advanced-algorithms/aaweek-2-reading/"/>
+    <id>https://fuguigui.github.io/advanced-algorithms/aaweek-2-reading/</id>
+    <published>2019-09-26T22:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.859Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Advanced-Algorithms-Vazirani&quot;&gt;&lt;a href=&quot;#Advanced-Algorithms-Vazirani&quot; class=&quot;headerlink&quot; title=&quot;Advanced Algorithms
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Advanced algorithms" scheme="https://fuguigui.github.io/categories/Advanced-algorithms/"/>
+    
+    
+      <category term="Algorithms" scheme="https://fuguigui.github.io/tags/Algorithms/"/>
+    
+      <category term="reading" scheme="https://fuguigui.github.io/tags/reading/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Problems and Srategies</title>
+    <link href="https://fuguigui.github.io/advanced-algorithms/aaproblems-and-srategies/"/>
+    <id>https://fuguigui.github.io/advanced-algorithms/aaproblems-and-srategies/</id>
+    <published>2019-09-23T22:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.859Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Vertex-cover&quot;&gt;&lt;a href=&quot;#Vertex-cover&quot; class=&quot;headerlink&quot; title=&quot;Vertex cover&quot;&gt;&lt;/a&gt;Vertex cover&lt;/h1&gt;&lt;p&gt;settings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;G =
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Advanced algorithms" scheme="https://fuguigui.github.io/categories/Advanced-algorithms/"/>
+    
+    
+      <category term="Algorithms" scheme="https://fuguigui.github.io/tags/Algorithms/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>German grammar:祈使句</title>
+    <link href="https://fuguigui.github.io/deutsch/grammar-qi-shi-ju/"/>
+    <id>https://fuguigui.github.io/deutsch/grammar-qi-shi-ju/</id>
+    <published>2019-09-23T22:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.871Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;ö ä ü ß&lt;/p&gt;
+&lt;h1 id=&quot;Imperativ&quot;&gt;&lt;a href=&quot;#Imperativ&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Deutsch" scheme="https://fuguigui.github.io/categories/Deutsch/"/>
+    
+    
+      <category term="language" scheme="https://fuguigui.github.io/tags/language/"/>
+    
+      <category term="deutsch" scheme="https://fuguigui.github.io/tags/deutsch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Week 1 Reading - Approximation Algorithms</title>
+    <link href="https://fuguigui.github.io/advanced-algorithms/aaweek1-reading/"/>
+    <id>https://fuguigui.github.io/advanced-algorithms/aaweek1-reading/</id>
+    <published>2019-09-22T22:00:00.000Z</published>
+    <updated>2020-09-14T22:59:27.859Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Advanced-Algorithms-Vazirani&quot;&gt;&lt;a href=&quot;#Advanced-Algorithms-Vazirani&quot; class=&quot;headerlink&quot; title=&quot;Advanced Algorithms
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Advanced algorithms" scheme="https://fuguigui.github.io/categories/Advanced-algorithms/"/>
+    
+    
+      <category term="Algorithms" scheme="https://fuguigui.github.io/tags/Algorithms/"/>
+    
+      <category term="reading" scheme="https://fuguigui.github.io/tags/reading/"/>
+    
+  </entry>
+  
+</feed>
