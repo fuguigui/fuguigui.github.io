@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fuguigui.github.io/"/>
-  <updated>2020-10-20T06:31:48.113Z</updated>
+  <updated>2020-10-20T06:37:56.603Z</updated>
   <id>https://fuguigui.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>Overview of GNN models</title>
-    <link href="https://fuguigui.github.io/uncategorized/2020-10-19-overview-of-gnn-models/"/>
-    <id>https://fuguigui.github.io/uncategorized/2020-10-19-overview-of-gnn-models/</id>
-    <published>2020-10-19T08:53:35.187Z</published>
-    <updated>2020-10-20T06:31:48.113Z</updated>
+    <link href="https://fuguigui.github.io/research/2020-10-19-overview-of-gnn-models/"/>
+    <id>https://fuguigui.github.io/research/2020-10-19-overview-of-gnn-models/</id>
+    <published>2020-10-18T22:00:00.000Z</published>
+    <updated>2020-10-20T06:37:56.603Z</updated>
     
     <summary type="html">
     
@@ -37,6 +37,38 @@
     </summary>
     
     
+      <category term="research" scheme="https://fuguigui.github.io/categories/research/"/>
+    
+    
+      <category term="GNN, academic, overview" scheme="https://fuguigui.github.io/tags/GNN-academic-overview/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>(GNNs) GCN</title>
+    <link href="https://fuguigui.github.io/research/2020-10-19-gnns-gcn/"/>
+    <id>https://fuguigui.github.io/research/2020-10-19-gnns-gcn/</id>
+    <published>2020-10-18T22:00:00.000Z</published>
+    <updated>2020-10-20T06:36:58.374Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;GCN&quot;&gt;&lt;a href=&quot;#GCN&quot; class=&quot;headerlink&quot; title=&quot;GCN&quot;&gt;&lt;/a&gt;GCN&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&quot;&quot; disabled=&quot;&quot; type=&quot;checkbox&quot;&gt; &lt;p&gt;what is
+        
+      
+    
+    </summary>
+    
+    
+      <category term="research" scheme="https://fuguigui.github.io/categories/research/"/>
+    
+    
+      <category term="GNN" scheme="https://fuguigui.github.io/tags/GNN/"/>
     
   </entry>
   
@@ -558,35 +590,6 @@
     
     
       <category term="deutsch" scheme="https://fuguigui.github.io/tags/deutsch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Problems and Srategies</title>
-    <link href="https://fuguigui.github.io/course-notes/aa-problems-and-srategies/"/>
-    <id>https://fuguigui.github.io/course-notes/aa-problems-and-srategies/</id>
-    <published>2019-09-23T22:00:00.000Z</published>
-    <updated>2020-10-19T20:44:50.095Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Vertex-cover&quot;&gt;&lt;a href=&quot;#Vertex-cover&quot; class=&quot;headerlink&quot; title=&quot;Vertex cover&quot;&gt;&lt;/a&gt;Vertex cover&lt;/h1&gt;&lt;p&gt;settings:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;G =
-        
-      
-    
-    </summary>
-    
-    
-      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
-    
-    
-      <category term="advanced algorithms" scheme="https://fuguigui.github.io/tags/advanced-algorithms/"/>
     
   </entry>
   

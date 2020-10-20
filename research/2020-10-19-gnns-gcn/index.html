@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Overview of GNN models, Maths,Coding,Life,Enjoy">
+    <meta name="keywords" content="(GNNs) GCN, Maths,Coding,Life,Enjoy">
     <meta name="description" content="Warning! You accidently rushed into another world of lulu. Maybe something here will scare you. Remeber, everything is created by heart.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Overview of GNN models | Fululu</title>
+    <title>(GNNs) GCN | Fululu</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Overview of GNN models</h1>
+                    <h1 class="description center-align post-title">(GNNs) GCN</h1>
                 </div>
             </div>
         </div>
@@ -430,12 +430,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/GNN/">
+                                <span class="chip bg-color">GNN</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/research/" class="post-category">
+                                research
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -460,28 +473,71 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Some GNNs resource.</p>
-<p><a target="_blank" rel="noopener" href="https://archwalker.github.io/blog/2019/11/10/GNN-Go-Through-Main-Models.html">https://archwalker.github.io/blog/2019/11/10/GNN-Go-Through-Main-Models.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/133282394">https://zhuanlan.zhihu.com/p/133282394</a></p>
-<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8">⭐</span> <a target="_blank" rel="noopener" href="https://github.com/LiuChuang0059/Complex-Network">https://github.com/LiuChuang0059/Complex-Network</a></p>
-<p><a target="_blank" rel="noopener" href="https://docs.dgl.ai/tutorials/models/index.html">https://docs.dgl.ai/tutorials/models/index.html</a></p>
-<p>Jure talk: <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/LiuChuang0059/Complex-Network/master/GNN/tutorial/Advancements%20in%20Graph%20Neural%20Networks_graphSaGE_KG.pdf">https://raw.githubusercontent.com/LiuChuang0059/Complex-Network/master/GNN/tutorial/Advancements%20in%20Graph%20Neural%20Networks_graphSaGE_KG.pdf</a></p>
+                <h1 id="GCN"><a href="#GCN" class="headerlink" title="GCN"></a>GCN</h1><ul>
+<li><input checked="" disabled="" type="checkbox"> <p>what is the key idea of GCN?</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>what are learnable parameters in GCN?</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>what is the development path of GCN?</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>How to train a GCN?</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>How to write the GCN’s code?</p>
+</li>
+</ul>
+<p>The key idea of GCN is to realize the convolution operator on graph by virtue of the spectral theory. </p>
+<h2 id="Development-path"><a href="#Development-path" class="headerlink" title="Development path"></a>Development path</h2><ol>
+<li><p><strong>Fourier Transformation</strong> is defined in the graph field by Graph signal processing scholars.<br>$$<br>\hat{f}=U^\top f<br>$$</p>
+</li>
+<li><p><strong>Graph convolution</strong> is defined according to the <strong>convolution theorem</strong>.<br>$$<br>f\star h = \mathcal{F}^{-1}[\hat{f}(\omega)\hat{h}(\omega)] = U((U^\top h)\odot(U^\top f))<br>$$</p>
+</li>
+<li><p>Graph convolution is applied in the <strong>convolutional neural network</strong>.</p>
+</li>
+<li><p>How to design the trainable convolutional kernel?</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1312.6203">Spectral Networks and Locally Connected Networks on Graphs</a> Joan Bruna, Wojciech Zaremba, Arthur Szlam, Yann LeCun. ICLR2014<br>$$<br>y_{output}=\sigma(Ug_{\theta}(\Lambda)U^\top x)\<br>g_{\theta}(\Lambda) = diag(\theta_1,\cdots,\theta_n)<br>$$<br>There are n <em>learnable parameters</em> theta_i.</li>
+</ol>
+</li>
+</ol>
+<ol start="2">
+<li><p>Convolutional neural networks on graphs with fast localized spectral filtering.  Michae ̈l Defferrard, Xavier Bresson, and Pierre Vandergheynst. NIPS2016.<br>$$<br>g_{\theta}(\Lambda) = \sum_{j=0}^K\alpha_j\Lambda_j\<br>g_{\theta’}\star x\simeq \sum_{k=0}^K\theta’_kT_k(\tilde{L})x<br>$$</p>
 <ul>
-<li><input disabled="" type="checkbox"> Goal: have a general idea of GNNs</li>
-<li><input disabled="" type="checkbox"> Code Goal: implement all the following GNNs using DGL<ul>
-<li><input checked="" disabled="" type="checkbox"> GCN<ul>
-<li><input disabled="" type="checkbox"> ChebyNet</li>
+<li>There are k <em>learnable parameters</em> theta_i.</li>
+<li>good spatial localization. K is the receptive field.</li>
 </ul>
 </li>
-<li><input disabled="" type="checkbox"> MoNet</li>
-<li><input disabled="" type="checkbox"> GraphSage</li>
-<li><input disabled="" type="checkbox"> GAT</li>
-<li><input disabled="" type="checkbox"> GIN</li>
+<li><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1609.02907">Semi-supervised classification with graph convolutional networks</a> Thomas N. Kipf, Max Welling. ICLR2017</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tkipf/gcn">Thomas Kipf code</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/dmlc/dgl/tree/master/examples/pytorch/gcn">dgl-code</a></p>
+<p>Using Chebyshev Polynomial, let K=2 and theta_0 = -theta_1.</p>
+<p>$$<br>g_{\theta}\star x\simeq \theta_0x-\theta_1D^{-1/2}AD^{-1/2}x=\theta(I_N+D^{-1/2}AD^{-1/2})x<br>$$</p>
+<p>There is only one learnable parameter theta.</p>
+<p>Generalize x from 1-feature for each node to C-features for each node. For each feature, we use F filters. We have<br>$$<br>Z = \tilde{D}^{-1/2}\tilde{A}\tilde{D}^{-1/2}X\Theta<br>$$<br>Thera are <em>CF learnable parameters</em> Theta.</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> why to use Chebyshev?<ul>
+<li><input disabled="" type="checkbox"> Here, I miss the part of ChebyNet</li>
 </ul>
 </li>
-<li><input disabled="" type="checkbox"> Method: Can I decompose the development of their approaches?</li>
 </ul>
-<p>The whole project is based on the DGL framework, and follows from its <a target="_blank" rel="noopener" href="https://docs.dgl.ai/tutorials/models/index.html">tutorial</a></p>
+<p>Chebyshev applied on diagonal matrix won’t affect the matrix calculation.<br>  $$<br>  UT_k(\tilde{\Lambda})U = T_k(U\tilde{\Lambda}U)<br>  $$</p>
+<ul>
+<li><p>the input of Chebyshev should be within [-1, 1]. So do the following transformation<br>$$<br>\tilde{\Lambda} = 2\Lambda/\lambda_{\max}-I<br>$$</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>why stacking multiple layers?</p>
+<ul>
+<li>we can still recover a rich class of convolutional filter functions by stacking multiple such layers</li>
+<li>Additionally, for a fixed computational budget, this layer-wise linear formulation allows us to build deeper models, a practice that is known to improve modeling capacity on a number of domains</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>$$<br>H^{(l+1)} = \sigma(\tilde{D}^{-\frac{1}{2}}\tilde{A}\tilde{D}^{-\frac{1}{2}}H^{(l)}W^{(l)})<br>$$</p>
+<h2 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h2><p>See in the code/gnns/</p>
+<h2 id="Refer"><a href="#Refer" class="headerlink" title="Refer"></a>Refer</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/199251885">https://zhuanlan.zhihu.com/p/199251885</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/54504471/answer/332657604">https://www.zhihu.com/question/54504471/answer/332657604</a></li>
+</ul>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -525,7 +581,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://fuguigui.github.io/uncategorized/2020-10-19-overview-of-gnn-models/">https://fuguigui.github.io/uncategorized/2020-10-19-overview-of-gnn-models/</a>
+                    <a href="https://fuguigui.github.io/research/2020-10-19-gnns-gcn/">https://fuguigui.github.io/research/2020-10-19-gnns-gcn/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -562,7 +618,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/GNN/">
+                                    <span class="chip bg-color">GNN</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -728,12 +788,11 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/uncategorized/2020-10-19-overview-of-gnn-models/">
+                <a href="/research/2020-10-19-overview-of-gnn-models/">
                     <div class="card-image">
                         
                         
@@ -749,18 +808,29 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-19
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Guirong
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/research/" class="post-category">
+                                    research
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/GNN-academic-overview/">
+                        <span class="chip bg-color">GNN, academic, overview</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
