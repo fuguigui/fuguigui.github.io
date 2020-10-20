@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Overview of GNN models</title>
+      <link href="/uncategorized/2020-10-19-overview-of-gnn-models/"/>
+      <url>/uncategorized/2020-10-19-overview-of-gnn-models/</url>
+      
+        <content type="html"><![CDATA[<p>Some GNNs resource.</p><p><a href="https://archwalker.github.io/blog/2019/11/10/GNN-Go-Through-Main-Models.html">https://archwalker.github.io/blog/2019/11/10/GNN-Go-Through-Main-Models.html</a></p><p><a href="https://zhuanlan.zhihu.com/p/133282394">https://zhuanlan.zhihu.com/p/133282394</a></p><p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8">⭐</span> <a href="https://github.com/LiuChuang0059/Complex-Network">https://github.com/LiuChuang0059/Complex-Network</a></p><p><a href="https://docs.dgl.ai/tutorials/models/index.html">https://docs.dgl.ai/tutorials/models/index.html</a></p><p>Jure talk: <a href="https://raw.githubusercontent.com/LiuChuang0059/Complex-Network/master/GNN/tutorial/Advancements%20in%20Graph%20Neural%20Networks_graphSaGE_KG.pdf">https://raw.githubusercontent.com/LiuChuang0059/Complex-Network/master/GNN/tutorial/Advancements%20in%20Graph%20Neural%20Networks_graphSaGE_KG.pdf</a></p><ul><li><input disabled="" type="checkbox"> Goal: have a general idea of GNNs</li><li><input disabled="" type="checkbox"> Code Goal: implement all the following GNNs using DGL<ul><li><input checked="" disabled="" type="checkbox"> GCN<ul><li><input disabled="" type="checkbox"> ChebyNet</li></ul></li><li><input disabled="" type="checkbox"> MoNet</li><li><input disabled="" type="checkbox"> GraphSage</li><li><input disabled="" type="checkbox"> GAT</li><li><input disabled="" type="checkbox"> GIN</li></ul></li><li><input disabled="" type="checkbox"> Method: Can I decompose the development of their approaches?</li></ul><p>The whole project is based on the DGL framework, and follows from its <a href="https://docs.dgl.ai/tutorials/models/index.html">tutorial</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>A week summary</title>
       <link href="/diary/2020-10-18-a-week-summary/"/>
       <url>/diary/2020-10-18-a-week-summary/</url>

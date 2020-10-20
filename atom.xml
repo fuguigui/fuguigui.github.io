@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fuguigui.github.io/"/>
-  <updated>2020-10-19T21:09:47.187Z</updated>
+  <updated>2020-10-20T06:31:48.113Z</updated>
   <id>https://fuguigui.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Overview of GNN models</title>
+    <link href="https://fuguigui.github.io/uncategorized/2020-10-19-overview-of-gnn-models/"/>
+    <id>https://fuguigui.github.io/uncategorized/2020-10-19-overview-of-gnn-models/</id>
+    <published>2020-10-19T08:53:35.187Z</published>
+    <updated>2020-10-20T06:31:48.113Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Some GNNs resource.&lt;/p&gt;
+&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>A week summary</title>
@@ -563,34 +587,6 @@
     
     
       <category term="advanced algorithms" scheme="https://fuguigui.github.io/tags/advanced-algorithms/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vocabulary 动词</title>
-    <link href="https://fuguigui.github.io/language/vocabulary-dong-ci/"/>
-    <id>https://fuguigui.github.io/language/vocabulary-dong-ci/</id>
-    <published>2019-09-22T22:00:00.000Z</published>
-    <updated>2020-10-19T21:09:03.688Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;ö ä ü ß&lt;/p&gt;
-&lt;h1 id=&quot;动词与格&quot;&gt;&lt;a href=&quot;#动词与格&quot; class=&quot;headerlink&quot; title=&quot;动词与格&quot;&gt;&lt;/a&gt;动词与格&lt;/h1&gt;&lt;h2 id=&quot;mit-Dativ-Objekt&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="language" scheme="https://fuguigui.github.io/categories/language/"/>
-    
-    
-      <category term="deutsch" scheme="https://fuguigui.github.io/tags/deutsch/"/>
     
   </entry>
   
