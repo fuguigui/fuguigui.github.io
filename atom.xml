@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fuguigui.github.io/"/>
-  <updated>2020-10-20T06:37:56.603Z</updated>
+  <updated>2020-10-23T07:49:48.357Z</updated>
   <id>https://fuguigui.github.io/</id>
   
   <author>
@@ -15,6 +15,115 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Representation of Polyhedra</title>
+    <link href="https://fuguigui.github.io/course-notes/2020-10-22-representation-of-polyhedra/"/>
+    <id>https://fuguigui.github.io/course-notes/2020-10-22-representation-of-polyhedra/</id>
+    <published>2020-10-21T22:00:00.000Z</published>
+    <updated>2020-10-23T07:49:48.357Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Concepts&quot;&gt;&lt;a href=&quot;#Concepts&quot; class=&quot;headerlink&quot; title=&quot;Concepts&quot;&gt;&lt;/a&gt;Concepts&lt;/h1&gt;&lt;h2 id=&quot;Convex-hull&quot;&gt;&lt;a href=&quot;#Convex-hull&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
+    
+    
+      <category term="Mathematical Optimization" scheme="https://fuguigui.github.io/tags/Mathematical-Optimization/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>(GNNs) ChebyNet</title>
+    <link href="https://fuguigui.github.io/research/2020-10-20-gnns-chebynet/"/>
+    <id>https://fuguigui.github.io/research/2020-10-20-gnns-chebynet/</id>
+    <published>2020-10-19T22:00:00.000Z</published>
+    <updated>2020-10-20T08:56:33.047Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;ChebyNet&quot;&gt;&lt;a href=&quot;#ChebyNet&quot; class=&quot;headerlink&quot; title=&quot;ChebyNet&quot;&gt;&lt;/a&gt;ChebyNet&lt;/h1&gt;&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="research" scheme="https://fuguigui.github.io/categories/research/"/>
+    
+    
+      <category term="GNN" scheme="https://fuguigui.github.io/tags/GNN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Faces</title>
+    <link href="https://fuguigui.github.io/course-notes/2020-10-20-faces/"/>
+    <id>https://fuguigui.github.io/course-notes/2020-10-20-faces/</id>
+    <published>2020-10-19T22:00:00.000Z</published>
+    <updated>2020-10-22T13:33:15.615Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Faces&quot;&gt;&lt;a href=&quot;#Faces&quot; class=&quot;headerlink&quot; title=&quot;Faces&quot;&gt;&lt;/a&gt;Faces&lt;/h1&gt;&lt;h2 id=&quot;Proposition-1-13&quot;&gt;&lt;a href=&quot;#Proposition-1-13&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
+    
+    
+      <category term="Mathematical Optimization" scheme="https://fuguigui.github.io/tags/Mathematical-Optimization/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>(GNNs) GCN</title>
+    <link href="https://fuguigui.github.io/research/2020-10-19-gnns-gcn/"/>
+    <id>https://fuguigui.github.io/research/2020-10-19-gnns-gcn/</id>
+    <published>2020-10-18T22:00:00.000Z</published>
+    <updated>2020-10-20T08:56:36.004Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;GCN&quot;&gt;&lt;a href=&quot;#GCN&quot; class=&quot;headerlink&quot; title=&quot;GCN&quot;&gt;&lt;/a&gt;GCN&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&quot;&quot; disabled=&quot;&quot; type=&quot;checkbox&quot;&gt; &lt;p&gt;what is
+        
+      
+    
+    </summary>
+    
+    
+      <category term="research" scheme="https://fuguigui.github.io/categories/research/"/>
+    
+    
+      <category term="GNN" scheme="https://fuguigui.github.io/tags/GNN/"/>
+    
+  </entry>
   
   <entry>
     <title>Overview of GNN models</title>
@@ -41,34 +150,6 @@
     
     
       <category term="GNN, academic, overview" scheme="https://fuguigui.github.io/tags/GNN-academic-overview/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>(GNNs) GCN</title>
-    <link href="https://fuguigui.github.io/research/2020-10-19-gnns-gcn/"/>
-    <id>https://fuguigui.github.io/research/2020-10-19-gnns-gcn/</id>
-    <published>2020-10-18T22:00:00.000Z</published>
-    <updated>2020-10-20T06:36:58.374Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;GCN&quot;&gt;&lt;a href=&quot;#GCN&quot; class=&quot;headerlink&quot; title=&quot;GCN&quot;&gt;&lt;/a&gt;GCN&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;input checked=&quot;&quot; disabled=&quot;&quot; type=&quot;checkbox&quot;&gt; &lt;p&gt;what is
-        
-      
-    
-    </summary>
-    
-    
-      <category term="research" scheme="https://fuguigui.github.io/categories/research/"/>
-    
-    
-      <category term="GNN" scheme="https://fuguigui.github.io/tags/GNN/"/>
     
   </entry>
   
@@ -102,6 +183,58 @@
       <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
     
       <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Concepts--Half-space, polyhedron</title>
+    <link href="https://fuguigui.github.io/course-notes/2020-09-30-mathematical-optimization/"/>
+    <id>https://fuguigui.github.io/course-notes/2020-09-30-mathematical-optimization/</id>
+    <published>2020-09-29T22:00:00.000Z</published>
+    <updated>2020-10-20T11:17:19.822Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;./pic/093001.png&quot; alt=&quot;relax&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&gt; would this replacement add more
+        
+      
+    
+    </summary>
+    
+    
+      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
+    
+    
+      <category term="Mathematical Optimization" scheme="https://fuguigui.github.io/tags/Mathematical-Optimization/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://fuguigui.github.io/uncategorized/cil-1la/"/>
+    <id>https://fuguigui.github.io/uncategorized/cil-1la/</id>
+    <published>2020-09-14T22:59:27.856Z</published>
+    <updated>2020-10-24T08:21:13.583Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Linear-Autoencoder&quot;&gt;&lt;a href=&quot;#Linear-Autoencoder&quot; class=&quot;headerlink&quot; title=&quot;Linear Autoencoder&quot;&gt;&lt;/a&gt;Linear Autoencoder&lt;/h1&gt;&lt;h1
+        
+      
+    
+    </summary>
+    
+    
     
   </entry>
   
@@ -449,147 +582,6 @@
       <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
     
       <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bayesian Network 1 - Basic</title>
-    <link href="https://fuguigui.github.io/course-notes/pai-03/"/>
-    <id>https://fuguigui.github.io/course-notes/pai-03/</id>
-    <published>2020-01-22T23:00:00.000Z</published>
-    <updated>2020-10-19T21:02:30.433Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Questions&quot;&gt;&lt;a href=&quot;#Questions&quot; class=&quot;headerlink&quot; title=&quot;Questions&quot;&gt;&lt;/a&gt;Questions&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;why to say the conditional
-        
-      
-    
-    </summary>
-    
-    
-      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
-    
-    
-      <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
-    
-      <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Advanced algorithms</title>
-    <link href="https://fuguigui.github.io/course-notes/aa-review/"/>
-    <id>https://fuguigui.github.io/course-notes/aa-review/</id>
-    <published>2020-01-21T23:00:00.000Z</published>
-    <updated>2020-10-19T20:45:04.710Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Preface&quot;&gt;&lt;a href=&quot;#Preface&quot; class=&quot;headerlink&quot; title=&quot;Preface&quot;&gt;&lt;/a&gt;Preface&lt;/h1&gt;&lt;p&gt;In 2019 fall semester, I took part in the course
-        
-      
-    
-    </summary>
-    
-    
-      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
-    
-    
-      <category term="advanced algorithms" scheme="https://fuguigui.github.io/tags/advanced-algorithms/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Probability &amp; Bayesian Networks</title>
-    <link href="https://fuguigui.github.io/course-notes/pai-week2/"/>
-    <id>https://fuguigui.github.io/course-notes/pai-week2/</id>
-    <published>2019-09-30T22:00:00.000Z</published>
-    <updated>2020-10-19T21:03:23.927Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;Important-points&quot;&gt;&lt;a href=&quot;#Important-points&quot; class=&quot;headerlink&quot; title=&quot;Important points&quot;&gt;&lt;/a&gt;Important
-        
-      
-    
-    </summary>
-    
-    
-      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
-    
-    
-      <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
-    
-      <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Week 2 Reading - Approximation Algorithms</title>
-    <link href="https://fuguigui.github.io/course-notes-book-reading/aa-week2-reading/"/>
-    <id>https://fuguigui.github.io/course-notes-book-reading/aa-week2-reading/</id>
-    <published>2019-09-26T22:00:00.000Z</published>
-    <updated>2020-10-19T20:45:52.240Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Advanced-Algorithms-Vazirani&quot;&gt;&lt;a href=&quot;#Advanced-Algorithms-Vazirani&quot; class=&quot;headerlink&quot; title=&quot;Advanced Algorithms
-        
-      
-    
-    </summary>
-    
-    
-      <category term="course notes, book reading" scheme="https://fuguigui.github.io/categories/course-notes-book-reading/"/>
-    
-    
-      <category term="advanced algorithms" scheme="https://fuguigui.github.io/tags/advanced-algorithms/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>German grammar:祈使句</title>
-    <link href="https://fuguigui.github.io/language/grammar-qi-shi-ju/"/>
-    <id>https://fuguigui.github.io/language/grammar-qi-shi-ju/</id>
-    <published>2019-09-23T22:00:00.000Z</published>
-    <updated>2020-10-19T20:52:59.603Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;ö ä ü ß&lt;/p&gt;
-&lt;h1 id=&quot;Imperativ&quot;&gt;&lt;a href=&quot;#Imperativ&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="language" scheme="https://fuguigui.github.io/categories/language/"/>
-    
-    
-      <category term="deutsch" scheme="https://fuguigui.github.io/tags/deutsch/"/>
     
   </entry>
   
