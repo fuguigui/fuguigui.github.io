@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fuguigui.github.io/"/>
-  <updated>2020-10-23T07:49:48.357Z</updated>
+  <updated>2020-10-25T20:19:06.108Z</updated>
   <id>https://fuguigui.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>A week summary</title>
+    <link href="https://fuguigui.github.io/diary/2020-10-25-a-week-summary/"/>
+    <id>https://fuguigui.github.io/diary/2020-10-25-a-week-summary/</id>
+    <published>2020-10-24T22:00:00.000Z</published>
+    <updated>2020-10-25T20:19:06.108Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;计划回顾&quot;&gt;&lt;a href=&quot;#计划回顾&quot; class=&quot;headerlink&quot; title=&quot;计划回顾&quot;&gt;&lt;/a&gt;计划回顾&lt;/h1&gt;&lt;p&gt;上周计划的完成情况：&lt;/p&gt;
+&lt;p&gt;Graph paper: 50%.  Incomplete
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
+    
+    
+      <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
+    
+      <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
+    
+  </entry>
   
   <entry>
     <title>Representation of Polyhedra</title>
@@ -158,7 +188,7 @@
     <link href="https://fuguigui.github.io/diary/2020-10-18-a-week-summary/"/>
     <id>https://fuguigui.github.io/diary/2020-10-18-a-week-summary/</id>
     <published>2020-10-17T22:00:00.000Z</published>
-    <updated>2020-10-19T21:09:47.187Z</updated>
+    <updated>2020-10-25T19:44:27.675Z</updated>
     
     <summary type="html">
     
@@ -177,7 +207,7 @@
     </summary>
     
     
-      <category term="diary" scheme="https://fuguigui.github.io/categories/diary/"/>
+      <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
     
     
       <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
@@ -212,29 +242,6 @@
     
     
       <category term="Mathematical Optimization" scheme="https://fuguigui.github.io/tags/Mathematical-Optimization/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://fuguigui.github.io/uncategorized/cil-1la/"/>
-    <id>https://fuguigui.github.io/uncategorized/cil-1la/</id>
-    <published>2020-09-14T22:59:27.856Z</published>
-    <updated>2020-10-24T08:21:13.583Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Linear-Autoencoder&quot;&gt;&lt;a href=&quot;#Linear-Autoencoder&quot; class=&quot;headerlink&quot; title=&quot;Linear Autoencoder&quot;&gt;&lt;/a&gt;Linear Autoencoder&lt;/h1&gt;&lt;h1
-        
-      
-    
-    </summary>
-    
-    
     
   </entry>
   

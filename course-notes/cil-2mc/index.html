@@ -478,9 +478,8 @@
 <li>statistical models: infer missing entries from observed ones, with k&lt;&lt;m*n parameters</li>
 <li>low rank decomposition: find best approximation with low rank r. Parameter numbers: m<em>r+n</em>r=(m+n)r.</li>
 </ul>
-<h2 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h2><p>The key problem of this slide is:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cmin_%7Brank%28B%29%3Dk%7D%5B%5CSigma_%7B%28i%2Cj%29%5Cin%20I%7D%28a_%7Bij%7D-b_%7Bij%7D%29%5E2%5D%2CI%20%3D%5C%7B%28i%2Cj%29%3Aobserved%5C%7D" alt="img"></p>
-<h3 id="Non-convex"><a href="#Non-convex" class="headerlink" title="Non-convex"></a>Non-convex</h3><p>A non-convex problem can be non-convex on two parts” domain or objective.</p>
+<h2 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h2><p>The key problem of this slide is:<br>$$<br>\min_{rank(B)=k}[\sum_{(i,j)\in I}(a_{ij}-b_{ij})^2], I = {(i,j): \text{observed}}<br>$$</p>
+<h3 id="Non-convex"><a href="#Non-convex" class="headerlink" title="Non-convex"></a>Non-convex</h3><p>A non-convex problem can be non-convex on two parts: domain or objective.</p>
 <p>Finding the best approximation matrix B with the rank k is not a convex problem:</p>
 <ul>
 <li>the objective: minimize the frobenius norm is convex</li>
@@ -502,12 +501,14 @@
 </ul>
 <h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><h3 id="Alternating-method"><a href="#Alternating-method" class="headerlink" title="Alternating method"></a>Alternating method</h3><p>This is a general method for non-convex problem with something convex.</p>
 <ul>
-<li>for fixed <strong>U</strong>, f is convex in <strong>V</strong></li>
-<li>for fixed <strong>V</strong>, f is convex in <strong>U</strong></li>
+<li>for fixed $U$, $f$ is convex in $V$</li>
+<li>for fixed $V$, $f$ is convex in $U$</li>
 </ul>
 <h4 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h4><ul>
-<li><img src="http://latex.codecogs.com/svg.latex?U%3A%3D%5Carg%5Cmin_%7BU%7Df%28U%2CV%29" alt="img">, <img src="http://latex.codecogs.com/svg.latex?u_i%20%3D%20%28%5CSigma_%7Bj%3A%28i%2Cj%29%5Cin%20I%7Dv_jv_j%5ET%2B%5Clambda%20I_k%29%5E%7B-1%7D%20%5CSigma_%7Bj%3A%28i%2Cj%29%5Cin%20I%7Da_%7Bij%7Dv_j" alt="img"></li>
-<li><img src="http://latex.codecogs.com/svg.latex?V%3A%3D%5Carg%5Cmin_%7BV%7Df%28U%2CV%29" alt="img">, <img src="http://latex.codecogs.com/svg.latex?v_j%20%3D%20%28%5CSigma_%7Bi%3A%28i%2Cj%29%5Cin%20I%7Du_iu_i%5ET%2B%5Clambda%20I_k%29%5E%7B-1%7D%20%5CSigma_%7Bi%3A%28i%2Cj%29%5Cin%20I%7Da_%7Bij%7Du_i" alt="img"></li>
+<li>$U:=\arg\min_U f(U,V)$</li>
+<li>$u_i=(\sum_{j:(i,j)\in I}v_jv_j^\top+\lambda I_k)^{-1}\sum_{j:(i,j)\in I}a_{ij}v_j$</li>
+<li>$V:=\arg\min_V f(U,V)$</li>
+<li>$v_j = (\sum_{i:(i,j)\in I} u_i u_i^\top+\lambda I_k)^{-1}\sum_{i:(i,j)\in I} a_{ij} u_i$</li>
 <li>repeat until convergence.</li>
 </ul>
 <p>Applied in CF problem:</p>
@@ -517,7 +518,7 @@
 </ul>
 <h3 id="Frobenius-Norm-Regularization"><a href="#Frobenius-Norm-Regularization" class="headerlink" title="Frobenius Norm Regularization"></a>Frobenius Norm Regularization</h3><ul>
 <li>Why do we regularize the norm? <ul>
-<li>to penalize the matrices. Preventing entries of u_i, v_j from becoming too large. </li>
+<li>to penalize the matrices. Preventing entries of $u_i, v_j$ from becoming too large. </li>
 </ul>
 </li>
 <li>What is the consideration/advantage to do this?<ul>
@@ -533,13 +534,13 @@
 <h3 id="Convex-Relaxation"><a href="#Convex-Relaxation" class="headerlink" title="Convex Relaxation"></a>Convex Relaxation</h3><h4 id="Nuclear-Norm"><a href="#Nuclear-Norm" class="headerlink" title="Nuclear Norm"></a>Nuclear Norm</h4><ul>
 <li><p>what is the definition of nuclear norm?</p>
 <ul>
-<li><img src="http://latex.codecogs.com/svg.latex?%5C%7CA%5C%7C_%2A%20%3D%20%5CSigma_%7Bi%3D1%7D%5Csigma_i" alt="img"> , <img src="http://latex.codecogs.com/svg.latex?%5Csigma_i" alt="img"> is the singular value of A.</li>
+<li>$|A|_* = \sum_i\sigma_i$, $\sigma_i$ is the singular value of $A$.</li>
 </ul>
 </li>
 <li><p>what is the property of nuclear norm?</p>
 <ul>
-<li>compared to Frobenius norm: if we define <img src="http://latex.codecogs.com/svg.latex?%5Csigma%28A%29%3D%28%5Csigma_1%2C%5Csigma_2%2C%5Ccdots%2C%5Csigma_n%29" alt="img">, <img src="http://latex.codecogs.com/svg.latex?%5C%7CA%5C%7C_%2A%20%3Dtrace%28%5Csqrt%7BA%5E*A%7D%29%3D%5C%7C%5Csigma%28A%29%5C%7C_1" alt="img">),<img src="http://latex.codecogs.com/svg.latex?%5C%7CA%5C%7C_F%3Dtrace%28A%5E*A%29%3D%5C%7C%5Csigma%28A%29%5C%7C_2" alt="img"></li>
-<li>compared to rank, it provides the <strong>tightest</strong> lower <strong>convex  bound</strong> of the rank:<img src="http://latex.codecogs.com/svg.latex?rank%28B%29%5Cgeq%5C%7CB%5C%7C_%2A%2C%20%5Cforall%20%5C%7CB%5C%7C_2%5Cleq1" alt="img"> <ul>
+<li>compared to Frobenius norm: if we define $\sigma(A)=(\sigma_1,\sigma_2,\cdots,\sigma_n)$, $|A|_* =\text{trace}(\sqrt{A^<em>A})=|\sigma(A)|_1$, $|A|_F = \text{trace}(A^</em>A)=|\sigma(A)|_2$</li>
+<li>compared to rank, it provides the <strong>tightest</strong> lower <strong>convex  bound</strong> of the rank: $\text{trace}(B)\geq |B|_*, \forall |B|_2\leq 1$ <ul>
 <li>Proof:<img src="./imgs/2nn_4.png" alt="img"></li>
 <li>does the condition mean we need to standardize <strong>B</strong> s.t. the 2-norm less than 1.</li>
 </ul>
@@ -556,30 +557,38 @@
 <ul>
 <li><p>we can reconstruct the original non-convex problem. In fact, there are several ways to reconstruct the problem:</p>
 <ul>
-<li><p>Exact reconstruction (by virtue of Boolean matrix G):<img src="http://latex.codecogs.com/svg.latex?%5Cmin_B%5C%7CB%5C%7C_%2A%2C%20s.t.%20%5C%7CA-B%5C%7C_G%3D0" alt="img"></p>
-</li>
-<li><p>Approximate reconstruction (directly relaxing the rank constraint, it enlarges the possible solution space)![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Cmin_B%20%5C%7CA-B%5C%7C_G%2C">http://latex.codecogs.com/svg.latex?%5Cmin_B%20%5C%7CA-B%5C%7C_G%2C</a> s.t.%5C%7CB%5C%7C_%2A%2C%20%5Cleq r)</p>
-</li>
-<li><p>Lagrange Formulation<img src="http://latex.codecogs.com/svg.latex?%5Cmin_B%5B%5Cfrac%7B1%7D%7B2%5Ctau%7D%5C%7CA-B%5C%7C_G%5E2%2B%5C%7CB%5C%7C_%2A%5D" alt="img"></p>
-</li>
+<li>Exact reconstruction (by virtue of Boolean matrix $G$):<br>$$<br>\min_B|B|_*, s.t. |A-B|_G=0<br>$$</li>
 </ul>
 </li>
 </ul>
 </li>
+<li><p>Approximate reconstruction (directly relaxing the rank constraint, it enlarges the possible solution space)</p>
+<pre><code>$$
+\min_B\|A-B\|_G, s.t. \|B\|_*\leq r
+$$</code></pre><ul>
+<li>Lagrange Formulation<br>$$<br>\min_B[\frac{1}{2\tau}|A-B|<em>G^2 + |B|</em>*]<br>$$</li>
 </ul>
-<h3 id="SVD-Shrinkage-Iterations"><a href="#SVD-Shrinkage-Iterations" class="headerlink" title="SVD Shrinkage Iterations"></a>SVD Shrinkage Iterations</h3><p><img src="http://latex.codecogs.com/svg.latex?B_%7Bt%2B1%7D%3DB_t%2B%5Ceta_t%5CPi%28A-shrink_%5Ctau%28B_t%29%29" alt="img"></p>
+</li>
+</ul>
+<h3 id="SVD-Shrinkage-Iterations"><a href="#SVD-Shrinkage-Iterations" class="headerlink" title="SVD Shrinkage Iterations"></a>SVD Shrinkage Iterations</h3><p>$$<br>B_{t+1} = B_t+\eta_t\Pi(A-\text{shrink}_\tau(B_t))<br>$$</p>
 <ul>
 <li><p>what is the basic idea of this method?</p>
 <ul>
-<li>It wants to <ul>
-<li>find a matrix with low Frobenius norm and nuclear norm  <img src="http://latex.codecogs.com/svg.latex?B%5E%2A%3D%5Carg%5Cmin_B%5B%5Cfrac%7B1%7D%7B2%5Ctau%7D%5C%7CB%5C%7C_F%5E2%2B%5C%7CB%5C%7C_%2A%5D" alt="img"></li>
-<li>while keeping the observed ones being the same. Keep attention to that  ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?s.t">http://latex.codecogs.com/svg.latex?s.t</a>. %5CPi%28A-B%29%3D0)</li>
+<li><p>It wants to </p>
+<ul>
+<li>find a matrix with low Frobenius norm and nuclear norm  $B^<em>=\arg\min_B[\frac{1}{2\tau}|B|<em>F^2+|B|</em></em>]$</li>
+<li>while keeping the observed ones being the same. Keep attention to that  $s.t. \Pi(A-B)=0$</li>
 </ul>
 </li>
-<li>include a shrinkage operator. <img src="http://latex.codecogs.com/svg.latex?B%5E%2A%3Dshrink_%7B%5Ctau%7D%28A%29%3A%3D%5Carg%5Cmin_B%5C%7B%5Cfrac%7B1%7D%7B2%7D%5C%7CA-B%5C%7C_F%5E2%2B%5Ctau%5C%7CB%5C%7C_%2A%5C%7D" alt="img">. The solution is <img src="http://latex.codecogs.com/svg.latex?B%5E%2A%3DUD_%7B%5Ctau%7DV%5ET%2C%20D_%7B%5Ctau%7D%3Ddiag%28%5Cmax%5C%7B0%2C%5Csigma_i-%5Ctau%5C%7D%29" alt="img"> This substracts a little from the big singular values and make the small ones as 0. </li>
-<li>iteratively update the B.</li>
-<li>get the limitation of the shrinkage of B_t, which is B* we want.</li>
+<li><p>include a shrinkage operator<br>$$<br>B^* = \text{shrink}<em>\tau(A):=\arg\min_B{\frac{1}{2}|A-B|_F^2+\tau|B|</em>*}<br>$$</p>
+</li>
+<li><p>The solution is  $B^*=UD_\tau V^\top, D_\tau=\text{diag}(\max{0,\sigma_i-\tau})$<br>This substracts a little from the big singular values and make the small ones as 0. </p>
+</li>
+<li><p>iteratively update the $B$.</p>
+</li>
 </ul>
+</li>
+<li><p>get the limitation of the shrinkage of $B_t$, which is $B^*$ we want.</p>
 </li>
 <li><p>where is this method better than others?</p>
 <ul>
@@ -588,13 +597,12 @@
 </li>
 <li><p>how to guarantee the sparsity?</p>
 <ul>
-<li>using the projection. Because the first B_1 only has entries on the observed locations, and each time we add a new matrix projected by the Pi, so all the B matrices are sparse and only have entries on the observed locations.</li>
+<li>using the projection. Because the first $B_1$ only has entries on the observed locations, and each time we add a new matrix projected by the Pi, so all the $B$ matrices are sparse and only have entries on the observed locations.</li>
 </ul>
 </li>
 </ul>
 <h3 id="Exact-Matrix-Recovery"><a href="#Exact-Matrix-Recovery" class="headerlink" title="Exact Matrix Recovery"></a>Exact Matrix Recovery</h3><p>This method is more <strong>statistical</strong>.</p>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Cmin_Xrank%28X%29%20">http://latex.codecogs.com/svg.latex?%5Cmin_Xrank%28X%29%20</a>, s.t.%20%5C%7CA-B%5C%7C_I%3D0)</p>
-<p>The rank function is not convex, also the constraint is very stringent. Therefore, it is a difficult problem.</p>
+<p>$$<br>\min_X\text{rank}(X), s.t. |A-B|_I = 0<br>$$<br>The rank function is not convex, also the constraint is very stringent. Therefore, it is a difficult problem.</p>
 <p>Solutions:</p>
 <ul>
 <li><p>using nuclear norm to replace the rank as objective,</p>
@@ -603,7 +611,7 @@
 <li>but the largest convex function less than rank (the best)</li>
 </ul>
 </li>
-<li><p>How many entries do we need to guess others? Certain number of known entries reveal the probability of get the right ideal of the whole matrix. The number is almost <strong>linear</strong> to <strong>n</strong>, assuming <strong>m</strong> is closed to <strong>n</strong>. </p>
+<li><p>How many entries do we need to guess others? Certain number of known entries reveal the probability of get the right ideal of the whole matrix. The number is almost <strong>linear</strong> to $n$, assuming $m$ is closed to $n$. </p>
 </li>
 </ul>
 <script>
@@ -913,13 +921,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/course-notes/bd-13documentstores/">
+                <a href="/course-notes/cil-1la/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Document Stores">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Linear Autoencoder">
                         
-                        <span class="card-title">Document Stores</span>
+                        <span class="card-title">Linear Autoencoder</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -930,7 +938,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-07-04
                             </span>
                         <span class="publish-author">
                             
@@ -947,8 +955,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/big-data/">
-                        <span class="chip bg-color">big data</span>
+                    <a href="/tags/computational-intelligence/">
+                        <span class="chip bg-color">computational intelligence</span>
                     </a>
                     
                 </div>

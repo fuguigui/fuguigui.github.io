@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Maths,Coding,Life,Enjoy">
+    <meta name="keywords" content="A week summary, Maths,Coding,Life,Enjoy">
     <meta name="description" content="Warning! You accidently rushed into another world of lulu. Maybe something here will scare you. Remeber, everything is created by heart.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Fululu</title>
+    <title>A week summary | Fululu</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">A week summary</h1>
                 </div>
             </div>
         </div>
@@ -430,12 +430,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/academic/">
+                                <span class="chip bg-color">academic</span>
+                            </a>
+                        
+                            <a href="/tags/life/">
+                                <span class="chip bg-color">life</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Diary/" class="post-category">
+                                Diary
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -444,7 +461,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-09-15
+                    2020-10-25
                 </div>
                 
 
@@ -460,267 +477,119 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Linear-Autoencoder"><a href="#Linear-Autoencoder" class="headerlink" title="Linear Autoencoder"></a>Linear Autoencoder</h1><h1 id="Pre-Questions"><a href="#Pre-Questions" class="headerlink" title="Pre-Questions"></a>Pre-Questions</h1><ol>
-<li>what? The framework of linear matrix low rank construction</li>
-<li>Problem? To approximate a matrix with low-rank matrix. This is an encoding problem.</li>
-<li>Key? Find the encoder C and decoder D.</li>
-<li>Formula? $Z = CX, X’ = DZ=DCX$</li>
-<li>Applications? feature engineering, saving storage space.</li>
-<li>Further Development? Non-linear? Supervized, not auto?</li>
-</ol>
+                <h1 id="计划回顾"><a href="#计划回顾" class="headerlink" title="计划回顾"></a>计划回顾</h1><p>上周计划的完成情况：</p>
+<p>Graph paper: 50%.  Incomplete tasks：</p>
 <ul>
-<li>Dimension Reduction</li>
-<li>Linear Autoencoder</li>
-<li>Singular Value Decomposition</li>
-<li>Remarks</li>
+<li><input disabled="" type="checkbox"> MoNet</li>
+<li><input disabled="" type="checkbox"> GraphSage</li>
+<li><input disabled="" type="checkbox"> GAT</li>
 </ul>
-<h1 id="Dimension-Reduction"><a href="#Dimension-Reduction" class="headerlink" title="Dimension Reduction"></a>Dimension Reduction</h1><ul>
-<li>Object? A matrix or a data point? what kinds of conditions should this matrix satisfy?<ul>
-<li>A matrix, a series of data points. The data points have the same length (dimension)</li>
-</ul>
-</li>
-<li>How to deal with missing values?<ul>
-<li>delete the data points</li>
-<li>fill up with random values</li>
-</ul>
-</li>
-<li>Methods: select or reconstruct?<ul>
-<li>both, but in linear encoding reconstruction can only be in the <strong>linear</strong> form.</li>
-</ul>
-</li>
-<li>Algorithms? Efficiency?<ul>
-<li>iterative method</li>
-</ul>
-</li>
-<li>Evaluation? what index is used to evaluate the dimension reduction?<ul>
-<li>evaluate the <strong>distance</strong> between matrices before and after encoding. <ul>
-<li>SVD is the best under Frobenius/Euclidean Norm.</li>
-<li>PCA is the best under the Euclidean distance.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>In general, this is an encoding problem, use less bit to encode the original information while keep the information loss as little as possible.</p>
-<h2 id="Aim"><a href="#Aim" class="headerlink" title="Aim"></a>Aim</h2><p>Work for a group of data points with the same dimension, not for only one data point.</p>
-<h3 id="Mathematical-Description"><a href="#Mathematical-Description" class="headerlink" title="Mathematical Description"></a>Mathematical Description</h3><p>$$<br>\mathbb{R}^{N\times M}\Rightarrow \mathbb{R}^{N\times K}<br>$$</p>
-<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p>The methods should be selected according to the to-encode objects.</p>
-<h3 id="Change-Basis-Space"><a href="#Change-Basis-Space" class="headerlink" title="Change Basis(Space)"></a>Change Basis(Space)</h3><p>The original vector is expressed on one set of units, change the expression units, and express the vector by new units. Take picture for an example, a $100\times 100$ head photo, the original unit is pixel, now we change the units as four layers, a fixed head, the hair contour, part highlight one and part highlight two. Therefore a $100\times 100$ vector in the original space is expressed by $1\times 4$ vector in new space.<br>In another word, the new basis may save a lot of information for the data. Problem: the data points must be similar in some way to make basis useful. </p>
-<h3 id="Linear"><a href="#Linear" class="headerlink" title="Linear"></a>Linear</h3><p>$$<br>Z=C\cdot X, C\in\mathbb{R}^{K\times M}<br>$$</p>
-<h3 id="Non-linear"><a href="#Non-linear" class="headerlink" title="Non-linear"></a>Non-linear</h3><ul>
-<li>what is the limitation and advantage of linear?</li>
-<li>what typical techniques in non-linear form?</li>
-</ul>
-<h3 id="Unsupervised"><a href="#Unsupervised" class="headerlink" title="Unsupervised"></a>Unsupervised</h3><ul>
-<li><p>how to do it?</p>
-<p>That is the source of <strong>auto</strong> of in the name of linear autoencoder.</p>
-</li>
-</ul>
-<h1 id="Linear-Autoencoder-1"><a href="#Linear-Autoencoder-1" class="headerlink" title="Linear Autoencoder"></a>Linear Autoencoder</h1><p>Find a decoder matrix $D$ working on $Z$, which makes $DZ$ as close as possible to $X$.</p>
-<h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h2><ol>
-<li>$$<br>Z=C\cdot X<br>$$</li>
-</ol>
-<ol start="2">
-<li>$$<br>X’ = D\cdot Z = D\cdot C\cdot X<br>$$</li>
-</ol>
-<ol start="3">
-<li>Choose $D$ and $C$ to make $X’$ closed to $X$.</li>
-</ol>
-<h2 id="Norms"><a href="#Norms" class="headerlink" title="Norms"></a>Norms</h2><p>There are many norms to evaluate how $X’$ is closed to $X$. In the slides, we use Frobenius Norm. </p>
+<p>Higher-order graph: 45.4%. Incomplete tasks:</p>
 <ul>
-<li>How about using other norms? </li>
-<li>What is best solution under other norms?</li>
+<li><input disabled="" type="checkbox"> Weisfeiler and Leman Go Neural: Higher-order Graph Neural Networks</li>
+<li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8">🌟</span> Simultaneous group and individual centralities. <strong>Phillip Bonacich</strong>. Soc. Netw., 13(2):155–168, 1991.</li>
+<li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8">⭐</span> Random walks and diffusion on networks, Physics Reports, N. Masuda, M. A. Porter, and R. Lambiotte, 2017.</li>
+<li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8">🌟</span>High-ordered random walks and generalized Laplacians on hypergraphs.  Linyuan Lu and Xing Peng. In International Workshop on Algorithms and Models for the Web-Graph, pages 14–25. Springer, 2011.</li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="http://www.geometry.caltech.edu/pubs/dGDT16.pdf">http://www.geometry.caltech.edu/pubs/dGDT16.pdf</a></li>
+<li><input disabled="" type="checkbox"> Discrete Connection and Covariant Derivative for Vector Field Analysis and Design (10.21)</li>
 </ul>
-<h3 id="Frobenius-Norm"><a href="#Frobenius-Norm" class="headerlink" title="Frobenius Norm"></a>Frobenius Norm</h3><ul>
-<li><p>vector: like the traditional norm definition</p>
-</li>
-<li><p>matrix:  generate the definition of vector, the squared root of the sum of the square of each entry.  </p>
+<p>Optimization: 100%</p>
+<p>Misc： 0%. Incomplete tasks:</p>
 <ul>
-<li><p>In a calculation format $\sqrt{\sum_{ij}a_{ij}^2} = \sqrt{\sum_i \sigma_i^2}$</p>
-</li>
-<li><p>in a matrix format, depends only on singular values of $A$.</p>
-</li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://archwalker.github.io/blog/2019/11/10/GNN-Go-Through-Main-Models.html">https://archwalker.github.io/blog/2019/11/10/GNN-Go-Through-Main-Models.html</a></li>
 </ul>
-<p>$$<br>  |A|_F^2 = \text{trace}(A^* A) = \text{trace}(AA^*)=\sum_i \sigma_i^2<br>$$</p>
-</li>
-</ul>
-<h3 id="p-norm"><a href="#p-norm" class="headerlink" title="p-norm"></a>p-norm</h3><p>$$<br>|A|_p:=\sup{|Ax|_p: |x|_p = 1}, |x|_p:=(\sum_i|x_i|^p)^{1/p}<br>$$</p>
-<h3 id="Spectral-norm-the-matrix-version-of-Euclidean-norm"><a href="#Spectral-norm-the-matrix-version-of-Euclidean-norm" class="headerlink" title="Spectral norm (the matrix version of Euclidean norm)"></a>Spectral norm (the matrix version of Euclidean norm)</h3><p>That is 2-norm, when $p$ is 2.<br>$$<br>|A|_2:=\sup{|Ax|_2:|x|_2=1}=\sigma_1 = \sqrt{\lambda_\max(AA^\top)}<br>$$</p>
+<p>Video: 66.7%. Incomplete tasks:</p>
 <ul>
-<li>$\sigma$ refers to the singular value.</li>
+<li><input disabled="" type="checkbox"> Game of thrones: Season 6 <ul>
+<li><input disabled="" type="checkbox"> Episode 6</li>
+<li><input disabled="" type="checkbox"> Episode 7</li>
 </ul>
-<h2 id="Key-Theorem-Eckart-Young-Theorem"><a href="#Key-Theorem-Eckart-Young-Theorem" class="headerlink" title="Key Theorem: Eckart-Young Theorem"></a>Key Theorem: Eckart-Young Theorem</h2><ul>
-<li><p><strong>SVD</strong> is the best approximation matrix with the rank $k$, under the Frobenius Norm (also under the Euclidean norm)</p>
-</li>
-<li><p>the minimum Frobenius (Euclidean) norm loss is the sum of square of singular values from $k+1$.<br>$$<br>J(\theta)=\sum_{l=k+1}\sigma_l^2<br>$$</p>
 </li>
 </ul>
-<h2 id="Singular-Vector-Decomposition"><a href="#Singular-Vector-Decomposition" class="headerlink" title="Singular Vector Decomposition"></a>Singular Vector Decomposition</h2><p>Linear Autoencoder provides a framework, and SVD is one method to get the $D$ and $C$. In SVD, $D = U_k$ and $C=U_k^\top$ . To use SVD, the future to-be-predicted items must have been included in the matrix. No on-the-fly new prediction or no new data points can be added just for prediction, but not being trained.</p>
-<p><strong>Any matrix</strong> can do SVD.</p>
-<h3 id="Formula"><a href="#Formula" class="headerlink" title="Formula"></a>Formula</h3><p>$$<br>X = U\cdot D\cdot V^\top<br>$$</p>
+<p>Game: 90%. Incomplete tasks:</p>
 <ul>
-<li>$U$: orthogonal matrix</li>
-<li>$V$: orthogonal matrix</li>
-<li>$D$: diagonal matrix</li>
+<li><input disabled="" type="checkbox"> 隐形的守护者第十章</li>
 </ul>
-<h3 id="Interpretation"><a href="#Interpretation" class="headerlink" title="Interpretation"></a>Interpretation</h3><ul>
-<li>$U: M*M$, map the $M$ objects to $M$ classes, the entry $U_ij$ is the object $i$ ‘s value on class $j$. </li>
-</ul>
+<p>总结：</p>
 <ul>
-<li><p>$V: N*N$, map the $N$ objects to $N$ classes, the entry $V_ij$ is the object $i$ ‘s value on class $j$</p>
+<li>为什么有些任务全部完成了，有些任务几乎没有完成呢？我觉得原因可以分为以下几点：<ul>
+<li>任务的可执行度上。比如：higher-order graph的论文阅读。我这里虽然列出了list，但是，list上的item之间<strong>缺乏联系</strong>。 我在读完一篇论文之后，可能心里存在很多疑问，此时与我的疑问最相关的论文并没有出现在list上，导致我不想沿着list去读。在读完list上的一篇论文之后，我不知道为什么要去读下一篇，list失去了引导力，致使我无法完成。与之相比，optimization的任务内部非常的连贯，我愿意按照它执行。</li>
+</ul>
 </li>
-<li><p>$D: D_{ii}$ express the strength or expression ability of the class $i$ or the strength of each factor.</p>
+<li>Video这种娱乐性质的任务为什么没有完成？<ul>
+<li><strong>习惯没有养成</strong>。我坚持的是routine指导行为的方法，绝不要忽视习惯的力量。而我现在的routine并没有建立起来，比如健身时间，休息时间，娱乐时间，都是散乱的。不过，鉴于这周小伙伴住在我房间里的情况，我不能太过任性，一味坚持自己的时间表，还需要适当考虑到她的生活习惯。习惯留待她离开之后再培养叭。</li>
+</ul>
 </li>
 </ul>
-<h3 id="SGD"><a href="#SGD" class="headerlink" title="SGD"></a>SGD</h3><p>Stochastic gradient descending method.</p>
+<h1 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h1><p>本周在论文上的收获不大，在课程mathematical optimization收获更多些，坚持按计划学习了课程。此外，重新布置起自己的blog，在对blog进行修整之后，还要经营我和元元的blog哦～</p>
+<p>周六和熊，小可爱，室友一起度过了12个小时，虽然这个时间预算对我来说有些超支了<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8">😂</span>，完全没想到会和小伙伴玩这么久。不过元元有句话开导的很对“不要因为烦恼而影响玩耍时的快乐”，“很占据时间，又不能拒绝”时，我应该尽力去享受这段时间，而不是为被额外占据掉的时间焦虑。<strong>我对自己的时间真的很吝啬</strong>。其实反过来想想，对于与朋友在一起的时间，如果事先有个预期的话，我会舒服很多。害，说到底就是想尽可能地掌控。</p>
+<h2 id="Mathematical-Optimization"><a href="#Mathematical-Optimization" class="headerlink" title="Mathematical Optimization"></a>Mathematical Optimization</h2><p>对于这次总结，我希望达到的目的不是复述知识，而是建立起知识之间的联系，突出要点。</p>
+<p>经过复习，我发现我对以下内容掌握得不够：</p>
 <ul>
-<li><p>why to use this method? Any problem of solving the SVD directly?</p>
+<li>degenerate/degeneracy： 引入这个概念是为了干什么？</li>
+</ul>
+<p><img src="./pic/20201025Module.png" alt="module"></p>
+<p><img src="./pic/20201025Polyhedron.png" alt="xmind"></p>
+<h2 id="Graph-models"><a href="#Graph-models" class="headerlink" title="Graph models"></a>Graph models</h2><p>本周的认识都是high-level的，没有基础知识的积累：GIN的那篇paper从现有的基于邻居消息传递的GNN框架的局限性出发，引起我思考：什么样的模型是基于这个框架的，除此之外还有哪些其他模型种类。各种基于Laplacian的模型是不是也基于这个邻居消息传递的？比如GCN，其实是根据Laplacian矩阵选择weighted的邻居的。</p>
+<h1 id="下周计划"><a href="#下周计划" class="headerlink" title="下周计划"></a>下周计划</h1><h2 id="Mathematical-optimization"><a href="#Mathematical-optimization" class="headerlink" title="Mathematical optimization"></a>Mathematical optimization</h2><p>Video</p>
 <ul>
-<li>it is used for CF. It optimizes only <strong>over known ratings</strong> (no need to input missing values). It tries to find low rank approximation $Q$ and $P$ for $X$, let<br>$$<br>X=Q\cdot P, X\in\mathbb{R}^{M\times N}, Q\in\mathbb{R}^{M\times K}, P\in\mathbb{R}^{K\times N}<br>$$</li>
+<li><input disabled="" type="checkbox"> 10.5 (10.26)</li>
+<li><input disabled="" type="checkbox"> 10.8 (10.27)</li>
+<li><input disabled="" type="checkbox"> 10.12 (10.29)</li>
+<li><input disabled="" type="checkbox"> 10.15 (10.30)</li>
 </ul>
-</li>
-</ul>
-<h3 id="Relationships"><a href="#Relationships" class="headerlink" title="Relationships"></a>Relationships</h3><ul>
-<li><p>to linear autoencoder: $C = U_k^\top, D=U_k$ or $C=AU_k^\top, D=U_kA^{-1}$</p>
-</li>
-<li><p>SGD UV forms to the original UDV forms</p>
-<h2 id="Principle-Component-Analysis"><a href="#Principle-Component-Analysis" class="headerlink" title="Principle Component Analysis"></a>Principle Component Analysis</h2></li>
-<li><p>why we use PCA?</p>
+<p>Script:</p>
 <ul>
-<li>compared to SVD, which aims to minimize the <strong>norm (Frobenius/Euclidean) ** of the whole **difference matrix</strong>  $X-X’$ directly, PCA focuses on the “inner structure” of the matrix $X$, trying to consume the <strong>variance</strong> among $x_i$’s as large as possible.</li>
+<li><input disabled="" type="checkbox"> 18-37 (10.28)</li>
 </ul>
-</li>
-<li><p>what is the advantage of PCA? </p>
-</li>
-<li><p>what is the basic idea of PCA?</p>
+<h2 id="Graph-Papers"><a href="#Graph-Papers" class="headerlink" title="Graph Papers"></a>Graph Papers</h2><p>这周准备采取综述，书籍和最新论文相结合的模式来进行领域学习。学习的目的：</p>
 <ul>
-<li>works on the <strong>variance matrix</strong> $AA^\top\in\mathbb{R}^{M\times M}$, not the original matrix $A\in\mathbb{R}^{M\times N}$.</li>
-<li>minimize <strong>Euclidean distance</strong></li>
-<li>in other words, we want to find the direction where the variance is at the biggest (Therefore, this direction captures the change of the data at most, the data vary less on other directions.)<ul>
-<li>important <strong>!!!</strong>: direction of <strong>smallest reconstruction error</strong> &lt;-&gt; direction of <strong>largest data variance</strong> </li>
-</ul>
+<li><p>了解图领域的主要任务</p>
 </li>
-</ul>
+<li><p>了解现有模型没有解决的问题</p>
 </li>
-<li><p>what is relation to the <strong>orthogonal projection</strong>?</p>
+<li><p>未来可能的发展方向是什么</p>
+</li>
+<li><p>如何把经典理论和现代nn的方法结合起来呢？</p>
+</li>
+<li><input disabled="" type="checkbox"> <p>ICLR2021专栏：</p>
 <ul>
-<li>orthogonal projection corresponds to <strong>euclidean</strong> distance, which is the minimization goal of PCA.</li>
-<li>the <strong>eigenvalue</strong> can be interpreted as the <strong>variance</strong> in the dimension specified by the corresponding eigenvector.</li>
+<li><input disabled="" type="checkbox"> Graph-graph similarity network</li>
+<li><input disabled="" type="checkbox"> how to find your friendly neighborhood: graph attention design with self-supervision</li>
+<li><input disabled="" type="checkbox"> graph neural network pooling by edge cut</li>
 </ul>
 </li>
-</ul>
-<h3 id="Key-Formula"><a href="#Key-Formula" class="headerlink" title="Key Formula"></a>Key Formula</h3><ul>
-<li><p>$&lt;v,u&gt;u=(uu^\top)v$,  means the projection of $v$ to the direction $u$.</p>
-</li>
-<li><p>$(I-uu^\top)v=v-&lt;v,u&gt;u$ means the orthogonal branch of $v$ to $u$.</p>
-</li>
-<li><p>Goal: find<br>  $$<br>  (u,\mu)\to\arg\min[\frac{1}{n}\sum_{i=1}^n]|(I-uu^\top)(x_i-\mu)|^2<br>  $$</p>
-<ol>
-<li><p>it is easy to get $\mu=\frac{\sum_i x_i}{n}$, that means <strong>to use PCA, we should center the data</strong></p>
-</li>
-<li><p>the goal becomes:<br>$$<br>u: \arg\min[\frac{1}{n}\sum_{i=1}^n |(I-uu^\top)x_i’|^2], x_i’=x_i-\frac{1}{n}\sum_{j=1}x_j<br>$$</p>
-</li>
-<li><p>Helper formula:<br>$$<br>|v-w|^2 = &lt;v-w, v-w&gt;=|v|^2+|w|^2-2&lt;v,w&gt;<br>$$</p>
-</li>
-<li><p>$$\to |I-(uu^\top)x_i|^2=|x_i - uu^\top x_i|^2=|x_i|^2 + |uu\top x_i|^2-2&lt;x_i,uu\top x_i&gt;=x_i^\top x_i+(u^\topu-2)x_i^\top uu^\top x_i$$</p>
-</li>
-<li><p>$$<br>u:\arg\min\frac{1}{n}\sum_{i=1}^n x_ix_i^\top + \frac{1}{n}\sum_{i=1}^n(u^\top u-2)u^\top x_ix_i^\top u<br>$$</p>
-</li>
-<li><p>Add the <strong>norm constraint</strong>, </p>
-</li>
-<li><p>$$<br>|u|=1, u=\arg\max\frac{1}{n}\sum_{i=1}^nu^\top x_ix_i^\top u=\frac{1}{n}u^\top XX^\top u, X\in\mathbb{R}^{k\times n}<br>$$</p>
-</li>
-<li><p>using Lagrange inequation to solve this optimization problem $L(u,\lambda)=u^\top\Sigma u+\lambda&lt;u,u&gt;, \Sigma\in\mathbb{R}^{k\times k}$, we get $\Sigma u = \lambda u$</p>
-</li>
-</ol>
-</li>
-</ul>
-<h3 id="Calculation"><a href="#Calculation" class="headerlink" title="Calculation"></a>Calculation</h3><ul>
-<li><p>why does it correspond to the eigen-value/vector?</p>
+<li><input disabled="" type="checkbox"> <p>NIPS专栏：</p>
 <ul>
-<li>from the solution process of Lagrange constraint. </li>
+<li><input disabled="" type="checkbox"> （10.26） <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8">🌟</span> Random walks on hypergraphs. Timoteo Carletti, Federico Battiston, Giulia Cencetti, and Duccio Fanelli. Phys. Rev. E, 101(2):022308, 2020. 及其周边</li>
+<li><input disabled="" type="checkbox"> Path Integral Based convolution and pooling for graph neural networks</li>
+<li><input disabled="" type="checkbox"> Convergence and Stability of GCN on Large Random graphs</li>
+<li><input disabled="" type="checkbox"> Erdos Goes Neural: an Unsupervised Learning Framework for Combinatorial Optimization on Graphs</li>
+<li><input disabled="" type="checkbox"> Learning Graph Structure With A Finite-State Automaton Layer</li>
 </ul>
 </li>
-<li><p>what is the influence of the magnitude of eigenvalue?</p>
+<li><input disabled="" type="checkbox"> <p>KDD2020: GraphSTONE</p>
+</li>
+<li><input disabled="" type="checkbox"> <p>综述：</p>
 <ul>
-<li><p>in the goal:<br>  $$<br>\frac{1}{n}\sum_{i=1}^n|(I-uu^\top)x_i|^2=\frac{1}{n}\sum_{i=1}^n x_ix_i^\top-\frac{1}{n}u^\top XX^\top u=\frac{1}{n}\sum_{i=1}^n x_ix_i^\top-\frac{\lambda}{n}<br>$$</p>
-</li>
-<li><p>so, the larger the eigenvalue is, the smaller the goal will be. Also, since all the eigenvalues are non-negative, this goal will become smaller and smaller with more eigenvalues included.</p>
-</li>
-</ul>
-</li>
-<li><p>is it expensive to do PCA decomposition?</p>
-</li>
-<li><p>The reconstruction error (using Frobenius norm) of PCA $err=\sum_{i=K+1}^M\lambda_i$ <strong>Proof</strong>:</p>
-<p><img src="./imgs/2pca_1.png" alt="img"></p>
-<h3 id="Iterative-View"><a href="#Iterative-View" class="headerlink" title="Iterative View"></a>Iterative View</h3></li>
-</ul>
-<p>This view provides a method to calculate the main direction once at a time, then remove this direction to find the second best direction.</p>
-<ul>
-<li>why the 1st principle eigenvalue of the residual variance matrix is the 2nd principle eigenvalue of the original variance matrix?<ul>
-<li>think of the diagonal format of the matrix, cut the first diagonal entry from the diagonal matrix, the left diagonal matrix corresponds to that of the residual variance matrix. Therefore, the biggest of this new matrix is the “second” (also, could be the same) of the old one.</li>
+<li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png?v8">📖</span> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8">⭐</span> Introducing Hypergraph Signal Processing:Theoretical Foundation and Practical Applications</li>
+<li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png?v8">📖</span>  Centralities in simplicial complexes. applications to protein interaction networks.Ernesto Estrada and Grant J Ross. 2018.</li>
+<li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png?v8">📖</span>  Centrality measures in simplicial complexes, Daniel Herna ́ndez Serrano and Dar ́ıo Sa ́nchez G ́omez. 2019</li>
 </ul>
 </li>
 </ul>
-<h3 id="Matrix-View"><a href="#Matrix-View" class="headerlink" title="Matrix View"></a>Matrix View</h3><p>This view gives the mathematical proof and solution of the problem, but not says how to do the calculation, which may cost a lot.</p>
-<ul>
-<li>are all the eigen-vectors orthogonal to each other?<ul>
-<li>Yes. The orthogonality comes from two part:</li>
+<h2 id="Life"><a href="#Life" class="headerlink" title="Life"></a>Life</h2><ul>
+<li><input disabled="" type="checkbox"> Guitar: 七月上</li>
+<li><input disabled="" type="checkbox"> 毛笔字一张</li>
+<li><input disabled="" type="checkbox"> 本周的vlog剪辑出来</li>
+<li><input disabled="" type="checkbox"> Deutsch lernen 5</li>
+<li><input disabled="" type="checkbox"> Deutsch lernen 6</li>
+<li><input disabled="" type="checkbox"> Deutsch lernen 7</li>
+<li><input disabled="" type="checkbox"> 做一个南瓜发糕</li>
+<li><input disabled="" type="checkbox"> 隐形的守护者玩完</li>
+<li><input disabled="" type="checkbox"> 开始玩 我的世界</li>
+<li><input disabled="" type="checkbox"> </li>
 </ul>
-<ol>
-<li>the eigen-vectors with different eigen-values, a <strong>theorem</strong> guarantees they are orthogonal. <em>Theorem</em>: Distinct eigenvalues of <strong>symmetric</strong> matrices have orthogonal eigenvectors. </li>
-<li>the eigen-vectors with the same eigen-value, you can always <strong>do orthogonalization</strong> on them and make them orthogonal.</li>
-</ol>
-</li>
-<li><strong>Spectral Theorem</strong> guarantees the <strong>orthogonal decomposition</strong> for <strong>symmetric</strong> matrix. Matrix is <strong>diagonalizable</strong> by an <strong>orthogonal matrix</strong> if and only if it is <strong>symmetric</strong>. </li>
-</ul>
-<h3 id="relationships"><a href="#relationships" class="headerlink" title="relationships"></a>relationships</h3><ul>
-<li><p>to linear autoencoder: <img src="http://latex.codecogs.com/svg.latex?C%3DU_k%5ET%5Cin%20k%5Ctimes%20m%2C%20D%3DU_k%5Cin%20m%5Ctimes%20k" alt="img">. If all eigenvalues are different, PCA is <strong>unique and interpretable !!</strong></p>
-</li>
-<li><p>from SVD: </p>
-<ul>
-<li>Variance matrix:<img src="http://latex.codecogs.com/svg.latex?A%3DUDV%5ET%2C%5CSigma%3DAA%5ET%3D%20UDV%5ET%20VD%5ETU%5ET%3DUD%5E2U%5ET%3DU%5CLambda%20U%5ET,%5CSigma%5Cin%20k%5Ctimes%20k" alt="img"></li>
-<li>Similarity matrix: <img src="http://latex.codecogs.com/svg.latex?A%5ETA%20%3DV%5CLambda%20V%5ET%5Cin%20n%5Ctimes%20n" alt="img"></li>
-</ul>
-</li>
-<li><p>to SVD:</p>
-<ul>
-<li><strong>U</strong>: eigenvectors of  <img src="http://latex.codecogs.com/svg.latex?AA%5ET" alt="img"></li>
-<li><strong>V</strong>: eigenvectors of  <img src="http://latex.codecogs.com/svg.latex?A%5ETA" alt="img"><h3 id="Solution-Algorithm"><a href="#Solution-Algorithm" class="headerlink" title="Solution Algorithm"></a>Solution Algorithm</h3></li>
-</ul>
-</li>
-<li><p>power method (for iterative view):</p>
-<ul>
-<li><img src="http://latex.codecogs.com/svg.latex?v_%7Bt%2B1%7D%3D%5Cfrac%7BAv_t%7D%7B%5C%7CAv_t%5C%7C%7D,%5Clim_%7Bt%5Cto%5Cinfty%7Dv_t%3Du_1" alt="img"></li>
-<li>constraint: <img src="http://latex.codecogs.com/svg.latex?%3Cu_1%2Cv_0%3E%5Cneq%200%2C%5Clambda_1%3E%5Clambda_j%20%5Cforall%20j%3E1" alt="img"></li>
-</ul>
-</li>
-<li><p>from SVD (for matrix view): good for mid-sized problems.</p>
-</li>
-</ul>
-<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><ol>
-<li><p>Calculate the empirical mean.<img src="http://latex.codecogs.com/svg.latex?%5Cbar%7Bx%7D%3D%5Cfrac%7B1%7D%7BN%7D%5CSigma_%7Bn=1%7D%5ENx_n" alt="img"></p>
-</li>
-<li><p>Center the data. <img src="http://latex.codecogs.com/svg.latex?%5Cbar%7BX%7D%20%3DX-M" alt="img"></p>
-</li>
-<li><p>Compute the covariance matrix. <img src="http://latex.codecogs.com/svg.latex?%5CSigma%3D%5Cfrac%7B1%7D%7BN%7D%5Cbar%7BX%7D%5Cbar%7BX%7D%5ET" alt="img"></p>
-<ol>
-<li>The difference between the covariance matrix of the <img src="http://latex.codecogs.com/svg.latex?XX%5ET" alt="img"> and  of<img src="http://latex.codecogs.com/svg.latex?%5Cbar%7BX%7D%5Cbar%7BX%7D%5ET" alt="img"> is <img src="http://latex.codecogs.com/svg.latex?%5Cbar%7BX%7D%5Cbar%7BX%7D%5ET%20%3DXX%5ET-M%5Cdot%20X%5ET" alt="img"></li>
-</ol>
-</li>
-<li><p>Eigenvalue Decomposition.</p>
-</li>
-<li><p>Model Selection, pick <img src="http://latex.codecogs.com/svg.latex?K%5Cleq%20D" alt="img"> and keep the projections associated with the top <img src="http://latex.codecogs.com/svg.latex?K" alt="img"> eigenvalues. </p>
-</li>
-<li><p>Transform the data onto the new basis of <img src="http://latex.codecogs.com/svg.latex?K" alt="img"> dimensions. <img src="http://latex.codecogs.com/svg.latex?%5Cbar%7BZ%7D%3DU_K%5ET%5Cbar%7BX%7D" alt="img"></p>
-</li>
-<li><p>Reconstruction.</p>
-<ol>
-<li><img src="http://latex.codecogs.com/svg.latex?%5Ctilt%7B%5Cbar%7BX%7D%7D%3DU_K%5Cbar%7BZ%7D" alt="img"></li>
-<li><img src="http://latex.codecogs.com/svg.latex?%5Ctilt%7BX%7D%3D%5Ctilt%7B%5Cbar%7BX%7D%7D+M" alt="img"></li>
-</ol>
-</li>
-</ol>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -754,7 +623,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Guirong</a>
+                    <a href="/about" rel="external nofollow noreferrer">Gui</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -764,7 +633,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://fuguigui.github.io/uncategorized/cil-1la/">https://fuguigui.github.io/uncategorized/cil-1la/</a>
+                    <a href="https://fuguigui.github.io/diary/2020-10-25-a-week-summary/">https://fuguigui.github.io/diary/2020-10-25-a-week-summary/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -777,7 +646,7 @@
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint polocy. If reproduced, please indicate source
-                    <a href="/about" target="_blank">Guirong</a>
+                    <a href="/about" target="_blank">Gui</a>
                     !
                 </span>
             </div>
@@ -801,7 +670,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/academic/">
+                                    <span class="chip bg-color">academic</span>
+                                </a>
+                            
+                                <a href="/tags/life/">
+                                    <span class="chip bg-color">life</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -967,17 +844,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/course-notes/2020-09-30-mathematical-optimization/">
+                <a href="/diary/2020-10-25-a-week-summary/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Concepts--Half-space, polyhedron">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="A week summary">
                         
-                        <span class="card-title">Concepts--Half-space, polyhedron</span>
+                        <span class="card-title">A week summary</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -987,9 +865,63 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-30
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Diary/" class="post-category">
+                                    Diary
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/academic/">
+                        <span class="chip bg-color">academic</span>
+                    </a>
+                    
+                    <a href="/tags/life/">
+                        <span class="chip bg-color">life</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/course-notes/2020-10-22-representation-of-polyhedra/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Representation of Polyhedra">
+                        
+                        <span class="card-title">Representation of Polyhedra</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1007,59 +939,6 @@
                     
                     <a href="/tags/Mathematical-Optimization/">
                         <span class="chip bg-color">Mathematical Optimization</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/misc/tools/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Hexo配置加闲聊">
-                        
-                        <span class="card-title">Hexo配置加闲聊</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-22
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/misc/" class="post-category">
-                                    misc
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
-                    <a href="/tags/blog/">
-                        <span class="chip bg-color">blog</span>
                     </a>
                     
                 </div>

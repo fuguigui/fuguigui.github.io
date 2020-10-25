@@ -475,23 +475,23 @@
             <div id="articleContent">
                 <h1 id="Data-Clustering"><a href="#Data-Clustering" class="headerlink" title="Data Clustering"></a>Data Clustering</h1><h2 id="Vector-Quantization"><a href="#Vector-Quantization" class="headerlink" title="Vector Quantization"></a>Vector Quantization</h2><p>assign vectors to some groups, denoted by the centroids. Methods: K-means, Mixture Model.</p>
 <h2 id="K-Means"><a href="#K-Means" class="headerlink" title="K-Means"></a>K-Means</h2><ul>
-<li>k: the number of clusters</li>
+<li>$k$: the number of clusters</li>
 <li>means: the way we get the centroids is by averaging.</li>
 </ul>
-<h3 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h3><p><img src="http://latex.codecogs.com/svg.latex?%5Cmin_%7BU%2CZ%7D%20J%28U%2CZ%29%3D%5CSigma_%7Bi%3D1%7D%5EN%5CSigma_%7Bj%3D1%7D%5EK%20z_%7Bij%7D%5C%7Cx_i-u_j%5C%7C%5E2%0A%3D%20%5C%7CX-UZ%5ET%5C%7C_F%5E2" alt="img"></p>
+<h3 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h3><p>$$<br>\min_{U,Z}J(U,Z)=\sum_{i=1}^N \sum_{j=1}^K z_{ij}=|x_i-u_j|^2 = |X-UZ^\top|_F^2<br>$$</p>
 <p>Here, we use the <strong>squared</strong> Euclidean distance, not the Euclidean distance.</p>
 <h3 id="Algorithms"><a href="#Algorithms" class="headerlink" title="Algorithms"></a>Algorithms</h3><p>Alternating minimization</p>
 <ul>
-<li>update <strong>Z</strong>, given <strong>U</strong>: the closest U</li>
-<li>update <strong>U</strong>, given <strong>Z</strong>: the average of Z.</li>
+<li>update $Z$, given $U$: the closest $U$</li>
+<li>update $U$, given $Z$: the average of $Z$.</li>
 </ul>
 <h3 id="Practical-considerations"><a href="#Practical-considerations" class="headerlink" title="Practical considerations"></a>Practical considerations</h3><ul>
 <li>Quadratic convergence rate.</li>
-<li>computational cost: O(nkd) per iteration.</li>
+<li>computational cost: $O(nkd)$ per iteration.</li>
 </ul>
-<h3 id="Variant"><a href="#Variant" class="headerlink" title="Variant"></a>Variant</h3><h4 id="K-Means-initialization"><a href="#K-Means-initialization" class="headerlink" title="K-Means++ (initialization)"></a>K-Means++ (initialization)</h4><p>Since initialize <strong>U</strong> and <strong>Z</strong> matter a lot to the computation cost and final result, this variant try to find a better way to initialize <strong>U</strong>. </p>
+<h3 id="Variant"><a href="#Variant" class="headerlink" title="Variant"></a>Variant</h3><h4 id="K-Means-initialization"><a href="#K-Means-initialization" class="headerlink" title="K-Means++ (initialization)"></a>K-Means++ (initialization)</h4><p>Since initialize $U$ and $Z$ matter a lot to the computation cost and final result, this variant try to find a better way to initialize $U$. </p>
 <p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/K-means%2B%2B">wiki</a></p>
-<p>The intuition behind this approach is that <strong>spreading out</strong> the <em>k</em>  initial cluster centers is a good thing: </p>
+<p>The intuition behind this approach is that <strong>spreading out</strong> the $k$  initial cluster centers is a good thing: </p>
 <ol>
 <li>the first cluster center is chosen uniformly at random from the data points that are being clustered, </li>
 <li>after which each subsequent cluster center is chosen from the remaining data points with probability proportional to its squared distance from the point’s closest existing cluster center.</li>
@@ -500,25 +500,24 @@
 <ul>
 <li><p>how big should the sub-dataset be?</p>
 <ul>
-<li><p>m is dependent on <img src="http://latex.codecogs.com/svg.latex?%5Cepsilon" alt="img">-approximation guarantees (with probability <img src="http://latex.codecogs.com/svg.latex?%5Cdelta" alt="img"> for</p>
-<p><img src="http://latex.codecogs.com/svg.latex?m%5Cpropto%20%5Cfrac%7Bdk%5Clog%20k%2B%5Clog%201%2F%5Cdelta%7D%7B%5Cepsilon%5E2%7D" alt="img"></p>
+<li><p>m is dependent on $\epsilon$-approximation guarantees (with probability $\delta$ for</p>
+<p>$$<br>m\propto \frac{dk\log k+\log 1/\delta}{\epsilon^2}<br>$$</p>
 </li>
 </ul>
 </li>
 <li><p>which nodes should be selected?</p>
 <ul>
 <li><p>randomly selected, according to the probability, which combines the uniform selection and the distance of nodes to centroids.</p>
-<p> <img src="http://latex.codecogs.com/svg.latex?p_i%20%3D%20%5Cfrac%7B1%7D%7B2N%7D%2B%5Cfrac%7BD_i%5E2%7D%7B2%5CSigma_%7Bj%3D1%7D%5END_j%5E2%7D" alt="img"></p>
+<p> $$<br>p_i=\frac{1}{2N}+\frac{D_i^2}{2\sum_{j=1}^N D_j^2}<br> $$</p>
 </li>
 <li><p>why to weight the data points?<a target="_blank" rel="noopener" href="https://las.inf.ethz.ch/files/bachem18scalable.pdf">the original paper</a></p>
 <ul>
 <li><p>the weight is to guarantee the expectation of the quantization error on the sample dataset doesn’t change.</p>
 <ul>
-<li><p>the original vector quantization error is</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cphi_%7B%5Cchi%7D%28Q%29%3D%5CSigma_%7Bx%5Cin%5Cchi%7Dd%28x%2CQ%29%5E2%3D%5CSigma_%7Bx%5Cin%5Cchi%7Dq%28x%29%5Cfrac%7Bd%28x%2CQ%29%5E2%7D%7Bq%28x%29%7D" alt="img"></p>
-</li>
+<li>the original vector quantization error is </li>
 </ul>
-<p>The quantization error can hence be approximated by sampling m points from <img src="http://latex.codecogs.com/svg.latex?%5Cchi" alt="img"> using <img src="http://latex.codecogs.com/svg.latex?q%28x%29" alt="img">and assigning them weights inversely proportional to <img src="http://latex.codecogs.com/svg.latex?q%28x%29" alt="img">.  Back to the original dataset, we can assign each data point with the selection probability <img src="http://latex.codecogs.com/svg.latex?%5cfrac%7B1%7D%7BN%7D" alt="img">, and weight 1, we get <img src="http://latex.codecogs.com/svg.latex?E%28%5Cphi_%7B%5Cchi%7D%28Q%29%29%3D%5cfrac%7B1%7D%7BN%7DE%28%5CSigma_%7Bx%5Cin%5Cchi%7Dd%28x%2CQ%29%5E2%29" alt="img"></p>
+<p>$$<br>\phi_{\mathcal{X}}(Q)=\sum_{x\in \mathcal{X}}d(x,Q)^2 = \sum_{x\in\mathcal{X}}q(x)\frac{d(x,Q)^2}{q(x)}<br>$$</p>
+<p>The quantization error can hence be approximated by sampling m points from $\mathcal{X}$ using $q(x)$and assigning them weights inversely proportional to  $q(x)$.  Back to the original dataset, we can assign each data point with the selection probability $\frac{1}{N}$, and weight $1$, we get <img src="http://latex.codecogs.com/svg.latex?E%28%5Cphi_%7B%5Cchi%7D%28Q%29%29%3D%5cfrac%7B1%7D%7BN%7DE%28%5CSigma_%7Bx%5Cin%5Cchi%7Dd%28x%2CQ%29%5E2%29" alt="img"></p>
 <ul>
 <li><p>the error on the new dataset <img src="http://latex.codecogs.com/svg.latex?%5Czeta" alt="img"> is</p>
 <p><img src="http://latex.codecogs.com/svg.latex?%5Cphi_%7B%5Czeta%7D%28Q%29%3D%5CSigma_%7Bx%5Cin%5Czeta%7Dp%28x%29w%28x%29d%28x%2CQ%29%5E2" alt="img">, </p>
