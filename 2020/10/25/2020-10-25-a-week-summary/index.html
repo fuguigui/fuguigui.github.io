@@ -533,10 +533,10 @@
 <h2 id="Graph-models"><a href="#Graph-models" class="headerlink" title="Graph models"></a>Graph models</h2><p>本周的认识都是high-level的，没有基础知识的积累：GIN的那篇paper从现有的基于邻居消息传递的GNN框架的局限性出发，引起我思考：什么样的模型是基于这个框架的，除此之外还有哪些其他模型种类。各种基于Laplacian的模型是不是也基于这个邻居消息传递的？比如GCN，其实是根据Laplacian矩阵选择weighted的邻居的。</p>
 <h1 id="下周计划"><a href="#下周计划" class="headerlink" title="下周计划"></a>下周计划</h1><h2 id="Mathematical-optimization"><a href="#Mathematical-optimization" class="headerlink" title="Mathematical optimization"></a>Mathematical optimization</h2><p>Video</p>
 <ul>
-<li><input disabled="" type="checkbox"> 10.5 (10.26)</li>
-<li><input disabled="" type="checkbox"> 10.8 (10.27)</li>
-<li><input disabled="" type="checkbox"> 10.12 (10.29)</li>
-<li><input disabled="" type="checkbox"> 10.15 (10.30)</li>
+<li><input checked="" disabled="" type="checkbox"> 10.5 (10.26)</li>
+<li><input checked="" disabled="" type="checkbox"> 10.8 (10.27)</li>
+<li><input checked="" disabled="" type="checkbox"> 10.12 (10.29)</li>
+<li><input checked="" disabled="" type="checkbox"> 10.15 (10.30) (last 7 minutes)</li>
 </ul>
 <p>Script:</p>
 <ul>
@@ -544,34 +544,28 @@
 </ul>
 <h2 id="Graph-Papers"><a href="#Graph-Papers" class="headerlink" title="Graph Papers"></a>Graph Papers</h2><p>这周准备采取综述，书籍和最新论文相结合的模式来进行领域学习。学习的目的：</p>
 <ul>
-<li><p>了解图领域的主要任务</p>
-</li>
-<li><p>了解现有模型没有解决的问题</p>
-</li>
-<li><p>未来可能的发展方向是什么</p>
-</li>
-<li><p>如何把经典理论和现代nn的方法结合起来呢？</p>
-</li>
-<li><input disabled="" type="checkbox"> <p>ICLR2021专栏：</p>
-<ul>
+<li>了解图领域的主要任务</li>
+<li>了解现有模型没有解决的问题</li>
+<li>未来可能的发展方向是什么</li>
+<li>如何把经典理论和现代nn的方法结合起来呢？</li>
+<li><input disabled="" type="checkbox"> ICLR2021专栏：<ul>
 <li><input disabled="" type="checkbox"> Graph-graph similarity network</li>
 <li><input disabled="" type="checkbox"> how to find your friendly neighborhood: graph attention design with self-supervision</li>
 <li><input disabled="" type="checkbox"> graph neural network pooling by edge cut</li>
 </ul>
 </li>
-<li><input disabled="" type="checkbox"> <p>NIPS专栏：</p>
-<ul>
-<li><input disabled="" type="checkbox"> （10.26） <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8">🌟</span> Random walks on hypergraphs. Timoteo Carletti, Federico Battiston, Giulia Cencetti, and Duccio Fanelli. Phys. Rev. E, 101(2):022308, 2020. 及其周边</li>
+<li><input disabled="" type="checkbox"> NIPS专栏：<ul>
+<li><input checked="" disabled="" type="checkbox"> （10.26） <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8">🌟</span> Random walks on hypergraphs. Timoteo Carletti, Federico Battiston, Giulia Cencetti, and Duccio Fanelli. Phys. Rev. E, 101(2):022308, 2020. 及其周边</li>
 <li><input disabled="" type="checkbox"> Path Integral Based convolution and pooling for graph neural networks</li>
 <li><input disabled="" type="checkbox"> Convergence and Stability of GCN on Large Random graphs</li>
 <li><input disabled="" type="checkbox"> Erdos Goes Neural: an Unsupervised Learning Framework for Combinatorial Optimization on Graphs</li>
 <li><input disabled="" type="checkbox"> Learning Graph Structure With A Finite-State Automaton Layer</li>
 </ul>
 </li>
-<li><input disabled="" type="checkbox"> <p>KDD2020: GraphSTONE</p>
-</li>
-<li><input disabled="" type="checkbox"> <p>综述：</p>
-<ul>
+<li><input disabled="" type="checkbox"> KDD2020: GraphSTONE</li>
+<li><input disabled="" type="checkbox"> 综述：<ul>
+<li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png?v8">📖</span> The Emerging Field of Signal Processing on Graphs</li>
+<li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png?v8">📖</span> Discrete Signal Processing on Graphs</li>
 <li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png?v8">📖</span> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8">⭐</span> Introducing Hypergraph Signal Processing:Theoretical Foundation and Practical Applications</li>
 <li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png?v8">📖</span>  Centralities in simplicial complexes. applications to protein interaction networks.Ernesto Estrada and Grant J Ross. 2018.</li>
 <li><input disabled="" type="checkbox"> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png?v8">📖</span>  Centrality measures in simplicial complexes, Daniel Herna ́ndez Serrano and Dar ́ıo Sa ́nchez G ́omez. 2019</li>
@@ -580,15 +574,22 @@
 </ul>
 <h2 id="Life"><a href="#Life" class="headerlink" title="Life"></a>Life</h2><ul>
 <li><input disabled="" type="checkbox"> Guitar: 七月上</li>
-<li><input disabled="" type="checkbox"> 毛笔字一张</li>
-<li><input disabled="" type="checkbox"> 本周的vlog剪辑出来</li>
-<li><input disabled="" type="checkbox"> Deutsch lernen 5</li>
-<li><input disabled="" type="checkbox"> Deutsch lernen 6</li>
-<li><input disabled="" type="checkbox"> Deutsch lernen 7</li>
-<li><input disabled="" type="checkbox"> 做一个南瓜发糕</li>
-<li><input disabled="" type="checkbox"> 隐形的守护者玩完</li>
+<li><input checked="" disabled="" type="checkbox"> 毛笔字一张</li>
+<li><input disabled="" type="checkbox"> Deutsch lernen 看三集<ul>
+<li><input checked="" disabled="" type="checkbox"> 1</li>
+<li><input checked="" disabled="" type="checkbox"> 2</li>
+<li><input disabled="" type="checkbox"> 3</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 权力的游戏：<ul>
+<li><input checked="" disabled="" type="checkbox"> 第六季第五集</li>
+<li><input checked="" disabled="" type="checkbox"> 第六集</li>
+<li><input checked="" disabled="" type="checkbox"> 第七集</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 做一个南瓜发糕</li>
+<li><input checked="" disabled="" type="checkbox"> 隐形的守护者玩完</li>
 <li><input disabled="" type="checkbox"> 开始玩 我的世界</li>
-<li><input disabled="" type="checkbox"> </li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -844,12 +845,11 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="">
+                <a href="../../../11/01/2020-11-1-a-week-summary/">
                     <div class="card-image">
                         
                         
@@ -865,9 +865,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-25
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-01
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -880,7 +880,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     

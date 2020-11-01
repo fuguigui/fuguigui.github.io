@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fuguigui.github.io/"/>
-  <updated>2020-10-25T20:19:06.108Z</updated>
+  <updated>2020-11-01T20:31:18.629Z</updated>
   <id>https://fuguigui.github.io/</id>
   
   <author>
@@ -18,10 +18,39 @@
   
   <entry>
     <title>A week summary</title>
+    <link href="https://fuguigui.github.io/2020/11/01/2020-11-1-a-week-summary/"/>
+    <id>https://fuguigui.github.io/2020/11/01/2020-11-1-a-week-summary/</id>
+    <published>2020-10-31T23:00:00.000Z</published>
+    <updated>2020-11-01T20:31:18.629Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;十月过去啦，马上就是十一月二日美国大选了！万众瞩目，坐等更新。这一周发生了蛮多事情的。今天借住的好朋友搬走了，又回到了一个人的卧室。法国的宗教暴力事件让人害怕。欧洲疫情的第二波高峰汹汹来袭，瑞士的每日新增人数达到了前所未有的高峰，这个八百万人口的国家，每日新增已经破九千了。
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
+    
+    
+      <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
+    
+      <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>A week summary</title>
     <link href="https://fuguigui.github.io/2020/10/25/2020-10-25-a-week-summary/"/>
     <id>https://fuguigui.github.io/2020/10/25/2020-10-25-a-week-summary/</id>
     <published>2020-10-24T22:00:00.000Z</published>
-    <updated>2020-10-25T20:19:06.108Z</updated>
+    <updated>2020-11-01T20:32:12.967Z</updated>
     
     <summary type="html">
     
@@ -546,35 +575,6 @@
         
           &lt;p&gt;How do we use inference we keep tracking over time in order to act? &lt;/p&gt;
 &lt;h1 id=&quot;Markov-Decision-Process&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
-    
-    
-      <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
-    
-      <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bayesian Network 2 - Inference</title>
-    <link href="https://fuguigui.github.io/2020/01/26/pai-04/"/>
-    <id>https://fuguigui.github.io/2020/01/26/pai-04/</id>
-    <published>2020-01-25T23:00:00.000Z</published>
-    <updated>2020-10-19T21:02:39.648Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Inference&quot;&gt;&lt;a href=&quot;#Inference&quot; class=&quot;headerlink&quot; title=&quot;Inference&quot;&gt;&lt;/a&gt;Inference&lt;/h1&gt;&lt;h2 id=&quot;Typical-queries&quot;&gt;&lt;a
         
       
     
