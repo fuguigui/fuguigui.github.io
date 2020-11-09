@@ -1,8 +1,8 @@
 ---
 title: Bayesian Network 1 - Basic
 date: 2020-01-23
-tags: [courses, Probability, AI]
-categories: Probabilistic Artificial Intelligence
+tags: [probabilistic artificial intelligence, reinforcement learning]
+categories: course notes
 ---
 # Questions
 - why to say the conditional independence is weaker than independence?

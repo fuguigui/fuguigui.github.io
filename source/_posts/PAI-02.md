@@ -1,8 +1,8 @@
 ---
 title: Probability review
 date: 2020-01-23
-tags: [courses, Probability, AI]
-categories: Probabilistic Artificial Intelligence
+tags: [probabilistic artificial intelligence, reinforcement learning]
+categories: course notes
 ---
 
 # Probability Review

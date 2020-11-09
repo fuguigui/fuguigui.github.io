@@ -1,11 +1,9 @@
 ---
 title: Vocabulary 动词
-author: Guirong Fu
 date: 2019-09-23
 update: 2020-03-13
-tags: [language, deutsch]
-categories: Deutsch
-
+tags: [deutsch]
+categories: language
 ---
 
 ö ä ü ß

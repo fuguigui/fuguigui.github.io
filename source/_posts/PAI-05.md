@@ -1,8 +1,8 @@
 ---
 title: Reasoning over Time
 date: 2020-01-28
-tags: [courses, Probability, AI]
-categories: Probabilistic Artificial Intelligence
+tags: [probabilistic artificial intelligence, reinforcement learning]
+categories: course notes
 ---
 
 Before, we talk about static models, which means variables don't change possible values. For temporal models, in which variables' value states can change over time, approaches are generated from static model:

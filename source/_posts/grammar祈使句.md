@@ -1,10 +1,8 @@
 ---
 title: German grammar:祈使句
-author: Guirong Fu
 date: 2019-09-24
-tags: [language, deutsch]
-categories: Deutsch
-
+tags: [deutsch]
+categories: language
 ---
 
 ö ä ü ß

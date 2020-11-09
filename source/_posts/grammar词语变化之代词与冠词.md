@@ -1,10 +1,9 @@
 ---
 title: German grammar词语变化之代词与冠词
-author: Guirong Fu
 date: 2019-09-06
 updated: 2020-02-11
-tags: [language, deutsch, grammar]
-categories: Deutsch
+tags: [deutsch]
+categories: language
 ---
 
 

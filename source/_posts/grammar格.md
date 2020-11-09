@@ -1,9 +1,8 @@
 ---
 title: German grammar:动词介词的格
-author: Guirong Fu
 date: 2020-02-07
-tags: [language, deutsch]
-categories: Deutsch
+tags: [deutsch]
+categories: language
 ---
 
 

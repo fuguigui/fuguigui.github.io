@@ -2,14 +2,14 @@ theme:
   matery
 
 title: Fululu
-subtitle: Another Version
-description: Warning! You accidently rushed into another world of lulu. Maybe something here will scare you. Remeber, everything is created by heart.
-author: Guirong Fu
+subtitle: Keep Exploring
+description: Warning! You accidentally rushed into another world of lulu. Maybe something here will scare you. Remember, everything is created by heart.
+author: Guirong
 keywords:
-  - Data
-  - Code
+  - Maths
+  - Coding
   - Life
-  - Formula
+  - Enjoy
 language: 
   - en
   - zh
@@ -22,12 +22,50 @@ tag_dir: tags
 archive_dir: archives
 category_dir: categories
 
+# url
 url: https://fuguigui.github.io/
-permalink: :category/:title/
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: true # Set to false to remove trailing '.html' from permalinks
 
+
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: true
+relative_link: true
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: ''
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 18
+  per_page: 10
   order_by: -date
 
 # Category & Tag
@@ -35,19 +73,31 @@ default_category: uncategorized
 category_map:
 tag_map:
 
-per_page: 18
+per_page: 10
 pagination_dir: page
 
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+include:
+exclude:
+ignore: drafts
+
+# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
   repo: git@github.com:fuguigui/fuguigui.github.io.git
   branch: master
+
+
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: 'mtime'
 
 # main menu navigation url and icon
 # 配置菜单导航的名称、路径和图标icon.
@@ -165,9 +215,6 @@ githubEmojis:
   customEmojis:
 
 
-highlight:
-  enable: false
-
 prism_plugin:
   mode: 'preprocess'    # realtime/preprocess
   theme: 'tomorrow'
@@ -220,9 +267,11 @@ copyright:
 # you also need to add `mathjax: true` to the Front-matter of the post that needs to be rendered.
 # 是否激活mathjax数学公式，这是全局配置，但文章仍然不会都开启mathjax渲染，
 # 考虑到mathjax加载比较耗时，你还需要在需要渲染的文章的Front-matter中再加上`mathjax: true`才行.
-mathjax:
-  enable: false
-  cdn: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+math:
+  enable: true
+  per_page: true
+  engine: mathjax
+  # cdn: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 feed:
   type: atom
@@ -267,22 +316,12 @@ myProjects:
       iconBackground: 'linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)'
       url: http://github.com/blinkfox/hexo-theme-matery
       desc: This is a Hexo blog theme with 'Material Design' and responsive design.
-    zealt:
-        icon: fa-database
-        iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
-        url: https://github.com/blinkfox/zealot
-        desc: 一个轻量级的SQL和参数动态生成工具库
-    typora-vue-theme:
-        icon: fa-file-text-o
-        iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
-        url: https://github.com/blinkfox/typora-vue-theme
-        desc: This is a typora theme inspired by Vue document style.
 
 # config my skills informations in about page.
 # If you don't want to display this `My Skills` content, you can deactivate or delete this configuration.
 # 在“关于”页面配置"我的技能"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
 mySkills:
-  enable: true
+  enable: false
   data:
     R:
       background: 'linear-gradient(to right, #FF0066 0%, #FF00CC 100%)'
@@ -292,9 +331,6 @@ mySkills:
       percent: 85%
     Java:
       background: 'linear-gradient(to right, #2196F3 0%, #42A5F5 100%)'
-      percent: 70%
-    Neo4j:
-      background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
       percent: 70%
     SQL:
       background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'

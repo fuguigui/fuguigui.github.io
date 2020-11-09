@@ -1,8 +1,8 @@
 ---
 title: Learning
 date: 2020-01-28
-tags: [courses, Probability, AI]
-categories: Probabilistic Artificial Intelligence
+tags: [probabilistic artificial intelligence, reinforcement learning]
+categories: course notes
 ---
 
 So far, we talk about how to use a given model to do some tasks, e.g. inference, planning. But where do these models come from? Now, we turn attention to learn models from training data.

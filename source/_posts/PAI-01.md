@@ -1,8 +1,8 @@
 ---
 title: Introduction
 date: 2020-01-23
-tags: [courses, Probability, AI]
-categories: Probabilistic Artificial Intelligence
+tags: [probabilistic artificial intelligence, reinforcement learning]
+categories: course notes
 ---
 
 I took part in the course [Probabilistic Artifical Intelligence](https://las.inf.ethz.ch/pai-f19) in the autumn festival 2019, which is opened by Professor Andreas Krause(https://las.inf.ethz.ch/krausea). This series of notes are created in course review and contain the main ideas/concepts/methods of each lecture, my own thoughts/ideas/questions as well as out-of-class helpful materials. More detailed information please refer to the lecture notes posted on the course homepage.

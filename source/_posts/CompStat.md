@@ -2,8 +2,8 @@
 title: Computational Statistics
 date: 2019-08-22
 top: true
-tags: [courses, statistics, machine learning]
-categories: Compuational Statistics
+tags: [compuational statistics]
+categories: course notes
 ---
 
 <center>My Work on Compuational Statistics</center> 

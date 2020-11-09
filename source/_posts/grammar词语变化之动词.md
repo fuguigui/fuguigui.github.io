@@ -1,10 +1,9 @@
 ---
 title: German grammar词语变化之动词
-author: Guirong Fu
 date: 2019-09-06
 updated: 2020-03-04
-tags: [language, deutsch, grammar]
-categories: Deutsch
+tags: [deutsch]
+categories: language
 ---
 
 ö ä ü ß

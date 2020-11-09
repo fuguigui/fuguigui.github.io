@@ -1,13 +1,10 @@
 ---
 title: German grammar:从句
-author: Guirong Fu
 date: 2019-09-06
 update: 2020-04-10
-tags: [language, deutsch]
-categories: Deutsch
+tags: [deutsch]
+categories: language
 ---
-
-ö ä ü ß
 
 从句的特征：
 

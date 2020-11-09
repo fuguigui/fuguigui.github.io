@@ -1,9 +1,8 @@
 ---
 title: German grammar:时态
-author: Guirong Fu
 date: 2020-04-09
-tags: [language, deutsch]
-categories: Deutsch
+tags: [deutsch]
+categories: language
 ---
 
 # 过去完成时

@@ -1,8 +1,8 @@
 ---
 title: Probabilistic Planning
 date: 2020-01-28
-tags: [courses, Probability, AI]
-categories: Probabilistic Artificial Intelligence
+tags: [probabilistic artificial intelligence, reinforcement learning]
+categories: course notes
 ---
 
 How do we use inference we keep tracking over time in order to act? 

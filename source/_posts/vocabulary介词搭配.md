@@ -1,13 +1,10 @@
 ---
 title: Vocabulary 介词搭配
-author: Guirong Fu
 date: 2019-09-06
 update: 2020-03-06
-tags: [language, deutsch]
-categories: Deutsch
+tags: [deutsch]
+categories: language
 ---
-
-ö ä ü ß
 
 | 只接三格       | 只接四格 | 三格/四格 |
 | -------------- | -------- | --------- |

@@ -1,8 +1,8 @@
 ---
 title: Bayesian Network 2 - Inference
 date: 2020-01-26
-tags: [courses, Probability, AI]
-categories: Probabilistic Artificial Intelligence
+tags: [probabilistic artificial intelligence, reinforcement learning]
+categories: course notes
 ---
 
 # Inference
