@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fuguigui.github.io/"/>
-  <updated>2020-11-01T20:31:18.629Z</updated>
+  <updated>2020-11-09T07:14:27.380Z</updated>
   <id>https://fuguigui.github.io/</id>
   
   <author>
@@ -18,10 +18,39 @@
   
   <entry>
     <title>A week summary</title>
+    <link href="https://fuguigui.github.io/2020/11/09/2020-11-9-a-week-summary/"/>
+    <id>https://fuguigui.github.io/2020/11/09/2020-11-9-a-week-summary/</id>
+    <published>2020-11-08T23:00:00.000Z</published>
+    <updated>2020-11-09T07:14:27.380Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;经过比历史波折一些的选举，Joe
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
+    
+    
+      <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
+    
+      <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>A week summary</title>
     <link href="https://fuguigui.github.io/2020/11/01/2020-11-1-a-week-summary/"/>
     <id>https://fuguigui.github.io/2020/11/01/2020-11-1-a-week-summary/</id>
     <published>2020-10-31T23:00:00.000Z</published>
-    <updated>2020-11-01T20:31:18.629Z</updated>
+    <updated>2020-11-09T07:11:05.123Z</updated>
     
     <summary type="html">
     
@@ -545,36 +574,6 @@
         
         
           &lt;p&gt;So far, we talk about how to use a given model to do some tasks, e.g. inference, planning. But where do these models come from? Now, we
-        
-      
-    
-    </summary>
-    
-    
-      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
-    
-    
-      <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
-    
-      <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Probabilistic Planning</title>
-    <link href="https://fuguigui.github.io/2020/01/28/pai-06/"/>
-    <id>https://fuguigui.github.io/2020/01/28/pai-06/</id>
-    <published>2020-01-27T23:00:00.000Z</published>
-    <updated>2020-10-19T21:02:56.797Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;How do we use inference we keep tracking over time in order to act? &lt;/p&gt;
-&lt;h1 id=&quot;Markov-Decision-Process&quot;&gt;&lt;a
         
       
     
