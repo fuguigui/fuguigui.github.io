@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fuguigui.github.io/"/>
-  <updated>2020-11-09T07:14:27.380Z</updated>
+  <updated>2020-11-16T06:46:30.653Z</updated>
   <id>https://fuguigui.github.io/</id>
   
   <author>
@@ -18,10 +18,40 @@
   
   <entry>
     <title>A week summary</title>
+    <link href="https://fuguigui.github.io/2020/11/16/2020-11-16-a-week-summary/"/>
+    <id>https://fuguigui.github.io/2020/11/16/2020-11-16-a-week-summary/</id>
+    <published>2020-11-16T06:24:50.038Z</published>
+    <updated>2020-11-16T06:46:30.653Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;上一周基调是平平日常的，发生的一件大事：和国内某互联网的HR谈了薪资，总体是心动的，有一些小犹豫，但真要做出最后决定还取决于其他事情的发展。&lt;/p&gt;
+&lt;h1 id=&quot;计划回顾&quot;&gt;&lt;a href=&quot;#计划回顾&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
+    
+    
+      <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
+    
+      <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>A week summary</title>
     <link href="https://fuguigui.github.io/2020/11/09/2020-11-9-a-week-summary/"/>
     <id>https://fuguigui.github.io/2020/11/09/2020-11-9-a-week-summary/</id>
     <published>2020-11-08T23:00:00.000Z</published>
-    <updated>2020-11-09T07:14:27.380Z</updated>
+    <updated>2020-11-16T06:45:43.479Z</updated>
     
     <summary type="html">
     
@@ -545,35 +575,6 @@
         
         
           &lt;p&gt;Before, we talk about static models, which means variables don’t change possible values. For temporal models, in which variables’ value
-        
-      
-    
-    </summary>
-    
-    
-      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
-    
-    
-      <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
-    
-      <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Learning</title>
-    <link href="https://fuguigui.github.io/2020/01/28/pai-07/"/>
-    <id>https://fuguigui.github.io/2020/01/28/pai-07/</id>
-    <published>2020-01-27T23:00:00.000Z</published>
-    <updated>2020-10-19T21:03:06.211Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;So far, we talk about how to use a given model to do some tasks, e.g. inference, planning. But where do these models come from? Now, we
         
       
     
