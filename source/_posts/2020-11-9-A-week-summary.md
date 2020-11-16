@@ -55,39 +55,39 @@ Life: 28%. Incomplete tasks:
 
 ## Life
 
-- [ ] 每天睡满八个小时（包括午觉哈）
-- [ ] 每个工作日留给运动一个小时的时间
-- [ ] 精心制作一款土豆泥
-- [ ] Game of throne. Season 6 Episode 9 10
+- [x] 每天睡满八个小时（包括午觉哈）
+- [x] 每个工作日留给运动一个小时的时间
+- [x] 精心制作一款栗子泥
+- [x] Game of throne. Season 6 Episode 9 10
 - [ ] Deutsch Vokabel: Everyday
 - [ ] Deutsch lernen: 2 episodes
-- [ ] Bodycombat 2次（周二和周五）
-- [ ] 缺氧
-  - [ ] 学会高压制氧
-  - [ ] 学会小动物放牧
-- [ ] 钢琴：
-  - [ ] 学会致爱丽丝
-  - [ ] 学会另一首曲子
+- [x] Bodycombat 2次（周二和周五）
+- [x] 缺氧
+  - [x] 学会高压制氧
+  - [x] 学会小动物放牧
+- [x] 钢琴：
+  - [x] 学会致爱丽丝
+  - [x] 学会另一首曲子
 
 ## Mathematical Optimization
 
 进展顺利的话，本周应该可以看直播啦，而不是补录播。争取做到哦
 
-- [ ] Video: 2020-11-2 (11.9)
-- [ ] Video: 2020-11-5 (11.10)
-- [ ] Video: 2020-11-9 (11.11)
+- [x] Video: 2020-11-2 (11.9)
+- [x] Video: 2020-11-5 (11.10)
+- [x] Video: 2020-11-9 (11.11)
 - [ ] Video: 2020-11-12 (11.12)
 - [ ] 总结之前所学的内容（11.13）
 
 ## Thesis
 
 - [ ] coding
-  - [ ] snn的结果复现
+  - [x] snn的结果复现
   - [ ] hodgenet的模型pytorch重写
-  - [ ] 生成其他数据集
+  - [x] 生成其他数据集
 - [ ] reading
-  - [ ] [NHP](https://malllabiisc.github.io/publications/papers/nhp_cikm20.pdf)
-  - [ ] [hypergraph neural networks](https://arxiv.org/pdf/1809.09401.pdf)
+  - [x] [NHP](https://malllabiisc.github.io/publications/papers/nhp_cikm20.pdf)
+  - [x] [hypergraph neural networks](https://arxiv.org/pdf/1809.09401.pdf)
   - [ ] :star:[Topological](https://arxiv.org/pdf/1907.11577.pdf)
   - [ ] Hodge-1 Laplacian and HodgeNet they only use Hodge-1 Laplacian, but we can define a new wavelet transform using geometric scattering and random walk matrix, check eq. 2 in https://arxiv.org/pdf/1810.03068.pdf
   - [ ] 以及他们最新的改进 https://arxiv.org/pdf/2010.15010.pdf
