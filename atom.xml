@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fuguigui.github.io/"/>
-  <updated>2020-11-16T06:46:30.653Z</updated>
+  <updated>2020-12-06T11:19:31.435Z</updated>
   <id>https://fuguigui.github.io/</id>
   
   <author>
@@ -15,6 +15,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>A week summary</title>
+    <link href="https://fuguigui.github.io/2020/12/06/2020-12-06-a-week-summary/"/>
+    <id>https://fuguigui.github.io/2020/12/06/2020-12-06-a-week-summary/</id>
+    <published>2020-12-06T11:19:31.435Z</published>
+    <updated>2020-12-06T11:19:31.435Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;上周的总结，我悄咪咪地鸽了。给自己找个理由：亲戚来了，不在状态。直接总结两周哈。这周的感受一个词来形容就是：尽兴！我终于要学会倾听自己最真实的声音了。&lt;/p&gt;
+&lt;p&gt;之前的注意力更多放在了形式上，比如：我要在几点几点做什么。但很可能那个时刻并不是很想做这些事，就会走神，走神
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
+    
+    
+      <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
+    
+      <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>A week summary</title>
+    <link href="https://fuguigui.github.io/2020/11/23/2020-11-23-a-week-summary/"/>
+    <id>https://fuguigui.github.io/2020/11/23/2020-11-23-a-week-summary/</id>
+    <published>2020-11-23T05:31:39.881Z</published>
+    <updated>2020-11-23T05:40:26.035Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;上一周，和老公一起过了“在一起一千天”的纪念日，越来越爱他了！每天和他视频，看着他充满宠溺的小眼神，感觉自己是最幸福的人！上周文明6更新，和老公开了一期巴比伦，英雄模式，这eurika拿得爽死了。周六骑车去了趟Zug，然后去启凡party中心蹭饭吃。饭后，和熊熊，珊珊，小启
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
+    
+    
+      <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
+    
+      <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
+    
+  </entry>
   
   <entry>
     <title>A week summary</title>
@@ -529,64 +588,6 @@
     
     
       <category term="deutsch" scheme="https://fuguigui.github.io/tags/deutsch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reinforcement Learning</title>
-    <link href="https://fuguigui.github.io/2020/01/29/pai-08/"/>
-    <id>https://fuguigui.github.io/2020/01/29/pai-08/</id>
-    <published>2020-01-28T23:00:00.000Z</published>
-    <updated>2020-10-19T21:03:14.361Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;The data is assumed to be drawn from some distributions. In reinforcement learning, we learn by interacting with environment. For
-        
-      
-    
-    </summary>
-    
-    
-      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
-    
-    
-      <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
-    
-      <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reasoning over Time</title>
-    <link href="https://fuguigui.github.io/2020/01/28/pai-05/"/>
-    <id>https://fuguigui.github.io/2020/01/28/pai-05/</id>
-    <published>2020-01-27T23:00:00.000Z</published>
-    <updated>2020-10-19T21:02:48.513Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Before, we talk about static models, which means variables don’t change possible values. For temporal models, in which variables’ value
-        
-      
-    
-    </summary>
-    
-    
-      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
-    
-    
-      <category term="probabilistic artificial intelligence" scheme="https://fuguigui.github.io/tags/probabilistic-artificial-intelligence/"/>
-    
-      <category term="reinforcement learning" scheme="https://fuguigui.github.io/tags/reinforcement-learning/"/>
     
   </entry>
   

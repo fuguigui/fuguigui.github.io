@@ -5,6 +5,60 @@
     
     <entry>
       <title>A week summary</title>
+      <link href="/2020/12/06/2020-12-06-a-week-summary/"/>
+      <url>/2020/12/06/2020-12-06-a-week-summary/</url>
+      
+        <content type="html"><![CDATA[<p>上周的总结，我悄咪咪地鸽了。给自己找个理由：亲戚来了，不在状态。直接总结两周哈。这周的感受一个词来形容就是：尽兴！我终于要学会倾听自己最真实的声音了。</p><p>之前的注意力更多放在了形式上，比如：我要在几点几点做什么。但很可能那个时刻并不是很想做这些事，就会走神，走神，走神，低效率，气死了。然鹅，这周经过几次尽兴的体验之后，感悟到：如果把时间投入到某个时刻最想干的事情上，而不是死板地执行计划表，会更有效率且开心。人毕竟不是机器嘛，情绪主导。还有一件，自己现在想想还蛮可笑可爱的事情，就是玩缺氧玩到生气，好生气，建的东西不是理想中的那样。经过和老公的交流，意识到向别人学习的重要性，以及问问题是一种非常非常高效的学习方式，比一个人死磕来得高效的多。我之前太喜欢自己一个人死磕了，自学是很好，但有时候效率不高，要学会去请教别人哇！不要把自己定位太高，充满疑问好奇接纳的眼光去看待周围，会发现很多好玩儿的事哦。有时候嘛，要把自己当成个傻子，别太高估自个儿了～</p><p>好啦，废话不多说，照例总结</p><h1 id="计划回顾"><a href="#计划回顾" class="headerlink" title="计划回顾"></a>计划回顾</h1><h2 id="Mathematical-Optimization"><a href="#Mathematical-Optimization" class="headerlink" title="Mathematical Optimization"></a>Mathematical Optimization</h2><ul><li>所有的课程都跟上节拍啦</li><li>Problem set2，证明题基本看完了</li></ul><h2 id="Thesis"><a href="#Thesis" class="headerlink" title="Thesis"></a>Thesis</h2><ul><li>triangle prediction的数据处理部分框架搭建好，模型框架搭建好</li></ul><h2 id="Life"><a href="#Life" class="headerlink" title="Life"></a>Life</h2><ul><li>骑车去了Zug</li><li>做了蒸米蛋糕</li><li>煎了鱼块吃</li><li>一周练习了三次瑜伽</li><li>《彩虹》各小节分开练习完成</li><li>《权力的游戏》第七季看完</li><li>入坑《我的世界》啦</li><li>对《缺氧》有了些新认识</li><li>和老公一起看了《半个喜剧》</li><li>《Rick and Morty》第四季看完了（好快。。。）</li><li>发了一个b站vlog</li></ul><h1 id="本周计划"><a href="#本周计划" class="headerlink" title="本周计划"></a>本周计划</h1><h2 id="Life-1"><a href="#Life-1" class="headerlink" title="Life"></a>Life</h2><ul><li><input disabled="" type="checkbox"> 《阳光普照》看电影</li><li><input disabled="" type="checkbox"> 《权力的游戏》第八季看完</li><li><input disabled="" type="checkbox"> 《彩虹》练熟</li><li><input disabled="" type="checkbox"> 做个排骨吃</li><li><input disabled="" type="checkbox"> 做个绿豆糕吃</li><li><input disabled="" type="checkbox"> 继续练三次瑜伽</li></ul><h2 id="Mathematical-Optimization-1"><a href="#Mathematical-Optimization-1" class="headerlink" title="Mathematical Optimization"></a>Mathematical Optimization</h2><ul><li><input disabled="" type="checkbox"> 跟住上课的节奏<ul><li><input disabled="" type="checkbox"> 争取上课问问题</li></ul></li><li><input disabled="" type="checkbox"> 把Problem set2的编程题做完</li><li><input disabled="" type="checkbox"> 直接跳到最新的Problem set上，去上习题课</li></ul><h2 id="Thesis-1"><a href="#Thesis-1" class="headerlink" title="Thesis"></a>Thesis</h2><ul><li><input disabled="" type="checkbox"> 精读link prediction任务场景和代码</li><li><input disabled="" type="checkbox"> 把Triangle prediction成功跑出来</li><li><input disabled="" type="checkbox"> 考虑模型适当地拓展</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Diary </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> academic </tag>
+            
+            <tag> life </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>A week summary</title>
+      <link href="/2020/11/23/2020-11-23-a-week-summary/"/>
+      <url>/2020/11/23/2020-11-23-a-week-summary/</url>
+      
+        <content type="html"><![CDATA[<p>上一周，和老公一起过了“在一起一千天”的纪念日，越来越爱他了！每天和他视频，看着他充满宠溺的小眼神，感觉自己是最幸福的人！上周文明6更新，和老公开了一期巴比伦，英雄模式，这eurika拿得爽死了。周六骑车去了趟Zug，然后去启凡party中心蹭饭吃。饭后，和熊熊，珊珊，小启凡一起上山看鹿，又是悠闲舒适的下午。周日感觉自己光打电话了，看到楠养的小奶猫：牛奶。她曾经说，养猫有什么好玩的。现在，真香！</p><h1 id="计划回顾"><a href="#计划回顾" class="headerlink" title="计划回顾"></a>计划回顾</h1><ul><li>Life:50%. Incomplete tasks:<ul><li>每天八小时</li><li>香蕉糊的vlog</li><li>权力的游戏</li><li>This is us</li><li>练字</li></ul></li><li>Mathematical Optimization: 70%. Incomplete taskÖ<ul><li>Script and problem set</li></ul></li><li>Thesis: 100%</li></ul><p>一些感慨：睡觉这个要用心，不要给自己太大压力。看视频嘛，看rick and morty快看完了，感觉作者真天才，想重新再看一遍。MO在复习中遇到了新的需求，就是先重新整理一下笔记吧。然后再做练习题。感觉这种证明为主的东西，学了一遍，认为老师证明的有道理，还是远远不够的，要弄明白为什么这么证明，思路是怎么来的，几何直观要想想吧，intuition这些东西要好好想想。</p><p>Thesis进入了全面阅读paper的模式。</p><h1 id="下周计划"><a href="#下周计划" class="headerlink" title="下周计划"></a>下周计划</h1><h2 id="Mathematical-Optimization"><a href="#Mathematical-Optimization" class="headerlink" title="Mathematical Optimization"></a>Mathematical Optimization</h2><ul><li><input disabled="" type="checkbox"> Course 11-23 (11-23)</li><li><input disabled="" type="checkbox"> Course 11-26 (11-26)</li><li><input disabled="" type="checkbox"> Script + Note: page 18-46 (11-23)</li><li><input disabled="" type="checkbox"> Problem set2 (11-24)</li><li><input disabled="" type="checkbox"> Script + Note: page 46-71, Problem set 3 (11-25)</li><li><input disabled="" type="checkbox"> Script+Note: page 71-81, Problem set 4 (11-27)</li></ul><h2 id="Thesis"><a href="#Thesis" class="headerlink" title="Thesis"></a>Thesis</h2><ul><li><input disabled="" type="checkbox"> 整理出Issue部分(11-23)</li><li><input disabled="" type="checkbox"> 提出值得研究的问题(11-24)</li><li><input disabled="" type="checkbox"> 待定</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Diary </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> academic </tag>
+            
+            <tag> life </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>A week summary</title>
       <link href="/2020/11/16/2020-11-16-a-week-summary/"/>
       <url>/2020/11/16/2020-11-16-a-week-summary/</url>
       
