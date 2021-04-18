@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fuguigui.github.io/"/>
-  <updated>2020-12-06T11:19:31.435Z</updated>
+  <updated>2021-04-18T18:33:57.531Z</updated>
   <id>https://fuguigui.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://fuguigui.github.io/2021/04/18/2021-04-18-master-thesis/"/>
+    <id>https://fuguigui.github.io/2021/04/18/2021-04-18-master-thesis/</id>
+    <published>2021-04-18T18:22:46.051Z</published>
+    <updated>2021-04-18T18:33:57.531Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;This article is a quick review of the path of my master thesis until now. I hope this record could be some guide for my future learning
+        
+      
+    
+    </summary>
+    
+    
+      <category term="research" scheme="https://fuguigui.github.io/categories/research/"/>
+    
+    
+      <category term="capsule network, GNN" scheme="https://fuguigui.github.io/tags/capsule-network-GNN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>30岁前的每一天</title>
+    <link href="https://fuguigui.github.io/2021/04/18/2021-04-18-30-sui-qian-de-mei-yi-tian/"/>
+    <id>https://fuguigui.github.io/2021/04/18/2021-04-18-30-sui-qian-de-mei-yi-tian/</id>
+    <published>2021-04-18T10:52:47.659Z</published>
+    <updated>2021-04-18T18:34:39.459Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;30岁前的每一天：实用梦想管理指南&lt;/p&gt;
+&lt;p&gt;作者：水湄物语&lt;/p&gt;
+&lt;p&gt;这本书的重点是要培养年轻人的理财观念，同时涵盖了年轻人的价值观塑造，心态认识的转变和一些生活工作习惯的推荐。对于理财部分，主要介绍了理财带来的好处，而其重点是为了推销作者创办的理财课程。对于理财
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>A week summary</title>
@@ -531,63 +583,6 @@
     
     
       <category term="security" scheme="https://fuguigui.github.io/tags/security/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SysML提前看</title>
-    <link href="https://fuguigui.github.io/2020/02/24/2020-02-24-sysml-ti-qian-kan/"/>
-    <id>https://fuguigui.github.io/2020/02/24/2020-02-24-sysml-ti-qian-kan/</id>
-    <published>2020-02-23T23:00:00.000Z</published>
-    <updated>2020-10-19T20:44:13.912Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;机器学习本质上是一系列的数值计算。当需要计算的数据量很大或者计算模型很大时，就需要设计一个合适的平台来进行这种计算。机器学习系统就是针对此方面的研究，即开发一类特殊的系统，用于支持和部署机器学习模型。&lt;/p&gt;
-&lt;p&gt;在本篇提前看中，我们从不同的角度选择三篇文章，以求对机器学
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Paper reading" scheme="https://fuguigui.github.io/categories/Paper-reading/"/>
-    
-    
-      <category term="Machine Learning" scheme="https://fuguigui.github.io/tags/Machine-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>German grammar:动词介词的格</title>
-    <link href="https://fuguigui.github.io/2020/02/07/grammar-ge/"/>
-    <id>https://fuguigui.github.io/2020/02/07/grammar-ge/</id>
-    <published>2020-02-06T23:00:00.000Z</published>
-    <updated>2020-10-19T20:52:50.247Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;ö ä ü ß&lt;/p&gt;
-&lt;p&gt;动词+介词+四格（Akkusativ）&lt;/p&gt;
-&lt;p&gt;Kochs &lt;strong&gt;haben&lt;/strong&gt; lange &lt;em&gt;auf einen Tisch&lt;/em&gt;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="language" scheme="https://fuguigui.github.io/categories/language/"/>
-    
-    
-      <category term="deutsch" scheme="https://fuguigui.github.io/tags/deutsch/"/>
     
   </entry>
   
