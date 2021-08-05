@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Fululu</title>
   
-  <subtitle>Keep Exploring</subtitle>
-  <link href="/atom.xml" rel="self"/>
+  <subtitle>Always Remeber</subtitle>
+  <link href="https://fuguigui.github.io/atom.xml" rel="self"/>
   
   <link href="https://fuguigui.github.io/"/>
-  <updated>2021-04-18T18:33:57.531Z</updated>
+  <updated>2021-07-24T11:56:04.960Z</updated>
   <id>https://fuguigui.github.io/</id>
   
   <author>
@@ -14,55 +14,76 @@
     
   </author>
   
-  <generator uri="http://hexo.io/">Hexo</generator>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>b</title>
+    <link href="https://fuguigui.github.io/20210724b/"/>
+    <id>https://fuguigui.github.io/20210724b/</id>
+    <published>2021-07-24T11:56:04.000Z</published>
+    <updated>2021-07-24T11:56:04.960Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return; }
+       </summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title></title>
-    <link href="https://fuguigui.github.io/2021/04/18/2021-04-18-master-thesis/"/>
-    <id>https://fuguigui.github.io/2021/04/18/2021-04-18-master-thesis/</id>
+    <link href="https://fuguigui.github.io/202104192021-04-18-master-thesis/"/>
+    <id>https://fuguigui.github.io/202104192021-04-18-master-thesis/</id>
     <published>2021-04-18T18:22:46.051Z</published>
     <updated>2021-04-18T18:33:57.531Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;p&gt;This article is a quick review of the path of my master thesis until now. I hope this record could be some guide for my future learning
+    <summary type="html">&lt;p&gt;This article is a quick review of the path of my master thesis until now. I hope this record could be some guide for my future learning</summary>
         
       
     
-    </summary>
     
     
-      <category term="research" scheme="https://fuguigui.github.io/categories/research/"/>
+    <category term="research" scheme="https://fuguigui.github.io/categories/research/"/>
     
     
-      <category term="capsule network, GNN" scheme="https://fuguigui.github.io/tags/capsule-network-GNN/"/>
+    <category term="capsule network, GNN" scheme="https://fuguigui.github.io/tags/capsule-network-GNN/"/>
     
   </entry>
   
   <entry>
     <title>30岁前的每一天</title>
-    <link href="https://fuguigui.github.io/2021/04/18/2021-04-18-30-sui-qian-de-mei-yi-tian/"/>
-    <id>https://fuguigui.github.io/2021/04/18/2021-04-18-30-sui-qian-de-mei-yi-tian/</id>
+    <link href="https://fuguigui.github.io/202104182021-04-18-30-sui-qian-de-mei-yi-tian/"/>
+    <id>https://fuguigui.github.io/202104182021-04-18-30-sui-qian-de-mei-yi-tian/</id>
     <published>2021-04-18T10:52:47.659Z</published>
-    <updated>2021-04-18T18:34:39.459Z</updated>
+    <updated>2021-07-25T06:34:33.085Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;p&gt;30岁前的每一天：实用梦想管理指南&lt;/p&gt;
+    <summary type="html">&lt;p&gt;30岁前的每一天：实用梦想管理指南&lt;/p&gt;
 &lt;p&gt;作者：水湄物语&lt;/p&gt;
-&lt;p&gt;这本书的重点是要培养年轻人的理财观念，同时涵盖了年轻人的价值观塑造，心态认识的转变和一些生活工作习惯的推荐。对于理财部分，主要介绍了理财带来的好处，而其重点是为了推销作者创办的理财课程。对于理财
+&lt;p&gt;这本书的重点是要培养年轻人的理财观念，同时涵盖了年轻人的价值观塑造，心态认识的转变和一些生活工作习惯的推荐。对于理财部分，主要介绍了理财带来的好处，而其重点是为了推销作者创办的理财课程。对于理财</summary>
         
       
     
-    </summary>
     
     
     
@@ -70,519 +91,461 @@
   
   <entry>
     <title>A week summary</title>
-    <link href="https://fuguigui.github.io/2020/12/06/2020-12-06-a-week-summary/"/>
-    <id>https://fuguigui.github.io/2020/12/06/2020-12-06-a-week-summary/</id>
+    <link href="https://fuguigui.github.io/202012062020-12-06-a-week-summary/"/>
+    <id>https://fuguigui.github.io/202012062020-12-06-a-week-summary/</id>
     <published>2020-12-06T11:19:31.435Z</published>
     <updated>2020-12-06T11:19:31.435Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;p&gt;上周的总结，我悄咪咪地鸽了。给自己找个理由：亲戚来了，不在状态。直接总结两周哈。这周的感受一个词来形容就是：尽兴！我终于要学会倾听自己最真实的声音了。&lt;/p&gt;
-&lt;p&gt;之前的注意力更多放在了形式上，比如：我要在几点几点做什么。但很可能那个时刻并不是很想做这些事，就会走神，走神
+    <summary type="html">&lt;p&gt;上周的总结，我悄咪咪地鸽了。给自己找个理由：亲戚来了，不在状态。直接总结两周哈。这周的感受一个词来形容就是：尽兴！我终于要学会倾听自己最真实的声音了。&lt;/p&gt;
+&lt;p&gt;之前的注意力更多放在了形式上，比如：我要在几点几点做什么。但很可能那个时刻并不是很想做这些事，就会走神，走神</summary>
         
       
     
-    </summary>
     
     
-      <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
+    <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
     
     
-      <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
+    <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
     
-      <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
+    <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
     
   </entry>
   
   <entry>
     <title>A week summary</title>
-    <link href="https://fuguigui.github.io/2020/11/23/2020-11-23-a-week-summary/"/>
-    <id>https://fuguigui.github.io/2020/11/23/2020-11-23-a-week-summary/</id>
+    <link href="https://fuguigui.github.io/202011232020-11-23-a-week-summary/"/>
+    <id>https://fuguigui.github.io/202011232020-11-23-a-week-summary/</id>
     <published>2020-11-23T05:31:39.881Z</published>
     <updated>2020-11-23T05:40:26.035Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;p&gt;上一周，和老公一起过了“在一起一千天”的纪念日，越来越爱他了！每天和他视频，看着他充满宠溺的小眼神，感觉自己是最幸福的人！上周文明6更新，和老公开了一期巴比伦，英雄模式，这eurika拿得爽死了。周六骑车去了趟Zug，然后去启凡party中心蹭饭吃。饭后，和熊熊，珊珊，小启
+    <summary type="html">&lt;p&gt;上一周，和老公一起过了“在一起一千天”的纪念日，越来越爱他了！每天和他视频，看着他充满宠溺的小眼神，感觉自己是最幸福的人！上周文明6更新，和老公开了一期巴比伦，英雄模式，这eurika拿得爽死了。周六骑车去了趟Zug，然后去启凡party中心蹭饭吃。饭后，和熊熊，珊珊，小启</summary>
         
       
     
-    </summary>
     
     
-      <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
+    <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
     
     
-      <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
+    <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
     
-      <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
+    <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
     
   </entry>
   
   <entry>
     <title>A week summary</title>
-    <link href="https://fuguigui.github.io/2020/11/16/2020-11-16-a-week-summary/"/>
-    <id>https://fuguigui.github.io/2020/11/16/2020-11-16-a-week-summary/</id>
+    <link href="https://fuguigui.github.io/202011162020-11-16-a-week-summary/"/>
+    <id>https://fuguigui.github.io/202011162020-11-16-a-week-summary/</id>
     <published>2020-11-16T06:24:50.038Z</published>
     <updated>2020-11-16T06:46:30.653Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;p&gt;上一周基调是平平日常的，发生的一件大事：和国内某互联网的HR谈了薪资，总体是心动的，有一些小犹豫，但真要做出最后决定还取决于其他事情的发展。&lt;/p&gt;
-&lt;h1 id=&quot;计划回顾&quot;&gt;&lt;a href=&quot;#计划回顾&quot; class=&quot;headerlink&quot;
+    <summary type="html">&lt;p&gt;上一周基调是平平日常的，发生的一件大事：和国内某互联网的HR谈了薪资，总体是心动的，有一些小犹豫，但真要做出最后决定还取决于其他事情的发展。&lt;/p&gt;
+&lt;h1 id=&quot;计划回顾&quot;&gt;&lt;a href=&quot;#计划回顾&quot; class=&quot;headerlink&quot;</summary>
         
       
     
-    </summary>
     
     
-      <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
+    <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
     
     
-      <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
+    <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
     
-      <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
+    <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
     
   </entry>
   
   <entry>
     <title>A week summary</title>
-    <link href="https://fuguigui.github.io/2020/11/09/2020-11-9-a-week-summary/"/>
-    <id>https://fuguigui.github.io/2020/11/09/2020-11-9-a-week-summary/</id>
+    <link href="https://fuguigui.github.io/202011092020-11-9-a-week-summary/"/>
+    <id>https://fuguigui.github.io/202011092020-11-9-a-week-summary/</id>
     <published>2020-11-08T23:00:00.000Z</published>
     <updated>2020-11-16T06:45:43.479Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;p&gt;经过比历史波折一些的选举，Joe
+    <summary type="html">&lt;p&gt;经过比历史波折一些的选举，Joe</summary>
         
       
     
-    </summary>
     
     
-      <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
+    <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
     
     
-      <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
+    <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
     
-      <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
+    <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
     
   </entry>
   
   <entry>
     <title>A week summary</title>
-    <link href="https://fuguigui.github.io/2020/11/01/2020-11-1-a-week-summary/"/>
-    <id>https://fuguigui.github.io/2020/11/01/2020-11-1-a-week-summary/</id>
+    <link href="https://fuguigui.github.io/202011012020-11-1-a-week-summary/"/>
+    <id>https://fuguigui.github.io/202011012020-11-1-a-week-summary/</id>
     <published>2020-10-31T23:00:00.000Z</published>
-    <updated>2020-11-09T07:11:05.123Z</updated>
+    <updated>2021-07-25T06:35:33.969Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;p&gt;十月过去啦，马上就是十一月二日美国大选了！万众瞩目，坐等更新。这一周发生了蛮多事情的。今天借住的好朋友搬走了，又回到了一个人的卧室。法国的宗教暴力事件让人害怕。欧洲疫情的第二波高峰汹汹来袭，瑞士的每日新增人数达到了前所未有的高峰，这个八百万人口的国家，每日新增已经破九千了。
+    <summary type="html">&lt;p&gt;十月过去啦，马上就是十一月二日美国大选了！万众瞩目，坐等更新。这一周发生了蛮多事情的。今天借住的好朋友搬走了，又回到了一个人的卧室。法国的宗教暴力事件让人害怕。欧洲疫情的第二波高峰汹汹来袭，瑞士的每日新增人数达到了前所未有的高峰，这个八百万人口的国家，每日新增已经破九千了。</summary>
         
       
     
-    </summary>
     
     
-      <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
+    <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
     
     
-      <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
+    <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
     
-      <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
+    <category term="food" scheme="https://fuguigui.github.io/tags/food/"/>
+    
+    <category term="music" scheme="https://fuguigui.github.io/tags/music/"/>
     
   </entry>
   
   <entry>
     <title>A week summary</title>
-    <link href="https://fuguigui.github.io/2020/10/25/2020-10-25-a-week-summary/"/>
-    <id>https://fuguigui.github.io/2020/10/25/2020-10-25-a-week-summary/</id>
+    <link href="https://fuguigui.github.io/202010252020-10-25-a-week-summary/"/>
+    <id>https://fuguigui.github.io/202010252020-10-25-a-week-summary/</id>
     <published>2020-10-24T22:00:00.000Z</published>
-    <updated>2020-11-01T20:32:12.967Z</updated>
+    <updated>2021-07-25T09:34:39.844Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;h1 id=&quot;计划回顾&quot;&gt;&lt;a href=&quot;#计划回顾&quot; class=&quot;headerlink&quot; title=&quot;计划回顾&quot;&gt;&lt;/a&gt;计划回顾&lt;/h1&gt;&lt;p&gt;上周计划的完成情况：&lt;/p&gt;
-&lt;p&gt;Graph paper: 50%.  Incomplete
+    <summary type="html">&lt;h1 id=&quot;计划回顾&quot;&gt;&lt;a href=&quot;#计划回顾&quot; class=&quot;headerlink&quot; title=&quot;计划回顾&quot;&gt;&lt;/a&gt;计划回顾&lt;/h1&gt;&lt;p&gt;上周计划的完成情况：&lt;/p&gt;
+&lt;p&gt;Graph paper: 50%.  Incomplete</summary>
         
       
     
-    </summary>
     
     
-      <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
+    <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
     
     
-      <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
+    <category term="thesis" scheme="https://fuguigui.github.io/tags/thesis/"/>
     
-      <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
+    <category term="gnn" scheme="https://fuguigui.github.io/tags/gnn/"/>
+    
+    <category term="maths" scheme="https://fuguigui.github.io/tags/maths/"/>
     
   </entry>
   
   <entry>
     <title>Representation of Polyhedra</title>
-    <link href="https://fuguigui.github.io/2020/10/22/2020-10-22-representation-of-polyhedra/"/>
-    <id>https://fuguigui.github.io/2020/10/22/2020-10-22-representation-of-polyhedra/</id>
+    <link href="https://fuguigui.github.io/202010222020-10-22-representation-of-polyhedra/"/>
+    <id>https://fuguigui.github.io/202010222020-10-22-representation-of-polyhedra/</id>
     <published>2020-10-21T22:00:00.000Z</published>
     <updated>2020-10-23T07:49:48.357Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;h1 id=&quot;Concepts&quot;&gt;&lt;a href=&quot;#Concepts&quot; class=&quot;headerlink&quot; title=&quot;Concepts&quot;&gt;&lt;/a&gt;Concepts&lt;/h1&gt;&lt;h2 id=&quot;Convex-hull&quot;&gt;&lt;a href=&quot;#Convex-hull&quot;
+    <summary type="html">&lt;h1 id=&quot;Concepts&quot;&gt;&lt;a href=&quot;#Concepts&quot; class=&quot;headerlink&quot; title=&quot;Concepts&quot;&gt;&lt;/a&gt;Concepts&lt;/h1&gt;&lt;h2 id=&quot;Convex-hull&quot;&gt;&lt;a href=&quot;#Convex-hull&quot;</summary>
         
       
     
-    </summary>
     
     
-      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
+    <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
     
     
-      <category term="Mathematical Optimization" scheme="https://fuguigui.github.io/tags/Mathematical-Optimization/"/>
+    <category term="Mathematical Optimization" scheme="https://fuguigui.github.io/tags/Mathematical-Optimization/"/>
     
   </entry>
   
   <entry>
     <title>(GNNs) ChebyNet</title>
-    <link href="https://fuguigui.github.io/2020/10/20/2020-10-20-gnns-chebynet/"/>
-    <id>https://fuguigui.github.io/2020/10/20/2020-10-20-gnns-chebynet/</id>
+    <link href="https://fuguigui.github.io/202010202020-10-20-gnns-chebynet/"/>
+    <id>https://fuguigui.github.io/202010202020-10-20-gnns-chebynet/</id>
     <published>2020-10-19T22:00:00.000Z</published>
     <updated>2020-10-20T08:56:33.047Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;h1 id=&quot;ChebyNet&quot;&gt;&lt;a href=&quot;#ChebyNet&quot; class=&quot;headerlink&quot; title=&quot;ChebyNet&quot;&gt;&lt;/a&gt;ChebyNet&lt;/h1&gt;&lt;p&gt;&lt;a
+    <summary type="html">&lt;h1 id=&quot;ChebyNet&quot;&gt;&lt;a href=&quot;#ChebyNet&quot; class=&quot;headerlink&quot; title=&quot;ChebyNet&quot;&gt;&lt;/a&gt;ChebyNet&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
         
       
     
-    </summary>
     
     
-      <category term="research" scheme="https://fuguigui.github.io/categories/research/"/>
+    <category term="research" scheme="https://fuguigui.github.io/categories/research/"/>
     
     
-      <category term="GNN" scheme="https://fuguigui.github.io/tags/GNN/"/>
+    <category term="GNN" scheme="https://fuguigui.github.io/tags/GNN/"/>
     
   </entry>
   
   <entry>
     <title>Faces</title>
-    <link href="https://fuguigui.github.io/2020/10/20/2020-10-20-faces/"/>
-    <id>https://fuguigui.github.io/2020/10/20/2020-10-20-faces/</id>
+    <link href="https://fuguigui.github.io/202010202020-10-20-faces/"/>
+    <id>https://fuguigui.github.io/202010202020-10-20-faces/</id>
     <published>2020-10-19T22:00:00.000Z</published>
     <updated>2020-10-22T13:33:15.615Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;h1 id=&quot;Faces&quot;&gt;&lt;a href=&quot;#Faces&quot; class=&quot;headerlink&quot; title=&quot;Faces&quot;&gt;&lt;/a&gt;Faces&lt;/h1&gt;&lt;h2 id=&quot;Proposition-1-13&quot;&gt;&lt;a href=&quot;#Proposition-1-13&quot;
+    <summary type="html">&lt;h1 id=&quot;Faces&quot;&gt;&lt;a href=&quot;#Faces&quot; class=&quot;headerlink&quot; title=&quot;Faces&quot;&gt;&lt;/a&gt;Faces&lt;/h1&gt;&lt;h2 id=&quot;Proposition-1-13&quot;&gt;&lt;a href=&quot;#Proposition-1-13&quot;</summary>
         
       
     
-    </summary>
     
     
-      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
+    <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
     
     
-      <category term="Mathematical Optimization" scheme="https://fuguigui.github.io/tags/Mathematical-Optimization/"/>
+    <category term="Mathematical Optimization" scheme="https://fuguigui.github.io/tags/Mathematical-Optimization/"/>
     
   </entry>
   
   <entry>
     <title>(GNNs) GCN</title>
-    <link href="https://fuguigui.github.io/2020/10/19/2020-10-19-gnns-gcn/"/>
-    <id>https://fuguigui.github.io/2020/10/19/2020-10-19-gnns-gcn/</id>
+    <link href="https://fuguigui.github.io/202010192020-10-19-gnns-gcn/"/>
+    <id>https://fuguigui.github.io/202010192020-10-19-gnns-gcn/</id>
     <published>2020-10-18T22:00:00.000Z</published>
     <updated>2020-10-20T08:56:36.004Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;h1 id=&quot;GCN&quot;&gt;&lt;a href=&quot;#GCN&quot; class=&quot;headerlink&quot; title=&quot;GCN&quot;&gt;&lt;/a&gt;GCN&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;input checked=&quot;&quot; disabled=&quot;&quot; type=&quot;checkbox&quot;&gt; &lt;p&gt;what is
+    <summary type="html">&lt;h1 id=&quot;GCN&quot;&gt;&lt;a href=&quot;#GCN&quot; class=&quot;headerlink&quot; title=&quot;GCN&quot;&gt;&lt;/a&gt;GCN&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&quot;&quot; disabled=&quot;&quot; type=&quot;checkbox&quot;&gt; &lt;p&gt;what is</summary>
         
       
     
-    </summary>
     
     
-      <category term="research" scheme="https://fuguigui.github.io/categories/research/"/>
+    <category term="research" scheme="https://fuguigui.github.io/categories/research/"/>
     
     
-      <category term="GNN" scheme="https://fuguigui.github.io/tags/GNN/"/>
+    <category term="GNN" scheme="https://fuguigui.github.io/tags/GNN/"/>
     
   </entry>
   
   <entry>
     <title>Overview of GNN models</title>
-    <link href="https://fuguigui.github.io/2020/10/19/2020-10-19-overview-of-gnn-models/"/>
-    <id>https://fuguigui.github.io/2020/10/19/2020-10-19-overview-of-gnn-models/</id>
+    <link href="https://fuguigui.github.io/202010192020-10-19-overview-of-gnn-models/"/>
+    <id>https://fuguigui.github.io/202010192020-10-19-overview-of-gnn-models/</id>
     <published>2020-10-18T22:00:00.000Z</published>
     <updated>2020-10-20T06:37:56.603Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;p&gt;Some GNNs resource.&lt;/p&gt;
-&lt;p&gt;&lt;a
+    <summary type="html">&lt;p&gt;Some GNNs resource.&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
         
       
     
-    </summary>
     
     
-      <category term="research" scheme="https://fuguigui.github.io/categories/research/"/>
+    <category term="research" scheme="https://fuguigui.github.io/categories/research/"/>
     
     
-      <category term="GNN, academic, overview" scheme="https://fuguigui.github.io/tags/GNN-academic-overview/"/>
+    <category term="GNN, academic, overview" scheme="https://fuguigui.github.io/tags/GNN-academic-overview/"/>
     
   </entry>
   
   <entry>
     <title>A week summary</title>
-    <link href="https://fuguigui.github.io/2020/10/18/2020-10-18-a-week-summary/"/>
-    <id>https://fuguigui.github.io/2020/10/18/2020-10-18-a-week-summary/</id>
+    <link href="https://fuguigui.github.io/202010182020-10-18-a-week-summary/"/>
+    <id>https://fuguigui.github.io/202010182020-10-18-a-week-summary/</id>
     <published>2020-10-17T22:00:00.000Z</published>
     <updated>2020-10-25T19:44:27.675Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;p&gt;本周的总结：&lt;/p&gt;
+    <summary type="html">&lt;p&gt;本周的总结：&lt;/p&gt;
 &lt;p&gt;初步了解了higher-order graph的一些模型，重点了解用simplicial complex进行建模的理论基础和实际案例。&lt;/p&gt;
 &lt;p&gt;主要入手的几篇论文：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;simplicial neural
+&lt;li&gt;simplicial neural</summary>
         
       
     
-    </summary>
     
     
-      <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
+    <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
     
     
-      <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
+    <category term="academic" scheme="https://fuguigui.github.io/tags/academic/"/>
     
-      <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
+    <category term="life" scheme="https://fuguigui.github.io/tags/life/"/>
     
   </entry>
   
   <entry>
     <title>Concepts--Half-space, polyhedron</title>
-    <link href="https://fuguigui.github.io/2020/09/30/2020-09-30-mathematical-optimization/"/>
-    <id>https://fuguigui.github.io/2020/09/30/2020-09-30-mathematical-optimization/</id>
+    <link href="https://fuguigui.github.io/202009302020-09-30-mathematical-optimization/"/>
+    <id>https://fuguigui.github.io/202009302020-09-30-mathematical-optimization/</id>
     <published>2020-09-29T22:00:00.000Z</published>
     <updated>2020-10-20T11:17:19.822Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;p&gt;&lt;img src=&quot;./pic/093001.png&quot; alt=&quot;relax&quot;&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;./pic/093001.png&quot; alt=&quot;relax&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&gt; would this replacement add more
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&gt; would this replacement add more</summary>
         
       
     
-    </summary>
     
     
-      <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
+    <category term="course notes" scheme="https://fuguigui.github.io/categories/course-notes/"/>
     
     
-      <category term="Mathematical Optimization" scheme="https://fuguigui.github.io/tags/Mathematical-Optimization/"/>
+    <category term="Mathematical Optimization" scheme="https://fuguigui.github.io/tags/Mathematical-Optimization/"/>
     
   </entry>
   
   <entry>
     <title>Hexo配置加闲聊</title>
-    <link href="https://fuguigui.github.io/2020/08/22/tools/"/>
-    <id>https://fuguigui.github.io/2020/08/22/tools/</id>
+    <link href="https://fuguigui.github.io/20200822tools/"/>
+    <id>https://fuguigui.github.io/20200822tools/</id>
     <published>2020-08-22T14:12:38.079Z</published>
     <updated>2020-10-19T21:12:56.050Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;p&gt;俗话说“跑程序一小时，配环境一整天”。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;俗话说“跑程序一小时，配环境一整天”。&lt;/p&gt;
 &lt;p&gt;第一步就是要配置环境。这有一个&lt;a href=&quot;https://hexo.io/zh-cn/docs/&quot;&gt;官方教程&lt;/a&gt;，可以参考&lt;/p&gt;
 &lt;p&gt;其实只要环境配置好了，后续的操作都非常简单。&lt;/p&gt;
-&lt;h1
+&lt;h1</summary>
         
       
     
-    </summary>
     
     
-      <category term="misc" scheme="https://fuguigui.github.io/categories/misc/"/>
+    <category term="misc" scheme="https://fuguigui.github.io/categories/misc/"/>
     
     
-      <category term="hexo" scheme="https://fuguigui.github.io/tags/hexo/"/>
+    <category term="hexo" scheme="https://fuguigui.github.io/tags/hexo/"/>
     
-      <category term="blog" scheme="https://fuguigui.github.io/tags/blog/"/>
+    <category term="blog" scheme="https://fuguigui.github.io/tags/blog/"/>
     
   </entry>
   
   <entry>
     <title>German grammar:时态</title>
-    <link href="https://fuguigui.github.io/2020/04/09/grammar-shi-tai/"/>
-    <id>https://fuguigui.github.io/2020/04/09/grammar-shi-tai/</id>
+    <link href="https://fuguigui.github.io/20200409grammar-shi-tai/"/>
+    <id>https://fuguigui.github.io/20200409grammar-shi-tai/</id>
     <published>2020-04-08T22:00:00.000Z</published>
     <updated>2020-10-19T20:52:39.810Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;h1 id=&quot;过去完成时&quot;&gt;&lt;a href=&quot;#过去完成时&quot; class=&quot;headerlink&quot;
+    <summary type="html">&lt;h1 id=&quot;过去完成时&quot;&gt;&lt;a href=&quot;#过去完成时&quot; class=&quot;headerlink&quot;</summary>
         
       
     
-    </summary>
     
     
-      <category term="language" scheme="https://fuguigui.github.io/categories/language/"/>
+    <category term="language" scheme="https://fuguigui.github.io/categories/language/"/>
     
     
-      <category term="deutsch" scheme="https://fuguigui.github.io/tags/deutsch/"/>
+    <category term="deutsch" scheme="https://fuguigui.github.io/tags/deutsch/"/>
     
   </entry>
   
   <entry>
     <title>机器学习面试</title>
-    <link href="https://fuguigui.github.io/2020/03/29/mian-shi-ji-qi-xue-xi-pian/"/>
-    <id>https://fuguigui.github.io/2020/03/29/mian-shi-ji-qi-xue-xi-pian/</id>
+    <link href="https://fuguigui.github.io/20200329-mian-shi-ji-qi-xue-xi-pian/"/>
+    <id>https://fuguigui.github.io/20200329-mian-shi-ji-qi-xue-xi-pian/</id>
     <published>2020-03-28T23:00:00.000Z</published>
     <updated>2020-10-19T21:09:32.575Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;h1 id=&quot;各种经典机器学习模型&quot;&gt;&lt;a href=&quot;#各种经典机器学习模型&quot; class=&quot;headerlink&quot; title=&quot;各种经典机器学习模型&quot;&gt;&lt;/a&gt;各种经典机器学习模型&lt;/h1&gt;&lt;h2 id=&quot;SVM&quot;&gt;&lt;a href=&quot;#SVM&quot;
+    <summary type="html">&lt;h1 id=&quot;各种经典机器学习模型&quot;&gt;&lt;a href=&quot;#各种经典机器学习模型&quot; class=&quot;headerlink&quot; title=&quot;各种经典机器学习模型&quot;&gt;&lt;/a&gt;各种经典机器学习模型&lt;/h1&gt;&lt;h2 id=&quot;SVM&quot;&gt;&lt;a href=&quot;#SVM&quot;</summary>
         
       
     
-    </summary>
     
     
-      <category term="job" scheme="https://fuguigui.github.io/categories/job/"/>
+    <category term="job" scheme="https://fuguigui.github.io/categories/job/"/>
     
     
-      <category term="machine learning" scheme="https://fuguigui.github.io/tags/machine-learning/"/>
+    <category term="machine learning" scheme="https://fuguigui.github.io/tags/machine-learning/"/>
     
   </entry>
   
   <entry>
     <title>(Paper) Willnump</title>
-    <link href="https://fuguigui.github.io/2020/02/27/2020-02-27willump/"/>
-    <id>https://fuguigui.github.io/2020/02/27/2020-02-27willump/</id>
+    <link href="https://fuguigui.github.io/202002272020-02-27willump/"/>
+    <id>https://fuguigui.github.io/202002272020-02-27willump/</id>
     <published>2020-02-26T23:00:00.000Z</published>
     <updated>2020-10-25T20:41:23.470Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;p&gt;Paper: &lt;a href=&quot;https://arxiv.org/abs/1906.01974&quot;&gt;Willump&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;New-Area&quot;&gt;&lt;a href=&quot;#New-Area&quot; class=&quot;headerlink&quot; title=&quot;New
+    <summary type="html">&lt;p&gt;Paper: &lt;a href=&quot;https://arxiv.org/abs/1906.01974&quot;&gt;Willump&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;New-Area&quot;&gt;&lt;a href=&quot;#New-Area&quot; class=&quot;headerlink&quot; title=&quot;New</summary>
         
       
     
-    </summary>
     
     
-      <category term="Paper reading" scheme="https://fuguigui.github.io/categories/Paper-reading/"/>
+    <category term="Paper reading" scheme="https://fuguigui.github.io/categories/Paper-reading/"/>
     
     
-      <category term="system" scheme="https://fuguigui.github.io/tags/system/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>(Paper) Privacy-preserving bandits</title>
-    <link href="https://fuguigui.github.io/2020/02/26/2020-02-26p2b/"/>
-    <id>https://fuguigui.github.io/2020/02/26/2020-02-26p2b/</id>
-    <published>2020-02-25T23:00:00.000Z</published>
-    <updated>2020-10-25T20:41:34.769Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Paper: &lt;a href=&quot;https://arxiv.org/abs/1909.04421&quot;&gt;Privacy-preserving bandits&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;New-areas&quot;&gt;&lt;a href=&quot;#New-areas&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Paper reading" scheme="https://fuguigui.github.io/categories/Paper-reading/"/>
-    
-    
-      <category term="security" scheme="https://fuguigui.github.io/tags/security/"/>
+    <category term="system" scheme="https://fuguigui.github.io/tags/system/"/>
     
   </entry>
   
