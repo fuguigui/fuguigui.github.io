@@ -1,6 +1,8 @@
 ---
-title: about
-date: 2019-09-11 13:23:08
+title: About Me
+date: 2021-07-24 12:02:08
 type: "about"
 layout: "about"
+describe: "A small girl keeps adventuring in such a big world!"
+author: Lulu
 ---

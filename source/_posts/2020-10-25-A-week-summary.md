@@ -2,8 +2,9 @@
 title:  A week summary
 author: Gui
 date: 2020-10-25
-tags: [academic, life]
-categories: Diary
+tags: [thesis, gnn, maths]
+categories: 
+- [Diary]
 ---
 
 # 计划回顾
@@ -62,9 +63,9 @@ Game: 90%. Incomplete tasks:
 
 - degenerate/degeneracy： 引入这个概念是为了干什么？
 
-![module](./pic/20201025Module.png)
+![Module](20201025Module.png)
 
-![xmind](./pic/20201025Polyhedron.png)
+![Mindmap](20201025Polyhedron.png)
 
 ## Graph models
 
