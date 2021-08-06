@@ -6,16 +6,23 @@ tags: [compuational statistics]
 categories: course notes
 ---
 
-<center>My Work on Compuational Statistics</center> 
-<br>
-
-{% pdf ./CompStat.pdf %}
+<center>My work on Compuational Statistics</center> 
 
 <br>
 
+# All course notes
+
+{% pdf notes.pdf %}
+
+<br>
 
 
-<br>{% pdf ./CompStatCheatSheet.pdf %}
+
+<br>
+
+## Exam Cheatsheet
+
+{% pdf cheatsheet.pdf %}
 
 <br>
 

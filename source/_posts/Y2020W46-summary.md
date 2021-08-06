@@ -1,11 +1,15 @@
 ---
-title: A week summary
+title: Weekly Summary
 Date: 2020-11-16
 tags: [academic, life]
 categories: Diary
 ---
 
 上一周基调是平平日常的，发生的一件大事：和国内某互联网的HR谈了薪资，总体是心动的，有一些小犹豫，但真要做出最后决定还取决于其他事情的发展。
+
+```python
+code test
+```
 
 # 计划回顾
 

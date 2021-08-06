@@ -3,6 +3,7 @@ title: Topic Model
 date: 2019-07-09
 tags: [computational intelligence]
 categories: course notes
+mathjax: true
 ---
 # Topic Model
 - Are the topics given ahead, fixed? Means we already have a set of available topics.

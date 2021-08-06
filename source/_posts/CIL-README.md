@@ -21,7 +21,7 @@ The values of these notes are my questions and thoughts. I believe question is t
 
 - [Linear autoencoder](../1la/index.html)
 - [Matrix completion](../2mc/index.html)
-- [Non-negative matrix factorization](../3nn/index.html)
+- [Non-negative matrix factorization](../cil-topic-model/index.html)
 
 ## Word Embedding
 
@@ -29,7 +29,7 @@ The values of these notes are my questions and thoughts. I believe question is t
 
 ## Data Clustering
 
-- [Clustering](../6mm/index.html)
+- [Clustering](../cil-6mm/index.html)
 
 ## Neural Network
 

@@ -6,3 +6,21 @@ layout: "about"
 describe: "A small girl keeps adventuring in such a big world!"
 author: Lulu
 ---
+
+# Resume?
+
+
+
+Try
+
+# The second
+
+
+
+## check the format
+
+### how about this
+
+>
+>
+>add a quote?

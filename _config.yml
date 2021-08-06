@@ -26,7 +26,7 @@ category_dir: categories
 # url
 url: https://fuguigui.github.io/
 root: /
-permalink: :year:month:day:title/
+permalink: :title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -35,7 +35,7 @@ pretty_urls:
 
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: :year-:month-:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link:
@@ -48,7 +48,7 @@ post_asset_folder: true
 relative_link: true
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: false
   auto_detect: true
   tab_replace: ''
@@ -59,6 +59,12 @@ prismjs:
   preprocess: true
   line_number: true
   tab_replace: ''
+
+prism_plugin:
+  mode: 'preprocess'    # realtime/preprocess
+  theme: 'coy'
+  line_number: false    # default false
+  custom_css:
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -100,52 +106,6 @@ time_format: HH:mm:ss
 ## updated_option supports 'mtime', 'date', 'empty'
 updated_option: 'mtime'
 
-# main menu navigation url and icon
-# 配置菜单导航的名称、路径和图标icon.
-menu:
-  Index:
-    url: /
-    icon: fa-home
-  Tags:
-    url: /tags
-    icon: fa-tags
-  Categories:
-    url: /categories
-    icon: fa-bookmark
-  Archives:
-    url: /archives
-    icon: fa-archive
-  About:
-    url: /about
-    icon: fa-user-circle-o
-  Contact:
-    url: /contact
-    icon: fa-comments
-  Following:
-    url: /friends
-    icon: fa-address-book
-  Medias:
-    icon: fas fa-list
-    children:
-      - name: Music
-        url: /music
-        icon: fas fa-music
-      - name: Movies
-        url: /movies
-        icon: fas fa-film
-      - name: Books
-        url: /books
-        icon: fas fa-book
-      - name: Galleries
-        url: /galleries
-        icon: fas fa-image
-
-
-prism_plugin:
-  mode: 'preprocess'    # realtime/preprocess
-  theme: 'tomorrow'
-  line_number: false    # default false
-  custom_css:
 
 search:
   path: search.xml
