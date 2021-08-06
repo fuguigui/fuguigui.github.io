@@ -4268,7 +4268,7 @@ small {
   line-height: 40px;
   padding: 0;
   background-color: #26a69a;
-  border-radius: 50%;
+  border-radius: 10%;
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
   cursor: pointer;

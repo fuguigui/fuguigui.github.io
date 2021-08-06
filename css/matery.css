@@ -29,7 +29,7 @@
     .post-container {
         /* width: 90%; */
         margin: 0 auto;
-        max-width: 1250px;
+        /* max-width: 1250px; */
     }
 }
 
@@ -827,7 +827,7 @@ header .go-back i {
     margin-top: 15px;
     text-align: center;
     border: 0;
-    border-radius: 10px;
+    border-radius: 5px;
     color: rgba(0, 0, 0, .87);
     background: #fff 50%;
     background-size: cover;
@@ -878,7 +878,7 @@ header .go-back i {
     font-weight: 400;
     line-height: 40px;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 2px 2px 0 rgba(30, 30, 30, .14), 0 3px 1px -2px rgba(30, 30, 30, .2), 0 1px 5px 0 rgba(30, 30, 30, .12);
 }
 
@@ -984,7 +984,7 @@ article .article-tags .chip {
     height: 22px;
     line-height: 22px;
     color: #4c4c4c;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .prev-next {
@@ -1086,7 +1086,7 @@ article .article-tags .chip {
     height: 25px;
     line-height: 24px;
     color: #fff;
-    border-radius: 15px;
+    border-radius: 5px;
     margin-right: 5px;
     margin-bottom: 2px;
 }
@@ -1498,7 +1498,7 @@ thead {
     left: 0;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: 10%;
     box-shadow: 0 0 0 4px #ffffff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 
@@ -1745,7 +1745,7 @@ thead {
     line-height: 76px;
     color: #bbb;
     font-size: 1.75rem;
-    border-radius: 50%;
+    border-radius: 10%;
 }
 
 .my-projects .info .info-title {
@@ -1769,12 +1769,12 @@ thead {
     position: relative;
     display: block;
     max-width: 360px;
-    margin: 15px auto;
+    margin: 10px auto;
     background: #eee;
     height: 30px;
-    border-radius: 35px;
-    -moz-border-radius: 35px;
-    -webkit-border-radius: 35px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     -webkit-transition: 0.4s linear;
     -moz-transition: 0.4s linear;
     -o-transition: 0.4s linear;
@@ -1792,9 +1792,9 @@ thead {
     width: 110px;
     font-size: 0.9rem;
     color: #ffffff;
-    border-radius: 35px;
-    -webkit-border-radius: 35px;
-    -moz-border-radius: 35px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
 }
 
 .skillbar .skillbar-title span {
@@ -1803,17 +1803,17 @@ thead {
     padding: 0 20px;
     height: 30px;
     line-height: 30px;
-    border-radius: 35px;
-    -webkit-border-radius: 35px;
-    -moz-border-radius: 35px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
 }
 
 .skillbar .skillbar-bar {
     height: 30px;
     width: 0;
-    border-radius: 35px;
-    -moz-border-radius: 35px;
-    -webkit-border-radius: 35px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 .skillbar .skill-bar-percent {
@@ -1864,7 +1864,7 @@ thead {
 .my-gallery .photo img {
     width: 100%;
     height: 200px;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -2114,7 +2114,7 @@ footer .copy-right {
 .menus_item_child {
     background-color: rgba(90, 90, 90, 0.8);
     width: fit-content;
-    border-radius: 10px;
+    border-radius: 5px;
     -webkit-box-shadow: 0 5px 20px -4px rgba(0, 0, 0, .5);
     box-shadow: 0 5px 20px -4px rgba(0, 0, 0, .5);
     display: none;
