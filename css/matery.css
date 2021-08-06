@@ -275,6 +275,10 @@ mark {
     background-image: linear-gradient(to right, #ccc 98%, #ccc 98%);
 }
 
+.toc-color{
+    background-image: linear-gradient(to right, #bbb 98%, #bbb 98%);
+}
+
 .text-color {
     color: #4c4c4c !important;
 }
