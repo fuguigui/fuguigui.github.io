@@ -420,8 +420,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/computational-intelligence/">
-                                <span class="chip tag-color">computational intelligence</span>
+                            <a href="../tags/Machine-Learning/">
+                                <span class="chip tag-color">Machine Learning</span>
                             </a>
                         
                     </div>
@@ -432,8 +432,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    3 Min
+                    4 Min
                 </div>
                 
 
@@ -473,7 +473,7 @@
             <div id="articleContent">
                 <h1 id="Sparse-Coding"><a href="#Sparse-Coding" class="headerlink" title="Sparse Coding"></a>Sparse Coding</h1><p>Encode an entity by fewer digits. What we need: a dictionary to encoding and the input signal. We will return the output signal.</p>
 <ul>
-<li>how to build the dictionary (find the suitable basis)?<ul>
+<li>how to build the dictionary or find the suitable basis?<ul>
 <li>Fixed ahead: Fourier, wavelet</li>
 <li>Build according to the data: PCA.</li>
 </ul>
@@ -482,19 +482,18 @@
 <h2 id="Key-idea"><a href="#Key-idea" class="headerlink" title="Key idea"></a>Key idea</h2><p>the dictionary should be orthogonal!</p>
 <h2 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/YZXnuaa/article/details/80054179">csdn</a></p>
 <p>Using as little resource as possible to learn as much knowledge as possible and accelerate the speed.</p>
-<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="Fourier"><a href="#Fourier" class="headerlink" title="Fourier"></a>Fourier</h3><p>basis functions:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?f(k)=%5CSigma_%7Bn%7Da_n%5Csin(%5Comega_n%20k)" alt="img"></p>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="Fourier"><a href="#Fourier" class="headerlink" title="Fourier"></a>Fourier</h3><p>basis functions:<br>$$<br>f(k)=\sum_na_n\sin(\omega_n k)<br>$$</p>
 <ul>
-<li>continuous:![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?a_n%20=%20%5Cfrac%7B1%7D%7B%5Cpi%7D%5Cint_%7B-%5Cpi%7D%5E%7B%5Cpi%7Df(x)%5Csin">http://latex.codecogs.com/svg.latex?a_n%20%3D%20%5Cfrac%7B1%7D%7B%5Cpi%7D%5Cint_%7B-%5Cpi%7D%5E%7B%5Cpi%7Df%28x%29%5Csin</a> nx%20dx)</li>
-<li>discrete: <img src="http://latex.codecogs.com/svg.latex?a_n=%5CSigma_%7Bk=1%7D%5ENx_k%5Csin(%5Comega_n%20k)" alt="img"></li>
-</ul>
-<p><img src="http://latex.codecogs.com/svg.latex?f(x)=%5CSigma_%7Bn=1%7D%5Cfrac%7B4%7D%7B(2n-1)%5Cpi%7D%5Csin(2n-1)x" alt="img"></p>
-<ul>
-<li>not sufficient for localized signals</li>
+<li><p>continuous: $a_n=\frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin nx \mathrm{d}x$</p>
+</li>
+<li><p>discrete: $a_n = \sum_{k=1}^N x_k\sin(\omega_n k)$<br>$$<br>f(x)=\sum_{n=1}\frac{4}{(2n-1)\pi}\sin(2n-1)x<br>$$</p>
+</li>
+<li><p>not sufficient for localized signals</p>
+</li>
 </ul>
 <h4 id="In-2-D"><a href="#In-2-D" class="headerlink" title="In 2-D"></a>In 2-D</h4><ul>
 <li>procedure:<ul>
-<li>first take FT of the columns then FT of the rows. (can be interchanged)</li>
+<li>first take FT of the columns then FT of the rows. can be interchanged</li>
 </ul>
 </li>
 <li>Interpretation:<ul>
@@ -503,11 +502,9 @@
 </li>
 </ul>
 <h3 id="Discrete-cosine-transform"><a href="#Discrete-cosine-transform" class="headerlink" title="Discrete cosine transform"></a>Discrete cosine transform</h3><ul>
-<li><p>1-D:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?z_k%20=%20%5CSigma_%7Bn=0%7D%5E%7BN-1%7Dx_n%5Ccos%5B%5Cfrac%7B%5Cpi%7D%7BN%7D(n+%5Cfrac%7B1%7D%7B2%7D)k%5D" alt="img"></p>
+<li><p>1-D: $z_k=\sum_{n=0}^{N-1}x_n\cos\frac{(2n+1)\pi k}{2N}$​​​​</p>
 </li>
-<li><p>2-D:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?z_%7Bk_1,k_2%7D=%5CSigma_%7Bn_1=0%7D%5E%7BN_1-1%7D%5CSigma_%7Bn_2=0%7D%5E%7BN_2-1%7Dx_%7Bn_1,n_2%7D%5Ccos%5B%5Cfrac%7B%5Cpi%7D%7BN_1%7D(n_1+%5Cfrac%7B1%7D%7B2%7Dk_1)%5D%5Ccos%5B%5Cfrac%7B%5Cpi%7D%7BN_2%7D(n_2+%5Cfrac%7B1%7D%7B2%7D)k_2%5D" alt="img"></p>
+<li><p>2-D: $z_{k_1, k_2}=\sum_{n_1=0}^{N_1-1}\sum_{n_2=0}^{N_2-1}\cos\frac{(2n_1+1)\pi k_1}{2N_1}\cos\frac{(2n_2+1)\pi k_2}{2N_2}$</p>
 </li>
 </ul>
 <h3 id="Wavelet"><a href="#Wavelet" class="headerlink" title="Wavelet"></a>Wavelet</h3><h4 id="Haar-Wavelet"><a href="#Haar-Wavelet" class="headerlink" title="Haar Wavelet"></a>Haar Wavelet</h4><ul>
@@ -530,41 +527,39 @@
 </ul>
 </li>
 <li>Compared to the former method, the bases are <strong>no</strong> longer linearly independent. <ul>
-<li>the representation of <img src="http://latex.codecogs.com/svg.latex?x" alt="img"> in terms of <img src="http://latex.codecogs.com/svg.latex?u_1,u_2%27%5Ccdots,u_l" alt="img"> is <strong>not unique</strong>.</li>
+<li>the representation of $x$ in terms of  $u_1,u_2,\cdots, u_l$is <strong>not unique</strong>.</li>
 </ul>
 </li>
 </ul>
-<p>Goal: want to find sparse representation <img src="http://latex.codecogs.com/svg.latex?z" alt="img"> of <img src="http://latex.codecogs.com/svg.latex?x" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?z%5E*%5Cin%20%5Carg%5Cmin_%7Bz%5Cin%20R%5El%7D%5C%7Cz%5C%7C_0" alt="img"></p>
-<p>where <img src="http://latex.codecogs.com/svg.latex?%20Uz=x,U=%5Bu_1%7Cu_2%7C%5Ccdots%7Cu_n%5D" alt="img"> . Here <img src="http://latex.codecogs.com/svg.latex?%5C%7Cz%5C%7C_0" alt="img"> counts the number of non-zero elements.</p>
+<p>Goal: want to find sparse representation $z$ of $x$​<br>$$<br>z^\ast\in\arg\min_{z\in R^l}|z|_0<br>$$<br>where $Uz=x, U=[u_1|u_2|\cdots|u_n]$ . Here  $|z|_0$ counts the number of non-zero elements.</p>
 <p>This is a NP-hard problem.</p>
 <h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="Gabor-wavelet"><a href="#Gabor-wavelet" class="headerlink" title="Gabor wavelet"></a>Gabor wavelet</h3><ul>
 <li>have a look of this.</li>
 </ul>
-<h2 id="Coherence"><a href="#Coherence" class="headerlink" title="Coherence"></a>Coherence</h2><h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p><img src="http://latex.codecogs.com/svg.latex?m(U)=%5Cmax_%7Bi,j:i%5Cneq%20j%7D%7Cu_i%5ETu_j%7C" alt="img"></p>
+<h2 id="Coherence"><a href="#Coherence" class="headerlink" title="Coherence"></a>Coherence</h2><h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p>$$<br>m(U)=\max_{i,j,i\neq j}|u_i^\top u_j|<br>$$</p>
 <p>it measures the linear dependency for a dictionary</p>
 <h3 id="Property"><a href="#Property" class="headerlink" title="Property"></a>Property</h3><ul>
-<li>why a new atom <img src="http://latex.codecogs.com/svg.latex?u" alt="img"> added to orthogonal B, will lead to the coherence increasing at least <img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7B1%7D%7B%5Csqrt%7BD%7D%7D" alt="img"></li>
+<li>why a new atom $u$ added to orthogonal B, will lead to the coherence increasing at least $\frac{1}{\sqrt{D}}$</li>
 </ul>
 <h2 id="Reconstruction"><a href="#Reconstruction" class="headerlink" title="Reconstruction"></a>Reconstruction</h2><ul>
-<li>what is the object of signal reconstruction? X or Z? To reconstruct the original signal X? Or represent X by Z? Find X or find Z?</li>
+<li>what is the object of signal reconstruction? $X$ or $Z$? To reconstruct the original signal $X$? Or represent $X$ by $Z$? Find $X$ or find $Z$?</li>
 <li>how to solve for the general dictionary?</li>
 </ul>
 <h3 id="Methods-1"><a href="#Methods-1" class="headerlink" title="Methods"></a>Methods</h3><h4 id="Matching-pursuit"><a href="#Matching-pursuit" class="headerlink" title="Matching pursuit"></a>Matching pursuit</h4><ul>
 <li>procedure<ol>
-<li>initialize: residual <img src="http://latex.codecogs.com/svg.latex?r_0=x" alt="img"> and approximation <img src="http://latex.codecogs.com/svg.latex?%5Chat%7Bx_0%7D=0" alt="img"></li>
+<li>initialize: residual $r_0\leftarrow x$​ and approximation $\hat{x}_0=0$</li>
 <li>repeat:<ol>
-<li>find <img src="http://latex.codecogs.com/svg.latex?j%5E*%20=%20%5Carg%5Cmax_j%7C%5Clangle%20r_i,u_j%5Crangle%7C" alt="img"></li>
-<li>compute better approximation <img src="http://latex.codecogs.com/svg.latex?%5Chat%7Bx_%7Bi+1%7D%7D%5Cleftarrow%5Chat%7Bx_i%7D+%5Clangle%20r_i,u_%7Bj%5E*%7D%5Crangle%20u_%7Bj%5E*%7D" alt="img"></li>
-<li>update residual ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?r_%7Bi+1%7D%5Cleftarrow">http://latex.codecogs.com/svg.latex?r_%7Bi%2B1%7D%5Cleftarrow</a> r_i-%5Clangle%20r_i%2Cu_%7Bj%5E%2A%7D%5Crangle%20u_%7Bj%5E%2A%7D)</li>
+<li>find $j^\ast=\arg\max_j|\langle r_i, u_j\rangle|$</li>
+<li>compute better approximation$\hat{x}<em>{i+1}\leftarrow \hat{x}<em>i +\langle r_i, u</em>{j^\ast} \rangle u</em>{j^\ast}$​ </li>
+<li>update residual $r_{i+1}\leftarrow r_i - \langle r_i, u_{j^\ast}\rangle u_{j^\ast}$</li>
 </ol>
 </li>
 </ol>
 </li>
-<li>Convergence: is the ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Chat%7Bx_i%7D%5Cto">http://latex.codecogs.com/svg.latex?%5Chat%7Bx_i%7D%5Cto</a> x)?<ul>
-<li>Yes, it is. We can prove that by proving ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5C%7Cr_i%5C%7C_2%5E2%5Cto">http://latex.codecogs.com/svg.latex?%5C%7Cr_i%5C%7C_2%5E2%5Cto</a> 0)</li>
-<li>we can prove that by proving <img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7B%5C%7Cr_%7Bi+1%7D%5C%7C_2%5E2%7D%7B%5C%7Cr_i%5C%7C_2%5E2%7D%5Cleq%5Cgamma,%5Cexists%5Cgamma%3C%201" alt="img"></li>
-<li>the last condition can be satisfied when <img src="http://latex.codecogs.com/svg.latex?u" alt="img"> span <img src="http://latex.codecogs.com/svg.latex?%5Cmathbb%7BR%7D%5En" alt="img"></li>
+<li>Convergence: is the $\hat{x}_i\to x$ ?<ul>
+<li>Yes, it is. We can prove that by proving $|r_i|_2^2\to 0$</li>
+<li>we can prove that by proving $\frac{|r_{i+1}|_2^2}{|r_i|_2^2}\leq \gamma. \exists\gamma &lt; 1$ </li>
+<li>the last condition can be satisfied when $u$ span $\mathbb{R}^n$</li>
 </ul>
 </li>
 <li>Residual minimization<ul>
@@ -577,7 +572,7 @@
 </li>
 </ul>
 <h4 id="Convex-optimization"><a href="#Convex-optimization" class="headerlink" title="Convex optimization"></a>Convex optimization</h4><ul>
-<li>try to find under which condition of U, can this two problem (0-norm and 1-norm) be equivalent?</li>
+<li>try to find under which condition of U, can this two problem, 0-norm and 1-norm, be equivalent?</li>
 </ul>
 
             </div>
@@ -642,8 +637,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/computational-intelligence/">
-                                    <span class="chip bg-color">computational intelligence</span>
+                                <a href="../tags/Machine-Learning/">
+                                    <span class="chip bg-color">Machine Learning</span>
                                 </a>
                             
                         </div>
@@ -1360,6 +1355,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

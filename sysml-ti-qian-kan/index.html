@@ -424,6 +424,18 @@
                                 <span class="chip tag-color">Machine Learning</span>
                             </a>
                         
+                            <a href="../tags/System/">
+                                <span class="chip tag-color">System</span>
+                            </a>
+                        
+                            <a href="../tags/Privacy/">
+                                <span class="chip tag-color">Privacy</span>
+                            </a>
+                        
+                            <a href="../tags/Security/">
+                                <span class="chip tag-color">Security</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -432,8 +444,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/Paper-reading/" class="post-category">
-                                Paper reading
+                            <a href="../categories/Reading-Summary/" class="post-category">
+                                Reading Summary
                             </a>
                         
                     </div>
@@ -482,6 +494,7 @@
 <h1 id="1-MLPerf-Training-Benchmark"><a href="#1-MLPerf-Training-Benchmark" class="headerlink" title="1. MLPerf Training Benchmark"></a>1. MLPerf Training Benchmark</h1><ul>
 <li>论文链接：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1910.01500.pdf">https://arxiv.org/pdf/1910.01500.pdf</a></li>
 <li>Github链接：<a target="_blank" rel="noopener" href="https://github.com/mlperf/training">https://github.com/mlperf/training</a></li>
+<li><a href="../SysML-P2B/index.html">补充背景知识</a></li>
 </ul>
 <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>日趋复杂的机器学习算法和庞大的数据量对真正运行模型的系统提出了一系列的挑战，在这篇文章的工作之前，业界尚未存在一套针对机器学习系统具备工业级别的衡量标准。然而，纵观各个领域的发展，这样的一套标准不仅能起到具有说服力的比较效果，更能促进创新，推动科研和工业界的发展。由此，来自谷歌，百度，斯坦福大学，哈佛大学等众多业界和学界的研究人员共同合作，克服了在衡量机器学习系统的各种独特难题，定义了一套衡量基准MLPerf。</p>
 <p>该论文总结分析了衡量训练机器学习的系统的各种挑战，针对各种机器学习任务（如：图像分类，目标检测，机器翻译，强化学习等）给出不同的衡量标准，并附有详细的使用指南。</p>
@@ -494,7 +507,7 @@
 <li>不同的软件环境的影响。不同软件框架，不同的数学计算表达，编程界面等诸多因素都可能影响一个系统的表现。</li>
 </ol>
 <h2 id="衡量标准"><a href="#衡量标准" class="headerlink" title="衡量标准"></a>衡量标准</h2><p>MLPerf的整体思路是，根据不同的机器学习训练任务，让系统运行预先规定的数据集，模型，测量其使训练模型达到特定性能后的训练时间。目前所涵盖的机器学习任务有：图片分类，目标监测，实例分割与目标检测，翻译（循环与非循环神经网络），推荐和强化学习。图示为0.5版本，当前已更新至0.6版本。</p>
-<p><img src="./pic/mlperf1.png" alt="mlperf"></p>
+<p><img src="mlperf1.png" alt="MLPerf0.5 版本训练基准"></p>
 <p>为了尽可能排除模型本身的造成的系统表现差异，MLPerf规定了作为测试基准的数据集，模型和标准阈值，同时附有模型的参考实现和超参数设置。</p>
 <p>就如何测量训练时间，MLPerf也从测量时间的构成和结合多次测量两个方面给出了详细说明。</p>
 <ul>
@@ -506,9 +519,11 @@
 <p>MLPerf测试的最终结果不是一个单一得分，而是系统在各个不同任务中测试的加速比。加速比即模型在该系统下的测试时间与基础系统的测试时间的比值。这一设定考虑到了不同任务的差异悬殊的训练时间。</p>
 <p>目前，MLPerf已发布了训练基准0.5和0.6两个版本，来自业界和学界的超过五十个机构参与到了MLPerf测试竞赛中。相信这一标准将会极大促进行业竞赛，激励创新。</p>
 <h1 id="2-WILLUMP-A-Statistically-Aware-End-To-End-Optimizer-For-Machine-Learning-Inference"><a href="#2-WILLUMP-A-Statistically-Aware-End-To-End-Optimizer-For-Machine-Learning-Inference" class="headerlink" title="2. WILLUMP: A Statistically-Aware End-To-End Optimizer For Machine Learning Inference"></a>2. WILLUMP: A Statistically-Aware End-To-End Optimizer For Machine Learning Inference</h1><p>论文链接：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.01974">https://arxiv.org/abs/1906.01974</a></p>
+<p><a href="../SysML-Willump/index.html">补充背景知识</a></p>
 <h2 id="引言-1"><a href="#引言-1" class="headerlink" title="引言"></a>引言</h2><p>机器学习作为一种服务正在受到越来越多的关注。随着Amazon的Sagemaker，Microsoft的 AzureML众多机器学习计算平台被人们熟知和使用，机器学习正在成为一项门槛更低，推广度更高的服务。本文专注于机器学习推理中——即模型已经训练完成，将直接用于对新数据进行预测——的系统优化问题。机器学习模型一旦被训练好，实际上就是一个数据转化器：将用户输入经过格式转化，特征计算，模型计算等，最后得到输出预测。推理流水线常直接作为用户端的服务，因此要求低延迟，高吞吐，在负载尖峰时也要保证一定的性能。据研究，在推理服务中，特征计算是一个重要的瓶颈问题。这篇论文设计了一套端到端的推理流水线优化Willump，着力于加速特征计算，增加系统响应性能。</p>
 <h2 id="优化流程及原理"><a href="#优化流程及原理" class="headerlink" title="优化流程及原理"></a>优化流程及原理</h2><p>Willump提供了两种任务的优化方法：1. 分类预测，2. top-k排名。</p>
-<h3 id="级联优化"><a href="#级联优化" class="headerlink" title="级联优化"></a>级联优化</h3><p>针对分类任务，Willump采用了一种“区别对待”的思想，即搭建一个级联模型：结合原有模型和一个使用特征更少，计算更快的简单模型。对于每一个新的输入，先对其的部分特征在简单模型上进行快速计算，并根据输出结果的置信度决定是否使用原来的模型进行更为复杂的计算。流程如图所示：左边为原来的模型推理流水线，右边为Willump优化后的流水线。<img src="./pic/willump1.png" alt="cascade"></p>
+<h3 id="级联优化"><a href="#级联优化" class="headerlink" title="级联优化"></a>级联优化</h3><p>针对分类任务，Willump采用了一种“区别对待”的思想，即搭建一个级联模型：结合原有模型和一个使用特征更少，计算更快的简单模型。对于每一个新的输入，先对其的部分特征在简单模型上进行快速计算，并根据输出结果的置信度决定是否使用原来的模型进行更为复杂的计算。流程如图所示：左边为原来的模型推理流水线，右边为Willump优化后的流水线。</p>
+<p><img src="willump1.png" alt="Willump 的级联优化"></p>
 <p>如何决定从所有的特征中选择哪一部分进行简单模型的训练呢？Willump的目标是选择一部分对预测很重要，但是计算开销又不大的特征。但直接计算所有特征的组合，并评估它们各自模型的精确度显然在计算层面是不可行的。于是，Willump使用了一个trick：</p>
 <ol>
 <li>首先根据计算独立的要求对所有的特征进行分组。计算独立性可用常规的编译技术解析出数据转换树得到。</li>
@@ -526,15 +541,15 @@
 <h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>论文针对级联优化和Top-K优化分别进行实验，使用系统吞吐量，延迟和模型的准确度进行结果衡量。</p>
 <p>实验使用了七种不同的数据集，分别来自数据科学竞赛平台CIKM, Kaggle和WSDM。数据集包括分类与回归两个类别，所用的机器学习模型包括：线性模型，GBDT，Ensemble和NN。</p>
 <p>表格显示了数据集的详细信息，图片给出了特征与输入间的计算依赖关系。</p>
-<p><img src="./pic/willump2.png" alt="dataset1"></p>
-<p><img src="./pic/willump3.png" alt="dataset2"></p>
+<p><img src="willump2.png" alt="Willump 使用的基准数据集"></p>
+<p><img src="willump3.png" alt="所有基准数据集的转换图。白色：输入，黑色：转换节点，灰色：模型。"></p>
 <h3 id="级联优化-1"><a href="#级联优化-1" class="headerlink" title="级联优化"></a>级联优化</h3><p>级联优化针对前五个分类任务的数据集，在Weld平台上进行编译，对比展示了Python源代码的吞吐量和延迟，直接用Weld平台编译后的吞吐量和延迟，以及Weld+Willump优化后的吞吐量和延迟。同时，给出Willump选定的特征组优化的模型精确度。</p>
-<p><img src="./pic/willump4.png" alt="cascasde1"></p>
-<p><img src="./pic/willump5.png" alt="cascasde2"></p>
-<p><img src="./pic/willump6.png" alt="cascasde3"></p>
+<p><img src="willump4.png" alt="Willump 在离线批查询上的吞吐量表现"></p>
+<p><img src="willump5.png" alt="Willump 在线上点查询上的延迟累积分布函数"></p>
+<p><img src="willump6.png" alt="吞吐量与精确度的对比图。蓝色标注原始模型，红色标注 Willump 选定的级联阈值，橙色标注近似模型。"></p>
 <p>综上，在精确度损失0.1%的范围内，级联优化的吞吐量相较于原Python程序最高达到16倍加速，相较于经Weld优化后的程序，仍可达到最高5倍的加速。级联优化的延迟也有显著减小。</p>
 <h3 id="Top-K优化-1"><a href="#Top-K优化-1" class="headerlink" title="Top-K优化"></a>Top-K优化</h3><p>在Top-K优化的实验设置中，K设定为20，覆盖精确度设定为95%，使用的编译优化平台为Clipper。吞吐量优化结果如图所示。</p>
-<p><img src="./pic/willump7.png" alt="top-k"></p>
+<p><img src="willump7.png" alt="Willump 在 Top-K 优化中的吞吐量表现"></p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>Willump针对机器推理流水线中的特征计算进行优化，它开创性地利用了特征对模型结果影响的统计信息，通过结合更简单的模型和原有模型，在分类问题和Top-K问题上展示出系统吞吐量和延迟上的显著改善。它是一个位于Python端与编译平台中间的优化方法，在多个编译优化平台上均取得显著提升效果。</p>
 <h1 id="3-Privacy-Preserving-Bandits"><a href="#3-Privacy-Preserving-Bandits" class="headerlink" title="3. Privacy-Preserving Bandits"></a>3. Privacy-Preserving Bandits</h1><p>论文链接：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1909.04421">https://arxiv.org/abs/1909.04421</a></p>
 <h2 id="引言-2"><a href="#引言-2" class="headerlink" title="引言"></a>引言</h2><p>在计算广告和推荐系统领域，一个典型应用是针对用户进行个性化推荐。用多臂赌博机模型来描述这个问题，就是将每一个待推荐的物品看作一个赌博机，在将此推荐给这个用户前，并不知道会获得多大的收益。那么每次推荐时，该如何选择一个赌博机呢？更进一步，如果考虑到不同用户具有不同特征，即同一个物品推荐给不同的用户会带来不一样的收益，又该怎样设计算法来最大化收益呢？这类问题被抽象为与情景有关的赌博机（contextual bandit）问题。LinUCB算法是解决这类问题的一个典型算法，它利用了用户特征和物品特征，训练模型进行推荐。收集到越多的用户数据，越有利于模型进行更精确，收益更高的推荐。</p>
@@ -546,7 +561,7 @@
 <li>洗牌机（位于用户端和中心服务器之间）：收集一定数量的加密后的用户数据，进行匿名化处理，重新洗牌，并将达到阈值数量的数据上传到中心服务器。</li>
 <li>中心服务器：利用洗牌机发来的数据进行模型更新，并将更新后的模型发回各个本地用户端。</li>
 </ul>
-<p>详情如图所示：<img src="./pic/p2b1.png" alt="p2b"></p>
+<p>详情如图所示：<img src="p2b1.png" alt="P2B 系统架构"></p>
 <p>在整个系统中，为了保证用户隐私，作者设计了多个精巧的操作。</p>
 <ul>
 <li>本地代理随机地上传数据。更准确地说，对于每一条加密后的用户数据，本地代理以概率p决定上传该数据。概率值p直接影响到模型最后的效果。参考差分隐私的定义，直观上说，即当输入数据集中的一个数据点发生改变时，模型输出会发生多大的改变。</li>
@@ -554,10 +569,10 @@
 <li>洗牌机选择上传超过给定阈值数量l的编码数据。这一阈值的选择保证了群体混合隐私。</li>
 </ul>
 <p>对隐私分析的理论结果如图：</p>
-<p><img src="./pic/p2b2.png" alt="privacy"></p>
-<p>对于上述<img src="http://latex.codecogs.com/svg.latex?%5Cepsilon" alt="def2">和<img src="http://latex.codecogs.com/svg.latex?%5Csigma" alt="def2">直观上的理解是：对于所有与原数据集相邻的数据集（有一个数据点不同），以<img src="http://latex.codecogs.com/svg.latex?1-%5Cdelta" alt="def2">的概率保证隐私的绝对损失在<img src="http://latex.codecogs.com/svg.latex?%5Cepsilon" alt="def2">限制内。</p>
+<p><img src="p2b2.png" alt="隐私分析的理论结果"></p>
+<p>对于上述$\epsilon$和$\sigma$直观上的理解是：对于所有与原数据集相邻的数据集（有一个数据点不同），以$1-\delta$的概率保证隐私的绝对损失在$\epsilon$限制内。</p>
 <h2 id="实验结果-1"><a href="#实验结果-1" class="headerlink" title="实验结果"></a>实验结果</h2><p>论文中共设置了三种实验模式：冷启动（百分百隐私保证），热启动+无隐私（用户上传全部数据）和热启动+隐私（P2B系统的应用，用户上传部分编码后的隐私数据）。分别在多标签的分类任务和在线广告场景中进行对比实验。其中分类任务采用准确率作为衡量标准，在线广告场景中采用点击通过率（CTR）作为衡量标准。实验所使用的采样概率p为0.5.</p>
-<p><img src="./pic/p2b3.png" alt="result"></p>
+<p><img src="p2b3.png" alt="P2B 综合基准测试：（上）A=10，（中）A=20，（下）A=50."></p>
 <p>上图展示了在用户可采取的行为数量（A）不同的环境下，平均回报与系统参与用户的数量的关系。可以看出，在冷启动（用户不分享数据的情况下），模型的平均回报与用户数量无显著关系。而在热启动的情况下，二者存在显著的正相关。</p>
 
             </div>
@@ -574,7 +589,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="../about" rel="external nofollow noreferrer">Guirong Fu</a>
+                    <a href="../about" rel="external nofollow noreferrer">Lulu</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -597,7 +612,7 @@
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint polocy. If reproduced, please indicate source
-                    <a href="../about" target="_blank">Guirong Fu</a>
+                    <a href="../about" target="_blank">Lulu</a>
                     !
                 </span>
             </div>
@@ -624,6 +639,18 @@
                             
                                 <a href="../tags/Machine-Learning/">
                                     <span class="chip bg-color">Machine Learning</span>
+                                </a>
+                            
+                                <a href="../tags/System/">
+                                    <span class="chip bg-color">System</span>
+                                </a>
+                            
+                                <a href="../tags/Privacy/">
+                                    <span class="chip bg-color">Privacy</span>
+                                </a>
+                            
+                                <a href="../tags/Security/">
+                                    <span class="chip bg-color">Security</span>
                                 </a>
                             
                         </div>
@@ -1085,13 +1112,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="../2020-02-26p2b/">
+                <a href="../sysml-p2b/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/2.jpeg" class="responsive-img" alt="(Paper) Privacy-preserving bandits">
+                        <img src="../medias/featureimages/12.jpeg" class="responsive-img" alt="Background Knowledge of Paper Privacy-preserving bandits">
                         
-                        <span class="card-title">(Paper) Privacy-preserving bandits</span>
+                        <span class="card-title">Background Knowledge of Paper Privacy-preserving bandits</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1108,8 +1135,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/Paper-reading/" class="post-category">
-                                    Paper reading
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1119,8 +1146,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/security/">
-                        <span class="chip bg-color">security</span>
+                    <a href="../tags/Privacy/">
+                        <span class="chip bg-color">Privacy</span>
+                    </a>
+                    
+                    <a href="../tags/Security/">
+                        <span class="chip bg-color">Security</span>
                     </a>
                     
                 </div>
@@ -1332,6 +1363,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

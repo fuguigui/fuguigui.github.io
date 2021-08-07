@@ -420,8 +420,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/big-data/">
-                                <span class="chip tag-color">big data</span>
+                            <a href="../tags/System/">
+                                <span class="chip tag-color">System</span>
+                            </a>
+                        
+                            <a href="../tags/Big-Data/">
+                                <span class="chip tag-color">Big Data</span>
                             </a>
                         
                     </div>
@@ -432,8 +436,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -471,29 +475,29 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce"></a>MapReduce</h1><h2 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h2><p>Input data(key-value pairs)  -&gt; split -&gt; Map -&gt; shuffle -&gt; Intermediate data(key-value pairs) -&gt;  reduce -&gt; output data (key-value pairs)</p>
-<h3 id="Shuffle"><a href="#Shuffle" class="headerlink" title="Shuffle"></a>Shuffle</h3><ol>
+                <h1 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h1><p>Input data(key-value pairs)  -&gt; split -&gt; Map -&gt; shuffle -&gt; Intermediate data(key-value pairs) -&gt;  reduce -&gt; output data (key-value pairs)</p>
+<h2 id="Shuffle"><a href="#Shuffle" class="headerlink" title="Shuffle"></a>Shuffle</h2><ol>
 <li>put all together</li>
 <li>sort by key</li>
-<li>partition<h2 id="Data-types"><a href="#Data-types" class="headerlink" title="Data types"></a>Data types</h2>it allows: (key type1, value type1)-&gt;(key typeI, value typeI)-&gt;(key typeA,value typeA)<br>most often: (key type1, value type1)-&gt;(key <strong>typeA</strong>, value typeA)-&gt;(key <strong>typeA</strong>,value typeA)  </li>
+<li>partition<h1 id="Data-types"><a href="#Data-types" class="headerlink" title="Data types"></a>Data types</h1>it allows: (key type1, value type1)-&gt;(key typeI, value typeI)-&gt;(key typeA,value typeA)<br>most often: (key type1, value type1)-&gt;(key <strong>typeA</strong>, value typeA)-&gt;(key <strong>typeA</strong>,value typeA)  </li>
 </ol>
-<h2 id="Input-output-format"><a href="#Input-output-format" class="headerlink" title="Input/output format"></a>Input/output format</h2><p>table/files</p>
+<h1 id="Input-output-format"><a href="#Input-output-format" class="headerlink" title="Input/output format"></a>Input/output format</h1><p>table/files</p>
 <ul>
-<li>files: text-&gt;KeyValue-&gt;SequenceFile: Hadoop binary format, stores generic key-values (<code>(keylength, Key, ValueLength, Value)</code><h3 id="InputFormat-class"><a href="#InputFormat-class" class="headerlink" title="InputFormat class"></a>InputFormat class</h3></li>
+<li>files: text-&gt;KeyValue-&gt;SequenceFile: Hadoop binary format, stores generic key-values (<code>(keylength, Key, ValueLength, Value)</code><h2 id="InputFormat-class"><a href="#InputFormat-class" class="headerlink" title="InputFormat class"></a>InputFormat class</h2></li>
 <li>Table: DBInput Format (RDBMS), TableInputFormat(HBase);</li>
 <li>FileInputFormat<ul>
 <li>KeyValueTextInputFormat (key-value file)</li>
 <li>SequenceFileInputFormat (Sequence file)</li>
 <li>TextInputFormat</li>
 <li>FixedLengthInputFormat (Text)</li>
-<li>NLineInputFormat<h3 id="OutputFormat-Class"><a href="#OutputFormat-Class" class="headerlink" title="OutputFormat Class"></a>OutputFormat Class</h3></li>
+<li>NLineInputFormat<h2 id="OutputFormat-Class"><a href="#OutputFormat-Class" class="headerlink" title="OutputFormat Class"></a>OutputFormat Class</h2></li>
 </ul>
 </li>
 <li>Table: DBOutput Format (RDBMS), TableOutputFormat(HBase);</li>
 <li>FileOutputFormat<ul>
 <li>SequenceFileOutputFormat (Sequence file)</li>
 <li>TextOutputFormat</li>
-<li>MapFileOutputFormat<h2 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h2><h3 id="Combine"><a href="#Combine" class="headerlink" title="Combine"></a>Combine</h3>between map and shuffle. It reduces the amount of shuffling. Combine works on 90% cases. Usually, it is <strong>identical</strong> to reduce function. The <strong>identical</strong> conditions:  </li>
+<li>MapFileOutputFormat<h1 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h1><h2 id="Combine"><a href="#Combine" class="headerlink" title="Combine"></a>Combine</h2>between map and shuffle. It reduces the amount of shuffling. Combine works on 90% cases. Usually, it is <strong>identical</strong> to reduce function. The <strong>identical</strong> conditions:  </li>
 </ul>
 </li>
 </ul>
@@ -501,20 +505,22 @@
 <li>Key/Value types must be identical for reduce input and output.  </li>
 <li>Reduce function must be <strong>commutative</strong> and <strong>associative</strong></li>
 </ol>
-<h2 id="The-Physical-Layer"><a href="#The-Physical-Layer" class="headerlink" title="The Physical Layer"></a>The Physical Layer</h2><p>Possible <strong>storage layer</strong>: Local Filesystem, HDFS, S3, Azure Blob storage<br>Numbers: several <strong>TBs</strong> of data, <strong>1000s</strong> of nodes  </p>
-<h3 id="Infrastructure-version-1"><a href="#Infrastructure-version-1" class="headerlink" title="Infrastructure (version 1)"></a>Infrastructure (version 1)</h3><p>Namenode+JobTracker -&gt; DataNode+TaskTracker: which brings query to data. (Task: Map or Reduce)</p>
-<h3 id="Splits"><a href="#Splits" class="headerlink" title="Splits"></a>Splits</h3><p>InputSplit is only a <strong>logical</strong> concept. An InputSplit may be stored in different blocks on the HDFS.</p>
+<h1 id="The-Physical-Layer"><a href="#The-Physical-Layer" class="headerlink" title="The Physical Layer"></a>The Physical Layer</h1><p>Possible <strong>storage layer</strong>: Local Filesystem, HDFS, S3, Azure Blob storage<br>Numbers: several <strong>TBs</strong> of data, <strong>1000s</strong> of nodes  </p>
+<h2 id="Infrastructure-version-1"><a href="#Infrastructure-version-1" class="headerlink" title="Infrastructure (version 1)"></a>Infrastructure (version 1)</h2><p>Namenode+JobTracker -&gt; DataNode+TaskTracker: which brings query to data. (Task: Map or Reduce)</p>
+<h2 id="Splits"><a href="#Splits" class="headerlink" title="Splits"></a>Splits</h2><p>InputSplit is only a <strong>logical</strong> concept. An InputSplit may be stored in different blocks on the HDFS.</p>
 <p>1 split = 1 map mask<br>In the physical layer: 1 split = 1 block (128MB), but in the approximation. One DN may have multiple splits to perform.<br>A split is a set of key-value. A block has the exact size, no matter with the content. That means, we may have a key-value pair cut into two blocks, maybe on different machines. <strong>Fine-tuning</strong> to adjust splits to blocks.</p>
 <p>Version 1 and version 2 are two things.</p>
-<h3 id="Shuffling"><a href="#Shuffling" class="headerlink" title="Shuffling"></a>Shuffling</h3><p>can start even before the map phase has finished.</p>
-<h3 id="Reducing"><a href="#Reducing" class="headerlink" title="Reducing"></a>Reducing</h3><p>A reducer starts a new reduce task when the next key in the sorted input data is different than the previous.</p>
+<h2 id="Shuffling"><a href="#Shuffling" class="headerlink" title="Shuffling"></a>Shuffling</h2><p>can start even before the map phase has finished.</p>
+<h2 id="Reducing"><a href="#Reducing" class="headerlink" title="Reducing"></a>Reducing</h2><p>A reducer starts a new reduce task when the next key in the sorted input data is different than the previous.</p>
 <p><strong>reducer</strong> is different from the <strong>reduce task</strong>. The user decide the number of reducers. Each partition is sent to a reducer. </p>
-<h2 id="Issues"><a href="#Issues" class="headerlink" title="Issues"></a>Issues</h2><ol>
+<h1 id="Issues"><a href="#Issues" class="headerlink" title="Issues"></a>Issues</h1><ol>
 <li>tight coupling: co-located</li>
 <li>scalability: only one JobTracker.</li>
 </ol>
-<h2 id="Data-locality"><a href="#Data-locality" class="headerlink" title="Data-locality"></a>Data-locality</h2><p>Data locality in MapReduce refers to the ability to move the computation close to where the actual data resides on the node, instead of moving large data to computation. </p>
+<h1 id="Data-locality"><a href="#Data-locality" class="headerlink" title="Data-locality"></a>Data-locality</h1><p>Data locality in MapReduce refers to the ability to move the computation close to where the actual data resides on the node, instead of moving large data to computation. </p>
 <p>How to solve this? See the next chapter.</p>
+<h1 id="Further-Reading"><a href="#Further-Reading" class="headerlink" title="Further Reading"></a>Further Reading</h1><p><a target="_blank" rel="noopener" href="https://www.oreilly.com/library/view/hbase-the-definitive/9781449314682/">HBase: The Definitive Guide 1st ed.</a> Chapter 7</p>
+<p><a target="_blank" rel="noopener" href="https://www.oreilly.com/library/view/hadoop-the-definitive/9781491901687/">Hadoop: The Definitive Guide 4th ed. </a>Chapter 2, 6, 7, 8</p>
 
             </div>
             <hr/>
@@ -578,8 +584,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/big-data/">
-                                    <span class="chip bg-color">big data</span>
+                                <a href="../tags/System/">
+                                    <span class="chip bg-color">System</span>
+                                </a>
+                            
+                                <a href="../tags/Big-Data/">
+                                    <span class="chip bg-color">Big Data</span>
                                 </a>
                             
                         </div>
@@ -1064,8 +1074,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1075,8 +1085,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/big-data/">
-                        <span class="chip bg-color">big data</span>
+                    <a href="../tags/System/">
+                        <span class="chip bg-color">System</span>
+                    </a>
+                    
+                    <a href="../tags/Big-Data/">
+                        <span class="chip bg-color">Big Data</span>
                     </a>
                     
                 </div>
@@ -1113,8 +1127,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1124,8 +1138,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/big-data/">
-                        <span class="chip bg-color">big data</span>
+                    <a href="../tags/System/">
+                        <span class="chip bg-color">System</span>
+                    </a>
+                    
+                    <a href="../tags/Big-Data/">
+                        <span class="chip bg-color">Big Data</span>
                     </a>
                     
                 </div>

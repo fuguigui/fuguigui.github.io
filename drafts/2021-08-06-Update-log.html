@@ -432,7 +432,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-08-06
+                    2021-08-07
                 </div>
                 
 
@@ -443,7 +443,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    1 Min
+                    2 Min
                 </div>
                 
 
@@ -458,7 +458,75 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="2021-08-05"><a href="#2021-08-05" class="headerlink" title="2021-08-05"></a>2021-08-05</h1><ul>
+                <h1 id="2021-08-07"><a href="#2021-08-07" class="headerlink" title="2021-08-07"></a>2021-08-07</h1><ul>
+<li>all the categories:<ul>
+<li>Learning Notes, Sharing, Reading Summary</li>
+</ul>
+</li>
+<li>all the tags:<ul>
+<li>Machine Learning, System, Privacy</li>
+</ul>
+</li>
+</ul>
+<h1 id="2021-08-06"><a href="#2021-08-06" class="headerlink" title="2021-08-06"></a>2021-08-06</h1><ul>
+<li><p>RSS无法有效使用</p>
+</li>
+<li><p>musics, movies, books, galleries没有页面链接。去掉这几页。附：自定义页面<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/33324071/answer/58775540">https://www.zhihu.com/question/33324071/answer/58775540</a></p>
+</li>
+<li><p>评论功能</p>
+<ul>
+<li><p>gittalk失效，改动了libs/gitalk.js中的</p>
+<p><code>proxy:  "https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"</code>                  </p>
+</li>
+<li><p>可以使用valine进行评论</p>
+</li>
+</ul>
+</li>
+<li><p>文章里的markdown超链接功能正常</p>
+</li>
+<li><p>post链接post无效，例如CN review notes</p>
+<ul>
+<li>原因：直接使用doc name进行连接。解决办法不要用任何重名的文档，但是title可以一样。注意文档名不要使用year-month-date-title的形式，貌似hexo会自动纠正这样的命名。直接引用格式../doc-name/index.html</li>
+<li>注意：是doc name而不是文章的title</li>
+<li>修改方式：两点：<ul>
+<li>文章内部的链接添加：被链接文章的doc name，而不是title</li>
+<li>被链接文章的doc name如何取？可以与文章本身不一致，最好是tag加文章名</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Computational Statistics没有pdf显示？</p>
+<p>pdf可以加载进来，但是没有预览功能</p>
+<p>使用 <code>{% pdf path_to_pdf_file/pdf_name.pdf %}</code>可以实现预览。</p>
+<p>如果使用 <code>[...](path_to_pdf_file/pdf_name.pdf)</code>则只能实现点击进入新页面查看</p>
+</li>
+<li><p>去掉update date的显示</p>
+</li>
+<li><p>无法正常显示latex公式。在文章开头添加<code>mathjax: true</code></p>
+</li>
+<li><p>增加admin功能</p>
+</li>
+<li><p>about页面增加resume功能，只需要在about/index.md中直接进行写作即可</p>
+</li>
+<li><p>把回到顶部的箭头，上一篇，下一篇的箭头改成方的</p>
+</li>
+<li><p>将“评论”功能改为英文：comment</p>
+</li>
+<li><p>改名：将read times改为reading time，将read count改为view times</p>
+</li>
+<li><p>代码改用主题coy，并做了如下更改</p>
+<p>background-color: #f7f5ef;</p>
+<p>Border-left: #bbb</p>
+<p>Box-shadow: #ccc</p>
+</li>
+<li><p>知乎主页信息添加</p>
+</li>
+<li><p>ForkMe按钮的账户更新</p>
+</li>
+<li><p>更新404页面</p>
+</li>
+</ul>
+<h1 id="2021-08-05"><a href="#2021-08-05" class="headerlink" title="2021-08-05"></a>2021-08-05</h1><ul>
 <li>色调改为黑白灰为主的简洁风格。重要配色信息<ul>
 <li>navigation的图标和文字：4c4c4c</li>
 <li>按钮：border: 1px solid #f2f2f2;<br>background: radial-gradient(#bbb, #ccc);</li>
@@ -697,7 +765,7 @@
         repo: 'fuguigui.github.io',
         owner: 'fuguigui',
         admin: ["fuguigui"],
-        id: '2021-08-06T17-53-21',
+        id: '2021-08-07T15-18-35',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1006,7 +1074,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-07
                             </span>
                         <span class="publish-author">
                             
@@ -1044,7 +1112,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-07
                             </span>
                         <span class="publish-author">
                             

@@ -420,8 +420,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/computational-intelligence/">
-                                <span class="chip tag-color">computational intelligence</span>
+                            <a href="../tags/Machine-Learning/">
+                                <span class="chip tag-color">Machine Learning</span>
                             </a>
                         
                     </div>
@@ -432,8 +432,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    5 Min
+                    8 Min
                 </div>
                 
 
@@ -471,14 +471,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Matrix-Completion"><a href="#Matrix-Completion" class="headerlink" title="Matrix Completion"></a>Matrix Completion</h1><p>There are two direction of consideration to complete the matrix with many missing values:</p>
+                <p>There are two direction of consideration to complete the matrix with many missing values:</p>
 <ul>
 <li>statistical models: infer missing entries from observed ones, with k&lt;&lt;m*n parameters</li>
 <li>low rank decomposition: find best approximation with low rank r. Parameter numbers: m<em>r+n</em>r=(m+n)r.</li>
 </ul>
-<h2 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h2><p>The key problem of this slide is:<br>$$<br>\min_{rank(B)=k}[\sum_{(i,j)\in I}(a_{ij}-b_{ij})^2], I = {(i,j): \text{observed}}<br>$$</p>
-<h3 id="Non-convex"><a href="#Non-convex" class="headerlink" title="Non-convex"></a>Non-convex</h3><p>A non-convex problem can be non-convex on two parts: domain or objective.</p>
-<p>Finding the best approximation matrix B with the rank k is not a convex problem:</p>
+<h1 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h1><p>The key problem of this slide is:<br>$$<br>\min_{rank(B)=k}[\sum_{(i,j)\in I}(a_{ij}-b_{ij})^2], I = {(i,j): \text{observed}}<br>$$</p>
+<h2 id="Non-convex"><a href="#Non-convex" class="headerlink" title="Non-convex"></a>Non-convex</h2><p>A non-convex problem can be non-convex on two parts: domain or objective.</p>
+<p>Finding the best approximation matrix $B$ with the rank k is not a convex problem:</p>
 <ul>
 <li>the objective: minimize the frobenius norm is convex</li>
 <li>the searching space: matrix with rank k is not convex. The sum of two matrices with the same rank may have different rank.</li>
@@ -487,22 +487,22 @@
 <ul>
 <li>because non-convex problem usually has higher variance, or leads to local minima, not the global one, depending on the input data.</li>
 </ul>
-<h3 id="Remark-on-SVD"><a href="#Remark-on-SVD" class="headerlink" title="Remark on SVD"></a>Remark on SVD</h3><ul>
+<h2 id="Remark-on-SVD"><a href="#Remark-on-SVD" class="headerlink" title="Remark on SVD"></a>Remark on SVD</h2><ul>
 <li>Is SVD the optimal solution of the low-rank approximation even it is a non-convex problem?<ul>
-<li>An answer from <a target="_blank" rel="noopener" href="https://mathoverflow.net/questions/32533/is-all-non-convex-optimization-heuristic">mathoverflow</a> “The classical case is the singular value decomposition (SVD) which is non-convex but yet solvable. This is because only the top eigenvector is the global and local optimum and all the other eigenvectors are saddle points (assuming eigen gap). “</li>
+<li>An answer from <a target="_blank" rel="noopener" href="https://mathoverflow.net/questions/32533/is-all-non-convex-optimization-heuristic">mathoverflow</a>: The classical case is the singular value decomposition (SVD) which is non-convex but yet solvable. This is because only the top eigenvector is the global and local optimum and all the other eigenvectors are saddle points (assuming eigen gap). </li>
 </ul>
 </li>
 <li>Why SVD is not enough? <ul>
-<li>Because we have a large amount of unobserved entries! In another way, we want to find a matrix B according to the matrix A, but A is not good enough.</li>
+<li>Because we have a large amount of unobserved entries! In another way, we want to find a matrix $B$ according to the matrix $A$, but $A$ is not good enough.</li>
 </ul>
 </li>
 </ul>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><h3 id="Alternating-method"><a href="#Alternating-method" class="headerlink" title="Alternating method"></a>Alternating method</h3><p>This is a general method for non-convex problem with something convex.</p>
+<h1 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h1><h2 id="Alternating-method"><a href="#Alternating-method" class="headerlink" title="Alternating method"></a>Alternating method</h2><p>This is a general method for non-convex problem with something convex.</p>
 <ul>
 <li>for fixed $U$, $f$ is convex in $V$</li>
 <li>for fixed $V$, $f$ is convex in $U$</li>
 </ul>
-<h4 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h4><ul>
+<h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h2><ul>
 <li>$U:=\arg\min_U f(U,V)$</li>
 <li>$u_i=(\sum_{j:(i,j)\in I}v_jv_j^\top+\lambda I_k)^{-1}\sum_{j:(i,j)\in I}a_{ij}v_j$</li>
 <li>$V:=\arg\min_V f(U,V)$</li>
@@ -514,7 +514,7 @@
 <li>given low-dimensional representations for items/users: compute for each user/item <strong>independently</strong> the best representation</li>
 <li>we learn low-dimensional representations of users and items in the same space: R^K.</li>
 </ul>
-<h3 id="Frobenius-Norm-Regularization"><a href="#Frobenius-Norm-Regularization" class="headerlink" title="Frobenius Norm Regularization"></a>Frobenius Norm Regularization</h3><ul>
+<h2 id="Frobenius-Norm-Regularization"><a href="#Frobenius-Norm-Regularization" class="headerlink" title="Frobenius Norm Regularization"></a>Frobenius Norm Regularization</h2><ul>
 <li>Why do we regularize the norm? <ul>
 <li>to penalize the matrices. Preventing entries of $u_i, v_j$ from becoming too large. </li>
 </ul>
@@ -529,7 +529,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="Convex-Relaxation"><a href="#Convex-Relaxation" class="headerlink" title="Convex Relaxation"></a>Convex Relaxation</h3><h4 id="Nuclear-Norm"><a href="#Nuclear-Norm" class="headerlink" title="Nuclear Norm"></a>Nuclear Norm</h4><ul>
+<h2 id="Convex-Relaxation"><a href="#Convex-Relaxation" class="headerlink" title="Convex Relaxation"></a>Convex Relaxation</h2><h3 id="Nuclear-Norm"><a href="#Nuclear-Norm" class="headerlink" title="Nuclear Norm"></a>Nuclear Norm</h3><ul>
 <li><p>what is the definition of nuclear norm?</p>
 <ul>
 <li>$|A|_* = \sum_i\sigma_i$, $\sigma_i$ is the singular value of $A$.</li>
@@ -537,15 +537,28 @@
 </li>
 <li><p>what is the property of nuclear norm?</p>
 <ul>
-<li>compared to Frobenius norm: if we define $\sigma(A)=(\sigma_1,\sigma_2,\cdots,\sigma_n)$, $|A|_* =\text{trace}(\sqrt{A^<em>A})=|\sigma(A)|_1$, $|A|_F = \text{trace}(A^</em>A)=|\sigma(A)|_2$</li>
-<li>compared to rank, it provides the <strong>tightest</strong> lower <strong>convex  bound</strong> of the rank: $\text{trace}(B)\geq |B|_*, \forall |B|_2\leq 1$ <ul>
-<li>Proof:<img src="./imgs/2nn_4.png" alt="img"></li>
-<li>does the condition mean we need to standardize <strong>B</strong> s.t. the 2-norm less than 1.</li>
+<li>compared to Frobenius norm: if we define $\sigma(A)=(\sigma_1,\sigma_2,\cdots,\sigma_n)$​</li>
 </ul>
 </li>
-<li>convexity. Proof <img src="./imgs/2nn_1.png" alt="img"> <img src="./imgs/2nn_2.png" alt="img"> <img src="./imgs/2nn_3.png" alt="img"></li>
 </ul>
-</li>
+<p>$$<br>|A|_* =\text{trace}(\sqrt{A^*A})=|\sigma(A)|_1<br>$$</p>
+<p>$$<br>|A|_F = \text{trace}(A^*A)=|\sigma(A)|_2<br>$$</p>
+<p>compared to rank, it provides the <strong>tightest</strong> lower <strong>convex  bound</strong> of the rank: $\text{trace}(B)\geq |B|_*, \forall |B|_2\leq 1$ </p>
+<p>Proof:<br>$$<br>|A|_2 =\sigma_\max (A)=\sigma_1<br>$$</p>
+<p> Therefore, if $|A|_2\leq 1$  then $\sigma_i\leq 1,\forall i$ . Thus</p>
+<p>$$<br>\text{rank}(A)=\sharp{\sigma_i &gt; 0}=\sum_{i:\sigma_i &gt;0} 1\geq \sum_{i:\sigma_i &gt;0}\sigma_i = \sum_{i}\sigma_i = |A|_*<br>$$</p>
+<ul>
+<li>does the condition mean we need to standardize $B$ s.t. the 2-norm less than 1.</li>
+<li>convexity. Proof </li>
+</ul>
+<p>Recall, define $f: X\to \mathbb{R}$ is convex if $\forall x, y\in X$</p>
+<p>$$<br>f(\lambda x + (1-\lambda) y)\leq \lambda f(x) + (1-\lambda) f(y), \forall \lambda \in [0,1]<br>$$</p>
+<p>We want to show $\forall \lambda \in [0,1], \forall A,B\in\mathbb{R}^{m\times n}$​<br>$$<br>|\lambda A + (1-\lambda) B|_* \leq \lambda |A |_\ast + (1-\lambda) |B|_\ast<br>$$<br>Write SVD decomposition of left side:  $\lambda A + (1-\lambda )B=U_\lambda D_\lambda V_\lambda ^\top$<br>$$<br>|\lambda A + (1-\lambda) B|_\ast  = \text{trace}(D_\lambda) =\text{trace}[(U_\lambda^\top U_\lambda)D_\lambda (V_\lambda^\top V_\lambda)]\<br>$$</p>
+<p>$$<br>=\text{trace}[U_\lambda^\top (U_\lambda D_\lambda V_\lambda^\top) V_\lambda] =\text{trace}[U_\lambda^\top (\lambda A + (1-\lambda)B) V_\lambda] \<br>$$</p>
+<p>$$<br>  =\lambda \text{trace}(U_\lambda^\top A V_\lambda ) + (1-\lambda )\text{trace}(U_\lambda^\top B V_\lambda)<br>$$</p>
+<p>Thus  $|\lambda A + (1-\lambda) B|_\ast =\lambda \text{trace}(U_\lambda^\top A V_\lambda) + (1-\lambda)\text{trace}(U_\lambda^\top B V_\lambda) $​</p>
+<p>Write SVD decomposition of $A, A=U_AD_AV_A^\top$. Thus,<br>$$<br>\begin{align}<br>      \text{trace}(U_\lambda^\top AV_\lambda) &amp;=\sum_{i=1}^{\min(m,n)}[U_\lambda^\top A V_\lambda]<em>i^i = \sum</em>{i=1}^{\min(m,n)}[U_\lambda^\top U_A D_A V_A^\top V_\lambda]<em>i^i\<br>      &amp; = \sum</em>{i=1}^{\min(m,n)}\sum_{j=1}^{\min(m,n)}[U_\lambda^\top U_A]<em>j^i\sigma_j(A) [V_A^\top V_\lambda]<em>i^j\<br>      &amp; = \sum</em>{j=1}^{\min(m,n)}\sigma_j(A)\sum</em>{i=1}^{\min(m,n)}[U_\lambda^\top U_A]_j^i[V_A^\top V_\lambda]<em>i^j \<br>      &amp; \leq \sum</em>{j=1}^{\min(m,n)}\sigma_j(A)|[U_\lambda^\top U_A]_j|<em>2|[V_A^\top V_\lambda]^j|<em>2 \text{ (Cauchy-Schwartz)} \<br>      &amp; = \sum</em>{j=1}^{\min(m,n)}\sigma_j(A)=|A|</em>* \text{ (Frobenius norm invariant to rotation)}<br>      \end{align}<br>$$</p>
+<ul>
 <li><p>what is the purpose of using nuclear norm here?</p>
 <ul>
 <li>to relax the rank constraint from a non-convex space to a convex space.</li>
@@ -555,38 +568,39 @@
 <ul>
 <li><p>we can reconstruct the original non-convex problem. In fact, there are several ways to reconstruct the problem:</p>
 <ul>
-<li>Exact reconstruction (by virtue of Boolean matrix $G$):<br>$$<br>\min_B|B|_*, s.t. |A-B|_G=0<br>$$</li>
+<li>Exact reconstruction by virtue of Boolean matrix $G$: </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>Approximate reconstruction (directly relaxing the rank constraint, it enlarges the possible solution space)</p>
-<pre><code>$$
-\min_B\|A-B\|_G, s.t. \|B\|_*\leq r
-$$
-</code></pre>
+</ul>
+<p>$$<br>      \min_B|B|_*, s.t. |A-B|_G=0<br>$$</p>
 <ul>
-<li>Lagrange Formulation<br>$$<br>\min_B[\frac{1}{2\tau}|A-B|<em>G^2 + |B|</em>*]<br>$$</li>
+<li>Approximate reconstruction. Directly relaxing the rank constraint, it enlarges the possible solution space</li>
 </ul>
-</li>
+<p>$$<br>\min_B|A-B|_G, s.t. |B|_\ast\leq r<br>$$</p>
+<ul>
+<li>Lagrange Formulation</li>
 </ul>
-<h3 id="SVD-Shrinkage-Iterations"><a href="#SVD-Shrinkage-Iterations" class="headerlink" title="SVD Shrinkage Iterations"></a>SVD Shrinkage Iterations</h3><p>$$<br>B_{t+1} = B_t+\eta_t\Pi(A-\text{shrink}_\tau(B_t))<br>$$</p>
+<p>$$<br>\min_B[\frac{1}{2\tau}|A-B|_G^2 + |B|_\ast]<br>$$</p>
+<h2 id="SVD-Shrinkage-Iterations"><a href="#SVD-Shrinkage-Iterations" class="headerlink" title="SVD Shrinkage Iterations"></a>SVD Shrinkage Iterations</h2><p>$$<br>B_{t+1} = B_t+\eta_t\Pi(A-\text{shrink}_\tau(B_t))<br>$$</p>
 <ul>
 <li><p>what is the basic idea of this method?</p>
 <ul>
-<li><p>It wants to </p>
-<ul>
-<li>find a matrix with low Frobenius norm and nuclear norm  $B^*=\arg\min_B[\frac{1}{2\tau}|B|<em>F^2+|B|</em>*]$</li>
+<li>It wants to <ul>
+<li>find a matrix with low Frobenius norm and nuclear norm  $B^*=\arg\min_B[\frac{1}{2\tau}|B|_F^2+|B|_\ast]$​</li>
 <li>while keeping the observed ones being the same. Keep attention to that  $s.t. \Pi(A-B)=0$</li>
 </ul>
 </li>
-<li><p>include a shrinkage operator<br>$$<br>B^* = \text{shrink}_\tau(A):=\arg\min_B{\frac{1}{2}|A-B|<em>F^2+\tau|B|</em>*}<br>$$</p>
+<li>include a shrinkage operator</li>
+</ul>
 </li>
+</ul>
+<p>$$<br>B^\ast = \text{shrink}_\tau(A):=\arg\min_B{\frac{1}{2}|A-B|_F^2+\tau|B|_\ast}<br>$$</p>
+<ul>
 <li><p>The solution is  $B^*=UD_\tau V^\top, D_\tau=\text{diag}(\max{0,\sigma_i-\tau})$<br>This substracts a little from the big singular values and make the small ones as 0. </p>
 </li>
 <li><p>iteratively update the $B$.</p>
-</li>
-</ul>
 </li>
 <li><p>get the limitation of the shrinkage of $B_t$, which is $B^*$ we want.</p>
 </li>
@@ -601,8 +615,9 @@ $$
 </ul>
 </li>
 </ul>
-<h3 id="Exact-Matrix-Recovery"><a href="#Exact-Matrix-Recovery" class="headerlink" title="Exact Matrix Recovery"></a>Exact Matrix Recovery</h3><p>This method is more <strong>statistical</strong>.</p>
-<p>$$<br>\min_X\text{rank}(X), s.t. |A-B|_I = 0<br>$$<br>The rank function is not convex, also the constraint is very stringent. Therefore, it is a difficult problem.</p>
+<h2 id="Exact-Matrix-Recovery"><a href="#Exact-Matrix-Recovery" class="headerlink" title="Exact Matrix Recovery"></a>Exact Matrix Recovery</h2><p>This method is more <strong>statistical</strong>.</p>
+<p>$$<br>\min_X\text{rank}(X), s.t. |A-B|_I = 0<br>$$</p>
+<p>The rank function is not convex, also the constraint is very stringent. Therefore, it is a difficult problem.</p>
 <p>Solutions:</p>
 <ul>
 <li><p>using nuclear norm to replace the rank as objective,</p>
@@ -677,8 +692,8 @@ $$
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/computational-intelligence/">
-                                    <span class="chip bg-color">computational intelligence</span>
+                                <a href="../tags/Machine-Learning/">
+                                    <span class="chip bg-color">Machine Learning</span>
                                 </a>
                             
                         </div>
@@ -1140,7 +1155,7 @@ $$
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="../cil-topic-model/">
+                <a href="../cil-3tm/">
                     <div class="card-image">
                         
                         
@@ -1163,8 +1178,8 @@ $$
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1174,8 +1189,8 @@ $$
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/computational-intelligence/">
-                        <span class="chip bg-color">computational intelligence</span>
+                    <a href="../tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
                     </a>
                     
                 </div>
@@ -1212,8 +1227,8 @@ $$
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1223,8 +1238,8 @@ $$
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/computational-intelligence/">
-                        <span class="chip bg-color">computational intelligence</span>
+                    <a href="../tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
                     </a>
                     
                 </div>

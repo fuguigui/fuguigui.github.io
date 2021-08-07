@@ -420,8 +420,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/computational-intelligence/">
-                                <span class="chip tag-color">computational intelligence</span>
+                            <a href="../tags/Machine-Learning/">
+                                <span class="chip tag-color">Machine Learning</span>
                             </a>
                         
                     </div>
@@ -432,8 +432,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    2 Min
+                    3 Min
                 </div>
                 
 
@@ -471,66 +471,62 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Neural-Network"><a href="#Neural-Network" class="headerlink" title="Neural Network"></a>Neural Network</h1><h2 id="Composition"><a href="#Composition" class="headerlink" title="Composition"></a>Composition</h2><ul>
-<li>layer<ul>
+                <h1 id="Composition"><a href="#Composition" class="headerlink" title="Composition"></a>Composition</h1><ul>
+<li><p>layer</p>
+<ul>
 <li>neurons/units<ul>
 <li>input</li>
 <li>weight</li>
 <li>activation function</li>
-<li>output</li>
+<li>output $x^{(l)}=\sigma^{(l)}(W^{(l)}x^{(l-1)})$​</li>
 </ul>
 </li>
 </ul>
 </li>
+<li><p>network depth: the feature hierarchy</p>
+</li>
+<li><p>layer width: the number of features</p>
+</li>
 </ul>
-<p><img src="http://latex.codecogs.com/svg.latex?x%5E%7B(l)%7D=%5Csigma%5E%7B(l)%7D(W%5E%7B(l)%7Dx%5E%7B(l-1)%7D)" alt="img"></p>
-<ul>
-<li>network depth: the feature hierarchy</li>
-<li>layer width: the number of features</li>
-</ul>
-<h3 id="Activation-function"><a href="#Activation-function" class="headerlink" title="Activation function"></a>Activation function</h3><h4 id="Sigmoid"><a href="#Sigmoid" class="headerlink" title="Sigmoid"></a>Sigmoid</h4><p>change the linearity to non-linearity</p>
-<h4 id="ReLU"><a href="#ReLU" class="headerlink" title="ReLU"></a>ReLU</h4><p>change the linearity in some way</p>
+<h2 id="Activation-function"><a href="#Activation-function" class="headerlink" title="Activation function"></a>Activation function</h2><h3 id="Sigmoid"><a href="#Sigmoid" class="headerlink" title="Sigmoid"></a>Sigmoid</h3><p>change the linearity to non-linearity</p>
+<h3 id="ReLU"><a href="#ReLU" class="headerlink" title="ReLU"></a>ReLU</h3><p>change the linearity in some way</p>
 <p>simple derivative</p>
-<h2 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h2><h3 id="Loss-function"><a href="#Loss-function" class="headerlink" title="Loss function"></a>Loss function</h3><p>Define the training objective, can be chosen by the output type. <img src="http://latex.codecogs.com/svg.latex?y*" alt="img"> is the target output, <img src="http://latex.codecogs.com/svg.latex?y" alt="img"> is the predicted output</p>
+<h1 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h1><h2 id="Loss-function"><a href="#Loss-function" class="headerlink" title="Loss function"></a>Loss function</h2><p>Define the training objective, can be chosen by the output type. $y^*$  is the target output, $y$ is the predicted output</p>
 <ul>
-<li><p><img src="http://latex.codecogs.com/svg.latex?y*" alt="img"> is categorical: <strong>cross-entropy loss</strong>: </p>
-<p><img src="http://latex.codecogs.com/svg.latex?l(y*,y)=-y*%5Clog%20y%20-%20(1-y*)%5Clog(1-y)" alt="img"></p>
+<li><p>$y^*$​​ is categorical: <strong>cross-entropy loss</strong>:<br>$$<br>l(y^*,y)=-y^* \log y - (1-y^*)\log(1-y)<br>$$</p>
 </li>
-<li><p><img src="http://latex.codecogs.com/svg.latex?y*" alt="img"> is numerical: <strong>squared loss</strong>: <img src="http://latex.codecogs.com/svg.latex?l(y*,y)=%5Cfrac%7B1%7D%7B2%7D(y*-y)%5E2" alt="img"></p>
+<li><p>$y^*$ is numerical: <strong>squared loss</strong>:<br>$$<br>l(y^*,y)=\frac{1}{2}(y^*-y)^2<br>$$</p>
 </li>
 </ul>
-<h4 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h4><p>to penalize the parameters</p>
+<h3 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h3><p>to penalize the parameters</p>
 <ul>
-<li>L2 regularization:<img src="http://latex.codecogs.com/svg.latex?L_%7B%5Clambda%7D(X;%5Ctheta)%20=%20L(X;%5Ctheta)+%5Cfrac%7B%5Clambda%7D%7B2%7D%5C%7C%5Ctheta%5C%7C_2%5E2" alt="img"></li>
+<li>L2 regularization: $L_{\lambda}(X;\theta)=L(X;\theta)+\frac{\lambda}{2}|\theta|_2^2$</li>
 </ul>
-<h3 id="Backpropagation"><a href="#Backpropagation" class="headerlink" title="Backpropagation"></a>Backpropagation</h3><h4 id="SGD"><a href="#SGD" class="headerlink" title="SGD"></a>SGD</h4><p>different from past SGD, here we also include a step size  <img src="http://latex.codecogs.com/svg.latex?%5Ceta" alt="img">, because the steepest (original) descent is too expensive for large data sets. </p>
-<p>In the past, it should be</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Ctheta%5Cleftarrow%20(1-%5Clambda)%5Ctheta-%5Cnabla_%7B%5Ctheta%7Dl(y_t%5E*,y(x_t,%5Ctheta))" alt="img"></p>
-<p>But with <img src="http://latex.codecogs.com/svg.latex?%5Ceta" alt="img">, it becomes</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Ctheta%5Cleftarrow%20(1-%5Ceta%5Clambda)%5Ctheta-%5Ceta%5Cnabla_%7B%5Ctheta%7Dl(y_t%5E*,y(x_t,%5Ctheta))" alt="img"></p>
-<h4 id="Chain-rule"><a href="#Chain-rule" class="headerlink" title="Chain rule"></a>Chain rule</h4><p><img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7B%5Cpartial%20x%5E%7B(l)%7D%7D%7B%5Cpartial%20x%5E%7B(l-n)%7D%7D%20=%20J%5E%7B(l)%7D%5Ccdot%20J%5E%7B(l-1)%7D%5Ccdots%20J%5E%7B(l-n+1)%7D" alt="img"></p>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Cnabla%5ET_%7Bx%5E%7B(l)%7D%7Dl=%5Cnabla%5ET_y%20l%5Ccdot%20J%5E%7B(L)%7D%5Ccdots">http://latex.codecogs.com/svg.latex?%5Cnabla%5ET_%7Bx%5E%7B%28l%29%7D%7Dl%3D%5Cnabla%5ET_y%20l%5Ccdot%20J%5E%7B%28L%29%7D%5Ccdots</a> J%5E%7B%28l%2B1%29%7D)</p>
-<h4 id="Weights-influence"><a href="#Weights-influence" class="headerlink" title="Weights influence"></a>Weights influence</h4><p><img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7B%5Cpartial%20x_i%5E%7B(l)%7D%7D%7B%5Cpartial%20w_%7Bij%7D%5E%7B(l)%7D%7D%20=%20%5Csigma%27(%5Bw_i%5E%7Bl%7D%5D%5ETx%5E%7B(l-1)%7D)x_j%5E%7B(l-1)%7D" alt="img"></p>
+<h2 id="Backpropagation"><a href="#Backpropagation" class="headerlink" title="Backpropagation"></a>Backpropagation</h2><h3 id="SGD"><a href="#SGD" class="headerlink" title="SGD"></a>SGD</h3><p>different from past SGD, here we also include a step size  $\eta$, because the steepest / original descent is too expensive for large data sets. </p>
+<p>In the past, it should be $\theta\leftarrow (1-\lambda)\theta - \nabla_\theta l(y_t^*, y(x_t, \theta))$</p>
+<p>But with $\eta$​​, it becomes $\theta\leftarrow (1-\eta\lambda)\theta - \eta\nabla_\theta l(y_t^*, y(x_t, \theta))$​​</p>
+<h3 id="Chain-rule"><a href="#Chain-rule" class="headerlink" title="Chain rule"></a>Chain rule</h3><p>$$<br>\frac{\partial x^{(l)}}{\partial x^{(l-n)}} = J^{(l)}\cdot  J^{(l-1)}\cdots  J^{(l-n+1)}\<br>\nabla_{x^{(l)}}^T l = \nabla_y^T l\cdot J^{(L)}\cdots J^{(l+1)}<br>$$</p>
+<h3 id="Weights-influence"><a href="#Weights-influence" class="headerlink" title="Weights influence"></a>Weights influence</h3><p>$$<br>\frac{\partial x_i^{(l)}}{\partial w_{ij}^{(l)}} = \sigma’([w_i^l]^Tx^{(l-1)})x_j^{(l-1)}<br>$$</p>
 <p>is composed of two parts:</p>
 <ul>
 <li>sensitivity</li>
 <li>activation</li>
 </ul>
-<h2 id="Comparison-to-Logistics-Regression"><a href="#Comparison-to-Logistics-Regression" class="headerlink" title="Comparison to Logistics Regression"></a>Comparison to Logistics Regression</h2><p>Logistic Regression:</p>
+<h1 id="Comparison-to-Logistics-Regression"><a href="#Comparison-to-Logistics-Regression" class="headerlink" title="Comparison to Logistics Regression"></a>Comparison to Logistics Regression</h1><p>Logistic Regression:</p>
 <ul>
 <li>linear</li>
 </ul>
-<p>MLP (multi-layer perceptron):</p>
+<p>MLP: multi-layer perceptron:</p>
 <ul>
 <li><p>learn intermediate feature representation</p>
 </li>
 <li><p>include non-linearity</p>
 </li>
 </ul>
-<h1 id="Convolutional-Neural-Network"><a href="#Convolutional-Neural-Network" class="headerlink" title="Convolutional Neural Network"></a>Convolutional Neural Network</h1><h2 id="Receptive-field"><a href="#Receptive-field" class="headerlink" title="Receptive field"></a>Receptive field</h2><p>The creative point of convolutional neural network is how it chooses and organizes the input  <img src="http://latex.codecogs.com/svg.latex?x%5E%7B(l)%7D" alt="img"></p>
+<h1 id="Convolutional-Neural-Network"><a href="#Convolutional-Neural-Network" class="headerlink" title="Convolutional Neural Network"></a>Convolutional Neural Network</h1><h2 id="Receptive-field"><a href="#Receptive-field" class="headerlink" title="Receptive field"></a>Receptive field</h2><p>The creative point of convolutional neural network is how it chooses and organizes the input $x^{(l)}$</p>
 <p>This variant in some way complicates the neural network</p>
 <h2 id="Weight-sharing"><a href="#Weight-sharing" class="headerlink" title="Weight sharing"></a>Weight sharing</h2><p>This simplifies the neural network. Neurons share the same weights.</p>
-<p>Weights define a <strong>filter mask</strong>. A filter mask corresponds to a vector of <img src="http://latex.codecogs.com/svg.latex?y" alt="img">, in CNN, which is called channel.</p>
+<p>Weights define a <strong>filter mask</strong>. A filter mask corresponds to a vector of $y$, in CNN, which is called channel.</p>
 <h2 id="Building-blocks"><a href="#Building-blocks" class="headerlink" title="Building blocks"></a>Building blocks</h2><ul>
 <li>convolutional layer</li>
 <li>pooling layer</li>
@@ -541,7 +537,7 @@
 <li>the first ConvLayer is  responsible for capturing the Low-Level features such as edges, color,  gradient orientation, etc. </li>
 <li>With added layers, the architecture adapts to the High-Level features as well, giving us a network which has the  wholesome understanding of images in the dataset, similar to how we would.</li>
 </ul>
-<h4 id="Formula"><a href="#Formula" class="headerlink" title="Formula"></a>Formula</h4><p><img src="http://latex.codecogs.com/svg.latex?F_%7Bn,m%7D(x;w)=%5Csigma(b+%5CSigma_%7Bk=-2%7D%5E2%5CSIgma_%7Bl=-2%7D%5E2w_%7Bk,l%7D%5Ccdot%20x_%7Bn+k,m+l%7D%5C)" alt="img"></p>
+<h4 id="Formula"><a href="#Formula" class="headerlink" title="Formula"></a>Formula</h4><p>$$<br>F_{n,m}(x; w)=\sigma(b+\sum_{k=-2}^2\sum_{l=-2}^2w_{k,l}\cdot x_{n+k, m+l})<br>$$</p>
 <h3 id="Pooling-layer"><a href="#Pooling-layer" class="headerlink" title="Pooling layer"></a>Pooling layer</h3><p> the Pooling layer is responsible </p>
 <ul>
 <li>for reducing the spatial size of the Convolved Feature</li>
@@ -623,8 +619,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/computational-intelligence/">
-                                    <span class="chip bg-color">computational intelligence</span>
+                                <a href="../tags/Machine-Learning/">
+                                    <span class="chip bg-color">Machine Learning</span>
                                 </a>
                             
                         </div>
@@ -1109,8 +1105,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1120,8 +1116,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/computational-intelligence/">
-                        <span class="chip bg-color">computational intelligence</span>
+                    <a href="../tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
                     </a>
                     
                 </div>
@@ -1337,6 +1333,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

@@ -420,8 +420,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/computational-intelligence/">
-                                <span class="chip tag-color">computational intelligence</span>
+                            <a href="../tags/Machine-Learning/">
+                                <span class="chip tag-color">Machine Learning</span>
                             </a>
                         
                     </div>
@@ -432,8 +432,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -471,30 +471,30 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Data-Clustering"><a href="#Data-Clustering" class="headerlink" title="Data Clustering"></a>Data Clustering</h1><h2 id="Vector-Quantization"><a href="#Vector-Quantization" class="headerlink" title="Vector Quantization"></a>Vector Quantization</h2><p>assign vectors to some groups, denoted by the centroids. Methods: K-means, Mixture Model.</p>
-<h2 id="K-Means"><a href="#K-Means" class="headerlink" title="K-Means"></a>K-Means</h2><ul>
+                <h1 id="Vector-Quantization"><a href="#Vector-Quantization" class="headerlink" title="Vector Quantization"></a>Vector Quantization</h1><p>assign vectors to some groups, denoted by the centroids. Methods: K-means, Mixture Model.</p>
+<h1 id="K-Means"><a href="#K-Means" class="headerlink" title="K-Means"></a>K-Means</h1><ul>
 <li>$k$: the number of clusters</li>
 <li>means: the way we get the centroids is by averaging.</li>
 </ul>
-<h3 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h3><p>$$<br>\min_{U,Z}J(U,Z)=\sum_{i=1}^N \sum_{j=1}^K z_{ij}=|x_i-u_j|^2 = |X-UZ^\top|_F^2<br>$$</p>
+<h2 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h2><p>$$<br>\min_{U,Z}J(U,Z)=\sum_{i=1}^N \sum_{j=1}^K z_{ij}=|x_i-u_j|^2 = |X-UZ^\top|_F^2<br>$$</p>
 <p>Here, we use the <strong>squared</strong> Euclidean distance, not the Euclidean distance.</p>
-<h3 id="Algorithms"><a href="#Algorithms" class="headerlink" title="Algorithms"></a>Algorithms</h3><p>Alternating minimization</p>
+<h2 id="Algorithms"><a href="#Algorithms" class="headerlink" title="Algorithms"></a>Algorithms</h2><p>Alternating minimization</p>
 <ul>
 <li>update $Z$, given $U$: the closest $U$</li>
 <li>update $U$, given $Z$: the average of $Z$.</li>
 </ul>
-<h3 id="Practical-considerations"><a href="#Practical-considerations" class="headerlink" title="Practical considerations"></a>Practical considerations</h3><ul>
+<h2 id="Practical-considerations"><a href="#Practical-considerations" class="headerlink" title="Practical considerations"></a>Practical considerations</h2><ul>
 <li>Quadratic convergence rate.</li>
 <li>computational cost: $O(nkd)$ per iteration.</li>
 </ul>
-<h3 id="Variant"><a href="#Variant" class="headerlink" title="Variant"></a>Variant</h3><h4 id="K-Means-initialization"><a href="#K-Means-initialization" class="headerlink" title="K-Means++ (initialization)"></a>K-Means++ (initialization)</h4><p>Since initialize $U$ and $Z$ matter a lot to the computation cost and final result, this variant try to find a better way to initialize $U$. </p>
+<h2 id="Variant"><a href="#Variant" class="headerlink" title="Variant"></a>Variant</h2><h3 id="initialization-K-Means"><a href="#initialization-K-Means" class="headerlink" title="initialization: K-Means++"></a>initialization: K-Means++</h3><p>Since initialize $U$ and $Z$ matter a lot to the computation cost and final result, this variant try to find a better way to initialize $U$. </p>
 <p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/K-means%2B%2B">wiki</a></p>
 <p>The intuition behind this approach is that <strong>spreading out</strong> the $k$  initial cluster centers is a good thing: </p>
 <ol>
 <li>the first cluster center is chosen uniformly at random from the data points that are being clustered, </li>
 <li>after which each subsequent cluster center is chosen from the remaining data points with probability proportional to its squared distance from the point’s closest existing cluster center.</li>
 </ol>
-<h4 id="Core-set-sub-training-dataset"><a href="#Core-set-sub-training-dataset" class="headerlink" title="Core set (sub-training dataset)"></a>Core set (sub-training dataset)</h4><p>The idea is our dataset is too big to run the K-Means algorithm. Therefore, we need to extract a sub-sample dataset from it. This method solves how to select the sub-training dataset.</p>
+<h3 id="sub-training-dataset-Core-set"><a href="#sub-training-dataset-Core-set" class="headerlink" title="sub-training dataset: Core set"></a>sub-training dataset: Core set</h3><p>The idea is our dataset is too big to run the K-Means algorithm. Therefore, we need to extract a sub-sample dataset from it. This method solves how to select the sub-training dataset.</p>
 <ul>
 <li><p>how big should the sub-dataset be?</p>
 <ul>
@@ -542,7 +542,7 @@
 <h3 id="ML-method"><a href="#ML-method" class="headerlink" title="ML method"></a>ML method</h3><p>Maximum likelihood method usually </p>
 <ul>
 <li>makes some general assumption about the distribution. Here: the Gaussian distribution.</li>
-<li>then try to obtain(“infer”) the specifics from the data available.</li>
+<li>then try to obtain/ “infer” the specifics from the data available.</li>
 </ul>
 <h3 id="Generation-EM-algorithms"><a href="#Generation-EM-algorithms" class="headerlink" title="Generation- EM algorithms"></a>Generation- EM algorithms</h3><p>By <strong>MLE</strong>, we want to get the parameters of $\theta$. Since the objective function has a summation within a log calculation, we should use E-M algorithm and use Jensen’s inequality.</p>
 <ul>
@@ -626,8 +626,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/computational-intelligence/">
-                                    <span class="chip bg-color">computational intelligence</span>
+                                <a href="../tags/Machine-Learning/">
+                                    <span class="chip bg-color">Machine Learning</span>
                                 </a>
                             
                         </div>

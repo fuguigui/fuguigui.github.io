@@ -420,8 +420,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/computational-intelligence/">
-                                <span class="chip tag-color">computational intelligence</span>
+                            <a href="../tags/Machine-Learning/">
+                                <span class="chip tag-color">Machine Learning</span>
                             </a>
                         
                     </div>
@@ -432,8 +432,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -471,7 +471,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Word-Embeddings"><a href="#Word-Embeddings" class="headerlink" title="Word Embeddings"></a>Word Embeddings</h1><h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>Using <strong>vector</strong> as the symbol to represent words, which can capture their meaning in some way.</p>
+                <h1 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h1><p>Using <strong>vector</strong> as the symbol to represent words, which can capture their meaning in some way.</p>
 <ul>
 <li>the advantage of vector representation?</li>
 <li>maybe capture the meaning closeness of words. e.g. similar words have similar vectors.</li>
@@ -485,19 +485,21 @@
 </ul>
 </li>
 </ul>
-<h2 id="Models"><a href="#Models" class="headerlink" title="Models"></a>Models</h2><h3 id="Latent-Vector-Model"><a href="#Latent-Vector-Model" class="headerlink" title="Latent Vector Model"></a>Latent Vector Model</h3><p>$$<br>w\mapsto (\vec{x_w},b_w)\in\mathbb{R}^{d+1}<br>$$</p>
+<h1 id="Models"><a href="#Models" class="headerlink" title="Models"></a>Models</h1><h2 id="Latent-Vector-Model"><a href="#Latent-Vector-Model" class="headerlink" title="Latent Vector Model"></a>Latent Vector Model</h2><p>$$<br>w\mapsto (\vec{x_w},b_w)\in\mathbb{R}^{d+1}<br>$$</p>
 <p>represent a word by a vector and a scalar bias.</p>
 <ul>
 <li>what is the function of bias?<ul>
-<li>to make sure that some words are more likely than other words <strong>under all conditioning</strong>. Reflected by the definition of probabilistic:<br><img src="http://latex.codecogs.com/svg.latex?%5Clog%20p_%7B%5Ctheta%7D(w%7Cw%27)=%3Cx_w,x_%7Bw%27%7D%3E+b_w+const(w%27)" alt="img"><br>$$<br>\log p_\theta(w|w’)=&lt;x_w, x_{w’}&gt; + b_w+\text{const}(w’)<br>$$<ul>
+<li><p>to make sure that some words are more likely than other words <strong>under all conditioning</strong>. Reflected by the definition of probabilistic:<br>$$<br>\log p_\theta(w|w’)=&lt;x_w, x_{w’}&gt; + b_w+\text{const}(w’)<br>$$</p>
+<ul>
 <li> the const is to guarantee the sum conditioned on $w’$ is 1.</li>
 </ul>
 </li>
-<li>it is not necessary but very helpful to have the bias item.</li>
+<li><p>it is not necessary but very helpful to have the bias item.</p>
+</li>
 </ul>
-<strong>Inner product</strong> is a natural way to evaluate the similarity of vectors<h4 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h4>$$<br>L(\theta;w)=\sum_{t=1}^T \sum_{\Delta\in I}[\log b_{w(t+\Delta)}+\log &lt;x_{w(t+\Delta)},x_{w(t)}&gt;-\log\sum_{v\in V}\exp[&lt;x_v, x_{w(t)}&gt; + b_v]]<br>$$</li>
+<strong>Inner product</strong> is a natural way to evaluate the similarity of vectors<h3 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h3>$$<br>L(\theta;w)=\sum_{t=1}^T \sum_{\Delta\in I}[\log b_{w(t+\Delta)}+\log &lt;x_{w(t+\Delta)},x_{w(t)}&gt;-\log\sum_{v\in V}\exp[&lt;x_v, x_{w(t)}&gt; + b_v]]<br>$$</li>
 </ul>
-<h4 id="Modification"><a href="#Modification" class="headerlink" title="Modification"></a>Modification</h4><ul>
+<h3 id="Modification"><a href="#Modification" class="headerlink" title="Modification"></a>Modification</h3><ul>
 <li><p>why to distinguish the main vocabulary and context vocabulary? </p>
 <ul>
 <li><p>if we don’t distinguish, a word as to be predicted and as the context will have the same representation. But the reality isn’t like that. If we use different representation when a word has different roles, it will add the expression ability of the model.</p>
@@ -513,7 +515,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="Negative-sampling"><a href="#Negative-sampling" class="headerlink" title="Negative sampling"></a>Negative sampling</h4><p>This is a method of sampling. It is natural to use sampling when the object is exponentially big. One classic sampling method is MCMC.</p>
+<h3 id="Negative-sampling"><a href="#Negative-sampling" class="headerlink" title="Negative sampling"></a>Negative sampling</h3><p>This is a method of sampling. It is natural to use sampling when the object is exponentially big. One classic sampling method is MCMC.</p>
 <ul>
 <li><p>sampling: In the maximum likelihood estimation, each time for one context word, we need to update all the other words vectors, represented by the exponential items. This is very time-consuming. Instead, we only update a few words’ vectors. These few words are selected by sampling. </p>
 </li>
@@ -527,13 +529,13 @@
 <li><p>what is the relationship between Negative sampling and PMI?</p>
 </li>
 </ul>
-<h3 id="Global-vectors-for-word-representation-GloVe"><a href="#Global-vectors-for-word-representation-GloVe" class="headerlink" title="Global vectors for word representation (GloVe)"></a>Global vectors for word representation (GloVe)</h3><p>  The key idea of GloVe is: </p>
+<h2 id="Glove-Global-vectors-for-word-representation"><a href="#Glove-Global-vectors-for-word-representation" class="headerlink" title="Glove: Global vectors for word representation"></a>Glove: Global vectors for word representation</h2><p>  The key idea of GloVe is: </p>
 <ol>
 <li><p>extract a count matrix from the given dataset. </p>
 <ul>
 <li>Each row is a word in the vocabulary</li>
 <li>Each column is a context</li>
-<li>Each entry n_ij is the appearance times of the word i in the context j</li>
+<li>Each entry $n_{ij}$ is the appearance times of the word i in the context $j$</li>
 </ul>
 </li>
 <li><p>construct another matrix from the vector representation of vocabularies and contexts.</p>
@@ -542,7 +544,7 @@
 </ul>
 </li>
 <li><p>update vectors to make these two matrices as close as possible.</p>
-<p>(optional) using weight function to weight items with different counts.</p>
+<p>optional: using weight function to weight items with different counts.</p>
 </li>
 </ol>
 <p>  In this way, the vector representation problem is transferred as a matrix factorization problem.</p>
@@ -554,7 +556,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="SGD-Stochastic-gradient-descent"><a href="#SGD-Stochastic-gradient-descent" class="headerlink" title="SGD (Stochastic gradient descent)"></a>SGD (Stochastic gradient descent)</h3><ul>
+<h1 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h1><h2 id="SGD-Stochastic-gradient-descent"><a href="#SGD-Stochastic-gradient-descent" class="headerlink" title="SGD: Stochastic gradient descent"></a>SGD: Stochastic gradient descent</h2><ul>
 <li><p>The objective function: $f(x)=\sum_i f_i(x)$</p>
 </li>
 <li><p>Traditional gradient descent way:</p>
@@ -635,8 +637,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/computational-intelligence/">
-                                    <span class="chip bg-color">computational intelligence</span>
+                                <a href="../tags/Machine-Learning/">
+                                    <span class="chip bg-color">Machine Learning</span>
                                 </a>
                             
                         </div>
@@ -1353,6 +1355,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

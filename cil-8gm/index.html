@@ -420,8 +420,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/computational-intelligence/">
-                                <span class="chip tag-color">computational intelligence</span>
+                            <a href="../tags/Machine-Learning/">
+                                <span class="chip tag-color">Machine Learning</span>
                             </a>
                         
                     </div>
@@ -432,8 +432,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    9 Min
+                    10 Min
                 </div>
                 
 
@@ -494,7 +494,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="Variational-autoencoders-VAE"><a href="#Variational-autoencoders-VAE" class="headerlink" title="Variational autoencoders (VAE)"></a>Variational autoencoders (VAE)</h1><ul>
+<h1 id="VAE-Variational-autoencoders"><a href="#VAE-Variational-autoencoders" class="headerlink" title="VAE: Variational autoencoders"></a>VAE: Variational autoencoders</h1><ul>
 <li><p>what does variational mean?</p>
 <ul>
 <li>alter, or explore variations on <em>data you already have</em>, and not just in a random way either, but in a desired, <em>specific</em> direction. </li>
@@ -507,31 +507,25 @@
 <li>Design a <strong>continuous</strong>, allowing easily random sampling and interpolating latent space.</li>
 </ul>
 </li>
-<li><p>this is a **latent variable model **? <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/21741426">zhihu</a></p>
+<li><p>this is a <strong>latent variable model</strong> ? <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/21741426">zhihu</a></p>
 <ul>
-<li><p>Speaking of learning latent variable, we use EM algorithm before. There, the latent variable <strong>h</strong> is a discrete variable, has limited possible numbers. (Considering the clustering problem, usually <strong>h</strong> denotes whether the variable <strong>x_i</strong> belongs to the class <strong>c_j</strong>, there are totally N*M h values.) But here, the <strong>key assumption</strong> is that <strong>h is continuous</strong>.  </p>
+<li><p>Speaking of learning latent variable, we use EM algorithm before. There, the latent variable $h$ is a discrete variable, has limited possible numbers. (Considering the clustering problem, usually $h$ denotes whether the variable $x_i$ belongs to the class $c_j$, there are totally $N\times M$  values.) But here, the <strong>key assumption</strong> is that $h$ is <strong>continuous</strong>.  </p>
 </li>
-<li><p>Recap of the mixture clustering problem, there we include latent variable and write the log-likelihood of x according to the latent variable as:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Clog%20p(x;%5Ctheta)=%5Clog%5B%5CSigma_%7Bj=1%7D%5EK%5Cpi_j%20p(x;%5Ctheta_j)%5D=%5Clog%5B%5CSigma_%7Bj=1%7D%5EK%20q_j%5Cfrac%7B%5Cpi_j%20p(x;%5Ctheta_j)%7D%7Bq_j%7D%5D" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cgeq%20%5CSigma_%7Bj=1%7D%5EKq_j%5B%5Clog%20p(x;%5Ctheta_j)+%5Clog%5Cpi_j%20-%5Clog%20q_j%5D" alt="img"></p>
+<li><p>Recap of the mixture clustering problem, there we include latent variable and write the log-likelihood of x according to the latent variable as:<br>$$<br>\begin{align}<br>\log p(x;\theta) &amp; = \log[\sum_{j=1}^K\pi_j p(x;\theta_j)] = \log[\sum_{j=1}^K q_j\frac{\pi_j p(x;\theta_j)}{q_j}] \<br>&amp; \geq \sum_{j=1}^K q_j[\log p(x;\theta_j)+\log\pi_j - \log q_j]\<br>\end{align}<br>$$</p>
 </li>
-<li><p>Here, for continuous latent variable, it should be written as:</p>
-<p>  ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Clog%20p(x;%5Ctheta)=%5Clog(%5Cint">http://latex.codecogs.com/svg.latex?%5Clog%20p%28x%3B%5Ctheta%29%3D%5Clog%28%5Cint</a> p%28x%2ch%29dh%29%3D%5Clog%5Cint%20q%28h%7Cx%29%5Cfrac%7Bp%28x%2Ch%29%7D%7Bq%28h%7Cx%29%7Ddh)</p>
-<p>  we can follow the former method and rewrite it go get a lower variational bound:</p>
-<p>  <img src="http://latex.codecogs.com/svg.latex?%5Cgeq%5Cint%20q(h%7Cx)%5B%5Clog%20p(x%7Ch)p(h)-%5Clog%20q(h%7Cx)%5Ddh%20=%20B(q,x)" alt="img"></p>
-<p>  Then, we want to use some simple distribution family to approximate <img src="http://latex.codecogs.com/svg.latex?q(h%7Cx)" alt="img">, which maximizes <img src="http://latex.codecogs.com/svg.latex?B(q,x)" alt="img"></p>
+<li><p>Here, for continuous latent variable, it should be written as:<br>  $$<br>  \log p(x;\theta)=\log \int p(x,h)\mathrm{d}h = \log \int q(h|x)\frac{p(x,h)}{q(h|x)}\mathrm{d}h<br>  $$<br>  we can follow the former method and rewrite it go get a lower variational bound:<br>  $$<br>  \geq \int q(h|x)[\log p(x|h)p(h)-\log q(h|x)]\mathrm{d}h = B(q,x)<br>  $$<br>  Then, we want to use some simple distribution family to approximate $q(h|x)$, which maximizes $B(q,x)$</p>
 </li>
-<li><p>we can also rewrite <img src="http://latex.codecogs.com/svg.latex?B(q,x)" alt="img"> as <img src="http://latex.codecogs.com/svg.latex?B(q,x)%20=%20-%20D%5Bq(h%7Cx)%7C%7Cp(h)%5D+%5Cint%20q(h%7Cx)%5Clog%20p(x%7Ch)dh" alt="img"></p>
+<li><p>we can also rewrite $B(q,x)$​ as<br>$$<br>B(q,x)=-D[q(h|x)||p(h)]+\int q(h|x)\log p(x|h)\mathrm{d}h<br>$$</p>
 <ul>
 <li>the first item is KL divergence</li>
 <li>the second item can be viewed as reconstruction error.</li>
-<li>Usually, the prior <img src="http://latex.codecogs.com/svg.latex?p(h)" alt="img"> is very simple to calculate directly.</li>
-<li>Now, our goal is to find <img src="http://latex.codecogs.com/svg.latex?q(h%7Cx)" alt="img"> and <img src="http://latex.codecogs.com/svg.latex?p(x%7Ch)" alt="img">, which maximize the <img src="http://latex.codecogs.com/svg.latex?B(q,x)" alt="img"></li>
+<li>Usually, the prior $p(h)$ is very simple to calculate directly.</li>
+<li>Now, our goal is to find $q(h|x)$ and $p(x|h)$, which maximize the $B(q,x)$</li>
 </ul>
 </li>
-<li><p>What VAE does is not making assumption on <img src="http://latex.codecogs.com/svg.latex?q(h%7Cx)" alt="img"> but do the variable replacement. Using ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?f(x,%5Cepsilon)%5Csim">http://latex.codecogs.com/svg.latex?f%28x%2c%5cepsilon%29%5csim</a> q%28h%7cx%29)</p>
+<li><p>What VAE does is not making assumption on $q(h|x)$ but do the variable replacement. Using $f(x,\epsilon)\sim q(h|x)$</p>
 <ul>
-<li>the advantage is that if the variance of q() could be large, but we will use its gradient to rectify itself. The error may become larger. But if we use <img src="http://latex.codecogs.com/svg.latex?%5Cepsilon" alt="img"> which comes from a stable distribution, the variance of the estimator will reduce a lot.</li>
+<li>the advantage is that if the variance of $q(\cdot)$ could be large, but we will use its gradient to rectify itself. The error may become larger. But if we use  $\epsilon$ which comes from a stable distribution, the variance of the estimator will reduce a lot.</li>
 </ul>
 </li>
 </ul>
@@ -543,7 +537,7 @@
 <li>The basic idea is the same as linear autoencoder: representing our data into low-dimensional latent variables, and reconstruct from it to minimize the reconstruction error.</li>
 <li>we can use DNN to realize non-linear.</li>
 <li>Different: the model latent variables are soft regions, i.e. continuous areas, instead of points.</li>
-<li>KL divergence enforces us to use Gaussian prior. Without it, the model would learn ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Csigma%5Cto">http://latex.codecogs.com/svg.latex?%5Csigma%5cto</a> 0), falling to a normal autoencoder.</li>
+<li>KL divergence enforces us to use Gaussian prior. Without it, the model would learn $\sigma\to 0$, falling to a normal autoencoder.</li>
 </ul>
 <h2 id="Compare-to-autoencoder-network"><a href="#Compare-to-autoencoder-network" class="headerlink" title="Compare to autoencoder network"></a>Compare to autoencoder network</h2><p><a target="_blank" rel="noopener" href="https://towardsdatascience.com/intuitively-understanding-variational-autoencoders-1bfe67eb5daf">medium link</a></p>
 <p>Autoencoder:</p>
@@ -553,14 +547,14 @@
 </ul>
 <p>Problem: the fundamental problem with autoencoders is that the latent space may <strong>not be continuous</strong>, or allow easy interpolation. </p>
 <p>Classic autoencoder learns a deterministic function that compresses the data while VAE learn the parameters of a probability distribution representing the data. We can sample from the distribution and generate new input data samples. It is a <strong>generative</strong> model.</p>
-<p>instead of outputing an encoding vector of size n, it outputs two vectors of size n: a vector of means <img src="http://latex.codecogs.com/svg.latex?%5Cmu" alt="img"> and another vector of standard deviations <img src="http://latex.codecogs.com/svg.latex?%5Csigma" alt="img"></p>
+<p>instead of outputing an encoding vector of size n, it outputs two vectors of size n: a vector of means $\mu$ and another vector of standard deviations $\sigma$</p>
 <p>That means, even for the same input, the encoded latent variables may vary a little due to the randomness.</p>
 <p>By varying the encoding of one sample, a latent point is developing into smooth latent spaces on a local scale, that is, for similar samples.</p>
-<h2 id="ELBO"><a href="#ELBO" class="headerlink" title="ELBO"></a>ELBO</h2><p>Evidence Lower BOund.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?ELBO(%5Cphi,%5Ctheta)%20=%20E_%7Bq_%7B%5Cphi%7D%7D%5B%5Clog%20p_%7B%5Ctheta%7D(x%7Cz)+%5Clog%5Cfrac%7Bp(z)%7D%7Bq_%7B%5Cphi%7D(z%7Cx)%7D%5D%20=%20E_%7Bq_%7B%5Cphi%7D%7D%5B%5Clog%20p_%7B%5Ctheta%7D(x%7Cz)%5D-KL(q_%7B%5Cphi%7D(z%7Cx)%7C%7Cp(z))" alt="img"></p>
+<h2 id="ELBO"><a href="#ELBO" class="headerlink" title="ELBO"></a>ELBO</h2><p>Evidence Lower BOund.<br>$$<br>\text{ELBO}(\phi,\theta)=\mathbb{E}_{q_\phi} [\log p_\theta(x|z)+\log p(z) - \log q_\phi(z|x)<br>$$</p>
+<p>$$<br>= \mathbb{E}_{q_\phi}[\log p_\theta (x|z)]-KL[q_\phi (z|x)\parallel p(z)]<br>$$</p>
 <ul>
 <li>what is the reconstruction error?<ul>
-<li>The first item reflects the reconstruction error. To maximize ELBO, we want to maximize the first item, which means maximizing the likelihood of the generated data x_i.</li>
+<li>The first item reflects the reconstruction error. To maximize ELBO, we want to maximize the first item, which means maximizing the likelihood of the generated data $x_i$.</li>
 <li>This is related to reconstruction quality.</li>
 </ul>
 </li>
@@ -570,35 +564,34 @@
 <h3 id="KL-divergence"><a href="#KL-divergence" class="headerlink" title="KL divergence"></a>KL divergence</h3><ul>
 <li>what is the function of KL divergence here?<ul>
 <li>make encodings, <em>all</em> of which are as close as possible to each other while still being distinct,</li>
-<li>allowing smooth interpolation (because the lack of holes), </li>
+<li>allowing smooth interpolation, because the lack of holes, </li>
 <li>and enabling the construction of <em>new</em> samples.</li>
 </ul>
 </li>
 </ul>
-<p>The KL divergence between two probability distributions simply measures how much they <em>diverge</em> from each other. Minimizing the KL divergence here means optimizing the probability distribution parameters <strong>(μ</strong> and <strong>σ)</strong> to closely resemble that of the target distribution</p>
-<p>For VAEs, the KL loss is equivalent to the <em>sum</em> of all the KL divergences between the <em>component</em> ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?X_i%5Csim">http://latex.codecogs.com/svg.latex?X_i%5csim</a> N%28%5Cmu,%5csigma_i%5E2%29) in <strong>X</strong>, and the standard normal. It’s minimized when <img src="http://latex.codecogs.com/svg.latex?%5Cmu_i=0,%5Csigma_i=1" alt="img">.</p>
-<p>Intuitively, this loss encourages the encoder to distribute all encodings (for all types of inputs, eg. all MNIST numbers), <strong>evenly around the center of the latent space</strong>. If it tries to “cheat” by clustering them apart into specific regions, away from the origin, it will be penalized.</p>
+<p>The KL divergence between two probability distributions simply measures how much they <em>diverge</em> from each other. Minimizing the KL divergence here means optimizing the probability distribution parameters $\mu$ and $\sigma$) to closely resemble that of the target distribution</p>
+<p>For VAEs, the KL loss is equivalent to the <em>sum</em> of all the KL divergences between the <em>component</em> $X_i\sim \mathcal{N}(\mu, \sigma_i^2)$ in $X$, and the standard normal. It’s minimized when $\mu_i=0,\sigma_i=1$.</p>
+<p>Intuitively, this loss encourages the encoder to distribute all encodings, for all types of inputs, e.g. all MNIST numbers, <strong>evenly around the center of the latent space</strong>. If it tries to “cheat” by clustering them apart into specific regions, away from the origin, it will be penalized.</p>
 <p>A good thing of VAE is that it can learn generative model and inference model at the same time.</p>
-<h2 id="Reparametrization-Trick"><a href="#Reparametrization-Trick" class="headerlink" title="Reparametrization Trick"></a>Reparametrization Trick</h2><p>Replace <img src="http://latex.codecogs.com/svg.latex?z%20=%20g_%7B%5Cphi%7D(%5Cepsilon,x)" alt="img">, so that we can do Monte Carol sampling and differentiate <img src="http://latex.codecogs.com/svg.latex?z" alt="img"> and backpropagation can be used to tune the parameters in the model.</p>
-<p>Using simple ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Cepsilon,%5Cepsilon%5Csim">http://latex.codecogs.com/svg.latex?%5Cepsilon,%5Cepsilon%5Csim</a> f%28x%2C%5Cepsilon%29) to replace  <img src="http://latex.codecogs.com/svg.latex?q(h%7Cx)" alt="img"></p>
-<p>Gradient of expectation -&gt; Expectation of gradient -&gt; average of stochastic gradient.</p>
-<h2 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h2><p>The encoder and decoder networks are trained to solve the optimization problem  <img src="http://latex.codecogs.com/svg.latex?%5Ctheta%5E*,%5Cphi%5E*=%5Carg%5Cmax_%7B%5Ctheta,%5Cphi%7D%20L(x%5E%7B(i)%7D,%5Ctheta,%5Cphi)" alt="img">.</p>
+<h2 id="Reparametrization-Trick"><a href="#Reparametrization-Trick" class="headerlink" title="Reparametrization Trick"></a>Reparametrization Trick</h2><p>Replace $z=g_\phi (\epsilon, x)$ , so that we can do Monte Carol sampling and differentiate  $z$ and backpropagation can be used to tune the parameters in the model.</p>
+<p>Using simple $\epsilon, \epsilon\sim f(x,\epsilon)$  to replace $q(h|x)$ .</p>
+<p>Gradient of expectation $\to$ Expectation of gradient $\to$ average of stochastic gradient.</p>
+<h2 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h2><p>The encoder and decoder networks are trained to solve the optimization problem<br>$$<br>\theta^*, \phi^* = \arg\max_{\theta, \phi} L(x^{(i)}, \theta, \phi)<br>$$</p>
 <ul>
 <li>the encoder network (inference step)<ul>
-<li>Maximize <img src="http://latex.codecogs.com/svg.latex?B(q,x)" alt="img"> with respect to <img src="http://latex.codecogs.com/svg.latex?q(h%7Cx)" alt="img">, given <img src="http://latex.codecogs.com/svg.latex?p(x%7Ch)" alt="img"></li>
-<li>optimize the regularizer term, by making the approximate posterior distribution <img src="http://latex.codecogs.com/svg.latex?q_%7B%5Cphi%7D" alt="img"> as close to the latent variable prior.</li>
-<li>sample a latent sample ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?z%5Csim">http://latex.codecogs.com/svg.latex?z%5csim</a> q_%7B%5Cphi%7D) and pass it to the decoder network.</li>
+<li>Maximize $B(q|x)$ with respect to $q(h|x)$, given $p(x|h)$</li>
+<li>optimize the regularizer term, by making the approximate posterior distribution $q_\phi$ as close to the latent variable prior.</li>
+<li>sample a latent sample $z\sim q_\phi$ and pass it to the decoder network.</li>
 </ul>
 </li>
 <li>the decoder network (genera)<ul>
-<li>Maximize <img src="http://latex.codecogs.com/svg.latex?B(q,x)" alt="img"> with respect to <img src="http://latex.codecogs.com/svg.latex?p(x%7Ch)" alt="img">, given <img src="http://latex.codecogs.com/svg.latex?q(h%7Cx)" alt="img"></li>
-<li>produces samples <img src="http://latex.codecogs.com/svg.latex?%5Chat%7Bx%7D" alt="img"> that maximize the reconstruction quality with respect to the original input.</li>
+<li>Maximize $B(q,x)$ with respect to $p(x|h)$ given $q(h|x)$</li>
+<li>produces samples $\hat{x}$ that maximize the reconstruction quality with respect to the original input.</li>
 </ul>
 </li>
 <li>Both terms of ELBO are differentiable, we can use a training method like SGD to train the VAE model end-to-end.</li>
 </ul>
-<h1 id="GAN-Generative-Adversarial-Network"><a href="#GAN-Generative-Adversarial-Network" class="headerlink" title="GAN (Generative Adversarial Network)"></a>GAN (Generative Adversarial Network)</h1><p>Two components: a generator and a discriminator.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cmin_%7BG%7D%5Cmax_%7BD%7DV(D,G)%20=%20E_%7Bx%5Csim%20P_%7Bdata%7D(x)%7D%5B%5Clog%20D(x)%5D+E_%7Bz%5Csim%20P_z(z)%7D%5B%5Clog(1-D(G(z)))%5D" alt="img"></p>
+<h1 id="GAN-Generative-Adversarial-Network"><a href="#GAN-Generative-Adversarial-Network" class="headerlink" title="GAN: Generative Adversarial Network"></a>GAN: Generative Adversarial Network</h1><p>Two components: a generator and a discriminator.<br>$$<br>\min_G\max_D V(D,G)=\mathbb{E}_x [\log D(x)] + \mathbb{E}_z[\log (1-D(G(z)))]<br>$$</p>
 <ul>
 <li>generator: given the labels, generate new false data point and mix them with the real data, try to use a distribution that make the “false” data looks like the real data as large as possible. <ul>
 <li><strong>Minimize</strong> the likelihood of the data: <ul>
@@ -617,11 +610,9 @@
 </ul>
 </li>
 </ul>
-<p>This is a saddle-point problem. The objective is opposite in two components. </p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Ctheta%5E*%20:=%5Carg%5Cmin_%7B%5Ctheta%5Cin%5CTheta%7D%5C%7B%5Csup_%7B%5Cphi%5Cin%5CPhi%7Dl(%5Ctheta,%5Cphi)%5C%7D" alt="img"></p>
-<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><p>SGD as a heuristic:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Ctheta%5E%7Bt+1%7D=%5Ctheta%5Et-%5Ceta%5Cnabla_%7B%5Ctheta%7Dl(%5Ctheta%5Et,%5Cphi%5Et)" alt="img"></p>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Cphi%5E%7Bt+1%7D=%5Cphi">http://latex.codecogs.com/svg.latex?%5Cphi%5E%7Bt%2B1%7D%3D%5Cphi</a> %5Et%2B%5Ceta%5Cnabla_%7B%5Cphi%7Dl%28%5Ctheta%5E%7Bt%2B1%7D%2C%5Cphi%5Et%29)</p>
+<p>This is a saddle-point problem. The objective is opposite in two components.<br>$$<br>\theta^*:=\arg\min_{\theta\in\Theta}{\sup_{\phi\in\Phi}l(\theta,\phi)}<br>$$</p>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><p>SGD as a heuristic:<br>$$<br>\theta^{t+1}=\theta^t - \eta\nabla_\theta l(\theta^t, \phi^t)<br>$$</p>
+<p>$$<br>\phi^{t+1} = \phi^t + \eta\nabla_\theta l(\theta^{t+1},\phi^t)<br>$$</p>
 <h2 id="Practical-Considerations"><a href="#Practical-Considerations" class="headerlink" title="Practical Considerations"></a>Practical Considerations</h2><p>Need to balance generator and discriminator: may train some at different speeds.</p>
 <h1 id="VAE-VS-GAN"><a href="#VAE-VS-GAN" class="headerlink" title="VAE VS GAN"></a>VAE VS GAN</h1><h2 id="Quality"><a href="#Quality" class="headerlink" title="Quality"></a>Quality</h2><ul>
 <li>VAE: more blurry<ul>
@@ -636,17 +627,10 @@
 <li>GAN: very hard to train</li>
 </ul>
 <h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><ul>
-<li>GAN:<ul>
-<li>learn an <strong>implicit</strong> density, can only be used for generating</li>
+<li>GAN: learn an <strong>implicit</strong> density, can only be used for generating</li>
+<li>VAE: learn an <strong>explicit</strong> density, can generate and encode.</li>
 </ul>
-</li>
-<li>VAE: <ul>
-<li>learn an <strong>explicit</strong> density, can generate and encode.</li>
-</ul>
-</li>
-</ul>
-<h1 id="Auto-regressive-model"><a href="#Auto-regressive-model" class="headerlink" title="Auto-regressive model"></a>Auto-regressive model</h1><p>Generate output one variable at a time.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?p(x_1,%5Ccdots,x_m)=%5CPi_%7Bt=1%7D%5Em%20p(x_t%7Cx_%7B1:t-1%7D)" alt="img"></p>
+<h1 id="Auto-regressive-model"><a href="#Auto-regressive-model" class="headerlink" title="Auto-regressive model"></a>Auto-regressive model</h1><p>Generate output one variable at a time.<br>$$<br>p(x_1,\cdots, x_m)=\prod_{t=1}^m p(x_t|x_{1:t-1})<br>$$</p>
 <h2 id="Pixel-CNN"><a href="#Pixel-CNN" class="headerlink" title="Pixel-CNN"></a>Pixel-CNN</h2><p>CNN can only use information about pixels above and to the left of the current pixel</p>
 <p>can be realized by masking a filter.</p>
 <p>Every time a pixel is predicted, it is fed back to the network to predict the next pixel</p>
@@ -714,8 +698,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/computational-intelligence/">
-                                    <span class="chip bg-color">computational intelligence</span>
+                                <a href="../tags/Machine-Learning/">
+                                    <span class="chip bg-color">Machine Learning</span>
                                 </a>
                             
                         </div>
@@ -1253,8 +1237,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1264,8 +1248,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/computational-intelligence/">
-                        <span class="chip bg-color">computational intelligence</span>
+                    <a href="../tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
                     </a>
                     
                 </div>
@@ -1428,6 +1412,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

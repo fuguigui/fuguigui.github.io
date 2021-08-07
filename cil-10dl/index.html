@@ -420,8 +420,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/computational-intelligence/">
-                                <span class="chip tag-color">computational intelligence</span>
+                            <a href="../tags/Machine-Learning/">
+                                <span class="chip tag-color">Machine Learning</span>
                             </a>
                         
                     </div>
@@ -432,8 +432,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    5 Min
+                    7 Min
                 </div>
                 
 
@@ -474,106 +474,81 @@
                 <h1 id="Compressive-Sensing"><a href="#Compressive-Sensing" class="headerlink" title="Compressive Sensing"></a>Compressive Sensing</h1><h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>Compress data while gathering. This will save a lot of storage memory.</p>
 <p>The problem is we also need to decompress the signals.</p>
 <h2 id="Concept"><a href="#Concept" class="headerlink" title="Concept"></a>Concept</h2><ul>
-<li><p>original signal:<br>$$<br>x\in\mathbb{R}^D<br>$$</p>
+<li><p>original signal:  $x\in\mathbb{R}^D$</p>
 </li>
-<li><p>“root signal”:<br>$$<br>z\in\mathbb{R}^D<br>$$</p>
-<p>This signal tells something essence of <img src="http://latex.codecogs.com/svg.latex?x" alt="img">. For example, we have 5 clusters in a 20-D data points. The <img src="http://latex.codecogs.com/svg.latex?z" alt="img"> shows which cluster <img src="http://latex.codecogs.com/svg.latex?x" alt="img"> belongs to. So, <img src="http://latex.codecogs.com/svg.latex?z" alt="img"> can be very simple, <img src="http://latex.codecogs.com/svg.latex?K" alt="img">-sparse (![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?K%5Cll">http://latex.codecogs.com/svg.latex?K%5Cll</a> D),  <img src="http://latex.codecogs.com/svg.latex?K=5" alt="img"> here) , but <img src="http://latex.codecogs.com/svg.latex?x" alt="img"> may <strong>look</strong> complex.  We view <img src="http://latex.codecogs.com/svg.latex?z" alt="img"> as the root of the signal <img src="http://latex.codecogs.com/svg.latex?x" alt="img">.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?x=Uz" alt="img"></p>
+<li><p>“root signal”:  $z\in\mathbb{R}^D$</p>
+<p>This signal tells something essence of $x$. For example, we have 5 clusters in a 20-D data points. The  $z$ shows which cluster  $x$ belongs to. So,  $z$ can be very simple, $K$-sparse, here $K\ll D, K=5$ , but  may $x$ <strong>look</strong> complex.  We view  $z$ as the root of the signal $x$​.<br>$$<br>x=Uz<br>$$</p>
 </li>
-<li><p>measured signal, also compressed signal: ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?y%5Cin%5Cmathbb%7BR%7D%5EM,M%3C">http://latex.codecogs.com/svg.latex?y%5Cin%5Cmathbb%7BR%7D%5EM%2CM%3C</a> D). It is what we get after compression. </p>
-<p><img src="http://latex.codecogs.com/svg.latex?y=Wx" alt="img"></p>
+<li><p>measured signal, also compressed signal: $y\in\mathbb{R}^M, M&lt;D$​. It is what we get after compression. $y=Wx$</p>
 </li>
-<li><p>reconstructed signal: <img src="http://latex.codecogs.com/svg.latex?%5Chat%7Bx%7D=U%5Chat%7Bz%7D" alt="img">. We get the reconstructed signal by find the “optimal” <img src="http://latex.codecogs.com/svg.latex?%5Chat%7Bz%7D" alt="img">.</p>
+<li><p>reconstructed signal: $\hat{x}=U\hat{z}$ . We get the reconstructed signal by find the “optimal” $\hat{z}$​.</p>
 <ul>
-<li>does it assume that we have already known <img src="http://latex.codecogs.com/svg.latex?U" alt="img"> and <img src="http://latex.codecogs.com/svg.latex?W" alt="img">?</li>
+<li>does it assume that we have already known $U$ and $W$?</li>
 </ul>
 </li>
 </ul>
-<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><h3 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h3><p>Recover a sparse signal <img src="http://latex.codecogs.com/svg.latex?x" alt="img"> from measurements <img src="http://latex.codecogs.com/svg.latex?y" alt="img">. However, we cannot directly use the inversion of matrix. Because the matrix is invertible due to the rank. How should we do? We try to use the condition of the sparsity. Instead of find <img src="http://latex.codecogs.com/svg.latex?x" alt="img"> directly, we find <img src="http://latex.codecogs.com/svg.latex?%5Chat%7Bz%7D" alt="img"> </p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Chat%7Bz%7D%5Cin%5Carg_%7Bz%7D%5Cmin%5C%7Cz%5C%7C_0,%20s.t.%20y=WUz" alt="img"></p>
-<h3 id="Sufficient-conditions"><a href="#Sufficient-conditions" class="headerlink" title="Sufficient conditions"></a>Sufficient conditions</h3><p>Given any orthonormal basis <img src="http://latex.codecogs.com/svg.latex?U" alt="img"> we can obtain a stable reconstruction for any <img src="http://latex.codecogs.com/svg.latex?K" alt="img">-sparse, compressible signal.</p>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><h3 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h3><p>Recover a sparse signal $x$ from measurements $y$. However, we cannot directly use the inversion of matrix. Because the matrix is invertible due to the rank. How should we do? We try to use the condition of the sparsity. Instead of find  $x$ directly, we find  $\hat{z}$​<br>$$<br>\hat{z}\in\arg_z\min |z|_0, \text{s.t. } y=WUz<br>$$</p>
+<h3 id="Sufficient-conditions"><a href="#Sufficient-conditions" class="headerlink" title="Sufficient conditions"></a>Sufficient conditions</h3><p>Given any orthonormal basis $U$ we can obtain a stable reconstruction for any $K$-sparse, compressible signal.</p>
 <p>two conditions to be satisfied:</p>
 <ul>
-<li> <img src="http://latex.codecogs.com/svg.latex?W" alt="img"> = Gaussian random projection, i.e. <img src="http://latex.codecogs.com/svg.latex?w_%7Bij%7D%5Csim%20%5Cmathcal%7BN%7D(0,%5Cfrac%7B1%7D%7BD%7D)" alt="img"></li>
-<li><img src="http://latex.codecogs.com/svg.latex?M%5Cgeq%20cK%5Clog(%5Cfrac%7BD%7D%7BK%7D)" alt="img"></li>
+<li> $W$ = Gaussian random projection, i.e. $w_{ij}\sim\mathcal{N}(0,\frac{1}{D})$</li>
+<li>$M\geq cK\log \frac{D}{K}$</li>
 </ul>
 <h3 id="Algorithms"><a href="#Algorithms" class="headerlink" title="Algorithms"></a>Algorithms</h3><p>using (1) convex optimization or (2) matching pursuit to solve the objective.</p>
-<h1 id="Dictionary-Learning"><a href="#Dictionary-Learning" class="headerlink" title="Dictionary Learning"></a>Dictionary Learning</h1><p>In traditional encoding, we are given a basis ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?U%5Cin%5Cmathbb%7BR%7D%5E%7BD%5Ctimes">http://latex.codecogs.com/svg.latex?U%5Cin%5Cmathbb%7BR%7D%5E%7BD%5Ctimes</a> D%7D) and directly code the “root” signal by <img src="http://latex.codecogs.com/svg.latex?Uz" alt="img"> to get <img src="http://latex.codecogs.com/svg.latex?x" alt="img">. However, it is not problem-specific. We try to learn a ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?U%5Cin%5Cmathbb%7BR%7D%5E%7BD%5Ctimes">http://latex.codecogs.com/svg.latex?U%5Cin%5Cmathbb%7BR%7D%5E%7BD%5Ctimes</a> L%7D) to do sparse encoding and more problem-specific. </p>
-<p>Mathematically, it is to find ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?U%5Cin%5Cmathbb%7BR%7D%5E%7BD%5Ctimes">http://latex.codecogs.com/svg.latex?U%5Cin%5Cmathbb%7BR%7D%5E%7BD%5Ctimes</a> L%7D), s.t.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?X%5Csimeq%20U%5Ccdot%20Z" alt="img"></p>
+<h1 id="Dictionary-Learning"><a href="#Dictionary-Learning" class="headerlink" title="Dictionary Learning"></a>Dictionary Learning</h1><p>In traditional encoding, we are given a basis $U\in\mathbb{R}^{D\times D}$ and directly code the “root” signal by $Uz$ to get $x$. However, it is not problem-specific. We try to learn a $U\in\mathbb{R}^{D\times L}$  to do sparse encoding and more problem-specific. </p>
+<p>Mathematically, it is to find $U\in\mathbb{R}^{D\times L}$​, s.t. $X\simeq U\cdot Z$</p>
 <ul>
-<li>subject to sparsity on ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?Z%5Cin%5Cmathbb%7BR%7D%5E%7BL%5Ctimes">http://latex.codecogs.com/svg.latex?Z%5Cin%5Cmathbb%7BR%7D%5E%7BL%5Ctimes</a> N%7D)</li>
-<li>subject to column/atom norm constraint on ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?U%5Cin%5Cmathbb%7BR%7D%5E%7BD%5Ctimes">http://latex.codecogs.com/svg.latex?U%5Cin%5Cmathbb%7BR%7D%5E%7BD%5Ctimes</a> L%7D)</li>
+<li>subject to sparsity on $Z\in\mathbb{R}^{L\times N}$</li>
+<li>subject to column/atom norm constraint on $U\in\mathbb{R}^{D\times L}$</li>
 </ul>
-<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p><img src="http://latex.codecogs.com/svg.latex?(U%5E*,%20Z%5E*)%5Cin%5Carg%5Cmin_%7BU,Z%7D%5C%7CX-U%5Ccdot%20Z%5C%7C_F%5E2" alt="img"></p>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>$$<br>(U^\ast, Z^\ast)\in\arg\min_{U,Z}|X-U\cdot Z|_F^2<br>$$</p>
 <ul>
-<li>not convex jointly in <img src="http://latex.codecogs.com/svg.latex?U" alt="img"> and <img src="http://latex.codecogs.com/svg.latex?Z" alt="img">, but separately</li>
+<li>not convex jointly in $U$ and $Z$, but separately</li>
 </ul>
-<h3 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h3><p>Using <strong>iteratively greedy algorithm</strong> to solve (like EM algorithm)</p>
+<h3 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h3><p>Using <strong>iteratively greedy algorithm</strong> to solve, like EM algorithm</p>
 <ul>
-<li><p>coding step: </p>
-<p><img src="http://latex.codecogs.com/svg.latex?Z%5E%7B(t+1)%7D=%5Carg%5Cmin_Z%20%5C%7CX-U%5E%7B(t)%7DZ%5E%7B(t)%7D%5C%7C_F%5E2" alt="img"></p>
-</li>
+<li>coding step:<br>$$<br>Z^{(t+1)}=\arg\min_Z|X-U^{(t)}Z^{(t)}|_F^2<br>$$</li>
 </ul>
 <p>This is <strong>column separable</strong> problem. </p>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?z%5E%7B(t+1)%7D_j=%5Carg%5Cmin_%7Bz_j%7D%20%5C%7Cx_j-U%5E%7B(t)%7Dz_j%5E%7B(t)%7D%5C%7C_F%5E2,j%5Cin1,2,%5Ccdots">http://latex.codecogs.com/svg.latex?z%5E%7B%28t%2B1%29%7D_j%3D%5Carg%5Cmin_%7Bz_j%7D%20%5C%7Cx_j-U%5E%7B%28t%29%7Dz_j%5E%7B%28t%29%7D%5C%7C_F%5E2,j%5Cin1,2,%5Ccdots</a> N)</p>
-<p>it is a sparse coding problem. Change the Frobenius norm as non-zero norm:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?z_n%5E%7B(t+1)%7D=%5Carg%5Cmin_%7Bz_n%7D%5C%7Cz_n%5C%7C_0" alt="img"></p>
-<p>​                                s.t. <img src="http://latex.codecogs.com/svg.latex?%5C%7Cx_n-U%5Etz_n%5C%7C_2%5Cleq%5Csigma%5Ccdot%5C%7Cx_n%5C%7C_2" alt="img"></p>
-<p>​    - are these two equivalent???        </p>
+<p>$$<br>z_j^{(t+1)}=\arg\min_{z_j}|x_j -U^{(t)}z_j^{(t)}|_F^2, j\in 1,2,\cdots, N<br>$$</p>
+<p>it is a sparse coding problem. Change the Frobenius norm as non-zero norm:<br>$$<br>z_n^{(t+1)}=\arg\min_{z_n}|z_n|_0<br>$$<br>s.t.<br>$$<br>|x_n - U^tz_n|_2\leq \sigma\cdot |x_n|_2<br>$$<br>​    - are these two equivalent???        </p>
 <ul>
-<li><p>dictionary update step:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?U%5E%7B(t+1)%7D=%5Carg%5Cmin_U%20%5C%7CX-U%5E%7B(t)%7DZ%5E%7B(t+1)%7D%5C%7C_F%5E2" alt="img"></p>
-<p>it is <strong>not separable</strong> for U. We use <strong>approximation</strong> strategy, updating one atom at a time</p>
+<li><p>dictionary update step:<br>$$<br>U^{(t+1)}=\arg\min_U|X-U^{(t)}Z^{(t+1)}|_F^2<br>$$<br>it is <strong>not separable</strong> for U. We use <strong>approximation</strong> strategy, updating one atom at a time</p>
 <ol>
-<li>Set <img src="http://latex.codecogs.com/svg.latex?U%20=%20%5Bu_1%5Et,u_2%5Et,%5Ccdots,u_l,%5Ccdots,u_L%5Et%5D" alt="img">, fix all other atoms except <img src="http://latex.codecogs.com/svg.latex?u_l" alt="img"></li>
-<li>Isolate <img src="http://latex.codecogs.com/svg.latex?R_l%5Et" alt="img">, the residual that is due to atom <img src="http://latex.codecogs.com/svg.latex?u_l" alt="img"></li>
-<li>Find <img src="http://latex.codecogs.com/svg.latex?u_l%5E*" alt="img"> that minimizes <img src="http://latex.codecogs.com/svg.latex?R_l%5Et" alt="img">, subject to <img src="http://latex.codecogs.com/svg.latex?%5C%7Cu_l%5E*%5C%7C_2=1" alt="img">. </li>
+<li>Set $U=[u_1^t,u_2^t,\cdots, u_l^t, \cdots, u_L^t]$,  fix all other atoms except $u_l$</li>
+<li>Isolate $R_l^t$, the residual that is due to atom $u_l$</li>
+<li>Find $u_l^\ast$​ that minimizes $R_l^t$​, subject to $|u_l^\ast|_2=1$. </li>
 </ol>
 </li>
 </ul>
-<h4 id="Precise-Solution-of-U"><a href="#Precise-Solution-of-U" class="headerlink" title="Precise Solution of U"></a>Precise Solution of U</h4><p>Actually, <img src="http://latex.codecogs.com/svg.latex?u_l%5E*" alt="img"> can be exactly calculated. The objective can be rewritten into </p>
-<p><img src="http://latex.codecogs.com/svg.latex?u_l%5E*%20=%5Carg%5Cmin_%7Bu_l%7D%5C%7CR_l-u_l%20z_l%5ET%5C%7C_F%5E2" alt="img"></p>
-<p>Here, <img src="http://latex.codecogs.com/svg.latex?z_l" alt="img"> is the <img src="http://latex.codecogs.com/svg.latex?l" alt="img">-th row of the matrix <img src="http://latex.codecogs.com/svg.latex?Z" alt="img">.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5C%7CR_l-u_lz_l%5ET%5C%7C_F%5E2=%5CSigma_%7Bn=1%7D%5EN%5C%7CR_%7Bl(%5Ccdot,n)%7D-u_lz_%7Bl,n%7D%5C%7C_F%5E2" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?=%5CSigma_%7Bn=1%7D%5EN%5CSigma_%7Bi=1%7D%5EL(R_%7Bl(i,n)%7D-u_%7Bl(i)%7Dz_%7Bl,n%7D)%5E2" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?=%5CSigma_%7Bi=1%7D%5EL%5CSigma_%7Bn=1%7D%5EN(R_%7Bl(i,n)%7D-u_%7Bl(i)%7Dz_%7Bl,n%7D)%5E2" alt="img"></p>
-<p>Using Lagrange equation and derivative by <img src="http://latex.codecogs.com/svg.latex?u_%7Bl(i)%7D" alt="img">, we get</p>
-<p><img src="http://latex.codecogs.com/svg.latex?u_%7Bl(i)%7D%20=%20%5Cfrac%7B%5CSigma_%7Bn=1%7D%5ENR_%7Bl(n,i)%7Dz_n%7D%7B%5Clambda+%5CSigma_%7Bn=1%7D%5ENz_n%5E2%7D" alt="img"></p>
-<p>Normalized to replace <img src="http://latex.codecogs.com/svg.latex?%5Clambda" alt="img">, we can get </p>
-<p><img src="http://latex.codecogs.com/svg.latex?u%5E*_%7Bl(i)%7D%20=%20%5Cfrac%7B%5CSigma_%7Bn=1%7D%5ENR_%7Bl(n,i)%7Dz_n%7D%7B%5CSigma_%7Bn=1%7D%5EN%5CSigma_%7Bi=1%7D%5ELR_%7Bl(n,i)%7Dz_n%7D" alt="img"></p>
-<p>After getting <img src="http://latex.codecogs.com/svg.latex?u_l%5E*" alt="img">, we still need to update <img src="http://latex.codecogs.com/svg.latex?z_l" alt="img">.</p>
+<h4 id="Precise-Solution-of-U"><a href="#Precise-Solution-of-U" class="headerlink" title="Precise Solution of U"></a>Precise Solution of U</h4><p>Actually, $u_l^\ast$​​ can be exactly calculated. The objective can be rewritten into<br>$$<br>u_l^\ast = \arg\min_{u_l} |R_l - u_l z_l^\top |_F^2<br>$$</p>
+<p>Here, $z_l$ is the $l$-th row of the matrix $Z$. $|R_l - u_l z_l^\top |<em>F^2$<br>$$<br>=\sum |R</em>{l(\cdot, n)}-u_l z_{l,n}|_F^2<br>$$</p>
+<p>$$<br>=\sum_{n=1}^N\sum_{i=1}^L[R_{l(i,n)}-u_{l(i)}z_{l,n}]^2<br>$$</p>
+<p>$$<br>=\sum_{i=1}^L\sum_{n=1}^N[R_{l(i,n)}-u_{l(i)}z_{l,n}]^2<br>$$</p>
+<p>Using Lagrange equation and derivative by $u_{l(i)}$​, we get<br>$$<br>u_{l(i)}=\frac{\sum_{n=1}^N R_{l(n,i)}z_n}{\lambda + \sum_{n=1}^N z_n^2}<br>$$<br>Normalized to replace $\lambda$​, we can get<br>$$<br>u_{l(i)}^\ast = \frac{\sum_{n=1}^N R_{l(n,i)}z_n}{\sum_{n=1}^N\sum_{i=1}^L R_{l(n,i)}z_n}<br>$$<br>After getting $u_l^\ast$, we still need to update $z_l$.</p>
 <p>Compared to the below approximate solution, this method is much computation consuming, needing multiple times iterations. But the SVD solution directly catches the essence of the matrix, only needing one time computation.</p>
-<h4 id="Approximate-solution-of-U"><a href="#Approximate-solution-of-U" class="headerlink" title="Approximate solution of U"></a>Approximate solution of U</h4><p>We can also solve <img src="http://latex.codecogs.com/svg.latex?u_l%5E*" alt="img"> by approximate K-SVD update. K means the sparsity is K. </p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5C%7CZ%5E*%5C%7C_0%5Cleq%20K" alt="img"></p>
-<p>Since our objective is to minimize the residual:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5C%7CR_l-u_l%20z_l%5ET%5C%7C_F%5E2" alt="img"></p>
-<p>Actually, it is to approximate <img src="http://latex.codecogs.com/svg.latex?R_l" alt="img"> by a rank-1 matrix <img src="http://latex.codecogs.com/svg.latex?u_l%20z_l%5ET" alt="img"></p>
-<p><strong>SVD can be viewed as decompose a matrix by the sum of several rank-1 matrices.</strong></p>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?R_l=%5CSigma_%7Bi%7D%5Csigma">http://latex.codecogs.com/svg.latex?R_l%3D%5CSigma_%7Bi%7D%5Csigma</a> u_iv_i%5ET)</p>
-<p>The framework is:</p>
+<h4 id="Approximate-solution-of-U"><a href="#Approximate-solution-of-U" class="headerlink" title="Approximate solution of U"></a>Approximate solution of U</h4><p>We can also solve $u_l^\ast$ by approximate K-SVD update. K means the sparsity is $K$.<br>$$<br>|Z^\ast|_0\leq K<br>$$<br>Since our objective is to minimize the residual:<br>$$<br>|R_l - u_lz_l^\top|_F^2<br>$$<br>Actually, it is to approximate $R_l$ by a rank-1 matrix $u_lz_l^\top$</p>
+<p><strong>SVD can be viewed as decompose a matrix by the sum of several rank-1 matrices.</strong><br>$$<br>E_l = \sum_{i}\sigma u_i v_i^\top<br>$$<br>The framework is:</p>
 <ol>
-<li>we do SVD decomposition of <img src="http://latex.codecogs.com/svg.latex?R" alt="img"></li>
-<li>take the first left-singular vector <img src="http://latex.codecogs.com/svg.latex?u_l%5E*%20=u_1" alt="img"></li>
-<li>update <img src="http://latex.codecogs.com/svg.latex?z=%5Csigma_1v_1%5ET" alt="img"></li>
+<li>we do SVD decomposition of $R$</li>
+<li>take the first left-singular vector $u_l^\ast = u_1$</li>
+<li>update $z=\sigma_1v_1^\top$ </li>
 </ol>
 <p>The 1st singular value realization is: </p>
 <ol>
-<li><p>we extract the active data points from the whole <img src="http://latex.codecogs.com/svg.latex?N" alt="img"> points at <img src="http://latex.codecogs.com/svg.latex?l" alt="img">.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cmathcal%7BN%7D%5Cleftarrow%20%5C%7Bn%7CZ_%7Bln%7D%5Cneq%200,%201%5Cleq%20n%5Cleq%20N%5C%7D" alt="img"></p>
+<li><p>we extract the active data points from the whole $N$ points at $l$​.<br>$$<br>\mathcal{N}\leftarrow {n|Z_{ln}\neq 0, 1\leq n\leq N}<br>$$</p>
 </li>
-<li><p>calculate <img src="http://latex.codecogs.com/svg.latex?R" alt="img">, by</p>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?R%5Cleftarrow">http://latex.codecogs.com/svg.latex?R%5Cleftarrow</a> X_%7B%3A%2C%5Cmathcal%7BN%7D%7D-UZ_%7B%28%3A%2C%5Cmathcal%7BN%7D%29%7D)</p>
+<li><p>calculate $R$​​, by $R\leftarrow X_{:,\mathcal{N}} - UZ_{(:,\mathcal{N})}$​</p>
 </li>
-<li><p>define <img src="http://latex.codecogs.com/svg.latex?g%5Cleftarrow%20z_%7B(l,%5Cmathcal%7BN%7D)%7D%5ET" alt="img"></p>
+<li><p>define $g\leftarrow z_{l,\mathcal{N}}^\top$ </p>
 </li>
-<li><p><img src="http://latex.codecogs.com/svg.latex?u_l%5E*%5Cleftarrow%20%5Cfrac%7BRg%7D%7B%5C%7CRg%5C%7C%7D" alt="img"></p>
+<li><p>$u_l^\ast\leftarrow\frac{Rg}{|Rg|}$</p>
 </li>
-<li><p><img src="http://latex.codecogs.com/svg.latex?z_%7B(l,%5Cmathcal%7BN%7D)%7D%5Cleftarrow%20g%5ET" alt="img"></p>
-<p>In the step 4, we use the power iteration, the power is only 1 here.<img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7BR%5Ekg%7D%7B%5C%7CR%5Ekg%5C%7C%7D" alt="img"></p>
-<p>The theory basis is if we do SVD for <img src="http://latex.codecogs.com/svg.latex?R_l" alt="img">, </p>
+<li><p>$z_{l,\mathcal{N}}\leftarrow g^\top$</p>
+<p>In the step 4, we use the power iteration, the power is only 1 here. $\frac{R^kg}{|R^kg|}$</p>
+<p>The theory basis is if we do SVD for $R_l$, </p>
 <ul>
-<li><img src="http://latex.codecogs.com/svg.latex?u_l%5E*" alt="img"> is the first left-singular vector.<ul>
+<li>$u_l^\ast$ is the first left-singular vector.<ul>
 <li>any proof</li>
 <li>from the above solution. The “precise” solution is not a good solution. We should use SVD approximation. Since the precise solution of u is based on z, it is only optimal given z. However, we will update z after getting u. So, u will not be good enough under the new z. We need to iterate multiple times until convergence.</li>
 <li>But in SVD, we directly use the 1st singular value, no need to iterating.</li>
@@ -584,30 +559,26 @@
 </ol>
 <h4 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h4><ul>
 <li>random atoms. Normal distribution and scale to unit</li>
-<li>samples from <img src="http://latex.codecogs.com/svg.latex?X" alt="img">: sample <img src="http://latex.codecogs.com/svg.latex?L" alt="img"> times  from <img src="http://latex.codecogs.com/svg.latex?X" alt="img">, according to the uniform distribution of index. Then scale to the unit.</li>
+<li>samples from $X$: sample $L$ times  from $X$,  according to the uniform distribution of index. Then scale to the unit.</li>
 <li>fixed overcomplete dictionary, such as DCT.</li>
 </ul>
 <h2 id="Adaptation"><a href="#Adaptation" class="headerlink" title="Adaptation"></a>Adaptation</h2><h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><h2 id="image-reconstruction"><a href="#image-reconstruction" class="headerlink" title="image reconstruction:"></a>image reconstruction:</h2><ul>
 <li>train a lot of data to get the dictionary</li>
-<li>learn a sparse code <img src="http://latex.codecogs.com/svg.latex?z" alt="img"> for a given data <img src="http://latex.codecogs.com/svg.latex?x" alt="img"></li>
-<li>modify <img src="http://latex.codecogs.com/svg.latex?z" alt="img"> and get <img src="http://latex.codecogs.com/svg.latex?%5Chat%7Bz%7D" alt="img"></li>
-<li>reconstruct <img src="http://latex.codecogs.com/svg.latex?%5Chat%7Bx%7D=U%5Chat%7Bz%7D" alt="img"></li>
+<li>learn a sparse code $z$ for a given data $x$</li>
+<li>modify $z$ and get $\hat{z}$</li>
+<li>reconstruct $\hat{x}=U\hat{z}$</li>
 </ul>
 <h2 id="Speech-denoise"><a href="#Speech-denoise" class="headerlink" title="Speech denoise"></a>Speech denoise</h2><p>The record is composed of the original speech and interferer. We want to remove the interferer and leave the original speech.</p>
 <h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method"></a>Method</h3><ol>
-<li>learn dictionaries for speech <img src="http://latex.codecogs.com/svg.latex?U_c" alt="img"> and interferer <img src="http://latex.codecogs.com/svg.latex?U_n" alt="img"> specifically.</li>
-<li>Encoding the measured signal <img src="http://latex.codecogs.com/svg.latex?x" alt="img">on these two dictionaries <img src="http://latex.codecogs.com/svg.latex?%5Bz_c,z_n%5D" alt="img">. </li>
-<li>Drop the encoded signals on the interferer dictionary, only keep the speech encoded signals <img src="http://latex.codecogs.com/svg.latex?%5Bz_c,0%5D" alt="img">. </li>
-<li>Recover the “pure”  signal <img src="http://latex.codecogs.com/svg.latex?%5Chat%7Bx%7D=U_cz_c" alt="img"></li>
+<li>learn dictionaries for speech $U_c$ and interferer  $U_n$ specifically.</li>
+<li>Encoding the measured signal $x$on these two dictionaries $[z_c, z_n]$​.</li>
+<li>Drop the encoded signals on the interferer dictionary, only keep the speech encoded signals $[z_c, 0]$. </li>
+<li>Recover the “pure”  signal $\hat{x}=U_c z_c$</li>
 </ol>
 <h4 id="Learning-step"><a href="#Learning-step" class="headerlink" title="Learning step"></a>Learning step</h4><p>learn the two dictionaries</p>
-<p><img src="http://latex.codecogs.com/svg.latex?(U%5E*,Z%5E*)%5Cin%5Carg%5Cmin_%7BU,Z%7D%5C%7CX-U%5Ccdot%20Z%5C%7C_F%5E2" alt="img"></p>
-<p>​                            s.t. <img src="http://latex.codecogs.com/svg.latex?%5C%7Cu_%7B(:,d)%7D%5E*%5C%7C_2=1,%5Cforall%20d%20=%201,2,%5Ccdots,L" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5C%7CZ%5E*%5C%7C_0%5Cleq%20K" alt="img"></p>
-<h4 id="Enhancement-step"><a href="#Enhancement-step" class="headerlink" title="Enhancement step"></a>Enhancement step</h4><p>Using the learned dictionaries to encode the signals and drop noise signals.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?(z_%7B(s)%7D%5E*,z_%7B(i)%7D%5E*)%5Carg%5Cmin_%7Bz%5E%7B(s)%7D,z%5E%7B(i)%7D%7D%5C%7CX-%5BU%5E%7B(s)%7DU%5E%7B(i)%7D%5D%5Ccdot%5Bz%5E%7B(s)%7D%20z%5E%7B(i)%7D%5D%5ET%5C%7C_2" alt="img"></p>
-<p>​                                    s.t. <img src="http://latex.codecogs.com/svg.latex?%5C%7Cz_%7Bs%7D%5E*%5C%7C_0+%5C%7Cz_%7Bi%7D%5E*%5C%7C_0%5Cleq%20K" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Chat%7Bx%7D=U_s%5E*z_%7Bs%7D%5E*" alt="img"></p>
+<p>$$<br>(U^\ast, Z^\ast)\in\arg\min_{U,Z}|X-U\cdot Z|_F^2<br>$$</p>
+<p>s.t. $|u^\ast_{(:,d)}|_2=1,\forall d=1,2,\cdots, L$ , $|Z^\ast|_0\leq K$</p>
+<h4 id="Enhancement-step"><a href="#Enhancement-step" class="headerlink" title="Enhancement step"></a>Enhancement step</h4><p>Using the learned dictionaries to encode the signals and drop noise signals.<br>$$<br>(z^{(s)\ast}, z^{(i)\ast})\leftarrow \arg\min |X-[U^{(s)}U^{(i)}]\cdot [z^{(s)}z^{(i)}]^\top|_2<br>$$<br>s.t. $|z_s^\ast|_0 + |z_i^\ast|_0\leq K$, $\hat{x}=U_s^\ast z_s^\ast$ </p>
 
             </div>
             <hr/>
@@ -671,8 +642,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/computational-intelligence/">
-                                    <span class="chip bg-color">computational intelligence</span>
+                                <a href="../tags/Machine-Learning/">
+                                    <span class="chip bg-color">Machine Learning</span>
                                 </a>
                             
                         </div>
@@ -1389,6 +1360,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

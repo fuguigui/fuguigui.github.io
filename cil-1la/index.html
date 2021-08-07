@@ -420,8 +420,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/computational-intelligence/">
-                                <span class="chip tag-color">computational intelligence</span>
+                            <a href="../tags/Machine-Learning/">
+                                <span class="chip tag-color">Machine Learning</span>
                             </a>
                         
                     </div>
@@ -432,8 +432,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    11 Min
+                    12 Min
                 </div>
                 
 
@@ -471,10 +471,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Linear-Autoencoder"><a href="#Linear-Autoencoder" class="headerlink" title="Linear Autoencoder"></a>Linear Autoencoder</h1><h1 id="Pre-Questions"><a href="#Pre-Questions" class="headerlink" title="Pre-Questions"></a>Pre-Questions</h1><ol>
-<li>what? The framework of linear matrix low rank construction</li>
-<li>Problem? To approximate a matrix with low-rank matrix. This is an encoding problem.</li>
-<li>Key? Find the encoder C and decoder D.</li>
+                <h1 id="Pre-Questions"><a href="#Pre-Questions" class="headerlink" title="Pre-Questions"></a>Pre-Questions</h1><ol>
+<li><em>What?</em> The framework of linear matrix low rank construction</li>
+<li><em>Problem?</em> To approximate a matrix with low-rank matrix. This is an encoding problem.</li>
+<li><em>Key?</em> Find the encoder $C$ and decoder $D$.</li>
 <li>Formula? $Z = CX, X’ = DZ=DCX$</li>
 <li>Applications? feature engineering, saving storage space.</li>
 <li>Further Development? Non-linear? Supervized, not auto?</li>
@@ -486,7 +486,7 @@
 <li>Remarks</li>
 </ul>
 <h1 id="Dimension-Reduction"><a href="#Dimension-Reduction" class="headerlink" title="Dimension Reduction"></a>Dimension Reduction</h1><ul>
-<li>Object? A matrix or a data point? what kinds of conditions should this matrix satisfy?<ul>
+<li><em>Object?</em> A matrix or a data point? what kinds of conditions should this matrix satisfy?<ul>
 <li>A matrix, a series of data points. The data points have the same length (dimension)</li>
 </ul>
 </li>
@@ -516,7 +516,7 @@
 <h2 id="Aim"><a href="#Aim" class="headerlink" title="Aim"></a>Aim</h2><p>Work for a group of data points with the same dimension, not for only one data point.</p>
 <h3 id="Mathematical-Description"><a href="#Mathematical-Description" class="headerlink" title="Mathematical Description"></a>Mathematical Description</h3><p>$$<br>\mathbb{R}^{N\times M}\Rightarrow \mathbb{R}^{N\times K}<br>$$</p>
 <h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p>The methods should be selected according to the to-encode objects.</p>
-<h3 id="Change-Basis-Space"><a href="#Change-Basis-Space" class="headerlink" title="Change Basis(Space)"></a>Change Basis(Space)</h3><p>The original vector is expressed on one set of units, change the expression units, and express the vector by new units. Take picture for an example, a $100\times 100$ head photo, the original unit is pixel, now we change the units as four layers, a fixed head, the hair contour, part highlight one and part highlight two. Therefore a $100\times 100$ vector in the original space is expressed by $1\times 4$ vector in new space.<br>In another word, the new basis may save a lot of information for the data. Problem: the data points must be similar in some way to make basis useful. </p>
+<h3 id="Change-Basis-Space"><a href="#Change-Basis-Space" class="headerlink" title="Change Basis/Space"></a>Change Basis/Space</h3><p>The original vector is expressed on one set of units, change the expression units, and express the vector by new units. Take picture for an example, a $100\times 100$ head photo, the original unit is pixel, now we change the units as four layers, a fixed head, the hair contour, part highlight one and part highlight two. Therefore a $100\times 100$ vector in the original space is expressed by $1\times 4$ vector in new space.<br>In another word, the new basis may save a lot of information for the data. Problem: the data points must be similar in some way to make basis useful. </p>
 <h3 id="Linear"><a href="#Linear" class="headerlink" title="Linear"></a>Linear</h3><p>$$<br>Z=C\cdot X, C\in\mathbb{R}^{K\times M}<br>$$</p>
 <h3 id="Non-linear"><a href="#Non-linear" class="headerlink" title="Non-linear"></a>Non-linear</h3><ul>
 <li>what is the limitation and advantage of linear?</li>
@@ -527,7 +527,7 @@
 <p>That is the source of <strong>auto</strong> of in the name of linear autoencoder.</p>
 </li>
 </ul>
-<h1 id="Linear-Autoencoder-1"><a href="#Linear-Autoencoder-1" class="headerlink" title="Linear Autoencoder"></a>Linear Autoencoder</h1><p>Find a decoder matrix $D$ working on $Z$, which makes $DZ$ as close as possible to $X$.</p>
+<h1 id="Linear-Autoencoder"><a href="#Linear-Autoencoder" class="headerlink" title="Linear Autoencoder"></a>Linear Autoencoder</h1><p>Find a decoder matrix $D$ working on $Z$, which makes $DZ$ as close as possible to $X$.</p>
 <h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h2><ol>
 <li><p>$$<br>Z=C\cdot X<br>$$</p>
 </li>
@@ -574,10 +574,10 @@
 <li>$D$: diagonal matrix</li>
 </ul>
 <h3 id="Interpretation"><a href="#Interpretation" class="headerlink" title="Interpretation"></a>Interpretation</h3><ul>
-<li>$U: M*M$, map the $M$ objects to $M$ classes, the entry $U_ij$ is the object $i$ ‘s value on class $j$. </li>
+<li>$U: M\times M$​​, map the $M$​​ objects to $M$​​ classes, the entry $U_{ij}$​​ is the object $i$​​ ‘s value on class $j$​​. </li>
 </ul>
 <ul>
-<li><p>$V: N*N$, map the $N$ objects to $N$ classes, the entry $V_ij$ is the object $i$ ‘s value on class $j$</p>
+<li><p>$V: N\times N$​​, map the $N$​​ objects to $N$​​ classes, the entry $V_{ij}$​​ is the object $i$​​ ‘s value on class $j$​​</p>
 </li>
 <li><p>$D: D_{ii}$ express the strength or expression ability of the class $i$ or the strength of each factor.</p>
 </li>
@@ -626,7 +626,7 @@
 <li>it is easy to get $\mu=\frac{\sum_i x_i}{n}$, that means <strong>to use PCA, we should center the data</strong></li>
 <li>the goal becomes:<br>$$<br>u: \arg\min[\frac{1}{n}\sum_{i=1}^n |(I-uu^\top)x_i’|^2], x_i’=x_i-\frac{1}{n}\sum_{j=1}x_j<br>$$</li>
 <li>Helper formula:<br>$$<br>|v-w|^2 = &lt;v-w, v-w&gt;=|v|^2+|w|^2-2&lt;v,w&gt;<br>$$</li>
-<li>$$\to |I-(uu^\top)x_i|^2=|x_i - uu^\top x_i|^2=|x_i|^2 + |uu\top x_i|^2-2&lt;x_i,uu\top x_i&gt;=x_i^\top x_i+(u^\topu-2)x_i^\top uu^\top x_i$$</li>
+<li>$$\to |I-(uu^\top)x_i|^2=|x_i - uu^\top x_i|^2=|x_i|^2 + |uu\top x_i|^2-2&lt;x_i,uu\top x_i&gt;=x_i^\top x_i+(u^\top u-2)x_i^\top uu^\top x_i$$​</li>
 <li>$$<br>u:\arg\min\frac{1}{n}\sum_{i=1}^n x_ix_i^\top + \frac{1}{n}\sum_{i=1}^n(u^\top u-2)u^\top x_ix_i^\top u<br>$$</li>
 <li>Add the <strong>norm constraint</strong>, </li>
 <li>$$<br>|u|=1, u=\arg\max\frac{1}{n}\sum_{i=1}^nu^\top x_ix_i^\top u=\frac{1}{n}u^\top XX^\top u, X\in\mathbb{R}^{k\times n}<br>$$</li>
@@ -648,8 +648,9 @@
 </li>
 <li><p>is it expensive to do PCA decomposition?</p>
 </li>
-<li><p>The reconstruction error (using Frobenius norm) of PCA $err=\sum_{i=K+1}^M\lambda_i$ <strong>Proof</strong>:</p>
-<p><img src="./imgs/2pca_1.png" alt="img"></p>
+<li><p>The reconstruction error (using Frobenius norm) of PCA $err=\sum_{i=K+1}^M\lambda_i$​ </p>
+<p>Proof:<br>$$<br>\begin{align}</p>
+<p> err &amp; = \frac{1}{N}|\tilde{\bar{X}} - \bar{X}|<em>F^2 = \frac{1}{N}|(U_KU_K^\top - I_d)\bar{X}|<em>F^2\<br>&amp; =\frac{1}{N}\text{trace}[(U_KU_K^\top - I_d)\cdot \bar{X}\bar{X}^\top \cdot (U_K U_K^\top - I_d)^\top] \<br>&amp; = \text{trace}[(U_KU_K^\top - I_d)\cdot \Sigma \cdot (U_K U_K^\top - I_d)]\<br>&amp; = \text{trace}[(U_KU_K^\top - I_d)\cdot U\Lambda U^\top \cdot (U_K U_K^\top - I_d)] \<br>&amp; = \text{trace}[(U_KU_K^\top U - U)\cdot \Lambda \cdot (U^\top U_K U_K^\top - U^\top)] \<br>&amp; = \text{trace}[([U_K; 0] - U)\Lambda([U_K; 0] - U)^\top] \<br>&amp; = \text{trace}(\sum</em>{i=K+1}^D \lambda_i u_i u_i^\top) = \sum</em>{i=K+1}^D \lambda_i\cdot \text{trace}(u_i u_i^\top)\<br>&amp; \overset{\text{unit norm}}{=}\sum_{i=K+1}^D \lambda_i<br>\end{align}<br>$$</p>
 <h3 id="Iterative-View"><a href="#Iterative-View" class="headerlink" title="Iterative View"></a>Iterative View</h3></li>
 </ul>
 <p>This view provides a method to calculate the main direction once at a time, then remove this direction to find the second best direction.</p>
@@ -709,13 +710,13 @@
 </li>
 <li><p>Eigenvalue Decomposition.</p>
 </li>
-<li><p>Model Selection, pick $K\leq D$  and keep the projections associated with the top <img src="http://latex.codecogs.com/svg.latex?K" alt="img"> eigenvalues. </p>
+<li><p>Model Selection, pick $K\leq D$  and keep the projections associated with the top  $K$ eigenvalues. </p>
 </li>
 <li><p>Transform the data onto the new basis of $K$ dimensions.<br>$$<br>\bar{Z}=U_K^\top\bar{X}<br>$$</p>
 </li>
 <li><p>Reconstruction.</p>
 <ol>
-<li>$\tilde{\bar{X}}=U)K\bar{Z}$</li>
+<li>$\tilde{\bar{X}}=U_K\bar{Z}$​</li>
 <li>$\tilde{X}=\tilde{\bar{X}}+M$</li>
 </ol>
 </li>
@@ -735,7 +736,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="../about" rel="external nofollow noreferrer">Gui</a>
+                    <a href="../about" rel="external nofollow noreferrer">Lulu</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -758,7 +759,7 @@
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint polocy. If reproduced, please indicate source
-                    <a href="../about" target="_blank">Gui</a>
+                    <a href="../about" target="_blank">Lulu</a>
                     !
                 </span>
             </div>
@@ -783,8 +784,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/computational-intelligence/">
-                                    <span class="chip bg-color">computational intelligence</span>
+                                <a href="../tags/Machine-Learning/">
+                                    <span class="chip bg-color">Machine Learning</span>
                                 </a>
                             
                         </div>
@@ -1269,8 +1270,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1280,8 +1281,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/computational-intelligence/">
-                        <span class="chip bg-color">computational intelligence</span>
+                    <a href="../tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
                     </a>
                     
                 </div>
@@ -1295,13 +1296,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../bd-14graphdb/">
+                <a href="../bd-0course-notes/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/1.jpeg" class="responsive-img" alt="Graph Database">
+                        <img src="../medias/featureimages/2.jpeg" class="responsive-img" alt="Big Data course notes">
                         
-                        <span class="card-title">Graph Database</span>
+                        <span class="card-title">Big Data course notes</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1312,14 +1313,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-03-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Sharing/" class="post-category">
+                                    Sharing
                                 </a>
                             
                             
@@ -1329,8 +1330,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/big-data/">
-                        <span class="chip bg-color">big data</span>
+                    <a href="../tags/System/">
+                        <span class="chip bg-color">System</span>
+                    </a>
+                    
+                    <a href="../tags/Big-Data/">
+                        <span class="chip bg-color">Big Data</span>
                     </a>
                     
                 </div>
@@ -1493,6 +1498,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
