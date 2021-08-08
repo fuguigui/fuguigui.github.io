@@ -420,12 +420,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/complex-system/">
-                                <span class="chip tag-color">complex system</span>
+                            <a href="../tags/Graph/">
+                                <span class="chip tag-color">Graph</span>
                             </a>
                         
-                            <a href="../tags/network/">
-                                <span class="chip tag-color">network</span>
+                            <a href="../tags/Complex-System/">
+                                <span class="chip tag-color">Complex System</span>
                             </a>
                         
                     </div>
@@ -436,8 +436,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -460,7 +460,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    5 Min
+                    8 Min
                 </div>
                 
 
@@ -482,23 +482,25 @@
 <li>AS-level Internet topology</li>
 </ul>
 <h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ul>
-<li>what is the critical failure probability <img src="http://latex.codecogs.com/svg.latex?q_c" alt="img"> for random networks with arbitrary degree distribution?<ul>
+<li>what is the critical failure probability $q_c$ for random networks with arbitrary degree distribution?<ul>
 <li>the failure probability making the average clustering size goes to finite.</li>
-<li><img src="http://latex.codecogs.com/svg.latex?q_c%20=%201-(%5Cfrac%7B%5Clangle%20k%5E2%5Crangle%7D%7B%5Clangle%20k%5Crangle%7D-1)%5E%7B-1%7D" alt="img"></li>
 </ul>
 </li>
-<li>what is <img src="http://latex.codecogs.com/svg.latex?q_c" alt="img"> for <img src="http://latex.codecogs.com/svg.latex?G(n,p)" alt="img"> model?<ul>
-<li><img src="http://latex.codecogs.com/svg.latex?q_c%20=%201-%5Cfrac%7B1%7D%7Bnp%7D" alt="img"></li>
 </ul>
-</li>
+<p>$$<br>q_c=1-(\frac{\langle k^2\rangle}{\langle k\rangle}-1)^{-1}<br>$$</p>
+<ul>
+<li>what is $q_c$ for $G(n,p)$ model?</li>
+</ul>
+<p>$$<br>q_c=1-\frac{1}{np}<br>$$</p>
+<ul>
 <li>what are scale-free network? How can we characterize their degree distribution in the finite and infinite case?<ul>
 <li>the degree distribution follows power-law distribution</li>
-<li>finite: <img src="http://latex.codecogs.com/svg.latex?P(k)=k%5E%7B-%5Cgamma%7D(%5CSigma_%7Bi=1%7D%5EN%20i%5E%7B-%5Cgamma%7D)%5E%7B-1%7D=%5Cfrac%7Bk%5E%7B-%5Cgamma%7D%7D%7B%5CSigma_%7Bi=1%7Di%5E%7B-%5Cgamma%7D%7D" alt="img"></li>
-<li>infinite: <img src="http://latex.codecogs.com/svg.latex?P(k)%20=%20%5Cfrac%7Bk%5E%7B-%5Cgamma%7D%7D%7B%5Czeta(%5Cgamma)%7D" alt="img"></li>
+<li>finite: $P(k)=k^{-\gamma}(\sum_{i=1}^N i^{-\gamma})^{-1}=\frac{k^{-\gamma}}{\sum_{i=1}i^{-\gamma}}$​ </li>
+<li>infinite: $P(k)=\frac{k^{-\gamma}}{\zeta(\gamma)}$</li>
 </ul>
 </li>
-<li>what is <img src="http://latex.codecogs.com/svg.latex?q_c" alt="img"> for a scale-free network with exponent <img src="http://latex.codecogs.com/svg.latex?%5Cgamma" alt="img"> in the limit of infinite size?<ul>
-<li><img src="http://latex.codecogs.com/svg.latex?q_c%20=%201-(%5Cfrac%7B%5Czeta(%5Cgamma-2)%7D%7B%5Czeta(%5Cgamma-1)%7D-1)%5E%7B-1%7D" alt="img"></li>
+<li>what is $q_c$ for a scale-free network with exponent $\gamma$ in the limit of infinite size?<ul>
+<li>$q_c= 1-(\frac{\zeta(\gamma-2)}{\zeta(\gamma-1)}-1)^{-1}$</li>
 </ul>
 </li>
 <li>what is the reason for the discrepancy between the predicted and the empirical surviving lcc for random failures in scale-free networks?<ul>
@@ -528,80 +530,59 @@
 <p><strong>Topological robustness</strong>: the robustness of a system’s connectedness against the loss of nodes and/or links</p>
 <h2 id="Assumptions"><a href="#Assumptions" class="headerlink" title="Assumptions"></a>Assumptions</h2><ul>
 <li>stochastic node failure model<ul>
-<li>each node has the uniform failure probability <img src="http://latex.codecogs.com/svg.latex?q" alt="img"></li>
+<li>each node has the uniform failure probability $q$</li>
 <li>failed nodes and all adjacent links are removed.</li>
 <li>node failures are independent.</li>
 </ul>
 </li>
 </ul>
 <h2 id="Generating-functions"><a href="#Generating-functions" class="headerlink" title="Generating functions"></a>Generating functions</h2><p>We try to model the distribution of the survived connected component size. Then, see the mean size of connected components.</p>
-<h3 id="H0"><a href="#H0" class="headerlink" title="H0"></a>H0</h3><p>distribution of surviving component size for a randomly chosen node <img src="http://latex.codecogs.com/svg.latex?v" alt="img"></p>
-<p>Think of the original expand form of <img src="http://latex.codecogs.com/svg.latex?H_0" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?H_0(x)%20=%20P(K=0)x%5E0+%5CSigma_%7Bi=1%7D%5E%7B%5Cinfty%7DP(K=i)x%5Ei" alt="img"></p>
+<h3 id="H-0"><a href="#H-0" class="headerlink" title="$H_0$"></a>$H_0$</h3><p>distribution of surviving component size for a randomly chosen node $v$</p>
+<p>Think of the original expand form of $H_0$​<br>$$<br>H_0(x)= P(K=0)x^0+\sum_{i=1}^{\infty}P(K=i)x^i<br>$$</p>
 <ul>
-<li><img src="http://latex.codecogs.com/svg.latex?P(K=0)" alt="img"> means the node <img src="http://latex.codecogs.com/svg.latex?v" alt="img"> fails. The probability is <img src="http://latex.codecogs.com/svg.latex?q" alt="img"></li>
-<li>consider the second part. Following our past method, we consider the distribution of the neighbor of node <img src="http://latex.codecogs.com/svg.latex?v" alt="img">. Here, we define two other generating functions:<ul>
-<li><img src="http://latex.codecogs.com/svg.latex?H_1" alt="img">: the distribution of surviving component size of a node <img src="http://latex.codecogs.com/svg.latex?w" alt="img"> as a neighbor of another node <img src="http://latex.codecogs.com/svg.latex?v" alt="img"></li>
-<li><img src="http://latex.codecogs.com/svg.latex?F_0" alt="img">: like <img src="http://latex.codecogs.com/svg.latex?G_0" alt="img">, which describes the degree distribution of a node <img src="http://latex.codecogs.com/svg.latex?v" alt="img">, describe the degree distribution of a node <img src="http://latex.codecogs.com/svg.latex?v" alt="img"> with the failure probability <img src="http://latex.codecogs.com/svg.latex?q" alt="img">.</li>
+<li>$P(K=0)$ means the node $v$ fails. The probability is $q$</li>
+<li>consider the second part. Following our past method, we consider the distribution of the neighbor of node $v$. Here, we define two other generating functions:<ul>
+<li>$H_1$: the distribution of surviving component size of a node $w$ as a neighbor of another node $v$</li>
+<li>$F_0$: like $G_0$, which describes the degree distribution of a node $v$, describe the degree distribution of a node $v$ with the failure probability $q$.</li>
 </ul>
 </li>
-<li>Then, we can rewrite <img src="http://latex.codecogs.com/svg.latex?H_0" alt="img"> as </li>
+<li>Then, we can rewrite $H_0$ as </li>
 </ul>
-<p><img src="http://latex.codecogs.com/svg.latex?H_0=q+xF_0(H_1(x))" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?H_0%27(x)=F_0(H_0(x))+xF_0%27(H_1(x))H_1%27(x)" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CRightarrow%20H_0%27(1)%20=%201-q+F_0%27(1)H_1%27(1)" alt="img"></p>
-<h3 id="H1"><a href="#H1" class="headerlink" title="H1"></a>H1</h3><p>the distribution of surviving component size of a node <img src="http://latex.codecogs.com/svg.latex?w" alt="img"> as a neighbor of another node <img src="http://latex.codecogs.com/svg.latex?v" alt="img"></p>
-<p>like <img src="http://latex.codecogs.com/svg.latex?H_0" alt="img">,<img src="http://latex.codecogs.com/svg.latex?H_1" alt="img"> can also be decomposed by two parts, </p>
+<p>$$<br>H_0=q+xF_0(H_1(x))<br>$$</p>
+<p>$$<br>H_0’(x)=F_0(H_0(x))+xF_0’(H_1(x))H_1’(x)<br>$$</p>
+<p>$$<br>\Rightarrow H_0’(1)=1-q+F_0’(1)H_1’(1)<br>$$</p>
+<h3 id="H-1"><a href="#H-1" class="headerlink" title="$H_1$"></a>$H_1$</h3><p>the distribution of surviving component size of a node $w$ as a neighbor of another node $v$</p>
+<p>like $H_0$,$H_1$ can also be decomposed by two parts, </p>
 <ul>
-<li>the node fails, the probability is <img src="http://latex.codecogs.com/svg.latex?q" alt="img"></li>
+<li>the node fails, the probability is $q$</li>
 <li>the node doesn’t fail</li>
 </ul>
-<p>like we calculate the surviving component size, there is “self-consistency”.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?H_1=q+xF_1(H_1(x))" alt="img"></p>
+<p>like we calculate the surviving component size, there is “self-consistency”.<br>$$<br>H_1=q+xF_1(H_1(x))<br>$$</p>
 <ul>
-<li>we include <img src="http://latex.codecogs.com/svg.latex?F_1(x)" alt="img">, also denote “direction”, the “children neighbor” of node <img src="http://latex.codecogs.com/svg.latex?w" alt="img">.</li>
+<li>we include $F_1(X)$, also denote “direction”, the “children neighbor” of node $w$​.</li>
 </ul>
-<p><img src="http://latex.codecogs.com/svg.latex?H_1%27(x)=F_1(H_1(x))+F_1%27(H_1(x))H_1%27(x)" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CRightarrow%20H_1%27(1)%20=%201-q+F_1%27(1)H_1%27(1)" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CRightarrow%20H_1%27(1)%20=%20%5Cfrac%7B1-q%7D%7B1-F_1%27(1)%7D" alt="img"></p>
-<h3 id="F0"><a href="#F0" class="headerlink" title="F0"></a>F0</h3><p>  **part of ** the distribution of a node degree, with the node failure probability <img src="http://latex.codecogs.com/svg.latex?q" alt="img"></p>
-<p>  what we know is a fixed degree distribution, that is <img src="http://latex.codecogs.com/svg.latex?G_0" alt="img">. So, we want to know <img src="http://latex.codecogs.com/svg.latex?F_0" alt="img"> from <img src="http://latex.codecogs.com/svg.latex?G_0" alt="img"> and <img src="http://latex.codecogs.com/svg.latex?q" alt="img"></p>
-<p>The probability that a node <img src="http://latex.codecogs.com/svg.latex?v" alt="img"> has degree <img src="http://latex.codecogs.com/svg.latex?k" alt="img"> and survives is generated by</p>
-<p><img src="http://latex.codecogs.com/svg.latex?F_0(x)=%5CSigma_%7Bk=0%7D%5E%7B%5Cinfty%7D(1-q)P(k)x%5Ek%20=%20(1-q)G_0(x)" alt="img"></p>
-<p>Note that <img src="http://latex.codecogs.com/svg.latex?F_0(1)=1-q" alt="img">, not 1. It is due to we only consider the surviving part of the network, not the whole part.</p>
-<h3 id="F1"><a href="#F1" class="headerlink" title="F1"></a>F1</h3><p>similarly, </p>
-<p><img src="http://latex.codecogs.com/svg.latex?F_1(x)=%20(1-q)G_1(x)" alt="img"></p>
-<h3 id="lt-s-gt"><a href="#lt-s-gt" class="headerlink" title="<s>"></a>&lt;s&gt;</h3><p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Clangle">http://latex.codecogs.com/svg.latex?%5Clangle</a> s%5Crangle %20%3D%20H_0%27%281%29%20%3D%201-q%2B1%5Ccdot%20F_0%27%281%29H_1%27%281%29)</p>
-<p><img src="http://latex.codecogs.com/svg.latex?=1-q+%5Cfrac%7B(1-q)F_0%27(1)%7D%7B1-F_1%27(1)%7D%20=(%201+%5Cfrac%7B(1-q)G_0%27(1)%7D%7B1-(1-q)G_1%27(1)%7D)(1-q)" alt="img"></p>
+<p>$$<br>H_1’(x)=F_1(H_1(x))+F_1’(H_1(x))H_1’(x)<br>$$</p>
+<p>$$<br>\Rightarrow H_1’(1) =1-q+F_1’(1)H_1’(1)<br>$$</p>
+<p>$$<br>\Rightarrow H_1’(1) =\frac{1-q}{1-F_1’(1)}<br>$$</p>
+<h3 id="F-0"><a href="#F-0" class="headerlink" title="$F_0$"></a>$F_0$</h3><p> **Part of ** the distribution of a node degree, with the node failure probability $q$ what we know is a fixed degree distribution, that is $G_0$. So, we want to know $F_0$ from $G_0$ and $q$​</p>
+<p>The probability that a node $v$​ has degree $k$​ and survives is generated by<br>$$<br>F_0(x)=\sum_{k=0}^{\infty}(1-q)P(k)x^k = (1-q)G_0(x)<br>$$<br>Note that $F_0(1)=1-q$, not 1. It is due to we only consider the surviving part of the network, not the whole part.</p>
+<h3 id="F-1"><a href="#F-1" class="headerlink" title="$F_1$"></a>$F_1$</h3><p>similarly,  $F_1(x)=(1-q)G_1(x)$</p>
+<h3 id="langle-s-rangle-​"><a href="#langle-s-rangle-​" class="headerlink" title="$\langle s\rangle$​"></a>$\langle s\rangle$​</h3><p>$$<br>\langle s\rangle=H_0’(1) = 1-q+1\cdot F_0’(1)H_1’(1)<br>$$</p>
+<p>$$<br>=1-q+\frac{(1-q)F_0’(1)}{1-F_1’(1)}=( 1+\frac{(1-q)G_0’(1)}{1-(1-q)G_1’(1)})(1-q)<br>$$</p>
 <h3 id="Critical-failure-rate"><a href="#Critical-failure-rate" class="headerlink" title="Critical failure rate"></a>Critical failure rate</h3><p>When the denominator is closed to 0, is the key point.</p>
-<p>That is </p>
-<p><img src="http://latex.codecogs.com/svg.latex?G_1%27(1)%5Cto%20%5Cfrac%7B1%7D%7B1-q%7D" alt="img"></p>
-<p>and </p>
-<p><img src="http://latex.codecogs.com/svg.latex?G_1%27(1)=%5Cfrac%7B%5Clangle%20k%5E2%5Crangle%7D%7B%5Clangle%20k%5Crangle%7D-1" alt="img"></p>
-<p>we have</p>
-<p><img src="http://latex.codecogs.com/svg.latex?q_c%20=%201-(%5Cfrac%7B%5Clangle%20k%5E2%5Crangle%7D%7B%5Clangle%20k%5Crangle%7D-1)%5E%7B-1%7D" alt="img"></p>
-<h2 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h2><p>Since we use whether the average component size is finite to judge the robustness, it hides the assumption that <img src="http://latex.codecogs.com/svg.latex?n%5Cto%5Cinfty" alt="img"></p>
+<p>That is<br>$$<br>G_1’(1)\to \frac{1}{1-q}<br>$$<br>and<br>$$<br>G_1’(1)=\frac{\langle k^2\rangle}{\langle k\rangle}-1<br>$$<br>we have<br>$$<br>q_c =1-(\frac{\langle k^2\rangle}{\langle k\rangle}-1)^{-1}<br>$$</p>
+<h2 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h2><p>Since we use whether the average component size is finite to judge the robustness, it hides the assumption that $n\to\infty$</p>
 <p> This formula gives an upper bound of the failure rate.</p>
-<h2 id="E-R-Model"><a href="#E-R-Model" class="headerlink" title="E-R Model"></a>E-R Model</h2><p>In ER model, we have</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7B%5Clangle%20k%5E2%5Crangle%7D%7B%5Clangle%20k%5Crangle%7D=%5Cfrac%7Bnp+n%5E2p%5E2%7D%7Bnp%7D%20=%201+np" alt="img"></p>
-<p>So,</p>
-<p><img src="http://latex.codecogs.com/svg.latex?q_c%20=%201-%5Cfrac%7B1%7D%7Bnp%7D" alt="img"></p>
-<p>According to the Molloy-Reed criterion, when np&gt;1, we have a giant connected component. That is ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Clangle">http://latex.codecogs.com/svg.latex?%5Clangle</a> k%5Crangle&gt;1)</p>
-<h2 id="K-regular-network"><a href="#K-regular-network" class="headerlink" title="K-regular network"></a>K-regular network</h2><p>In K-regular model all nodes have the same degree k. </p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7B%5Clangle%20k%5E2%5Crangle%7D%7B%5Clangle%20k%5Crangle%7D=%5Cfrac%7Bk%5E2%7D%7Bk%7D%20=k" alt="img"></p>
-<p>So,</p>
-<p><img src="http://latex.codecogs.com/svg.latex?q_c%20=%201-%5Cfrac%7B1%7D%7Bk-1%7D" alt="img"></p>
-<p>According to the Molloy-Reed criterion, we need ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Clangle">http://latex.codecogs.com/svg.latex?%5Clangle</a> k%5Crangle%3Dk&gt;2)</p>
+<h2 id="E-R-Model"><a href="#E-R-Model" class="headerlink" title="E-R Model"></a>E-R Model</h2><p>In ER model, we have<br>$$<br>\frac{\langle k^2\rangle}{\langle k\rangle}=\frac{np+n^2p^2}{np}= 1+np<br>$$<br>So,<br>$$<br>q_c= 1-\frac{1}{np}<br>$$<br>According to the Molloy-Reed criterion, when $np&gt;1$​, we have a giant connected component. That is $\langle k\rangle&gt;1$</p>
+<h2 id="K-regular-network"><a href="#K-regular-network" class="headerlink" title="$K$-regular network"></a>$K$-regular network</h2><p>In K-regular model all nodes have the same degree $k$​.<br>$$<br>\frac{\langle k^2\rangle}{\langle k\rangle}=\frac{k^2}{k}=k<br>$$<br>So,<br>$$<br>q_c= 1-\frac{1}{k-1}<br>$$<br>According to the Molloy-Reed criterion, we need $\langle k\rangle=k&gt;2$</p>
 <p>It is different from the E-R, due to the variance of nodes. It tells us the <strong>variance makes networks more robust!!</strong></p>
-<h2 id="Broad-distribution-network"><a href="#Broad-distribution-network" class="headerlink" title="Broad distribution network"></a>Broad distribution network</h2><p>Explanations are below:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7B%5Clangle%20k%5E2%5Crangle%7D%7B%5Clangle%20k%5Crangle%7D=%5Cfrac%7B%5Czeta(%5Cgamma-2)%7D%7B%5Czeta(%5Cgamma-1)%7D" alt="img"></p>
+<h2 id="Broad-distribution-network"><a href="#Broad-distribution-network" class="headerlink" title="Broad distribution network"></a>Broad distribution network</h2><p>Explanations are below:<br>$$<br>\frac{\langle k^2\rangle}{\langle k\rangle}=\frac{\zeta(\gamma-2)}{\zeta(\gamma-1)}<br>$$</p>
 <ul>
-<li><p>when <img src="http://latex.codecogs.com/svg.latex?%5Cgamma%5Cin(2,3)" alt="img">, the denominator is finite and the nominator is infinite.</p>
+<li><p>when $\gamma\in(2,3)$, the denominator is finite and the nominator is infinite.</p>
 </li>
-<li><p>so, </p>
-<p><img src="http://latex.codecogs.com/svg.latex?q_c%20=%201-(%5Cfrac%7B%5Czeta(%5Cgamma-2)%7D%7B%5Czeta(%5Cgamma-1)%7D-1)%5E%7B-1%7D" alt="img"></p>
+<li><p>so,  $q_c=1-(\frac{\zeta(\gamma-2)}{\zeta(\gamma-1)}-1)^{-1}$</p>
 </li>
-<li><p>when  <img src="http://latex.codecogs.com/svg.latex?%5Cgamma%5Cin(2,3),q_c%5Cto%5Cinfty" alt="img">.</p>
+<li><p>when  $\gamma\in(2,3),q_c\to\infty$.</p>
 <p>This shows the scale-free network is <strong>super-robust</strong> against random failures. </p>
 <ul>
 <li>In the limit of <strong>infinite</strong> network size, the scale-free network cannot be destroyed by any random failure probability.</li>
@@ -610,36 +591,38 @@
 </ul>
 <h1 id="Scale-free-network"><a href="#Scale-free-network" class="headerlink" title="Scale-free network"></a>Scale-free network</h1><h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><ul>
 <li>power law distribution<ul>
-<li>scale invariance: <img src="http://latex.codecogs.com/svg.latex?P(%5Calpha%20k)%5Cpropto%20P(k)" alt="img"></li>
-<li><img src="http://latex.codecogs.com/svg.latex?P(k)=k%5E%7B-%5Cgamma%7D(%5CSigma_%7Bi=1%7D%5EN%20i%5E%7B-%5Cgamma%7D)%5E%7B-1%7D=%5Cfrac%7Bk%5E%7B-%5Cgamma%7D%7D%7B%5CSigma_%7Bi=1%7Di%5E%7B-%5Cgamma%7D%7D" alt="img"></li>
-<li>this is one kind of <strong>broad distribution</strong>. Other broad distribution examples: Zipf distribution.</li>
-<li><img src="http://latex.codecogs.com/svg.latex?%5Cgamma" alt="img"> decides how quickly the distribution drops. The lager the quicker.</li>
+<li><p>scale invariance: $P(\alpha k)\propto P(k)$</p>
+</li>
+<li><p>$$<br>P(k)=k^{-\gamma}(\sum_{i=1}^N i^{-\gamma})^{-1}=\frac{k^{-\gamma}}{\sum_{i=1}i^{-\gamma}}<br>$$</p>
+</li>
+<li><p>this is one kind of <strong>broad distribution</strong>. Other broad distribution examples: Zipf distribution.</p>
+</li>
+<li><p>$\gamma$ decides how quickly the distribution drops. The lager the quicker.</p>
+</li>
 </ul>
 </li>
 </ul>
-<h2 id="Approximation"><a href="#Approximation" class="headerlink" title="Approximation"></a>Approximation</h2><p>We use <strong>Zeta distribution</strong> to imitate power-law distribution degrees with ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?n%5Cto">http://latex.codecogs.com/svg.latex?n%5Cto</a> %5Cinfty)</p>
+<h2 id="Approximation"><a href="#Approximation" class="headerlink" title="Approximation"></a>Approximation</h2><p>We use <strong>Zeta distribution</strong> to imitate power-law distribution degrees with $n\to\infty$</p>
 <p>The formula of Zeta distribution:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?P(k)%20=%20%5Cfrac%7Bk%5E%7B-%5Cgamma%7D%7D%7B%5Czeta(%5Cgamma)%7D" alt="img"></p>
-<p>where</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Czeta(%5Cgamma)%20=%20%5CSigma_%7Bi=1%7Di%5E%7B-%5Cgamma%7D" alt="img"></p>
-<p>It is valid for <img src="http://latex.codecogs.com/svg.latex?%5Cgamma%3E1" alt="img"></p>
+<p>$$<br>P(k) =\frac{k^{-\gamma}}{\zeta(\gamma)}<br>$$</p>
+<p>where<br>$$<br>\zeta(\gamma) =\sum_{i=1}i^{-\gamma}<br>$$<br>It is valid for $\gamma&gt;1$ </p>
 <ul>
-<li><p><img src="http://latex.codecogs.com/svg.latex?%5Czeta(%5Cgamma%5Cto%201)%20=%20%5Cto%5Cinfty" alt="img"></p>
+<li><p>$\zeta(\gamma\to 1) %3D \to\infty$</p>
 </li>
-<li><p><img src="http://latex.codecogs.com/svg.latex?%5Clangle%20k%5Em%5Crangle=%5Cfrac%7B%5Czeta(%5Cgamma-m)%7D%7B%5Czeta(%5Cgamma)%7D" alt="img"></p>
+<li><p>$\langle k^m\rangle=\frac{\zeta(\gamma-m)}{\zeta(\gamma)}$</p>
 </li>
 </ul>
-<h2 id="Diameter"><a href="#Diameter" class="headerlink" title="Diameter"></a>Diameter</h2><p><img src="http://latex.codecogs.com/svg.latex?D%5Csimeq%5Cfrac%7B%5Clog%5Clog(n)%7D%7B%5Clog(%5Cgamma-2)%7D" alt="img"></p>
+<h2 id="Diameter"><a href="#Diameter" class="headerlink" title="Diameter"></a>Diameter</h2><p>$$<br>D\simeq\frac{\log\log(n)}{\log(\gamma-2)}<br>$$</p>
 <ul>
-<li>for <img src="http://latex.codecogs.com/svg.latex?%5Cgamma%5Cin(2,3)" alt="img">, <img src="http://latex.codecogs.com/svg.latex?%5Cgamma-2%5Cin(0,1)" alt="img"><ul>
-<li>the smaller <img src="http://latex.codecogs.com/svg.latex?%5Cgamma" alt="img">, the larger the (absolute value) of <img src="http://latex.codecogs.com/svg.latex?%5Clog(%5Cgamma)" alt="img"> will be, the smaller D (the diameter) will be</li>
+<li>for $\gamma\in(2,3)$, $\gamma-2\in(0,1)$<ul>
+<li>the smaller $\gamma$​, the larger the absolute value of $\log(\gamma)$ will be, the smaller D (the diameter) will be</li>
 </ul>
 </li>
 </ul>
 <p>Conclusion:</p>
 <ul>
 <li>networks where the degree distribution has an infinite second raw moment have a very small diameter.</li>
-<li>the more heterogeneous the degree distribution (smaller <img src="http://latex.codecogs.com/svg.latex?%5Cgamma" alt="img">) is, the smaller diameter will be.</li>
+<li>the more heterogeneous the degree distribution (smaller $\gamma$) is, the smaller diameter will be.</li>
 </ul>
 <h2 id="Robustness-1"><a href="#Robustness-1" class="headerlink" title="Robustness"></a>Robustness</h2><p>Super robust. See above.</p>
 <p>Different from ER model, the limitation of finite size matters a lot here.</p>
@@ -736,12 +719,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/complex-system/">
-                                    <span class="chip bg-color">complex system</span>
+                                <a href="../tags/Graph/">
+                                    <span class="chip bg-color">Graph</span>
                                 </a>
                             
-                                <a href="../tags/network/">
-                                    <span class="chip bg-color">network</span>
+                                <a href="../tags/Complex-System/">
+                                    <span class="chip bg-color">Complex System</span>
                                 </a>
                             
                         </div>
@@ -1450,6 +1433,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

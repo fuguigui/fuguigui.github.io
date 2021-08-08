@@ -420,12 +420,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/complex-system/">
-                                <span class="chip tag-color">complex system</span>
+                            <a href="../tags/Graph/">
+                                <span class="chip tag-color">Graph</span>
                             </a>
                         
-                            <a href="../tags/network/">
-                                <span class="chip tag-color">network</span>
+                            <a href="../tags/Complex-System/">
+                                <span class="chip tag-color">Complex System</span>
                             </a>
                         
                     </div>
@@ -436,8 +436,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -493,7 +493,7 @@
 </ul>
 </li>
 <li>what is the likelihood function?<ul>
-<li><img src="http://latex.codecogs.com/svg.latex?P(A%7CB)" alt="img"></li>
+<li>$P(A|B)$</li>
 </ul>
 </li>
 <li>why is the maximization of the likelihood function equivalent to the maximization of the log-likelihood function?<ul>
@@ -501,12 +501,12 @@
 </ul>
 </li>
 <li>Can you explain the parameters in the stochastic block model?<ul>
-<li>E_kl: the actual number of edges between block k and block l</li>
-<li>N_kl: the maximal number of edges between block k and block l.</li>
-<li>M_kl: the probability of an edge in block k linked to one in block l.</li>
+<li>$E_{kl}$: the actual number of edges between block $k$​​ and block $l$​</li>
+<li>$N_{kl}$: the maximal number of edges between block $k$​ and block $l$​.</li>
+<li>$M_{kl}$: the probability of an edge in block $k$​ linked to one in block $l$​.</li>
 </ul>
 </li>
-<li>How can we calculate the maximum likelihood of a stochastic block model for a given block assignment vector <img src="http://latex.codecogs.com/svg.latex?%5Cvec%7Bz%7D" alt="img">?<ul>
+<li>How can we calculate the maximum likelihood of a stochastic block model for a given block assignment vector $\vec{z}$?<ul>
 <li>first, find the most likely block matrix.</li>
 <li>second, calculate the likelihood on that matrix.</li>
 </ul>
@@ -531,7 +531,7 @@
 <li>statistical inference</li>
 <li>stochastic block model</li>
 </ul>
-<h1 id="Statistical"><a href="#Statistical" class="headerlink" title="Statistical"></a>Statistical</h1><h2 id="Statistical-ensemble"><a href="#Statistical-ensemble" class="headerlink" title="Statistical ensemble"></a>Statistical ensemble</h2><h3 id="Probabilistic-generative-model"><a href="#Probabilistic-generative-model" class="headerlink" title="Probabilistic generative model"></a>Probabilistic generative model</h3><p>A stochastic model that generates networks G with probability <img src="http://latex.codecogs.com/svg.latex?P(G)" alt="img"></p>
+<h1 id="Statistical"><a href="#Statistical" class="headerlink" title="Statistical"></a>Statistical</h1><h2 id="Statistical-ensemble"><a href="#Statistical-ensemble" class="headerlink" title="Statistical ensemble"></a>Statistical ensemble</h2><h3 id="Probabilistic-generative-model"><a href="#Probabilistic-generative-model" class="headerlink" title="Probabilistic generative model"></a>Probabilistic generative model</h3><p>A stochastic model that generates networks G with probability $P(G)$</p>
 <ol>
 <li> consider aggregate statistics (macrostates)</li>
 <li><strong>define statistical ensemble</strong> of microstates</li>
@@ -540,15 +540,14 @@
 <p>We start from abstract to numerous concrete cases and back to abstract.</p>
 <p>Our objective is to <strong>study statistical ensemble</strong>.</p>
 <h3 id="Reverse-way"><a href="#Reverse-way" class="headerlink" title="Reverse way"></a>Reverse way</h3><ol>
-<li>consider empirical network <img src="http://latex.codecogs.com/svg.latex?G_e" alt="img"></li>
+<li>consider empirical network $G_e$</li>
 <li>from <strong>numerous statistical ensembles</strong>,  <strong>select</strong> the most plausible one</li>
 <li>using our knowledge of that statistical model to make some conclusion of our network.</li>
 </ol>
 <p>We start from one empirical observation, and go to abstract models and back to the empirical case finally.</p>
 <p>Our objective is to <strong>study properties of our observed network</strong> based on already studied statistical ensemble.</p>
 <p>In some way, the probabilistic generative model should be studied first.</p>
-<h2 id="Liklihood"><a href="#Liklihood" class="headerlink" title="Liklihood"></a>Liklihood</h2><p>the probability of a model to generate this given observation <img src="http://latex.codecogs.com/svg.latex?G_e" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?L(%5Ctheta%7CG_e)=P_%7B%5Ctheta%7D(G_e)" alt="img"></p>
+<h2 id="Liklihood"><a href="#Liklihood" class="headerlink" title="Liklihood"></a>Liklihood</h2><p>the probability of a model to generate this given observation $G_e$<br>$$<br>L(\theta|G_e)=P_{\theta}(G_e)<br>$$</p>
 <h3 id="Maximum-likelihood-estimator"><a href="#Maximum-likelihood-estimator" class="headerlink" title="Maximum likelihood estimator"></a>Maximum likelihood estimator</h3><p>the estimation of parameters that maximize the likelihood of our observation.</p>
 <h3 id="log-likelihood-function"><a href="#log-likelihood-function" class="headerlink" title="log-likelihood function"></a>log-likelihood function</h3><p>turn the exponents into factors. A simplified calculation method.</p>
 <ul>
@@ -560,11 +559,11 @@
 </li>
 </ul>
 <h1 id="Community-Detection"><a href="#Community-Detection" class="headerlink" title="Community Detection"></a>Community Detection</h1><h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><ul>
-<li><p>optimization of partition quality (modularity) Q.</p>
+<li><p>optimization of partition quality/modularity $Q$​.</p>
 </li>
 <li><p>spectral partitioning based on Fiedler vector of Laplacian matrix </p>
 <ul>
-<li>(This is hard partition right?) means we can only partition on disconnected network, instead of finding subclusters in any network.</li>
+<li>This is hard partition right? means we can only partition on disconnected network, instead of finding subclusters in any network.</li>
 </ul>
 </li>
 <li><p>statistical inference</p>
@@ -580,7 +579,7 @@
 <ul>
 <li>stochastic: the block assignment is stochastic</li>
 <li>block: the final matrix is based on blocks, not nodes as common seen in network. In other way, the basic entry is block.</li>
-<li>it is a <strong>generalization of  G(n,p) model</strong></li>
+<li>it is a <strong>generalization</strong> of  $G(n,p)$​ model</li>
 <li>we can <ul>
 <li>use the stochastic block matrix and block assignment  vector to generate a network,</li>
 <li>use the block assignment and a network to find the maximum likelihood stochastic block matrix.</li>
@@ -589,32 +588,30 @@
 </ul>
 <h2 id="Comparison-with-other-statistical-ensembles"><a href="#Comparison-with-other-statistical-ensembles" class="headerlink" title="Comparison with other statistical ensembles"></a>Comparison with other statistical ensembles</h2><ul>
 <li>the ensembles what we have learnt:<ul>
-<li>given some statistical index, e.g. p in G(n,p) model</li>
+<li>given some statistical index, e.g. $p$ in $G(n,p)$ model</li>
 <li>generates new networks</li>
 <li>For each network, it will have a corresponding likelihood.</li>
 <li>here, network is a variable.</li>
 </ul>
 </li>
 <li>stochastic block:<ul>
-<li>given an observed network (and block number)</li>
+<li>given an observed network, and block number</li>
 <li>generates new cluster assignments</li>
 <li>For each assignment, it will have a corresponding likelihood.</li>
 <li>here, network is a parameter.</li>
 </ul>
 </li>
 </ul>
-<h2 id="Calculation"><a href="#Calculation" class="headerlink" title="Calculation"></a>Calculation</h2><p>For given number of blocks B, the likelihood for a block assignment vector <img src="http://latex.codecogs.com/svg.latex?%5Cvec%7Bz%7D" alt="img">:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?L(M,%5Cvec%7Bz%7D)=%5CPi_%7B(i,j)%5Cin%20E%7DM_%7Bz_iz_j%7D%5Ccdot%5CPi_%7B(i,j)%5Cnotin%20E%7D(1-M_%7Bz_iz_j%7D)%0A=%5CPi_%7B1%5Cleq%20k%5Cleq%20l%5Cleq%20B%7DM_%7Bkl%7D%5E%7BE_%7Bkl%7D%7D%5Ccdot%20(1-M_%7Bkl%7D)%5E%7BN_%7Bkl%7D-E%7Bkl%7D%7D" alt="img"></p>
+<h2 id="Calculation"><a href="#Calculation" class="headerlink" title="Calculation"></a>Calculation</h2><p>For given number of blocks B, the likelihood for a block assignment vector $\vec{z}$:<br>$$<br>L(M,\vec{z})=\Pi_{(i,j)\in E}M_{z_iz_j}\cdot\Pi_{(i,j)\notin E}(1-M_{z_iz_j})<br>$$</p>
+<p>$$<br>=\Pi_{1\leq k\leq l\leq B}M_{kl}^{E_{kl}}\cdot (1-M_{kl})^{N_{kl}-E{kl}}<br>$$</p>
 <ul>
-<li>the matrix <strong>M</strong>: is an independent parameter given in ahead, not relying on others, e.g. block assignment. Different <strong>M</strong> will give different likelihood. However, given <strong>z</strong> ,we can find a <strong>M_z</strong> returning the maximum likelihood.</li>
-<li> N_{kl} are decided by the vector z, the block assignment vector.</li>
-<li> E_{kl} are decided by the vector z and the topology of the network.</li>
+<li>the matrix $M$: is an independent parameter given in ahead, not relying on others, e.g. block assignment. Different $M$ will give different likelihood. However, given $z$ ,we can find a $M_z$ returning the maximum likelihood.</li>
+<li> $N_{kl}$ are decided by the vector $z$, the block assignment vector.</li>
+<li> $E_{kl}$ are decided by the vector $z$ and the topology of the network.</li>
 </ul>
 <p>We redefine </p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Chat%7BL%7D(%5Cvec%7Bz%7D)=L(%5Chat%7BM%7D,%5Cvec%7Bz%7D)=%5CPi_%7B1%5Cleq%20k%5Cleq%20l%5Cleq%20B%7D%5Cfrac%7BE_%7Bkl%7D%7D%7BN_%7Bkl%7D%7D%5E%7BE_%7Bkl%7D%7D(1-%5Cfrac%7BE_%7Bkl%7D%7D%7BN_%7Bkl%7D%7D)%5E%7BN_%7Bkl%7D-E_%7Bkl%7D%7D" alt="img"></p>
-<p>optimal block assignment definition:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Chat%7B%5Cvec%7Bz%7D%7D=%5Carg_%7B%5Cvec%7Bz%7D%7D%5Cmax%20%5Chat%7BL%7D(%5Cvec%7Bz%7D)" alt="img"></p>
-<p>This block detection method is still based on the edge relationship.</p>
+<p>$$<br>\hat{L}(\vec{z})=L(\hat{M}, \vec{z})=\Pi_{1\leq k\leq l\leq B}\frac{E_{kl}}{N_{kl}}^{E_{kl}}(1-\frac{E_{kl}}{N_{kl}})^{N_{kl}-E_{kl}}<br>$$</p>
+<p>optimal block assignment definition:<br>$$<br>\hat{\vec{z}}=\arg_{\vec{z}}\max \hat{L}(\vec{z})<br>$$<br>This block detection method is still based on the edge relationship.</p>
 <h2 id="Optimal-number-of-communities"><a href="#Optimal-number-of-communities" class="headerlink" title="Optimal number of communities"></a>Optimal number of communities</h2><p>The above likelihood is calculated given the number of blocks. But what is the optimal number of blocks?</p>
 <h3 id="Special-case"><a href="#Special-case" class="headerlink" title="Special case"></a>Special case</h3><p>Each node is in its own cluster. In this situation, the block number is the same as the node number. The likelihood is 1. It can be interpreted that the assignment is the only possible one given the block number.</p>
 <h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>We need to find a balance between the model complexity and fitting level.</p>
@@ -681,12 +678,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/complex-system/">
-                                    <span class="chip bg-color">complex system</span>
+                                <a href="../tags/Graph/">
+                                    <span class="chip bg-color">Graph</span>
                                 </a>
                             
-                                <a href="../tags/network/">
-                                    <span class="chip bg-color">network</span>
+                                <a href="../tags/Complex-System/">
+                                    <span class="chip bg-color">Complex System</span>
                                 </a>
                             
                         </div>
@@ -1171,8 +1168,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1182,12 +1179,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/complex-system/">
-                        <span class="chip bg-color">complex system</span>
+                    <a href="../tags/Graph/">
+                        <span class="chip bg-color">Graph</span>
                     </a>
                     
-                    <a href="../tags/network/">
-                        <span class="chip bg-color">network</span>
+                    <a href="../tags/Complex-System/">
+                        <span class="chip bg-color">Complex System</span>
                     </a>
                     
                 </div>
@@ -1224,8 +1221,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1235,12 +1232,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/complex-system/">
-                        <span class="chip bg-color">complex system</span>
+                    <a href="../tags/Graph/">
+                        <span class="chip bg-color">Graph</span>
                     </a>
                     
-                    <a href="../tags/network/">
-                        <span class="chip bg-color">network</span>
+                    <a href="../tags/Complex-System/">
+                        <span class="chip bg-color">Complex System</span>
                     </a>
                     
                 </div>
@@ -1403,6 +1400,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

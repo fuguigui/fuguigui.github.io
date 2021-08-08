@@ -420,12 +420,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/complex-system/">
-                                <span class="chip tag-color">complex system</span>
+                            <a href="../tags/Graph/">
+                                <span class="chip tag-color">Graph</span>
                             </a>
                         
-                            <a href="../tags/network/">
-                                <span class="chip tag-color">network</span>
+                            <a href="../tags/Complex-System/">
+                                <span class="chip tag-color">Complex System</span>
                             </a>
                         
                     </div>
@@ -436,8 +436,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -489,8 +489,8 @@
 </ul>
 </li>
 <li>Define what a temporal network is. Give an example for two different temporal networks that give rise to the same weighted, time-aggregated network.<ul>
-<li>t1:a-&gt;b, t2:b-&gt;c</li>
-<li>t1: b-&gt;c, t2: a-&gt;b</li>
+<li>$t_1:a\to b, t_2:b\to c$​​</li>
+<li>$t_1: b\to c, t_2: a\to b$​​</li>
 </ul>
 </li>
 <li>What is a second-order time-aggregated network? For the two temporal networks created above, construct the second-order time-aggregated networks and argue whether they are different.</li>
@@ -525,7 +525,7 @@
 <li>time-stamped links (v,w;t)</li>
 </ul>
 <p>We can represent it by a directed, acyclic graph.</p>
-<h2 id="Causal-paths"><a href="#Causal-paths" class="headerlink" title="Causal paths"></a>Causal paths</h2><p>(v_0,v_1;t_1)-&gt;(v_1,v_2;t_2)-&gt;(v_2,v_3;t_3)-&gt;…-&gt;(v_{l-1},v_l,t_l)</p>
+<h2 id="Causal-paths"><a href="#Causal-paths" class="headerlink" title="Causal paths"></a>Causal paths</h2><p>$(v_0,v_1;t_1)\to(v_1,v_2;t_2)\to (v_2,v_3;t_3)\to \cdots\to(v_{l-1},v_l,t_l)$</p>
 <p>the ordering of links matters!</p>
 <h3 id="Maximum-time-difference"><a href="#Maximum-time-difference" class="headerlink" title="Maximum time difference"></a>Maximum time difference</h3><p>\delta: we only consider the causal paths with time difference smaller than the maximum time difference.</p>
 <p>It actually restricts the links we study.</p>
@@ -551,24 +551,21 @@
 <li><p>to measure the amount of information in terms of the ordering of links which is discarded when studying the time-aggregated network</p>
 </li>
 </ul>
-<h3 id="Matrix-based-on-directed-acyclic-graph"><a href="#Matrix-based-on-directed-acyclic-graph" class="headerlink" title="Matrix (based on directed, acyclic graph)"></a>Matrix (based on directed, acyclic graph)</h3><p>P^v: #|S|*#|D|: dimension: the number of sources passing through node v times the number of destinations passing through node v, all s-&gt;v-&gt;d </p>
-<p>P^v_{sd}: the joint probabilities of S and D.</p>
+<h3 id="Matrix-based-on-directed-acyclic-graph"><a href="#Matrix-based-on-directed-acyclic-graph" class="headerlink" title="Matrix based on directed, acyclic graph"></a>Matrix based on directed, acyclic graph</h3><p>$P^v: Nr.|S|\ast Nr.|D|$: dimension: the number of sources passing through node v times the number of destinations passing through node v, all $s\to v\to d$​​​ </p>
+<p>$P^v_{sd}$: the joint probabilities of $S$ and $D$.</p>
 <p>It should be defined under some given maximum time difference.</p>
-<p>A <strong>null matrix</strong> can be built from the time-aggregated network.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Chat%7BP%7D%5Ev_%7Bsd%7D=%5Cfrac%7Bw(s,v)%7D%7B%5Csum_%7Bs%27%7Dw(s%27,v)%7D%5Ccdot%5Cfrac%7Bw(v,d)%7D%7B%5Csum_%7Bd%27%7Dw(v,d%27)%7D" alt="img"></p>
-<h3 id="Index-mutual-information"><a href="#Index-mutual-information" class="headerlink" title="Index (mutual information)"></a>Index (mutual information)</h3><p><img src="http://latex.codecogs.com/svg.latex?I%5Ev(S;D)=%5Csum_%7Bs,d%7DP%5Ev_%7Bsd%7D%5Clog_2(%5Cfrac%7BP%5Ev_%7Bsd%7D%7D%7BP%5Ev(S=s)P%5Ev(D=d)%7D)" alt="img"></p>
+<p>A <strong>null matrix</strong> can be built from the time-aggregated network.<br>$$<br>\hat{P}^v_{sd}=\frac{w(s,v)}{\sum_{s’}w(s’,v)}\cdot\frac{w(v,d)}{\sum_{d’}w(v,d’)}a<br>$$</p>
+<h3 id="Index-mutual-information"><a href="#Index-mutual-information" class="headerlink" title="Index: mutual information"></a>Index: mutual information</h3><p>$$<br>I^v(S;D)=\sum_{s,d}P^v_{sd}\log_2(\frac{P^v_{sd}}{P^v(S=s)P^v(D=d)})<br>$$</p>
 <ul>
-<li><p>captures how much bits of information the sources provide for destinations when aggregating interactions around v.</p>
+<li><p>captures how much bits of information the sources provide for destinations when aggregating interactions around $v$.</p>
 </li>
 <li><p>if s and d are uncorrelated, the measure should be 0.</p>
 </li>
-<li><p>interpretation: does v prefer to mediate paths between particular pairs of its neighbors.</p>
+<li><p>interpretation: does $v$ prefer to mediate paths between particular pairs of its neighbors.</p>
 </li>
 </ul>
 <h2 id="Markovian"><a href="#Markovian" class="headerlink" title="Markovian"></a>Markovian</h2><p><strong>Markovian</strong>: the next step only depends on the current nostate, no more previous status.</p>
-<p>if the betweenness preference of any node in the network is around 0, we call it Markovian temporal network.</p>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?I%5Ev(S;D)%5Csimeq">http://latex.codecogs.com/svg.latex?I%5Ev%28S%3BD%29%5Csimeq</a> 0,%5Cforall v%5Cin V)</p>
-<p>It means the time-respecting paths do not differ from what is expected from the time-aggregated network.</p>
+<p>if the betweenness preference of any node in the network is around 0, we call it Markovian temporal network.<br>$$<br>I^v(S;D)\simeq 0,\forall v\in V<br>$$<br>It means the time-respecting paths do not differ from what is expected from the time-aggregated network.</p>
 <h3 id="Transitivity"><a href="#Transitivity" class="headerlink" title="Transitivity"></a>Transitivity</h3><p>Paths in real systems are non-Markovian, thus <strong>breaking transitivity</strong>.</p>
 <h3 id="Betweenness-preference-1"><a href="#Betweenness-preference-1" class="headerlink" title="Betweenness preference"></a>Betweenness preference</h3><p>It can be judged by betweenness preference. In real network, many of them are far from 0.</p>
 <p>A study of the betweenness preference distribution of nodes in real temporal networks confirms that time-respecting paths cannot be modeled as a simple memoryless stochastic process</p>
@@ -579,7 +576,7 @@
 <p>A simulation of ant colony indicates the slow-down factor of 2. That means the process in the temporal<br>network is about two times slower than in the static network.</p>
 <p>the reason for that are that time-respecting paths in the real temporal network are longer than what one would expect in the static network</p>
 <ul>
-<li>London Tube: speeds up S=0.25</li>
+<li>London Tube: speeds up $S=0.25$</li>
 </ul>
 <h2 id="High-order-model"><a href="#High-order-model" class="headerlink" title="High-order model"></a>High-order model</h2><p>It is to capture the length k of causal paths, for a given maximum time difference \delta.</p>
 <ul>
@@ -587,12 +584,10 @@
 <li>links (weights): the number of times the causal path occurs in the underlying sequence. </li>
 </ul>
 <h4 id="Expected-2-nd-order-topology-matrix"><a href="#Expected-2-nd-order-topology-matrix" class="headerlink" title="Expected 2-nd order topology/matrix"></a>Expected 2-nd order topology/matrix</h4><p>We can get the expected 2-nd order matrix based on the time-aggregated 1-st order network.</p>
-<p>From this matrix and the actual number of (outer-)links of each node in the original 2nd order network, we can get the expected 2nd order topology. </p>
-<h3 id="Sensitive-to-ordering"><a href="#Sensitive-to-ordering" class="headerlink" title="Sensitive to ordering"></a>Sensitive to ordering</h3><p>the second-order network changes when time-stamped links are reordered (while the first-order topology stays the same)</p>
-<h3 id="Diffusion-1"><a href="#Diffusion-1" class="headerlink" title="Diffusion"></a>Diffusion</h3><p>The second eigenvalue of the transition matrix of the 2nd order network.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?S%5Csimeq%20%5Cfrac%7B%5Cln%7C%5Clambda_2(%5Ctilde%7BT%7D)%7C%7D%7B%5Cln%7C%5Clambda_2(T)%7C%7D" alt="img"></p>
-<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>From the node construction from a lower-order model, can we construct 3-order???? I think we can only construct 2^k order……. </p>
-<p><img src="http://assets.processon.com/chart_image/5d545352e4b0145255ba0742.png" alt="img"></p>
+<p>From this matrix and the actual number of outer-links of each node in the original 2nd order network, we can get the expected 2nd order topology. </p>
+<h3 id="Sensitive-to-ordering"><a href="#Sensitive-to-ordering" class="headerlink" title="Sensitive to ordering"></a>Sensitive to ordering</h3><p>the second-order network changes when time-stamped links are reordered while the first-order topology stays the same</p>
+<h3 id="Diffusion-1"><a href="#Diffusion-1" class="headerlink" title="Diffusion"></a>Diffusion</h3><p>The second eigenvalue of the transition matrix of the 2nd order network.<br>$$<br>S\simeq \frac{\ln|\lambda_2(\tilde{T})|}{\ln|\lambda_2(T)|}<br>$$</p>
+<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>From the node construction from a lower-order model, can we construct 3-order???? I think we can only construct $2^k$ order……. </p>
 
             </div>
             <hr/>
@@ -656,12 +651,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/complex-system/">
-                                    <span class="chip bg-color">complex system</span>
+                                <a href="../tags/Graph/">
+                                    <span class="chip bg-color">Graph</span>
                                 </a>
                             
-                                <a href="../tags/network/">
-                                    <span class="chip bg-color">network</span>
+                                <a href="../tags/Complex-System/">
+                                    <span class="chip bg-color">Complex System</span>
                                 </a>
                             
                         </div>
@@ -1146,8 +1141,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/Learning-Notes/" class="post-category">
-                                    Learning Notes
+                            <a href="../categories/Sharing/" class="post-category">
+                                    Sharing
                                 </a>
                             
                             
@@ -1199,8 +1194,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1210,12 +1205,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/complex-system/">
-                        <span class="chip bg-color">complex system</span>
+                    <a href="../tags/Graph/">
+                        <span class="chip bg-color">Graph</span>
                     </a>
                     
-                    <a href="../tags/network/">
-                        <span class="chip bg-color">network</span>
+                    <a href="../tags/Complex-System/">
+                        <span class="chip bg-color">Complex System</span>
                     </a>
                     
                 </div>
@@ -1378,6 +1373,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

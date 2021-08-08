@@ -420,12 +420,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/complex-system/">
-                                <span class="chip tag-color">complex system</span>
+                            <a href="../tags/Graph/">
+                                <span class="chip tag-color">Graph</span>
                             </a>
                         
-                            <a href="../tags/network/">
-                                <span class="chip tag-color">network</span>
+                            <a href="../tags/Complex-System/">
+                                <span class="chip tag-color">Complex System</span>
                             </a>
                         
                     </div>
@@ -436,8 +436,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -483,7 +483,7 @@
 </li>
 <li>How is the microstate probability in the exponential random graph model defined?</li>
 <li>What is the basic underlying assumption behind this microstate probability?</li>
-<li>How is the G(n,p) model related to ERGM?<ul>
+<li>How is the $G(n,p)$ model related to ERGM?<ul>
 <li>using p as the expected property.</li>
 </ul>
 </li>
@@ -498,18 +498,16 @@
 </ul>
 <h1 id="Keywords"><a href="#Keywords" class="headerlink" title="Keywords"></a>Keywords</h1><ul>
 <li>microstate probabilities</li>
-<li>statistical ensemble (e.g. G(n,p) model)</li>
+<li>statistical ensemble, e.g. $G(n,p)$​​ model</li>
 <li>ERGM</li>
 </ul>
-<h1 id="Microstate-probability"><a href="#Microstate-probability" class="headerlink" title="Microstate probability"></a>Microstate probability</h1><h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>The probability of each microstate (e.g. a network of a network generation model) in the ensemble model.</p>
-<p>For instance, in G(n,m) model, each microstate has the same probability </p>
-<p><img src="http://latex.codecogs.com/svg.latex?P=%5Cfrac%7B1%7D%7B%7B%7Bn+1%5Cchoose%202%7D%5Cchoose%20m%7D%7D" alt="img"></p>
+<h1 id="Microstate-probability"><a href="#Microstate-probability" class="headerlink" title="Microstate probability"></a>Microstate probability</h1><h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>The probability of each microstate, e.g. a network of a network generation model,  in the ensemble model.</p>
+<p>For instance, in $G(n,m)$ model, each microstate has the same probability $P=\frac{1}{T}$ where $T={D\choose m}$ and $D = {n+1\choose 2}$</p>
 <h2 id="Maximum-entropy-principle"><a href="#Maximum-entropy-principle" class="headerlink" title="Maximum entropy principle"></a>Maximum entropy principle</h2><p>The <strong>probability distribution</strong> which maximizes the entropy is the best one to describe the given state of knowledge.</p>
-<p>Use <img src="http://latex.codecogs.com/svg.latex?%5CPi" alt="img"> to denote a probability distribution. The MEP gives </p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CPi%5E*=%5Carg_%7B%5CPi%7D%5Cmax%20H(%5CPi)=%5Carg_%7B%5CPi%7D%5Cmax%20-%5Csum_%7BG%5Cin%5COmega%7D%20P(G)%5Clog(P(G))" alt="img"></p>
+<p>Use $\Pi $​ to denote a probability distribution. The MEP gives<br>$$<br>\Pi^*=\arg_{\Pi}\max H(\Pi)=\arg_{\Pi}\max -\sum_{G\in\Omega} P(G)\log(P(G))<br>$$</p>
 <ul>
-<li>\Omega denotes the given state of knowledge.  For example \Omega restricts all the networks have m edges.</li>
-<li>each \Pi gives  a set of P()</li>
+<li>$\Omega$ denotes the given state of knowledge.  For example \Omega restricts all the networks have m edges.</li>
+<li>each $\Pi$​ gives  a set of $P()$</li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://www.statisticshowto.datasciencecentral.com/maximum-entropy-principle/">refer to this website</a>This will be the system with the <strong>largest remaining uncertainty</strong>, and by choosing it you’re making sure you’re not adding any extra <a target="_blank" rel="noopener" href="https://www.statisticshowto.datasciencecentral.com/what-is-bias/">biases </a>or uncalled for assumptions into your analysis. </p>
 <h1 id="ERGM"><a href="#ERGM" class="headerlink" title="ERGM"></a>ERGM</h1><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h2><ul>
@@ -521,47 +519,47 @@
 <h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><ul>
 <li><p>fix the expected values of our interested properties:</p>
 <ul>
-<li><img src="http://latex.codecogs.com/svg.latex?%5Clangle%20f_i%5Crangle%20=%20%5Csum_G%20p(G)f_i(G)" alt="img"></li>
+<li>$$<br>\langle f_i\rangle = \sum_G p(G)f_i(G)<br>$$</li>
 </ul>
 </li>
 <li><p>the model is </p>
 <ul>
-<li>to maximize H(\Omega)</li>
-<li>under the constraint  of probability sum 1 and the expected property value</li>
-<li>take derivative for each microstate and set as 0</li>
+<li><p>to maximize $H(\Omega)$</p>
+</li>
+<li><p>under the constraint  of probability sum 1 and the expected property value</p>
+</li>
+<li><p>take derivative for each microstate and set as 0<br>$$<br>\frac{\partial}{\partial p(G)}{H+\alpha(1-\sum_G p(G)+\sum_i\theta_i(\langle f_i\rangle-\sum_Gf_i(G)p(G))}=0<br>$$</p>
+</li>
 </ul>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20p(G)%7D%5C%7BH+%5Calpha(1-%5Csum_G%20p(G)+%5Csum_i%5Ctheta_i(%5Clangle">http://latex.codecogs.com/svg.latex?%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20p%28G%29%7D%5C%7BH%2B%5Calpha%281-%5Csum_G%20p%28G%29%2B%5Csum_i%5Ctheta_i%28%5Clangle</a> f_i%5Crangle-%5Csum_Gf_i%28G%29p%28G%29%29%5C%7D%3D0)</p>
-<p>we can get</p>
-<ul>
-<li><img src="http://latex.codecogs.com/svg.latex?%20p(G)=%5Cfrac%7B%5Cexp(-%5Csum_i%5Ctheta_if_i(G))%7D%7BZ%7D" alt="img"></li>
-<li><img src="http://latex.codecogs.com/svg.latex?Z=%5Csum_G%5Cexp(-%5Csum_i%20%5Ctheta_if_i(G))" alt="img"></li>
-<li>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Cfrac%7B%5Cpartial%20Z%7D%7B%5Cpartial%20%5Ctheta_i%7D%20=%20%5Csum_G-f_i(G)%5Cexp(-%5Csum_j%5Ctheta_jf_j(G))=-%5Csum_G%20f_i(G)%20Z%5Cfrac%7B%5Cexp(-%5Csum_j%5Ctheta_jf_j(G))%7D%7BZ%7D%20=%20-Z%5Clangle">http://latex.codecogs.com/svg.latex?%5Cfrac%7B%5Cpartial%20Z%7D%7B%5Cpartial%20%5Ctheta_i%7D%20%3D%20%5Csum_G-f_i%28G%29%5Cexp%28-%5Csum_j%5Ctheta_jf_j%28G%29%29%3D-%5Csum_G%20f_i%28G%29%20Z%5Cfrac%7B%5Cexp%28-%5Csum_j%5Ctheta_jf_j%28G%29%29%7D%7BZ%7D%20%3D%20-Z%5Clangle</a> f_i%5Crangle)</li>
-<li>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Clangle">http://latex.codecogs.com/svg.latex?%5Clangle</a> f_i%5Crangle%3D-%5Cfrac%7B1%7D%7BZ%7D%5Cfrac%7B%5Cpartial%20Z%7D%7B%5Cpartial%20%5Ctheta_i%7D)</li>
-</ul>
+<p>we can get<br>$$<br> p(G)=\frac{\exp(-\sum_i\theta_if_i(G))}{Z}<br>$$</p>
+<p>$$<br>Z=\sum_G\exp(-\sum_i \theta_if_i(G))<br>$$</p>
+<p>$$<br>\frac{\partial Z}{\partial \theta_i} = \sum_G-f_i(G)\exp(-\sum_j\theta_jf_j(G))<br>$$</p>
+<p>$$<br>=-\sum_G f_i(G) Z\frac{\exp(-\sum_j\theta_jf_j(G))}{Z} = -Z\langle f_i\rangle<br>$$</p>
+<p>$$<br>\langle f_i\rangle=-\frac{1}{Z}\frac{\partial Z}{\partial \theta_i}<br>$$</p>
 </li>
 <li><p>we need to estimate theta</p>
 </li>
 </ul>
 <h2 id="Simulation-algorithms"><a href="#Simulation-algorithms" class="headerlink" title="Simulation algorithms"></a>Simulation algorithms</h2><h3 id="Random-walk"><a href="#Random-walk" class="headerlink" title="Random walk"></a>Random walk</h3><ol>
-<li>construct the transition matrix T: T_ij: the transition probability from microstate G_i to G_j<ol>
+<li>construct the transition matrix $T: T_{ij}$: the transition probability from microstate $G_i$ to $G_j$<ol>
 <li>walking sufficiently long such that visitation probabilities are close to stationary distribution</li>
 </ol>
 </li>
-<li>start with random network G_i</li>
-<li>for random nodes v,w: <ul>
-<li>if link (v,w) exists: remove</li>
+<li>start with random network $G_i$</li>
+<li>for random nodes $v,w$: <ul>
+<li>if link $(v,w)$ exists: remove</li>
 <li>else, add</li>
-<li>accept change with probability T_{v,w}</li>
+<li>accept change with probability $T_{v,w}$</li>
 </ul>
 </li>
 <li>repeat large enough steps to generate a new network</li>
 <li>calculate the expected properties on the newly generated networks, compared with the empirical network.</li>
 </ol>
 <h3 id="MCMCMLE"><a href="#MCMCMLE" class="headerlink" title="MCMCMLE"></a>MCMCMLE</h3><ol>
-<li>choose initial value \theta_0</li>
-<li>compute P(G|\theta_0) by generating enough microstates</li>
-<li>randomly disturb \theta_0 to get \theta_1</li>
-<li>repeat step 2 for \theta_1</li>
+<li>choose initial value $\theta_0$</li>
+<li>compute $P(G|\theta_0)$ by generating enough microstates</li>
+<li>randomly disturb $\theta_0$ to get $\theta_1$</li>
+<li>repeat step 2 for $\theta_1$</li>
 <li>compare the results of step 2 and 4. Keep the better parameter.</li>
 <li>repeat step 2-5 until convergence.</li>
 </ol>
@@ -628,12 +626,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/complex-system/">
-                                    <span class="chip bg-color">complex system</span>
+                                <a href="../tags/Graph/">
+                                    <span class="chip bg-color">Graph</span>
                                 </a>
                             
-                                <a href="../tags/network/">
-                                    <span class="chip bg-color">network</span>
+                                <a href="../tags/Complex-System/">
+                                    <span class="chip bg-color">Complex System</span>
                                 </a>
                             
                         </div>
@@ -1118,8 +1116,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1129,12 +1127,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/complex-system/">
-                        <span class="chip bg-color">complex system</span>
+                    <a href="../tags/Graph/">
+                        <span class="chip bg-color">Graph</span>
                     </a>
                     
-                    <a href="../tags/network/">
-                        <span class="chip bg-color">network</span>
+                    <a href="../tags/Complex-System/">
+                        <span class="chip bg-color">Complex System</span>
                     </a>
                     
                 </div>
@@ -1171,8 +1169,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1182,12 +1180,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/complex-system/">
-                        <span class="chip bg-color">complex system</span>
+                    <a href="../tags/Graph/">
+                        <span class="chip bg-color">Graph</span>
                     </a>
                     
-                    <a href="../tags/network/">
-                        <span class="chip bg-color">network</span>
+                    <a href="../tags/Complex-System/">
+                        <span class="chip bg-color">Complex System</span>
                     </a>
                     
                 </div>
@@ -1350,6 +1348,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

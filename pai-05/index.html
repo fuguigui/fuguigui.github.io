@@ -420,12 +420,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/probabilistic-artificial-intelligence/">
-                                <span class="chip tag-color">probabilistic artificial intelligence</span>
+                            <a href="../tags/AI/">
+                                <span class="chip tag-color">AI</span>
                             </a>
                         
-                            <a href="../tags/reinforcement-learning/">
-                                <span class="chip tag-color">reinforcement learning</span>
+                            <a href="../tags/Reinforcement-Learning/">
+                                <span class="chip tag-color">Reinforcement Learning</span>
+                            </a>
+                        
+                            <a href="../tags/Bayesian/">
+                                <span class="chip tag-color">Bayesian</span>
+                            </a>
+                        
+                            <a href="../tags/Markov/">
+                                <span class="chip tag-color">Markov</span>
                             </a>
                         
                     </div>
@@ -436,8 +444,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -460,7 +468,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    3 Min
+                    4 Min
                 </div>
                 
 
@@ -482,37 +490,48 @@
 <p>Markov chain can have orders: k-order means the current event depends only on the previous k events. k-order Markov chain can be easily reduced into 1-order Markov chain by creating k-length vectors.</p>
 <h1 id="Inference-Tasks"><a href="#Inference-Tasks" class="headerlink" title="Inference Tasks"></a>Inference Tasks</h1><p>Settings:</p>
 <ul>
-<li>X1,X2,…,XT: unobserved (hidden) variables (called states) change over time.</li>
-<li>Y1, Y2,…,YT: observations</li>
+<li>$X_1,X_2,\cdots,X_T$: unobserved or hidden variables, called states change over time.</li>
+<li>$Y_1, Y_2,\cdots,Y_T$: observations</li>
 </ul>
 <p>Tasks:</p>
 <ul>
-<li>Filtering: given the observations till now, what is the current state? P(Xt|y1:t)</li>
-<li>Prediction: given the observations, predict the next state: P(Xt+delta|y1:t)</li>
-<li>Smoothing: what is the probability of some event happened before given what are known now.P(Xt|y1:T) for 1&lt;=t&lt;=T</li>
-<li>MPE: arg max_{X1:T} P(X1:T|y1:T). Observing something, what is the most likely path?</li>
+<li>Filtering: given the observations till now, what is the current state? $P(X_t|y_{1:t})$</li>
+<li>Prediction: given the observations, predict the ne$X_t$ state: $P(X_{t+\delta}|y_{1:t})$​</li>
+<li>Smoothing: what is the probability of some event happened before given what are known now.$P(X_t|y_{1:T})$ for $1\leq t\leq T$</li>
+<li>MPE: $\arg \max_{X_{1:T}} P(X_{1:T}|y_{1:T})$. Observing something, what is the most likely path?</li>
 </ul>
-<p>These tasks can be solved by previously learned methods, e.g. variable elimination/belief propagation. But one problem is if we want to calculate for t, we need to start from the beginning. The complexity grows with time. Therefore, we want some model much efficient. </p>
+<p>These tasks can be solved by previously learned methods, e.g. variable elimination/belief propagation. But one problem is if we want to calculate for $t$, we need to start from the beginning. The complexity grows with time. Therefore, we want some model much efficient. </p>
 <h1 id="State-space-models"><a href="#State-space-models" class="headerlink" title="State space models"></a>State space models</h1><p>In general, a family of models that behave some Markovian process but not directly observed. We only observe some noisy estimates. Some examples: Hidden Markov model, Kalman Filter.</p>
 <p>Particularly, we assume:</p>
 <ul>
-<li>Markov property holds over time: the current states only depends on the previous one, not the much older ones.</li>
-<li>conditional independence: yt only depends on xt, not the older xs. </li>
-<li>stationary: the transition probability ( (1)Xi to Xi+1 not dependent on i, and (2) Xt to Yt, not dependent on t) is the same over the time. </li>
+<li><p>Markov property holds over time: the current states only depends on the previous one, not the much older ones.</p>
+</li>
+<li><p>conditional independence: $y_t$ only depends on $x_t$, not the older $x_s$. </p>
+</li>
+<li><p>stationary: the transition probability </p>
+<ol>
+<li><p>$X_i$ to $X_{i+1}$ not dependent on $i$, and </p>
+</li>
+<li><p>$X_t$​ to $Y_t$​, not dependent on $t$</p>
+<p>is the same over the time. </p>
+</li>
+</ol>
+</li>
 </ul>
-<p>HMM(discrete): Xi categorical, Yi can be anything</p>
-<p>Kalman Filters(continuous): Xi, Yi: continuous, follow Gaussian distributions</p>
-<h2 id="HMM"><a href="#HMM" class="headerlink" title="HMM"></a>HMM</h2><h3 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h3><h4 id="Filtering"><a href="#Filtering" class="headerlink" title="Filtering"></a>Filtering</h4><p>Answer the question that how to update (efficiently) our belief of states given the previous states. Formally,</p>
-<p>Given P(Xt|y1…t-1) and y_t, compute P(Xt|y1…t)</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CPr%5BX_t%7Cy_%7B1:t%7D%5D=%5Cfrac%7B1%7D%7BZ%7D%5CPr%5BX_t%7Cy_%7B1:t-1%7D%5D%5CPr%5By_t%7CX_t,y_%7B1:t-1%7D%5D%20=%5Cfrac%7B1%7D%7BZ%7D%5CPr%5BX_t%7Cy_%7B1:t-1%7D%5D%5CPr%5By_t%7CX_t%5D" alt="condtion"></p>
-<p>with <img src="http://latex.codecogs.com/svg.latex?Z=%5Csum_x%5CPr%5BX_t=x%7Cy_%7B1:t-1%7D%5D%5CPr%5By_t%7CX_t=x%5D" alt="condition2"></p>
+<p>discrete HMM: $X_i$​ categorical, $Y_i$ can be an$Y_t$hing</p>
+<p>continuous Kalman Filters: $X_i, Y_i$: continuous, follow Gaussian distributions</p>
+<h2 id="HMM"><a href="#HMM" class="headerlink" title="HMM"></a>HMM</h2><h3 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h3><h4 id="Filtering"><a href="#Filtering" class="headerlink" title="Filtering"></a>Filtering</h4><p>Answer the question that how to efficiently update our belief of states given the previous states. Formally,</p>
+<p>Given $P(X_t|y_{1\cdots t-1})$ and $y_t$, compute $P(X_t|y{1\cdots t})$</p>
+<p>$$<br>\Pr[X_t|y_{1:t}]=\frac{1}{Z}\Pr[X_t|y_{1:t-1}]\Pr[y_t|X_t,y_{1:t-1}] =\frac{1}{Z}\Pr[X_t|y_{1:t-1}]\Pr[y_t|X_t]<br>$$</p>
+<p>with $ Z=\sum_x\Pr[X_t=x|y_{1:t-1}]\Pr[y_t|X_t=x]$</p>
 <h4 id="Smoothing"><a href="#Smoothing" class="headerlink" title="Smoothing"></a>Smoothing</h4><p>Run sum product to calculate the interested marginals.</p>
-<h4 id="Prediction"><a href="#Prediction" class="headerlink" title="Prediction"></a>Prediction</h4><p><img src="http://latex.codecogs.com/svg.latex?%5CPr%5BX_%7Bt+1%7D%7Cy_%7B1:t%7D%5D=%5Csum_x%5CPr%5BX_t=x,X_%7Bt+1%7D%7Cy_%7B1:t%7D%5D=%5Csum_x%20%5CPr%5BX_t=x%7Cy_%7B1:t%7D%5D%5CPr%5BX_%7Bt+1%7D%7CX_t=x,y_%7B1:t%7D%5D=%5Csum_x%5CPr%5BX_t=x%7Cy_%7B1:t%7D%5D%5CPr%5BX_%7Bt+1%7D%7CX_t=x%5D" alt="pred"></p>
-<p>The computation complexity of condition and prediction doesn’t grow with t. Reuse what are computed before.</p>
+<h4 id="Prediction"><a href="#Prediction" class="headerlink" title="Prediction"></a>Prediction</h4><p>$$<br>\Pr[X_{t+1}|y_{1:t}]=\sum_x\Pr[X_t=x,X_{t+1}|y_{1:t}]=\sum_x \Pr[X_t=x|y_{1:t}]\Pr[X_{t+1}|X_t=x,y_{1:t}]<br>$$</p>
+<p>$$<br>=\sum_x\Pr[X_t=x|y_{1:t}]\Pr[X_{t+1}|X_t=x]<br>$$</p>
+<p>The computation complexity of condition and prediction doesn’t grow with $t$. Reuse what are computed before.</p>
 <h2 id="Kalman-Filter"><a href="#Kalman-Filter" class="headerlink" title="Kalman Filter"></a>Kalman Filter</h2><p>Employing Gaussian properties, encode two stuffs:</p>
 <ul>
-<li>transition between Xt+1 and Xt (Motion model, linear)</li>
-<li>transition between Yt and Xt (Sensor model, linear)</li>
+<li>transition between $X_{t+1}$ and $X_t$​ , Motion model, linear</li>
+<li>transition between $Y_t$ and $X_t$​ , Sensor model, linear</li>
 </ul>
 <h3 id="Gaussian"><a href="#Gaussian" class="headerlink" title="Gaussian"></a>Gaussian</h3><p>Properties: </p>
 <ul>
@@ -522,7 +541,7 @@
 <li>summation: sums of Gaussian are Gaussian. New mean: the sum of means. New variance: the sum of variances.</li>
 </ul>
 <h3 id="Inference-1"><a href="#Inference-1" class="headerlink" title="Inference"></a>Inference</h3><h4 id="Filtering-1"><a href="#Filtering-1" class="headerlink" title="Filtering"></a>Filtering</h4><p>How to do filtering fast? </p>
-<p>Similar to HMM (because we utilize the Markov chain structure, which is not changed), change the summation to integral.</p>
+<p>Similar to HMM, because we utilize the Markov chain structure, which is not changed, change the summation to integral.</p>
 <h4 id="Smoothing-1"><a href="#Smoothing-1" class="headerlink" title="Smoothing"></a>Smoothing</h4><h4 id="Prediction-1"><a href="#Prediction-1" class="headerlink" title="Prediction"></a>Prediction</h4><h4 id="MPE"><a href="#MPE" class="headerlink" title="MPE"></a>MPE</h4><h1 id="Dynamic-Bayesian-Networks"><a href="#Dynamic-Bayesian-Networks" class="headerlink" title="Dynamic Bayesian Networks"></a>Dynamic Bayesian Networks</h1><p>????</p>
 <p>Generalized from state space models, now there are more than one variable in each time step. Also, one variable in the current time can be influenced by several variables previously.</p>
 <h2 id="Particle-filtering"><a href="#Particle-filtering" class="headerlink" title="Particle filtering"></a>Particle filtering</h2><h2 id="Assumed-density-filtering"><a href="#Assumed-density-filtering" class="headerlink" title="Assumed density filtering"></a>Assumed density filtering</h2><p>The key idea is similar to variational inference, that is projecting marginals to simple ones.</p>
@@ -589,12 +608,20 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/probabilistic-artificial-intelligence/">
-                                    <span class="chip bg-color">probabilistic artificial intelligence</span>
+                                <a href="../tags/AI/">
+                                    <span class="chip bg-color">AI</span>
                                 </a>
                             
-                                <a href="../tags/reinforcement-learning/">
-                                    <span class="chip bg-color">reinforcement learning</span>
+                                <a href="../tags/Reinforcement-Learning/">
+                                    <span class="chip bg-color">Reinforcement Learning</span>
+                                </a>
+                            
+                                <a href="../tags/Bayesian/">
+                                    <span class="chip bg-color">Bayesian</span>
+                                </a>
+                            
+                                <a href="../tags/Markov/">
+                                    <span class="chip bg-color">Markov</span>
                                 </a>
                             
                         </div>
@@ -1079,8 +1106,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1090,12 +1117,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/probabilistic-artificial-intelligence/">
-                        <span class="chip bg-color">probabilistic artificial intelligence</span>
+                    <a href="../tags/AI/">
+                        <span class="chip bg-color">AI</span>
                     </a>
                     
-                    <a href="../tags/reinforcement-learning/">
-                        <span class="chip bg-color">reinforcement learning</span>
+                    <a href="../tags/Reinforcement-Learning/">
+                        <span class="chip bg-color">Reinforcement Learning</span>
+                    </a>
+                    
+                    <a href="../tags/Baysian/">
+                        <span class="chip bg-color">Baysian</span>
                     </a>
                     
                 </div>
@@ -1132,8 +1163,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1143,12 +1174,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/probabilistic-artificial-intelligence/">
-                        <span class="chip bg-color">probabilistic artificial intelligence</span>
+                    <a href="../tags/AI/">
+                        <span class="chip bg-color">AI</span>
                     </a>
                     
-                    <a href="../tags/reinforcement-learning/">
-                        <span class="chip bg-color">reinforcement learning</span>
+                    <a href="../tags/Reinforcement-Learning/">
+                        <span class="chip bg-color">Reinforcement Learning</span>
+                    </a>
+                    
+                    <a href="../tags/Baysian/">
+                        <span class="chip bg-color">Baysian</span>
                     </a>
                     
                 </div>
@@ -1311,6 +1346,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

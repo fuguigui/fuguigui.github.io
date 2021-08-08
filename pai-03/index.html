@@ -420,12 +420,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/probabilistic-artificial-intelligence/">
-                                <span class="chip tag-color">probabilistic artificial intelligence</span>
+                            <a href="../tags/AI/">
+                                <span class="chip tag-color">AI</span>
                             </a>
                         
-                            <a href="../tags/reinforcement-learning/">
-                                <span class="chip tag-color">reinforcement learning</span>
+                            <a href="../tags/Reinforcement-Learning/">
+                                <span class="chip tag-color">Reinforcement Learning</span>
+                            </a>
+                        
+                            <a href="../tags/Bayesian/">
+                                <span class="chip tag-color">Bayesian</span>
                             </a>
                         
                     </div>
@@ -436,8 +440,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -460,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    4 Min
+                    6 Min
                 </div>
                 
 
@@ -483,43 +487,44 @@
 <li>what are the advantages of bayesian network?</li>
 </ul>
 <h1 id="Keywords"><a href="#Keywords" class="headerlink" title="Keywords"></a>Keywords</h1><p>conditional independence, naive bayes models, bayesian networks</p>
-<h1 id="Conditional-independence"><a href="#Conditional-independence" class="headerlink" title="Conditional independence"></a>Conditional independence</h1><p>Using independence in formula will greatly decrease the number of parameters from O(2^n)  to some smaller numbers, even O(n) </p>
-<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>A and B, two random variables, are conditional independence given C iff for all a,b,c<img src="http://latex.codecogs.com/svg.latex?%5Ctext%7BPr%7D(A=a%5Ccap%20B=b%7CC=c)%20=%20%5Ctext%7BPr%7D(A=a%7CC=c)%5Ctext%7BPr%7D(B=b%7CC=c)" alt="c-indep"></p>
+<h1 id="Conditional-independence"><a href="#Conditional-independence" class="headerlink" title="Conditional independence"></a>Conditional independence</h1><p>Using independence in formula will greatly decrease the number of parameters from $O(2^n)$  to some smaller numbers, even $O(n)$ </p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>$A$ and $B$, two random variables, are conditional independence given $C$ iff for all $a,b,c$<br>$$<br>\text{Pr}(A=a\cap B=b|C=c) = \text{Pr}(A=a|C=c)\text{Pr}(B=b|C=c)$​<br>$$</p>
 <ul>
-<li>If <img src="http://latex.codecogs.com/svg.latex?%5CPr%5BY=y%7CZ=z%5D%3E0,%20%5CPr%5BX=x%7CY=y,Z=z%5D=%5CPr%5BX=x%7CZ=z%5D" alt="indep-orth"></li>
+<li>$\Pr[Y=y|Z=z]&gt;0, \Pr[X=x|Y=y,Z=z]=\Pr[X=x|Z=z]$</li>
 </ul>
-<p>It is denoted as <img src="http://latex.codecogs.com/svg.latex?(X%5Cperp%20Y)%20%7C%20Z" alt="c-indep-denote"></p>
+<p>It is denoted as$(X\perp Y) | Z$</p>
 <h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><p>Claim: all of the following properties should have non-conditional version</p>
 <ul>
-<li><p>symmetry: <img src="http://latex.codecogs.com/svg.latex?(X%5Cperp%20Y)%7CZ%20%5CLeftrightarrow%20(Y%5Cperp%20X)%7CZ" alt="sym"></p>
+<li><p>symmetry: $(X\perp Y)|Z \Leftrightarrow (Y\perp X)|Z$</p>
 <ul>
 <li>The proof is trivial</li>
 </ul>
 </li>
-<li><p>decomposition: Given Z, X is conditional independent from Y and W. We can conclude that X is conditional independent from Y and X is conditional independent from W specifically. <img src="http://latex.codecogs.com/svg.latex?(X%5Cperp%20(Y,W))%7CZ%20%5CLeftrightarrow%20(X%5Cperp%20Y)%7CZ%20%5Cwedge%20%20(X%5Cperp%20W)%7CZ" alt="dec"></p>
+<li><p>decomposition: Given Z, X is conditional independent from Y and W. We can conclude that X is conditional independent from Y and X is conditional independent from W specifically.<br>$$<br>(X\perp (Y,W))|Z \Leftrightarrow (X\perp Y)|Z \wedge  (X\perp W)|Z<br>$$</p>
 <ul>
-<li><p>Proof (left to right): Since Y and W are symmetric, I only prove for Y (in discrete version). (The continuous version is similar) <img src="http://latex.codecogs.com/svg.latex?(X%5Cperp%20(Y,W))%7CZ%5CLeftrightarrow%20%20P((XYW)%7CZ)=P((X(YW))%7CZ)%20=%20P(X%7CZ)P((YW)%7CZ)" alt="decomp"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CRightarrow%20P((XY)%7CZ)%20=%20%5Csum_W%20P((XYW)%7CZ)%20=%20%5Csum_W%20P(X%7CZ)P((YW)%7CZ)=%20P(X%7CZ)%5Csum_W%20P((YW)%7CZ)%20=%20P(X%7CZ)P(Y%7CZ)" alt="decomp"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CRightarrow%20(X%5Cperp%20Y)%7CZ" alt="decomp"></p>
+<li><p>Proof left to right: Since Y and W are symmetric, I only prove for $Y$ in discrete version. The continuous version is similar<br>$$<br>(X\perp (Y,W))|Z\Leftrightarrow  P((XYW)|Z)=P((X(YW))|Z)<br>$$</p>
+<p>$$<br> = P(X|Z)P((YW)|Z)<br>$$</p>
+<p>$$<br>\Rightarrow P((XY)|Z) = \sum_W P((XYW)|Z) = \sum_W P(X|Z)P((YW)|Z)<br>$$</p>
+<p>$$<br>= P(X|Z)\sum_W P((YW)|Z) = P(X|Z)P(Y|Z)<br>$$</p>
+<p>$$<br>\Rightarrow (X\perp Y)|Z<br>$$</p>
 </li>
-<li><p>Proof (right to left): I <strong>don’t know</strong> how to prove it.(?????maybe it is not true??)</p>
-</li>
-</ul>
-</li>
-<li><p>Contraction: <img src="http://latex.codecogs.com/svg.latex?((X%5Cperp%20Y)%7CZ)%5Cwedge%20(X%5Cperp%20W%7C(YZ))%5CRightarrow%20(X%5Cperp%20(WY))%7CZ" alt="decomp"></p>
-</li>
-<li><p>weak union: <img src="http://latex.codecogs.com/svg.latex?(X%5Cperp%20(YW))%7CZ%5CRightarrow%20(X%5Cperp%20Y)%7C(ZW)" alt="decomp"></p>
-</li>
-<li><p>intersection: <img src="http://latex.codecogs.com/svg.latex?(X%5Cperp%20Y)%7C(WZ)%5Cwedge%20(X%5Cperp%20W)%7C(YZ)%5CRightarrow%20(X%5Cperp(YW))%7CZ" alt="decomp"></p>
+<li><p>Proof  right to left: I <strong>don’t know</strong> how to prove it. ?????maybe it is not true??</p>
 </li>
 </ul>
-<h3 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h3><p>Example: In a naive bayes model, where: Y is the cause variable, X1,…,Xn are the effects variables. <img src="./img/chap201.jpg" alt="nbmodel"></p>
+</li>
+<li><p>Contraction: $((X\perp Y)|Z)\wedge (X\perp W|(YZ))\Rightarrow (X\perp (WY))|Z$</p>
+</li>
+<li><p>weak union: $(X\perp (YW))|Z\Rightarrow (X\perp Y)|(ZW)$</p>
+</li>
+<li><p>intersection:$(X\perp Y)|(WZ)\wedge (X\perp W)|(YZ)\Rightarrow (X\perp(YW))|Z$</p>
+</li>
+</ul>
+<h2 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h2><p>Example: In a naive bayes model, where: $Y$​ is the cause variable, $X_1,\cdots,X_n$​ are the effects variables. <img src="chap201.jpg" alt="A naive Bayes model example"></p>
 <p>We can give a conditional independence assertion: </p>
-<p><img src="http://latex.codecogs.com/svg.latex?X_A%5Cperp%20X_%7B%5Cbar%7BA%7D%7D%7CY,%5Cforall%20A%5Csubset%5C%7B1,2,%5Ccdots,n%5C%7D" alt="nbmodel"></p>
-<p>Where <img src="http://latex.codecogs.com/svg.latex?%20A=%5C%7Bi_1,%5Ccdots,i_k%5C%7D%5Csubset%5C%7B1,2,%5Ccdots,n%5C%7D,%20%5Cbar%7BA%7D=%5C%7B1,2,%5Ccdots,n%5C%7D%5C%5CA,%20X_A=%5C%7BX_%7Bi_1%7D,%5Ccdots,X_%7Bi_k%7D%5C%7D" alt="nbmodel2"></p>
+<p>$$<br>X_A\perp X_{\bar{A}}|Y,\forall A\subset{1,2,\cdots,n}<br>$$<br>Where$ A={i_1,\cdots,i_k}\subset{1,2,\cdots,n}$ and $\bar{A}={1,2,\cdots,n}$ $A, X_A={X_{i_1},\cdots,X_{i_k}}$</p>
 <p>In general, conditional independence can be used to transfer <strong>joint parameterization</strong> into <strong>conditional parameterization</strong>. In this way, we can greatly reduce the number of parameters. Formally,</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CPr%5BX_%7B1:n%7D%5D=%5Cprod_%7Bi=1%7D%5En%5CPr%5BX_i%7Cparents(X_i)%5D" alt="jointpara"></p>
-<p>The number of parameters change: <img src="http://latex.codecogs.com/svg.latex?%5Cprod_%7Bi=1%7D%5En%20%7CX_i%7C%5Cto%20%5Csum_%7Bi=1%7D%5En%20%7CX_i%7C%5E%7B%5Cprod_%7BX_j%5Cin%20parents(X_i)%7D%7CX_j%7C%7D" alt="params"></p>
+<p>$$<br>\Pr[X_{1:n}]=\prod_{i=1}^n\Pr[X_i|parents(X_i)]<br>$$</p>
+<p>The number of parameters change: $\prod_{i=1}^n |X_i|\to \sum_{i=1}^n |X_i|^{\prod_{X_j\in parents(X_i)}|X_j|}$</p>
 <h1 id="Bayesian-Network"><a href="#Bayesian-Network" class="headerlink" title="Bayesian Network"></a>Bayesian Network</h1><ul>
 <li>Bayesian: uses the Bayes’ theorem, which specifies an event’s probability given some conditions.</li>
 <li>network: represented by directed graph, as a network.</li>
@@ -528,70 +533,69 @@
 <ul>
 <li>node:<ul>
 <li>each node corresponds to a random <em>variable</em></li>
-<li>(numeric parameters) each node has a <em>conditional</em> probability distribution P(x|parents(x))</li>
+<li>numeric parameters: each node has a <em>conditional</em> probability distribution $P(x|\text{parents}(x))$</li>
 </ul>
 </li>
 <li>links:<ul>
-<li>a link from node X to node Y, X is said to be a <em>parent</em> of Y.</li>
-<li>intuitive meaning: X is a <em>parent</em> of Y -&gt; X has a <em>direct impact</em> on Y. Causes should be parents of effects.</li>
+<li>a link from node $X$ to node $Y, X$ is said to be a <em>parent</em> of $Y$.</li>
+<li>intuitive meaning: $X$ is a <em>parent</em> of $Y\to X$ has a <em>direct impact</em> on $Y$. Causes should be parents of effects.</li>
 </ul>
 </li>
-<li>No directed cycles. (It is a DAG)</li>
+<li>No directed cycles. It is a DAG</li>
 </ul>
 <h4 id="Semantics"><a href="#Semantics" class="headerlink" title="Semantics"></a>Semantics</h4><p>Two ways to understand the semantics of Bayesian Network:</p>
 <ol>
 <li>as a representation of the joint probability distribution</li>
 <li>as an encoding of a collection of conditional independence statements.</li>
 </ol>
-<h4 id="Structures"><a href="#Structures" class="headerlink" title="Structures"></a>Structures</h4><p><img src="http://latex.codecogs.com/svg.latex?X%5Cperp%20Z%7CY,%5Cneg%20X%5Cperp%20Z" alt="ind"></p>
+<h4 id="Structures"><a href="#Structures" class="headerlink" title="Structures"></a>Structures</h4><p>$$<br>X\perp Z|Y,\neg X\perp Z<br>$$</p>
 <ul>
-<li>x&lt;-y-&gt;z: common cause</li>
-<li>x&lt;-y&lt;-z: indirect evidential effect</li>
-<li>x-&gt;y-&gt;z: indirect causal effect</li>
+<li>$x\leftarrow y\to z$: common cause</li>
+<li>$x\leftarrow y\leftarrow z$: indirect evidential effect</li>
+<li>$x\to y\to z$: indirect causal effect</li>
 </ul>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cneg%20X%5Cperp%20Z%7CY,%20X%5Cperp%20Z" alt="not-ind"></p>
+<p>$$<br> \neg X\perp Z|Y, X\perp Z<br>$$</p>
 <ul>
-<li>x-&gt;y&lt;-z: common effect</li>
+<li>$x\to y \leftarrow z$: common effect</li>
 </ul>
 <h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="Build-algorithm"><a href="#Build-algorithm" class="headerlink" title="Build algorithm"></a>Build algorithm</h3><ol>
 <li><p>Nodes: </p>
 <ol>
 <li>determine the set of variables that are required to model the domain.</li>
-<li>Order them {X_1,…,X_n}. <strong>Any order will work</strong>. But the resulting network will be more compact if the variables are ordered such that causes precede effects.</li>
+<li>Order them ${X_1,\cdots,X_n}$. <strong>Any order will work</strong>. But the resulting network will be more compact if the variables are ordered such that causes precede effects.</li>
 </ol>
 </li>
-<li><p>Links: For each Xi do:</p>
+<li><p>Links: For each $X_i$ do:</p>
 <ol>
-<li>find the <em>minimal parent subset A</em> from {1,2,…,i-1}, s.t. P(X_i|{1,2,…,i-1})=P(X_i|A) <ul>
-<li>in some way, minimal means direct influence.  For example, some variable in {1,2,…,i-1} may have indirect influence on X_i, through a variable X_k. Then, if we include X_k, they are excluded.</li>
+<li>find the <em>minimal parent subset A</em> from ${1,2,\cdots,i-1}$​, s.t. $P(X_i|{1,2,\cdots,i-1})=P(X_i|A)$​ <ul>
+<li>in some way, minimal means direct influence.  For example, some variable in ${1,2,\cdots,i-1}$ may have indirect influence on $X_i$, through a variable $X_k$. Then, if we include $X_k$, they are excluded.</li>
 </ul>
 </li>
-<li>for each parent X_k in A, insert a link from X_k to X_i </li>
+<li>for each parent $X_k$ in A, insert a link from $X_k$ to $X_i$ </li>
 <li>write down the conditional probability table.</li>
 </ol>
 </li>
 </ol>
-<h3 id="Identification-of-CI-conditional-independence"><a href="#Identification-of-CI-conditional-independence" class="headerlink" title="Identification of CI(conditional independence)"></a>Identification of CI(conditional independence)</h3><p>Not independent (dependent) can transmit conditions. That means if we know some condition, all variables not independent of it are (partially) known.</p>
+<h3 id="Identification-of-conditional-independence"><a href="#Identification-of-conditional-independence" class="headerlink" title="Identification of conditional independence"></a>Identification of conditional independence</h3><p>Not independent/dependent can transmit conditions. That means if we know some condition, all variables not independent of it are known or partially known.</p>
 <p>Given a Bayesian network, how to find the independence relationship between variables from the network structures?</p>
 <p>An important theorem says:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Ctext%7Bd-sep%7D(X;Y%7CZ)%5CRightarrow%20(X%5Cperp%20Y)%7CZ" alt="d-sep"></p>
-<p>converse does not hold in general, but for “almost” all distributions.</p>
+<p>$$<br>\text{d-sep}(X;Y|Z)\Rightarrow (X\perp Y)|Z<br>$$<br>converse does not hold in general, but for “almost” all distributions.</p>
 <h4 id="d-separation"><a href="#d-separation" class="headerlink" title="d-separation"></a>d-separation</h4><p> This term describes a structural relation between variables in a given network. We can connect this structural relation with independence relation.</p>
-<p>Given observed variables O, any variables Xi and Xj for which there is <strong>no active trail</strong> are called <em>d-separated</em> by O.  Written as **d-sep(Xi;Xj|O) **</p>
+<p>Given observed variables $O$​, any variables Xi and Xj for which there is <strong>no active trail</strong> are called <em>d-separated</em> by $O$​.  Written as $\text{d-sep}(X_i;X_j|O) $​</p>
 <ul>
-<li><p>active trail: an undirected path in BN structure G is called active trail for observed variables<img src="http://latex.codecogs.com/svg.latex?O%5Csubset%5C%7BX_1,X_2,%5Ccdots,X_n%5C%7D" alt="active">, if for every consecutive triple of vars X,Y,Z on the path</p>
+<li><p>active trail: an undirected path in BN structure G is called active trail for observed variables $O\subset{X_1,X_2,\cdots,X_n}$​, if for every consecutive triple of vars $X,Y,Z$ on the path</p>
 <ul>
-<li><img src="http://latex.codecogs.com/svg.latex?X%5Cto%20Y%5Cto%20Z,Y%5Cnotin%20O" alt="active1"></li>
-<li><img src="http://latex.codecogs.com/svg.latex?X%5Cgets%20Y%5Cgets%20Z,Y%5Cnotin%20O" alt="active1"></li>
-<li><img src="http://latex.codecogs.com/svg.latex?X%5Cgets%20Y%5Cto%20Z,Y%5Cnotin%20O" alt="active3"></li>
-<li><img src="http://latex.codecogs.com/svg.latex?X%5Cto%20Y%5Cgets%20Z" alt="active4">, and Y or any of Y’s descendants is observed.</li>
+<li>$X\to Y\to Z,Y\notin O$</li>
+<li>$ X\gets Y\gets Z,Y\notin O$</li>
+<li>$ X\gets Y\to Z,Y\notin O$</li>
+<li>$X\to Y\gets Z$, and $Y$ or any of $Y$’s descendants is observed.</li>
 </ul>
 </li>
-<li><p>linear time algorithm for d-separation: find all nodes (active trail) reachable from X</p>
+<li><p>linear time algorithm for d-separation: find all nodes active trail reachable from $X$</p>
 <ol>
-<li><p>mark Z and its ancestors</p>
+<li><p>mark $Z$ and its ancestors</p>
 </li>
-<li><p>do breath-first search starting from X; stop if path is blocked</p>
+<li><p>do breath-first search starting from $X$; stop if path is blocked</p>
 </li>
 </ol>
 </li>
@@ -659,12 +663,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/probabilistic-artificial-intelligence/">
-                                    <span class="chip bg-color">probabilistic artificial intelligence</span>
+                                <a href="../tags/AI/">
+                                    <span class="chip bg-color">AI</span>
                                 </a>
                             
-                                <a href="../tags/reinforcement-learning/">
-                                    <span class="chip bg-color">reinforcement learning</span>
+                                <a href="../tags/Reinforcement-Learning/">
+                                    <span class="chip bg-color">Reinforcement Learning</span>
+                                </a>
+                            
+                                <a href="../tags/Bayesian/">
+                                    <span class="chip bg-color">Bayesian</span>
                                 </a>
                             
                         </div>
@@ -1130,9 +1138,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/11.jpeg" class="responsive-img" alt="Probability review">
+                        <img src="../medias/featureimages/5.jpeg" class="responsive-img" alt="Foundamention">
                         
-                        <span class="card-title">Probability review</span>
+                        <span class="card-title">Foundamention</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1149,8 +1157,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1160,12 +1168,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/probabilistic-artificial-intelligence/">
-                        <span class="chip bg-color">probabilistic artificial intelligence</span>
+                    <a href="../tags/AI/">
+                        <span class="chip bg-color">AI</span>
                     </a>
                     
-                    <a href="../tags/reinforcement-learning/">
-                        <span class="chip bg-color">reinforcement learning</span>
+                    <a href="../tags/Reinforcement-Learning/">
+                        <span class="chip bg-color">Reinforcement Learning</span>
+                    </a>
+                    
+                    <a href="../tags/Probability-Theory/">
+                        <span class="chip bg-color">Probability Theory</span>
                     </a>
                     
                 </div>
@@ -1179,13 +1191,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../aa-review/">
+                <a href="../pai-readme/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/13.jpeg" class="responsive-img" alt="Advanced algorithms review notes">
+                        <img src="../medias/featureimages/2.jpeg" class="responsive-img" alt="PAI course notes">
                         
-                        <span class="card-title">Advanced algorithms review notes</span>
+                        <span class="card-title">PAI course notes</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1196,7 +1208,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-23
                             </span>
                         <span class="publish-author">
                             
@@ -1213,8 +1225,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/Algorithm/">
-                        <span class="chip bg-color">Algorithm</span>
+                    <a href="../tags/AI/">
+                        <span class="chip bg-color">AI</span>
+                    </a>
+                    
+                    <a href="../tags/Reinforcement-Learning/">
+                        <span class="chip bg-color">Reinforcement Learning</span>
                     </a>
                     
                 </div>
@@ -1377,6 +1393,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

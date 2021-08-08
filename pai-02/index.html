@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Probability review, Travling,Coding,Food,Learning">
+    <meta name="keywords" content="Foundamention, Travling,Coding,Food,Learning">
     <meta name="description" content="Warning! You accidentally rushed into Lulu&#39;s secret garden. Here, everything is created by heart.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Probability review | Fululu</title>
+    <title>Foundamention | Fululu</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="../medias/logo_fu.ico">
 
     <link rel="stylesheet" type="text/css" href="../libs/awesome/css/all.css">
@@ -291,12 +291,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/11.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/5.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Probability review</h1>
+                    <h1 class="description center-align post-title">Foundamention</h1>
                 </div>
             </div>
         </div>
@@ -420,12 +420,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/probabilistic-artificial-intelligence/">
-                                <span class="chip tag-color">probabilistic artificial intelligence</span>
+                            <a href="../tags/AI/">
+                                <span class="chip tag-color">AI</span>
                             </a>
                         
-                            <a href="../tags/reinforcement-learning/">
-                                <span class="chip tag-color">reinforcement learning</span>
+                            <a href="../tags/Reinforcement-Learning/">
+                                <span class="chip tag-color">Reinforcement Learning</span>
+                            </a>
+                        
+                            <a href="../tags/Probability-Theory/">
+                                <span class="chip tag-color">Probability Theory</span>
                             </a>
                         
                     </div>
@@ -436,8 +440,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -460,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    7 Min
+                    12 Min
                 </div>
                 
 
@@ -475,21 +479,44 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Probability-Review"><a href="#Probability-Review" class="headerlink" title="Probability Review"></a>Probability Review</h1><h2 id="Basic-concepts"><a href="#Basic-concepts" class="headerlink" title="Basic concepts"></a>Basic concepts</h2><ul>
-<li>Probability space: three elements: atomic events space Omega (can be continuous), sigma-algebra (closed under complement and unions) and probability measure. <img src="http://latex.codecogs.com/svg.latex?%5C%7B%5COmega,%20F,%20P%5C%7D,%20F%20%5Csubseteq%202%5E%7B%5COmega%7D,%20P:F%5Cto%20%5B0,1%5D" alt="img"></li>
+                <h2 id="Fundamental-Settings"><a href="#Fundamental-Settings" class="headerlink" title="Fundamental Settings"></a>Fundamental Settings</h2><p>Use Agent-environment model to represent all tasks.</p>
+<h3 id="Agent"><a href="#Agent" class="headerlink" title="Agent"></a>Agent</h3><p>has a set $A$​ and a function $f$.</p>
+<ul>
+<li>$A$: the elements in $A$ are called actions.</li>
+<li>$f$: map sequence of percepts to action $f: P\to A$</li>
+</ul>
+<h3 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h3><p>has a set $P$, a function $f$, a measure function $R$.</p>
+<ul>
+<li>$P$: the elements in $P$ are called percepts or environment states.</li>
+<li>$f$: map sequence of actions to percept  $f:A\to P$</li>
+<li>$R$: evaluates any given sequence of environment states: $R:S^\ast \to \mathbb{R}$ </li>
+</ul>
+<p>We want to design an agent to be rational, doing the right thing. How to define “right”?  Based on the evaluation of <strong>environment</strong> states. </p>
+<p><strong>A rational agent</strong> is defined as: for each possible percept sequence, a rational agent should select an action that is expected to maximize its performance measure, given</p>
+<ul>
+<li>the evidence provided by the percept sequence </li>
+<li>and whatever built-in knowledge the agent has.</li>
+<li>? how to show this formally? How to mathematically evaluate the performance measurement related to agent’s built-in knowledge</li>
+</ul>
+<h1 id="Probability-Review"><a href="#Probability-Review" class="headerlink" title="Probability Review"></a>Probability Review</h1><h2 id="Basic-concepts"><a href="#Basic-concepts" class="headerlink" title="Basic concepts"></a>Basic concepts</h2><ul>
+<li>Probability space: three elements: atomic events space Omega, can be continuous, sigma-algebra which is closed under complement and unions and probability measure. ${\Omega, F, P}, F \subseteq 2^{\Omega}, P:F\to [0,1]$ </li>
 <li>probability axioms: <ul>
-<li>normalization (the probability of the whole set is 1) <img src="http://latex.codecogs.com/svg.latex?%5Ctext%7BPr%7D(%5COmega)=1" alt="norm"></li>
-<li>non-negativity (all the probability is larger than 0) <img src="http://latex.codecogs.com/svg.latex?%5CPr%5BA%5D%5Cgeq%200,%5Cforall%20A%5Cin%20F" alt="nonnge"></li>
-<li>(“add operation”) sigma-additivity (the probability of the union of disjoint sets are the sum of the probability of each set), <img src="http://latex.codecogs.com/svg.latex?%5CPr%5B%5Cbigcup_%7Bi=1%7DA_i%5D=%5Csum_%7Bi=1%7D%5CPr%5BA_i%5D,%5Cforall%20A_i%5Cin%20F%20and%20A_i%5Ccap%20A_j=%5Cphi,%20i%5Cneq%20j" alt="add-union"><ul>
+<li><p>normalization, making the probability of the whole set is 1: $\text{Pr}(\Omega)=1$ </p>
+</li>
+<li><p>non-negativity, all the probability is larger than 0: $\Pr[A]\geq 0,\forall A\in F$ </p>
+</li>
+<li><p>“add operation” sigma-additivity, the probability of the union of disjoint sets are the sum of the probability of each set:<br>$$<br>\Pr[\bigcup_{i=1}A_i]=\sum_{i=1}\Pr[A_i],\forall A_i\in F \text{ and } A_i\cap A_j=\phi, i\neq j<br>$$</p>
+<ul>
 <li>this axiom builds the relation between the “add” operation in the algebra and the “union” operation in the set theory.</li>
 </ul>
 </li>
-<li>From the three axioms, we can deduct:<ul>
-<li>(“minus” operation) <img src="http://latex.codecogs.com/svg.latex?%5CPr%5B%5COmega-A%5D=1-%5CPr%5BA%5D" alt="minus"></li>
-<li>(“empty”) <img src="http://latex.codecogs.com/svg.latex?%5CPr%5B%5Cphi%5D=0" alt="empty"></li>
-<li>(“minus” operation) <img src="http://latex.codecogs.com/svg.latex?%5CPr%5BA-B%5D=%5CPr%5BA%5D-%5CPr%5BA%5Ccap%20B%5D" alt="minus-two"> since A-B and A\cap B are disjoint. (All minus operations are from add operations)</li>
-<li>(“inclusion-exclusion principle”) <img src="http://latex.codecogs.com/svg.latex?%5CPr%5BA%5Ccup%20B%5D=%5CPr%5BA%5D+%5CPr%5BB%5D-%5CPr%5BA%5Ccap%20B%5D" alt="in-ex"></li>
-<li>(“inequality”) <img src="http://latex.codecogs.com/svg.latex?A%5Csubset%20B%5CRightarrow%5CPr%5BA%5D%5Cleq%5CPr%5BB%5D" alt="inequality"></li>
+<li><p>From the three axioms, we can deduct:</p>
+<ul>
+<li>“minus” operation: $\Pr[\Omega-A]=1-\Pr[A]$ </li>
+<li>“empty”: $\Pr[\phi]=0$ </li>
+<li>“minus” operation: $5CPr[A-B]=\Pr[A]-\Pr[A\cap B]$ since $A-B$ and $A\cap B$​ are disjoint. All minus operations are from add operations</li>
+<li>“inclusion-exclusion principle” $\Pr[A\cup B]=\Pr[A]+\Pr[B]-\Pr[A\cap B]$​</li>
+<li>“inequality”: $A\subset B\Rightarrow\Pr[A]\leq\Pr[B]$ </li>
 </ul>
 </li>
 </ul>
@@ -497,7 +524,7 @@
 </ul>
 <h2 id="Derivatives"><a href="#Derivatives" class="headerlink" title="Derivatives"></a>Derivatives</h2><p>Based on the basic definitions, we can define more advanced concepts, such as independent events, conditional probability</p>
 <h3 id="Independence"><a href="#Independence" class="headerlink" title="Independence"></a>Independence</h3><ul>
-<li><p>independent events: two random events A, A’ are independent iff <img src="http://latex.codecogs.com/svg.latex?P(A%5Ccap%20A%27)=P(A)P(A%27)" alt="img"></p>
+<li><p>independent events: two random events A, A’ are independent iff $P(A\cap A’)=P(A)P(A’)$ </p>
 <ul>
 <li>event is a subset of the sample space Omega.</li>
 <li>the left side means the probability of the joint of two sets</li>
@@ -505,13 +532,13 @@
 <li>this definition connects the calculation of sets with the calculation of numbers. In some way, map the “joint” operation to the “multiplication” operation. </li>
 </ul>
 </li>
-<li><p>random variable: <strong>A random variable is a mapping.</strong> Denote it as X. Given a set D, <img src="http://latex.codecogs.com/svg.latex?X:%5COmega%5Cto%20D" alt="img">. How to define probability for the element(s) in D? Based on the corresponding elements in Omega. That is <img src="http://latex.codecogs.com/svg.latex?x%5Cin%20D,%20%5CPr%5BX=x%5D=%5CPr%5B%5C%7Bw:%20X(w)=x,%20w%5Cin%5COmega%5C%7D%5D" alt="img"></p>
+<li><p>random variable: <strong>A random variable is a mapping.</strong> Denote it as $X$. Given a set  D, $X: \Omega\to D$ . How to define probability for the element(s) in $D$? Based on the corresponding elements in $\Omega$​​. That is<br>$$<br>x\in D, \Pr[X=x]=\Pr[{w: X(w)=x, w\in\Omega}]<br>$$</p>
 <ul>
-<li>the left side is the probability definition on a new set D</li>
-<li>the right side is the corresponding probability on the on the original whole set Omega.</li>
+<li>the left side is the probability definition on a new set $D$</li>
+<li>the right side is the corresponding probability on the on the original whole set $\Omega $​.</li>
 <li>I would call the left side is a symbol for representation while right side is the essence. </li>
-<li>??? Does it mean all elements in Omega must have a corresponding element in D? <ul>
-<li>Yes!!! X is defined on the <strong>whole</strong> Omega. That implies <img src="http://latex.codecogs.com/svg.latex?%5Csum_%7Bx%7D%20%5CPr%5BX=x%5D=1" alt="rv-def"></li>
+<li>??? Does it mean all elements in $\Omega $​ must have a corresponding element in $D$​? <ul>
+<li>Yes!!! $X$ is defined on the <strong>whole</strong> $\Omega $. That implies $\sum_{x} \Pr[X=x]=1$</li>
 </ul>
 </li>
 <li>??? Does it mean X must be deterministic???</li>
@@ -520,36 +547,35 @@
 <li>I think the definition may comes from a more advanced concept <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Borel_set">Borel-algebra</a>. Also in the first chapter in this book <a target="_blank" rel="noopener" href="https://books.google.ch/books?id=uL7UBwAAQBAJ&amp;pg=PA1&amp;hl=zh-CN&amp;source=gbs_toc_r&amp;cad=4#v=onepage&amp;q&amp;f=false">Foundations of Modern Probability</a>, it says something about the Borel-algebra, which is beyond my understanding. But it convinces me that this kind definition of probability works.</li>
 </ul>
 </li>
-<li><p>independent random variable: two random variables are independent iff <img src="http://latex.codecogs.com/svg.latex?P(xy)=P(x)P(y),%5Cforall%20x%5Cin%20X(%5Ccdot),%20y%5Cin%20Y(%5Ccdot)" alt="ind-rv"></p>
+<li><p>independent random variable: two random variables are independent iff $P(xy)=P(x)P(y),\forall x\in X(\cdot), y\in Y(\cdot)$ </p>
 <ul>
 <li><p>different from independent events, which could be represented easily be the set (Vien graph), independent random variables are not straightforward in the Vien, because both of them work on the whole sample space. But we can show the Vien graph of their specific values.</p>
 </li>
-<li><p> use <img src="http://latex.codecogs.com/svg.latex?X%5Cperp%20Y" alt="p-def"> to denote X and Y are independent. This notation is very descriptive. Taking the algebra  view, X and Y are “orthogonal” to each other. For instance, supposing the sample space Omega is a cube. X maps it to the z axis, and Y maps it to the y axis. Then for any pair of (x,y), P(xy) (shown in the Vien graph is a rectangle in surface y-z) is exactly P(x)P(y), which are two orthogonal rectangles with an overlapped rectangle.</p>
+<li><p> use $X\perp Y$​ to denote $X$​ and $Y$​ are independent. This notation is very descriptive. Taking the algebra  view, $X$​ and $Y$​ are “orthogonal” to each other. For instance, supposing the sample space Omega is a cube. $X$ maps it to the $z$ axis, and $Y$ maps it to the $y$ axis. Then for any pair of $(x,y), P(xy)$ , shown in the Vien graph is a rectangle in surface y-z,  is exactly $P(x)P(y)$, which are two orthogonal rectangles with an overlapped rectangle.</p>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="Joint-distributions"><a href="#Joint-distributions" class="headerlink" title="Joint distributions"></a>Joint distributions</h3><p>Instead of random variable, using random vector of several variables. <img src="http://latex.codecogs.com/svg.latex?X=%5BX_1(w),X_2(w),%5Ccdots,%20X_n(w)%5D" alt="img"> and <img src="http://latex.codecogs.com/svg.latex?%5CPr%5BX=v_n%5D=%5CPr%5BX_1(w)=v_1,X_2(w)=v_2,%5Ccdots,%20X_n(w)=v_n%5D" alt="img"></p>
+<h3 id="Joint-distributions"><a href="#Joint-distributions" class="headerlink" title="Joint distributions"></a>Joint distributions</h3><p>Instead of random variable, using random vector of several variables. </p>
+<p>$X=[X_1(w),X_2(w),\cdots, X_n(w)]$ and $\Pr[X=v_n]=\Pr[X_1(w)=v_1,X_2(w)=v_2,\cdots, X_n(w)=v_n]$</p>
 <ul>
 <li><p>Interpreted from the set theory view: supposing the Omega has high dimension and we use a n-dimension lense to inspect it to find the aimed subspace.</p>
 </li>
-<li><p>note that each item is a random variable, that means <img src="http://latex.codecogs.com/svg.latex?%5Csum_%7Bx%7D%20%5CPr%5BX_i=x%5D=1" alt="rv-def">.Also, this is the precondition of the  sum rule. Otherwise, supposing <img src="http://latex.codecogs.com/svg.latex?%5Csum_%7Bx%7D%20%5CPr%5BX_i=x%5D%3C1" alt="rv-def">, we cannot have <img src="http://latex.codecogs.com/svg.latex?%5Csum_%7Bx%7D%20%5CPr%5BX_i=x,Y%5D=%5CPr%5BY%5D" alt="rv-def"></p>
+<li><p>note that each item is a random variable, that means $\sum_{x} \Pr[X_i=x]&lt;1$, we cannot have $\sum_{x} \Pr[X_i=x,Y]=\Pr[Y]$</p>
 </li>
 </ul>
-<h3 id="Conditional-probability"><a href="#Conditional-probability" class="headerlink" title="Conditional probability"></a>Conditional probability</h3><p>Define a new operator “|” in the probability theory<br><img src="http://latex.codecogs.com/svg.latex?%5CPr%5BA%7CB%5D=%5Cfrac%7B%5CPr%5BA%5Ccap%20B%5D%7D%7B%5CPr%5BB%5D%7D,%5CPr%5BB%5D%3E0" alt="cond-prop"></p>
+<h3 id="Conditional-probability"><a href="#Conditional-probability" class="headerlink" title="Conditional probability"></a>Conditional probability</h3><p>Define a new operator “|” in the probability theory<br>$$<br>\Pr[A|B]=\frac{\Pr[A\cap B]}{\Pr[B]},\Pr[B]&gt;0<br>$$</p>
 <ul>
-<li>Observation of the left-side (set theory view): it actually changes the event space to the set of B from the original set Omega.</li>
+<li>Observation of the left-side (set theory view): it actually changes the event space to the set of $B$ from the original set $\Omega.$</li>
 <li>calculation view: introduce the division in the probability theory.</li>
 </ul>
 <h2 id="Sum-rule-and-product-rule"><a href="#Sum-rule-and-product-rule" class="headerlink" title="Sum rule and product rule"></a>Sum rule and product rule</h2><ul>
-<li><p>sum rule (marginalization): an application of the add-operation of disjoint sets</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CPr%5BX_%7B1:i-1%7D%EF%BC%8CX_%7Bi+1:n%7D%5D=%5Csum_%7Bx_i%7D%5CPr%5BX_%7B1:i-1%7D,x_i,X_%7Bi+1:n%7D%5D" alt="sum-rule"></p>
+<li><p>sum rule marginalization: an application of the add-operation of disjoint sets<br>$$<br>\Pr[X_{1: i-1}，X_{i+1: n}]=\sum_{x_i}\Pr[X_{1:i-1},x_i,X_{i+1: n}]<br>$$</p>
 </li>
-<li><p>product rule(chain rule): an application of the definition of conditional probability.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CPr%5BX_%7B1:n%7D%5D=%5CPr%5BX_n%7CX_%7B1:n-1%7D%5D%5Ccdots%5CPr%5BX_3%7CX_1X_2%5D%5CPr%5BX_2%7CX_1%5D%5CPr%5BX_1%5D" alt="chain-rule"></p>
+<li><p>product rule chain rule: an application of the definition of conditional probability.<br>$$<br>\Pr[X_{1:n}]=\Pr[X_n|X_{1:n-1}]\cdots\Pr[X_3|X_1X_2]\Pr[X_2|X_1]\Pr[X_1]<br>$$</p>
 </li>
-<li><p>Application: Bayes’ Rule: from the prior P(X) and likelihood P(Y|X) to compute the posterior P(X|Y)</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CPr%5BX%7CY%5D=%5Cfrac%7B%5CPr%5BX%5D%5CPr%5BY%7CX%5D%7D%7B%5Csum_x%5CPr%5BX%5D%5CPr%5BY%7CX%5D%7D" alt="bayes-rule"></p>
+<li><p>Application: Bayes’ Rule: from the prior $P(X)$ and likelihood $P(Y|X)$ to compute the posterior $P(X|Y)$</p>
+<p>$$<br>\Pr[X|Y]=\frac{\Pr[X]\Pr[Y|X]}{\sum_x\Pr[X]\Pr[Y|X]}<br>$$</p>
 <ul>
 <li>the nominator: product rule</li>
 <li>the denominator: sum rule, then product rule</li>
@@ -557,47 +583,48 @@
 </li>
 </ul>
 <h2 id="Operations-in-Probability"><a href="#Operations-in-Probability" class="headerlink" title="Operations in Probability"></a>Operations in Probability</h2><h3 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h3><ul>
-<li>and: <img src="http://latex.codecogs.com/svg.latex?%5Ccap%5Ctext%7B%20or%20%7D,%20%5Ctext%7B%20or%20missed%7D,%20e.g.%20P(A%5Ccap%20B)%20=%20P(A,B)%20=%20P(AB)%20" alt="op-and"></li>
-<li>or: <img src="http://latex.codecogs.com/svg.latex?%5Ccup,%20e.g.%20P(A%5Ccup%20B),P(A%5Ccup%20B)%20=%20P(A)%20+%20P(B)-P(A%5Ccap%20B)" alt="op-or"></li>
-<li>conditional: <img src="http://latex.codecogs.com/svg.latex?%7C,%20e.g.%20P(A%7C%20B)=%5Cfrac%7BP(AB)%7D%7BP(B)%7D" alt="op-cd"><ul>
+<li>and: $\cap$​  or $,$  or missed, e.g. $P(A\cap B) = P(A,B) = P(AB) $​</li>
+<li>or: $\cup$, e.g. $P(A\cup B),P(A\cup B) = P(A) + P(B)-P(A\cap B)$​</li>
+<li>conditional: $|$, e.g. $P(A| B)=\frac{P(AB)}{P(B)}$<ul>
 <li>this operator is a little bit tricky, cause if considering the sample space, “and” and “or” operators are in the original sample space but “conditional” operator <strong>changes</strong> the sample space !!!</li>
 </ul>
 </li>
-<li>conditional independence: <img src="http://latex.codecogs.com/svg.latex?%5Cperp,e.g.P((A%5Cperp%20B)%7CC)%20=%20P(A%7CC)P(B%7CC)" alt="op-c-indep"></li>
+<li>conditional independence: $\perp$,e.g.$P((A\perp B)|C) = P(A|C)P(B|C)$</li>
 </ul>
-<p>Priorities: (from lowest to highest): <img src="http://latex.codecogs.com/svg.latex?%7C%20%3C%20%5Cperp%20%3C%20%5Ccap,%20%5Ccup" alt="op-prior"></p>
-<p>For example, <img src="http://latex.codecogs.com/svg.latex?P(A,B%7CC)%20=%20P((A,B)%7CC)%5Cneq%20P(A,(B%7CC))" alt="op-ex"></p>
+<p>Priorities from lowest to highest: $| &lt; \perp &lt; \cap, \cup$</p>
+<p>For example, $P(A,B|C) = P((A,B)|C)\neq P(A,(B|C))$</p>
 <ul>
-<li><p>“and” could be viewed as “multiply” (*) in algebra operations in some way</p>
+<li><p>“and” could be viewed as “multiply” $\ast$​ in algebra operations in some way</p>
 <ul>
-<li>exchangeable: <img src="http://latex.codecogs.com/svg.latex?P(A%5Ccap%20B)=%20P(B%5Ccap%20A)" alt="op-and"></li>
+<li>exchangeable: $P(A\cap B)= P(B\cap A)$</li>
 </ul>
 </li>
-<li><p>“conditional” could be viewed as “plus” (+), always the lowest</p>
+<li><p>“conditional” could be viewed as “plus” $+$, always the lowest</p>
 <ul>
-<li><p>but it is <strong>not exchangeable</strong>, that means <img src="http://latex.codecogs.com/svg.latex?P(A%7C%20B)%5Cneq%20P(B%7CA)" alt="op-cd"></p>
+<li><p>but it is <strong>not exchangeable</strong>, that means $P(A| B)\neq P(B|A)$</p>
 </li>
-<li><p>it is <strong>ordered</strong>. (I am not sure which order it exactly is. Just from my own understanding, the order should be from right to left) which means <img src="http://latex.codecogs.com/svg.latex?P(A%7CB%7CC)%20=%20P(A%7C(B%7CC))%5Cneq%20P((A%7CB)%7CC)" alt="op-cd"></p>
+<li><p>it is <strong>ordered</strong>. I am not sure which order it exactly is. Just from my own understanding, the order should be from right to left,  which means $P(A|B|C) = P(A|(B|C))\neq P((A|B)|C)$</p>
 <p>My explanation is as follows:</p>
 <ul>
-<li><p>suppose <img src="http://latex.codecogs.com/svg.latex?P(A%7CB%7CC)%20=%20P(A%7C(B%7CC))" alt="op-cd"> </p>
-<p>We will have <img src="http://latex.codecogs.com/svg.latex?P(A%7C(B%7CC))%20=%20%5Cfrac%7BP(A,(B%7CC))%7D%7BP(B%7CC)%7D%20=%20%5Cfrac%7BP((AB)%7CC)%7D%7BP(B%7CC)%7D=%5Cfrac%7BP(ABC)P(C)%7D%7BP(C)P(BC)%7D=%5Cfrac%7BP(ABC)%7D%7BP(BC)%7D=P(A%7C(BC))" alt="op-cd"></p>
+<li><p>suppose$P(A|B|C) = P(A|(B|C))$ We will have<br>$$<br>P(A|(B|C)) = \frac{P(A,(B|C))}{P(B|C)} = \frac{P((AB)|C)}{P(B|C)}<br>$$</p>
+<p>$$<br>=\frac{P(ABC)P(C)}{P(C)P(BC)}=\frac{P(ABC)}{P(BC)}=P(A|(BC))<br>$$</p>
 <ul>
 <li><p>the second equality uses the “reducing rule”, explained in the next block.</p>
 </li>
-<li><p>this directly gives us the conclusion that <img src="http://latex.codecogs.com/svg.latex?P(A%7CB%7CC)%20=P(A%7C(BC))" alt="op-cd"></p>
+<li><p>this directly gives us the conclusion that $P(A|B|C) =P(A|(BC))$</p>
 </li>
 <li><p>generate it to the n cases, we will have </p>
-<p><img src="http://latex.codecogs.com/svg.latex?P(A_n%7CA_%7Bn-1%7D%7C%5Ccdots%7CA_1)%20=%20P(A_n%7C(A_%7Bn-1%7D(%5Ccdots%20%7CA_1)))%20=%20P(A_n%7C(A_%7Bn-1%7D%5Ccdots%20A_1))" alt="op-cd"></p>
+<p>$$<br>P(A_n|A_{n-1}|\cdots|A_1) = P(A_n|(A_{n-1}(\cdots |A_1)))<br>$$</p>
+<p>$$<br>= P(A_n|(A_{n-1}\cdots A_1))<br>$$</p>
 <p>The proof is ignored here. Using induction will easily prove it.</p>
 </li>
 </ul>
 </li>
-<li><p>suppose <img src="http://latex.codecogs.com/svg.latex?P(A%7CB%7CC)%20=%20P((A%7CB)%7CC)" alt="op-cd"></p>
-<p>We will have <img src="http://latex.codecogs.com/svg.latex?P((A%7CB)%7CC)=%5Cfrac%7BP((A%7CB),C)%7D%7BP(C)%7D=%5Cfrac%7BP(C(A%7CB))%7D%7BP(C)%7D=%5Cfrac%7BP((AC)%7CB)%7D%7BP(C)%7D=%5Cfrac%7BP(ABC)%7D%7BP(B)P(C)%7D" alt="op-cd"></p>
+<li><p>suppose $P(A|B|C) = P((A|B)|C)$​ We will have<br>$$<br>P((A|B)|C)=\frac{P((A|B),C)}{P(C)}=\frac{P(C(A|B))}{P(C)}<br>$$</p>
+<p>$$<br>=\frac{P((AC)|B)}{P(C)}=\frac{P(ABC)}{P(B)P(C)}<br>$$</p>
 <ul>
 <li>also, the third equality uses the “reducing rule”</li>
-<li>well, I couldn’t find error in the algebra calculation but from the definition of probability, using P(B)P(C) as the denominator, I don’t know what the sample space becomes. Based on this aspect, I will refuse this assumption and take the former one.</li>
+<li>well, I couldn’t find error in the algebra calculation but from the definition of probability, using $P(B)P(C)$ as the denominator, I don’t know what the sample space becomes. Based on this aspect, I will refuse this assumption and take the former one.</li>
 </ul>
 </li>
 </ul>
@@ -607,14 +634,14 @@
 </ul>
 <h3 id="Rules"><a href="#Rules" class="headerlink" title="Rules"></a>Rules</h3><p>This part is based on my own deduction, I am not sure if they are true. Please contact me if you have other ideas! I would greatly appreciate it.</p>
 <ul>
-<li><p>“reducing rule”: <img src="http://latex.codecogs.com/svg.latex?P(A(B%7CC))%20=%20P((AB)%7CC)" alt="rl-al"></p>
+<li><p>“reducing rule”: $P(A(B|C)) = P((AB)|C)$</p>
 <ul>
-<li><p>just like the “conditional” operator, this rule is also tricky, cause A and B|C are in the different sample space. Here, I would reduce the larger sample space to the smaller sample space. That is reducing A to A|C actually.  By doing this, We will have </p>
-<p><img src="http://latex.codecogs.com/svg.latex?P(A(B%7CC))=P((A%7CC)(B%7CC))=P((AB)%7CC)" alt="op-cd"></p>
+<li><p>just like the “conditional” operator, this rule is also tricky, cause $A$ and $B|C$ are in the different sample space. Here, I would reduce the larger sample space to the smaller sample space. That is reducing $A$ to $A|C$ actually.  By doing this, We will have </p>
+<p>$$<br>P(A(B|C))=P((A|C)(B|C))=P((AB)|C)<br>$$</p>
 </li>
 </ul>
 </li>
-<li><p>“association rule”: <img src="http://latex.codecogs.com/svg.latex?P(A(BC))%20=%20P((AB)C)=P(ABC)" alt="rl-al"></p>
+<li><p>“association rule”: $P(A(BC)) = P((AB)C)=P(ABC)$</p>
 <ul>
 <li>from the set view, the proof is trivial.</li>
 </ul>
@@ -630,13 +657,13 @@
 <p>In the paper <a target="_blank" rel="noopener" href="https://faculty.arts.ubc.ca/pbartha/p520w07/comp_logic.pdf">probability, logic and probability logic</a>, there is a definition of probability theory from the logic theory view.</p>
 <p>S: a collection of sentences of a language, closed under finite truth-functional combinations, with the following axiomatization:</p>
 <ul>
-<li>normalization <img src="http://latex.codecogs.com/svg.latex?%5Ctext%7BPr%7D(T)=1" alt="norm-log">, If T is a tautology</li>
-<li>non-negativity: <img src="http://latex.codecogs.com/svg.latex?%5CPr%5BA%5D%5Cgeq%200,%5Cforall%20A%5Cin%20S" alt="nonnge-log"></li>
-<li>(“add operation”) <img src="http://latex.codecogs.com/svg.latex?%5CPr%5BA%5Clor%20B%5D=%5CPr%5BA%5D+%5CPr%5BB%5D" alt="add-log"> for all A and B in S, such that A and B are logically incompatible.</li>
+<li>normalization $\text{Pr}(T)=1$, If $T$ is a tautology</li>
+<li>non-negativity: $\Pr[A]\geq 0,\forall A\in S$</li>
+<li>“add operation”:  $\Pr[A\lor B]=\Pr[A]+\Pr[B]$ for all $A$ and $B$ in $S$, such that $A$ and $B$ are logically incompatible.</li>
 </ul>
 <h3 id="Examples-given-in-the-lecture"><a href="#Examples-given-in-the-lecture" class="headerlink" title="Examples given in the lecture"></a>Examples given in the lecture</h3><p>The method is:</p>
 <ol>
-<li>degrade the logical operations (e.g. imply) to the most basic three operations (and, or and not)</li>
+<li>degrade the logical operations, e.g. imply,  to the most basic three operations: and, or and not</li>
 <li>go to the set theory, find the corresponding set of the logical expression and calculate the probability of the set</li>
 </ol>
 <table>
@@ -671,13 +698,13 @@
 <td>0.576</td>
 </tr>
 </tbody></table>
-<p>P(toothache)? find the corresponding set (the left two columns) P(toothache)=0.108+0.016+0.012+0.064=0.2</p>
-<p>P(toothache=&gt;cavity)?</p>
+<p>$P(toothache)$​​​? find the corresponding set  the left two columns $P(toothache)=0.108+0.016+0.012+0.064=0.2$</p>
+<p>$P(toothache=&gt;cavity)$?</p>
 <ol>
-<li><p>degrade into and, or and not: <img src="http://latex.codecogs.com/svg.latex?A%5CRightarrow%20B%5CLeftrightarrow%20%5Clnot%20A%5Cvee%20B" alt="log"></p>
+<li><p>degrade into and, or and not: $A\Rightarrow B\Leftrightarrow \lnot A\vee B$</p>
 </li>
 <li><p>not toothache correspondents to the right two columnes, cavity correspondents to the first row. Then take the union of them.</p>
-<p>= 0.108+0.012+0.072+0.008+0.144+0.576=0.92</p>
+<p>$= 0.108+0.012+0.072+0.008+0.144+0.576=0.92$</p>
 </li>
 </ol>
 
@@ -743,12 +770,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/probabilistic-artificial-intelligence/">
-                                    <span class="chip bg-color">probabilistic artificial intelligence</span>
+                                <a href="../tags/AI/">
+                                    <span class="chip bg-color">AI</span>
                                 </a>
                             
-                                <a href="../tags/reinforcement-learning/">
-                                    <span class="chip bg-color">reinforcement learning</span>
+                                <a href="../tags/Reinforcement-Learning/">
+                                    <span class="chip bg-color">Reinforcement Learning</span>
+                                </a>
+                            
+                                <a href="../tags/Probability-Theory/">
+                                    <span class="chip bg-color">Probability Theory</span>
                                 </a>
                             
                         </div>
@@ -1210,13 +1241,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="../pai-01/">
+                <a href="../pai-04/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/6.jpeg" class="responsive-img" alt="Introduction">
+                        <img src="../medias/featureimages/0.jpeg" class="responsive-img" alt="Bayesian Network 2 - Inference">
                         
-                        <span class="card-title">Introduction</span>
+                        <span class="card-title">Bayesian Network 2 - Inference</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1227,14 +1258,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-23
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-26
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1244,12 +1275,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/probabilistic-artificial-intelligence/">
-                        <span class="chip bg-color">probabilistic artificial intelligence</span>
+                    <a href="../tags/AI/">
+                        <span class="chip bg-color">AI</span>
                     </a>
                     
-                    <a href="../tags/reinforcement-learning/">
-                        <span class="chip bg-color">reinforcement learning</span>
+                    <a href="../tags/Reinforcement-Learning/">
+                        <span class="chip bg-color">Reinforcement Learning</span>
+                    </a>
+                    
+                    <a href="../tags/Bayesian/">
+                        <span class="chip bg-color">Bayesian</span>
                     </a>
                     
                 </div>
@@ -1286,8 +1321,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1297,12 +1332,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/probabilistic-artificial-intelligence/">
-                        <span class="chip bg-color">probabilistic artificial intelligence</span>
+                    <a href="../tags/AI/">
+                        <span class="chip bg-color">AI</span>
                     </a>
                     
-                    <a href="../tags/reinforcement-learning/">
-                        <span class="chip bg-color">reinforcement learning</span>
+                    <a href="../tags/Reinforcement-Learning/">
+                        <span class="chip bg-color">Reinforcement Learning</span>
+                    </a>
+                    
+                    <a href="../tags/Bayesian/">
+                        <span class="chip bg-color">Bayesian</span>
                     </a>
                     
                 </div>
@@ -1465,6 +1504,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

@@ -420,12 +420,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/complex-system/">
-                                <span class="chip tag-color">complex system</span>
+                            <a href="../tags/Graph/">
+                                <span class="chip tag-color">Graph</span>
                             </a>
                         
-                            <a href="../tags/network/">
-                                <span class="chip tag-color">network</span>
+                            <a href="../tags/Complex-System/">
+                                <span class="chip tag-color">Complex System</span>
                             </a>
                         
                     </div>
@@ -436,8 +436,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -460,7 +460,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    4 Min
+                    5 Min
                 </div>
                 
 
@@ -479,17 +479,17 @@
 <li>Define the average shortest path length of a network<ul>
 <li>the sum of the shortest path between every two nodes, </li>
 <li>divided by the number of pairs <ul>
-<li>n(n-1) for directed </li>
-<li>or n(n-1)/2 for undirected</li>
+<li>$n(n-1)$ for directed </li>
+<li>or $\frac{n(n-1)}{2}$ for undirected</li>
 </ul>
 </li>
 </ul>
 </li>
-<li> Why does the k-th power of an adjacency matrix count paths of length k?</li>
+<li> Why does the k-th power of an adjacency matrix count paths of length $k$?</li>
 <li>according to the definition of matrix power.</li>
 <li>Can you define the betweenness and closeness centrality of a node.<ul>
 <li>betweenness: the number of shortest path through this node.<ul>
-<li>if normalized, divided the number of shortest paths between node s and t.</li>
+<li>if normalized, divided the number of shortest paths between node $s$ and $t$.</li>
 </ul>
 </li>
 <li>closeness: the average of the its distance to other nodes. Then, <strong>take the inverse</strong>.</li>
@@ -499,41 +499,45 @@
 <li>the node between two fully-connected communities.</li>
 </ul>
 </li>
-<li>Can you explain how we can find the modularity Qopt of a network?<ul>
+<li>Can you explain how we can find the modularity $Q_{opt}$ of a network?<ul>
 <li>searching all the possible community divisions.</li>
 </ul>
 </li>
-<li>How is Qmax different from Qopt?<ul>
-<li>Qmax is a calculation method working on Q and C, but Qopt is a maximize operation on all possible Q(G,C)</li>
+<li>How is $Q_{max}$ different from $Q_{opt}$?<ul>
+<li>$Q_{max}$​ is a calculation method working on $Q$ and $C$, but $Q_{opt}$ is a maximize operation on all possible $Q(G,C)$</li>
 </ul>
 </li>
-<li>For a fully connected network with n nodes and no self-loops and a single community C1, can you show that ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?Q%5Cto">http://latex.codecogs.com/svg.latex?Q%5Cto</a> 0,n%5Cto%5Cinfty)?<ul>
-<li>with a single community, we know that <img src="http://latex.codecogs.com/svg.latex?%5Cdelta(c_i,c_j)=1,Q(G,C)=%5Cfrac%7B1%7D%7B2m%7D%5CSigma_%7Bi,j%7D(A_%7Bij%7D-%5Cfrac%7Bd_id_j%7D%7B2m%7D)" alt="img"></li>
-<li>the fully connected means ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?d_i=n-1,m=%5Cfrac%7Bn(n-1)%7D%7B2%7D,A_%7Bij%7D=1%5Cforall">http://latex.codecogs.com/svg.latex?d_i%3Dn-1,m%3D%5Cfrac%7Bn%28n-1%29%7D%7B2%7D,A_%7Bij%7D%3D1%5Cforall</a> i%5Cneq j)</li>
-<li>bring all these values we can get <img src="http://latex.codecogs.com/svg.latex?Q(G,C)=1-%5Cfrac%7B1%7D%7B2m%7D%5CSigma_%7Bi,j%7D%5Cfrac%7B(n-1)(n-1)%7D%7Bn(n-1)%7D=1-%5Cfrac%7B1%7D%7Bn(n-1)%7Dnn%5Cfrac%7B(n-1)%7D%7Bn%7D" alt="img"></li>
-<li>Here, there may be some different ideas on if <img src="http://latex.codecogs.com/svg.latex?%5CSigma_%7Bij%7D" alt="img"> include the diagonal objects, that is whether there are totally n*n elements or n*(n-1) elements. This is not a big influence.</li>
+<li>For a fully connected network with $n$ nodes and no self-loops and a single community $C_1$, can you show that $Q\to 0, n\to\infty$?<ul>
+<li><p>with a single community, we know that<br>$$<br>\delta(c_i, c_j) = 1, Q(G,C)=\frac{1}{2m}\sum_{i,j}(A_{ij}-\frac{d_id_j}{2m})<br>$$</p>
+</li>
+<li><p>the fully connected means $d_i=n-1, m=\frac{n(n-1)}{2}, A_{ij}=1,\forall i\neq j$​ </p>
+</li>
+<li><p>bring all these values we can get<br>$$<br>Q(G, C)= 1 -\frac{1}{2m}\sum_{i,j}\frac{(n-1)(n-1)}{n(n-1)}=1-\frac{1}{n(n-1)}nn\frac{(n-1)}{n}<br>$$</p>
+</li>
+<li><p>Here, there may be some different ideas on if $\sum_{ij}$ include the diagonal objects, that is whether there are totally $n\times n$ elements or $n\times (n-1)$ elements. This is not a big influence.</p>
+</li>
 </ul>
 </li>
-<li>For a network with n nodes, only connected by self-loops (represented by 1-elements on the diagonal) and each node i assigned to its own community Ci , can you show that ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?Q%5Cto">http://latex.codecogs.com/svg.latex?Q%5Cto</a> %5Cfrac%7B1%7D%7B2%7D,n%5Cto%5Cinfty)?<ul>
-<li>with its own community, we know that ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Cdelta(c_i,c_j)=0%5Cforall">http://latex.codecogs.com/svg.latex?%5Cdelta%28c_i%2Cc_j%29%3D0%5Cforall</a> i%5Cneq j,Q%28G%2CC%29%3D%5Cfrac%7B1%7D%7B2m%7D%5CSigma_%7Bi%7D%28A_%7Bii%7D-%5Cfrac%7Bd_id_i%7D%7B2m%7D%29)</li>
-<li>only self-loops means <img src="http://latex.codecogs.com/svg.latex?d_i=2,m=n,A_%7Bii%7D=1" alt="img"></li>
-<li>bring all these values we can get <img src="http://latex.codecogs.com/svg.latex?Q(G,C)=%5Cfrac%7B1%7D%7B2n%7D%5CSigma_%7Bi%7D(1-%5Cfrac%7B4%7D%7B2n%7D)=%5Cfrac%7B1%7D%7B2%7D-%5Cfrac%7B2%7D%7Bn%7D" alt="img"></li>
+<li>For a network with n nodes, only connected by self-loops (represented by 1-elements on the diagonal) and each node i assigned to its own community $C_i$ , can you show that $Q\to\frac{1}{2}, n\to\infty$ ?<ul>
+<li>with its own community, we know that $\delta(c_i, c_j)=0,\forall i\neq j$​, $Q(G,C)=\frac{1}{2m}\sum_i(A_{ii}-\frac{d_id_i}{2m})$​</li>
+<li>only self-loops means $d_i=2, m=n, A_{ii}=1$ </li>
+<li>bring all these values we can get $Q(G, C)=\frac{1}{2n}\sum_i(1-\frac{4}{2n})=\frac{1}{2}-\frac{2}{n}$ </li>
 <li>Note that the degree of each node is 2, not 1.</li>
 </ul>
 </li>
 </ul>
 <h2 id="Keywords"><a href="#Keywords" class="headerlink" title="Keywords"></a>Keywords</h2><p>modularity</p>
-<h1 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h1><h2 id="length-of-path"><a href="#length-of-path" class="headerlink" title="length of path"></a>length of path</h2><p><img src="http://latex.codecogs.com/svg.latex?len(n_0,n_1,%5Ccdots,n_l)=l" alt="img"></p>
-<h3 id="powers-of-adjacency-matrix"><a href="#powers-of-adjacency-matrix" class="headerlink" title="powers of adjacency matrix"></a>powers of adjacency matrix</h3><p>elements <img src="http://latex.codecogs.com/svg.latex?A_%7Bij%7D%5Ek" alt="img"> counts paths of (exactly) length k between i  and j.</p>
+<h1 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h1><h2 id="length-of-path"><a href="#length-of-path" class="headerlink" title="length of path"></a>length of path</h2><p>$$<br>\text{len}(n_0, n_1,\cdots, n_l)=l<br>$$</p>
+<h3 id="powers-of-adjacency-matrix"><a href="#powers-of-adjacency-matrix" class="headerlink" title="powers of adjacency matrix"></a>powers of adjacency matrix</h3><p>elements $A_{ij}^k$​  counts paths of (exactly) length $k$​ between $i$  and $j$.</p>
 <h2 id="Distance-of-two-nodes"><a href="#Distance-of-two-nodes" class="headerlink" title="Distance of two nodes"></a>Distance of two nodes</h2><p>the shortest length of path between these two nodes.</p>
 <h2 id="Diameter-of-network"><a href="#Diameter-of-network" class="headerlink" title="Diameter of network"></a>Diameter of network</h2><p>the longest shortest path. </p>
-<p>Use the symbol diam(G)</p>
+<p>Use the symbol $\text{diam}(G)$</p>
 <h2 id="Average-Shortest-path-length-of-network"><a href="#Average-Shortest-path-length-of-network" class="headerlink" title="Average Shortest path length of network"></a>Average Shortest path length of network</h2><p>“the typical shortest path” </p>
-<p>use the symbol &lt;l&gt;</p>
+<p>use the symbol $\langle l\rangle$</p>
 <h2 id="Connected-Components"><a href="#Connected-Components" class="headerlink" title="Connected Components"></a>Connected Components</h2><p>maximally (means locally) connected subgraphs</p>
 <ul>
 <li>size: the number of nodes</li>
-<li>can be shown by the infinite power of adjacency matrix <img src="http://latex.codecogs.com/svg.latex?A%5Ek,k%5Cto%5Cinfty" alt="img"><h3 id="largest-connected-component"><a href="#largest-connected-component" class="headerlink" title="largest connected component"></a>largest connected component</h3>the largest subgraph<h4 id="Giant-connected-component"><a href="#Giant-connected-component" class="headerlink" title="Giant connected component"></a>Giant connected component</h4>if the largest connected component contains almost all the nodes<br>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Cfrac%7B%7CV%27%7C%7D%7B%7CV%7C%7D%5Csimeq">http://latex.codecogs.com/svg.latex?%5Cfrac%7B%7CV%27%7C%7D%7B%7CV%7C%7D%5Csimeq</a> 1)</li>
+<li>can be shown by the infinite power of adjacency matrix $A^k, k\to\infty$ <h3 id="largest-connected-component"><a href="#largest-connected-component" class="headerlink" title="largest connected component"></a>largest connected component</h3>the largest subgraph<h4 id="Giant-connected-component"><a href="#Giant-connected-component" class="headerlink" title="Giant connected component"></a>Giant connected component</h4>if the largest connected component contains almost all the nodes $\frac{|V’|}{|V|}\simeq 1$</li>
 </ul>
 <h1 id="Community"><a href="#Community" class="headerlink" title="Community"></a>Community</h1><p>partitions of nodes, can be overlapping. But we only consider non-overlapping partition.</p>
 <p>intuitively, the following two conditions should hold:</p>
@@ -541,34 +545,35 @@
 <li>nodes within the same community should be “well-connected” to each other</li>
 <li>nodes in different communities should have few connections.</li>
 </ul>
-<h2 id="Partition-Quality-Q"><a href="#Partition-Quality-Q" class="headerlink" title="Partition Quality: Q"></a>Partition Quality: Q</h2><p><img src="http://latex.codecogs.com/svg.latex?Q(G,C)=%5Cfrac%7B1%7D%7B2m%7D%5CSigma_%7Bi,j%7D(A_%7Bij%7D-%5Cfrac%7Bd_id_j%7D%7B2m%7D)%5Cdelta(c_i,c_j)" alt="img"></p>
+<h2 id="Partition-Quality-Q-​"><a href="#Partition-Quality-Q-​" class="headerlink" title="Partition Quality: $Q$​"></a>Partition Quality: $Q$​</h2><p>$$<br>Q(G,C)=\frac{1}{2m}\sum_{i,j}(A_{ij}-\frac{d_id_j}{2m})\delta(c_i, c_j)<br>$$</p>
 <p>two special cases:</p>
 <ul>
-<li>all nodes in a single community: Q=0</li>
-<li>each community contains only one node: Q=0</li>
-<li>theoretically maximum value 1.</li>
+<li>all nodes in a single community: $Q=0$</li>
+<li>each community contains only one node: $Q=0$</li>
+<li>theoretically maximum value $1$.</li>
 </ul>
-<h3 id="Qopt"><a href="#Qopt" class="headerlink" title="Qopt"></a>Qopt</h3><p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?Q_%7Bopt%7D=%5Cmax_C">http://latex.codecogs.com/svg.latex?Q_%7Bopt%7D%3D%5Cmax_C</a> Q%28G%2CC%29)</p>
-<p>the optimal partition quality. This is a property of a given network G. It is called <strong>modularity</strong></p>
+<h3 id="Q-opt-​"><a href="#Q-opt-​" class="headerlink" title="$Q_{opt}$​"></a>$Q_{opt}$​</h3><p>$$<br>Q_{opt}=\max_C Q(G,C)<br>$$</p>
+<p>the optimal partition quality. This is a property of a given network $G$. It is called <strong>modularity</strong></p>
 <ul>
-<li>object: G</li>
+<li>object: $G$</li>
 <li>less than 1, due to two reasons:<ul>
-<li>there is a single link (b, d) that connects nodes in different communities</li>
+<li>there is a single link $(b, d)$ that connects nodes in different communities</li>
 <li>there are missing links within both communities (simply because the graph does not have enough links)</li>
 </ul>
 </li>
 </ul>
-<h3 id="Qmax"><a href="#Qmax" class="headerlink" title="Qmax"></a>Qmax</h3><p><img src="http://latex.codecogs.com/svg.latex?Q_%7Bmax%7D(G,C)=1-%5Cfrac%7B1%7D%7B2m%7D%5CSigma_%7Bi,j%7D(%5Cfrac%7Bd_id_j%7D%7B2m%7D)%5Cdelta(c_i,c_j)" alt="img"></p>
-<p>“max” here means a calculation method, guided by some max idea for given G and C, <strong>not</strong> meaning any maximize process.</p>
+<h3 id="Q-max-​"><a href="#Q-max-​" class="headerlink" title="$Q_{max}$​"></a>$Q_{max}$​</h3><p>$$<br>Q_{\max}(G,C)=1-\frac{1}{2m}\sum_{i,j}(\frac{d_id_j}{2m})\delta(c_i, c_j)<br>$$</p>
+<p>“max” here means a calculation method, guided by some max idea for given $G$ and $C$, <strong>not</strong> meaning any maximize process.</p>
 <ul>
-<li>object: G and C</li>
+<li>object: $G$ and $C$</li>
 </ul>
-<h3 id="Community-assortativity-coefficient"><a href="#Community-assortativity-coefficient" class="headerlink" title="Community assortativity coefficient"></a>Community assortativity coefficient</h3><p>the ratio of the Qopt with Qmax got by this optimal C.</p>
+<h3 id="Community-assortativity-coefficient"><a href="#Community-assortativity-coefficient" class="headerlink" title="Community assortativity coefficient"></a>Community assortativity coefficient</h3><p>the ratio of the $Q_{opt}$ with $Q_{\max}$ got by this optimal $C$.</p>
 <ul>
-<li>object: G.</li>
-<li>quantify how close the topology is to the strongest possible partitioning, to a range between 0 and 1. This allow us to <strong>judge whether a network exhibits community structure or not</strong>.</li>
+<li><p>object: $G$.</p>
+</li>
+<li><p>quantify how close the topology is to the strongest possible partitioning, to a range between 0 and 1. This allow us to <strong>judge whether a network exhibits community structure or not</strong>.<br>$$<br>\frac{Q_{opt}(G)}{Q_{\max}(G,\tilde{C})}<br>$$</p>
+</li>
 </ul>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7BQ_%7Bopt%7D(G)%7D%7BQ_%7Bmax%7D(G,%5Ctilde%7BC%7D)%7D" alt="img"></p>
 
             </div>
             <hr/>
@@ -632,12 +637,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/complex-system/">
-                                    <span class="chip bg-color">complex system</span>
+                                <a href="../tags/Graph/">
+                                    <span class="chip bg-color">Graph</span>
                                 </a>
                             
-                                <a href="../tags/network/">
-                                    <span class="chip bg-color">network</span>
+                                <a href="../tags/Complex-System/">
+                                    <span class="chip bg-color">Complex System</span>
                                 </a>
                             
                         </div>
@@ -1122,8 +1127,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1133,12 +1138,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/complex-system/">
-                        <span class="chip bg-color">complex system</span>
+                    <a href="../tags/Graph/">
+                        <span class="chip bg-color">Graph</span>
                     </a>
                     
-                    <a href="../tags/network/">
-                        <span class="chip bg-color">network</span>
+                    <a href="../tags/Complex-System/">
+                        <span class="chip bg-color">Complex System</span>
                     </a>
                     
                 </div>
@@ -1350,6 +1355,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

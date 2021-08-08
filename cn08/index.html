@@ -420,12 +420,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/complex-system/">
-                                <span class="chip tag-color">complex system</span>
+                            <a href="../tags/Graph/">
+                                <span class="chip tag-color">Graph</span>
                             </a>
                         
-                            <a href="../tags/network/">
-                                <span class="chip tag-color">network</span>
+                            <a href="../tags/Complex-System/">
+                                <span class="chip tag-color">Complex System</span>
                             </a>
                         
                     </div>
@@ -436,8 +436,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -460,7 +460,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    6 Min
+                    7 Min
                 </div>
                 
 
@@ -486,7 +486,7 @@
 <li>how is the transition matrix of a random walk defined for weighted and unweighted networks?<ul>
 <li>what is the entry in the transition matrix</li>
 <li>what is the effect of weight?</li>
-<li><img src="http://latex.codecogs.com/svg.latex?T_%7Bij%7D=%5Cfrac%7BA_%7Bij%7D%7D%7B%5CSigma_k%20A_%7Bik%7D%7D" alt="img"></li>
+<li>$T_{ij}=\frac{A_{ij}}{\sum_k A_{ik}}$</li>
 </ul>
 </li>
 <li>When does a random walk in a network converge to a unique stationary distribution?<ul>
@@ -503,13 +503,13 @@
 <li>1</li>
 </ul>
 </li>
-<li>For a right-stochastic transition matrix T and an initial distribution <img src="http://latex.codecogs.com/svg.latex?%5Cpi%5E%7B(0)%7D" alt="img">, how can we compute the visitation probabilities after t steps of a random walk?<ul>
-<li><img src="http://latex.codecogs.com/svg.latex?%5Cpi%5E%7B(0)%7DT%5Et" alt="img"></li>
+<li>For a right-stochastic transition matrix T and an initial distribution $\pi^{(0)}$, how can we compute the visitation probabilities after t steps of a random walk?<ul>
+<li>$\pi^{(0)}T^t$</li>
 </ul>
 </li>
 <li>Can you give an example for a network in which a random walk never reaches a stationary distribution?<ul>
-<li><img src="http://latex.codecogs.com/svg.latex?%5Cpi%5E%7B(0)%7D=(1,0,0)" alt="img"></li>
-<li><img src="http://latex.codecogs.com/svg.latex?P(1%5Cto2)=1,P(2%5Cto3)=1,P(3%5Cto1)=1" alt="img"></li>
+<li>$\pi^{(0)}=(1,0,0)$</li>
+<li>$P(1\to2)=1,P(2\to3)=1,P(3\to1)=1$</li>
 </ul>
 </li>
 <li>Can you give an example for a network in which a random walk reaches multiple stationary distributions for different initial distributions?<ul>
@@ -552,89 +552,81 @@
 </ul>
 <h2 id="Random-Walk"><a href="#Random-Walk" class="headerlink" title="Random Walk"></a>Random Walk</h2><h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><p>using <strong>probability</strong> to model <strong>lack of knowledge</strong>.</p>
 <p>generate <strong>random paths</strong> through a <strong>state space</strong>.</p>
-<h3 id="Markov-Chains"><a href="#Markov-Chains" class="headerlink" title="Markov Chains"></a>Markov Chains</h3><p>If we use the <strong>Markov property</strong> (memoryless) to build random walk, we get <strong>a kind of random walk</strong>, <strong>memoryless Markov process</strong>.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?P(X_%7Bt+1=s_%7Bt+1%7D%7D%7CX_t=s_t)" alt="img"></p>
-<h3 id="Transition-Matrix"><a href="#Transition-Matrix" class="headerlink" title="Transition Matrix"></a>Transition Matrix</h3><p><strong>A</strong> is the adjacency matrix of the network. We can define transition matrix as </p>
-<p><img src="http://latex.codecogs.com/svg.latex?T_%7Bij%7D=%5Cfrac%7BA_%7Bij%7D%7D%7B%5CSigma_k%20A_%7Bik%7D%7D" alt="img"></p>
+<h3 id="Markov-Chains"><a href="#Markov-Chains" class="headerlink" title="Markov Chains"></a>Markov Chains</h3><p>If we use the <strong>Markov property</strong> (memoryless) to build random walk, we get <strong>a kind of random walk</strong>, <strong>memoryless Markov process</strong>.<br>$$<br>P(X_{t+1=s_{t+1}}|X_t=s_t)<br>$$</p>
+<h3 id="Transition-Matrix"><a href="#Transition-Matrix" class="headerlink" title="Transition Matrix"></a>Transition Matrix</h3><p>$A$​ is the adjacency matrix of the network. We can define transition matrix as<br>$$<br>T_{ij}=\frac{A_{ij}}{\sum_k A_{ik}}<br>$$</p>
 <ul>
-<li>weighted/unweighted is decided by <strong>A</strong>.</li>
-<li>the <img src="http://latex.codecogs.com/svg.latex?T_%7Bij%7D" alt="img"> is normalized, so we can scale out all the outgoing weights of a node without any change of <strong>T</strong>.</li>
+<li>weighted/unweighted is decided by $A$.</li>
+<li>the $T_{ij}$​​ is normalized, so we can scale out all the outgoing weights of a node without any change of $T$.</li>
 </ul>
 <h4 id="Row-stochastic-right-stochastic"><a href="#Row-stochastic-right-stochastic" class="headerlink" title="Row-stochastic/right-stochastic"></a>Row-stochastic/right-stochastic</h4><p>the row sum of stochastic vector is 1.</p>
-<p><strong>Right</strong> means we multiply <strong>T</strong> at the right side of a vector.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?vT" alt="img"></p>
-<p>Here ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?v%5Cin%5Cmathbb%7BR%7D%5E%7B1%5Ctimes">http://latex.codecogs.com/svg.latex?v%5Cin%5Cmathbb%7BR%7D%5E%7B1%5Ctimes</a> N%7D)</p>
+<p><strong>Right</strong> means we multiply $T$ at the right side of a vector $vT$​. Here $v\in\mathbb{R}^{1\times N}$ </p>
 <h4 id="Aperiodicity"><a href="#Aperiodicity" class="headerlink" title="Aperiodicity"></a>Aperiodicity</h4><p>State i is said to be periodic with period t iff</p>
 <ul>
-<li><img src="http://latex.codecogs.com/svg.latex?T_%7Bii%7D%5E%7B(n)%7D%20=%200,%5Cforall%20n%5Cneq%20t,2t,3t,%5Ccdots" alt="img"></li>
-<li><img src="http://latex.codecogs.com/svg.latex?T_%7Bii%7D%5E%7B(n)%7D%20%5Cneq%200,%5Cforall%20n=%20t,2t,3t,%5Ccdots" alt="img"></li>
+<li>$T_{ii}^{(n)} = 0, \forall n\neq t, 2t, 3t, \cdots$</li>
+<li>$T_{ii}^{(n)} \neq 0, \forall n= t, 2t, 3t, \cdots$</li>
 </ul>
-<p>Write in another way</p>
-<p><img src="http://latex.codecogs.com/svg.latex?r(s_i)=gcd%5C%7Bt%5Cgeq%201:(T%5Et)_%7Bii%7D%3E0%5C%7D" alt="img"></p>
+<p>Write in another way<br>$$<br>r(s_i)= \text{gcd}{t\geq 1: (T^t)_{ii}&gt;0}<br>$$</p>
 <ul>
-<li>aperiodic: ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?r(s_i)=1,%5Cforall%20i%5Cin">http://latex.codecogs.com/svg.latex?r%28s_i%29%3D1%2C%5Cforall%20i%5Cin</a> V)</li>
+<li>aperiodic: $r(s_i)=1,\forall i\in V$ </li>
 <li>periodic: otherwise</li>
 </ul>
 <p>How to make a matrix aperiodic?</p>
 <ul>
 <li>add small random value on the diagonal items. </li>
-<li><img src="http://latex.codecogs.com/svg.latex?T_%7Bii%7D=%5Cepsilon,%5Cforall%20v%5Cin%20V" alt="img"></li>
+<li>$T_{ii}=\epsilon,\forall v\in V$</li>
 <li>a random walk with such a transition matrix is called lazy.</li>
 <li>a network with self-loop</li>
 </ul>
-<h4 id="Irreducibility"><a href="#Irreducibility" class="headerlink" title="Irreducibility"></a>Irreducibility</h4><p>Reducible:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cexists%20(i,j),%20%5Cdelta,%5Cforall%20t%3E%5Cdelta,%20(T%5Et)_%7Bij%7D=0" alt="img"></p>
-<p>Means </p>
+<h4 id="Irreducibility"><a href="#Irreducibility" class="headerlink" title="Irreducibility"></a>Irreducibility</h4><p>Reducible:<br>$$<br>\exists (i,j), \delta,\forall t&gt;\delta, (T^t)_{ij}=0<br>$$<br>Means </p>
 <ul>
 <li><strong>strong connectivity</strong> of directed networks.</li>
 <li>connectivity of undirected networks.</li>
 </ul>
-<h4 id="Markov-Chain-Convergence-theorem"><a href="#Markov-Chain-Convergence-theorem" class="headerlink" title="Markov Chain Convergence theorem"></a>Markov Chain Convergence theorem</h4><p><strong>T</strong>: irreducible and aperiodic</p>
-<p>for any initial distribution <img src="http://latex.codecogs.com/svg.latex?%5Cpi%5E%7B(0)%7D" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cexists%7C%20%5Cpi,%20%5Cdelta(%5Cpi%5E%7B(t)%7D,%5Cpi)%5Cto%200%20(t%5Cto%20%5Cinfty)" alt="img"></p>
-<p>the stable distribution is <strong>independent</strong> from the initial distribution.</p>
+<h4 id="Markov-Chain-Convergence-theorem"><a href="#Markov-Chain-Convergence-theorem" class="headerlink" title="Markov Chain Convergence theorem"></a>Markov Chain Convergence theorem</h4><p>$T$: irreducible and aperiodic</p>
+<p>for any initial distribution $\pi^{(0)}$​<br>$$<br>\exists| \pi,\delta(\pi^{(t)},\pi)\to 0 (t\to \infty)<br>$$<br>the stable distribution is <strong>independent</strong> from the initial distribution.</p>
 <h4 id="Existence"><a href="#Existence" class="headerlink" title="Existence"></a>Existence</h4><p>if there is a <strong>periodic</strong> behavior, the network doesn’t have a stationary distribution.</p>
 <p><strong>Lazy</strong></p>
 <h4 id="Uniqueness"><a href="#Uniqueness" class="headerlink" title="Uniqueness"></a>Uniqueness</h4><p>means for all possible initial distribution, have only one final stable distribution. Requires irreducibility.</p>
-<p>Initial Distribution</p>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Cpi%5E%7B(0)%7D%5Cin%5Cmathbb%7BR%7D%5E%7B1%5Ctimes">http://latex.codecogs.com/svg.latex?%5Cpi%5E%7B%280%29%7D%5Cin%5Cmathbb%7BR%7D%5E%7B1%5Ctimes</a> N%7D)</p>
+<p>Initial Distribution<br>$$<br>\pi^{(0)}\in\mathbb{R}^{1\times N}<br>$$</p>
 <ul>
 <li>the sum is 1.</li>
 <li>all entries are non-negative.</li>
 </ul>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Cpi%5E%7B(t)%7D=%5Cpi%5E%7B(0)%7D%5Ccdot">http://latex.codecogs.com/svg.latex?%5Cpi%5E%7B%28t%29%7D%3D%5Cpi%5E%7B%280%29%7D%5Ccdot</a> T%5Et)</p>
-<h3 id="Stationary-distribution"><a href="#Stationary-distribution" class="headerlink" title="Stationary distribution"></a>Stationary distribution</h3><p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Cpi%5E%7B(t)%7D=%5Cpi%5E%7B(t+1)%7D%5Ccdot">http://latex.codecogs.com/svg.latex?%5Cpi%5E%7B%28t%29%7D%3D%5Cpi%5E%7B%28t+1%29%7D%5Ccdot</a> 1%3D%5Cpi%5E%7B%28t%29%7D%5Ccdot T)</p>
+<p>$$<br>\pi^{(t)}=\pi^{(0)}\cdot T^t<br>$$</p>
+<h3 id="Stationary-distribution"><a href="#Stationary-distribution" class="headerlink" title="Stationary distribution"></a>Stationary distribution</h3><p>$$<br>\pi^{(t)}= \pi^{(t+1)}\cdot 1=\pi^{(t)}\cdot T<br>$$</p>
 <ul>
-<li>the left eigenvector of <strong>T</strong> corresponding to eigenvalue v=1.</li>
-<li>gives a notion of node centrality (feedback centrality).</li>
+<li>the left eigenvector of $T$ corresponding to eigenvalue $v=1$.</li>
+<li>gives a notion of node centrality, feedback centrality.</li>
 </ul>
 <p>View from another point:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?T%5E%7Bt%7D_%7Bij%7D" alt="img">: the probability of node i goes to node j after t steps. It should be unchanged when t is large enough. That is, there is a t0,</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cforall%20t%3Et_0,%5Cforall%20k%3E0,%20T%5E%7Bt+k%7D_%7Bij%7D=T%5Et_%7Bij%7D" alt="img"></p>
+<p>$T^{t}_{ij}$: the probability of node $i$​​​ goes to node $j$​​​​​ after $t$​​​​ steps. </p>
+<p>It should be unchanged when $t$​​ is large enough. </p>
+<p>That is, there is a $t_0$​​​,</p>
+<p>$$<br>\forall t&gt;t_0 \forall k&gt;0 T^{t+k}<em>{ij}=T^t</em>{ij}<br>$$</p>
 <ul>
-<li>That means, <img src="http://latex.codecogs.com/svg.latex?T%5E%7Bt+1%7D%20=%20T%5Et%20=%20T%5Et%5Ccdot%20T" alt="img">Each row of T^t is the eigenvector of T, with the eigenvalue 1.</li>
-<li>The stationary distribution is also the eigenvector of T with the eigenvalue 1.</li>
-<li>Each row of T^t is the same, which is exactly the stationary distribution pi.</li>
+<li>That means, $T^{t+1} = T^t =T^t\cdot T$ Each row of $T^t$ is the eigenvector of $T$, with the eigenvalue 1.</li>
+<li>The stationary distribution is also the eigenvector of $T$ with the eigenvalue 1.</li>
+<li>Each row of $T^t$ is the same, which is exactly the stationary distribution $\pi$.</li>
 </ul>
 <h4 id="To-network"><a href="#To-network" class="headerlink" title="To network"></a>To network</h4><ul>
-<li>undirected network: <img src="http://latex.codecogs.com/svg.latex?%5Cpi_i=%5Cfrac%7Bd_i%7D%7B2m%7D" alt="img">directly related to the node degrees</li>
+<li>undirected network: $\pi_i=\frac{d_i}{2m}$ directly related to the node degrees</li>
 <li>directed network: <ul>
 <li>the number of nodes pointing to  a node</li>
 <li>the importance of these pointing nodes</li>
 </ul>
 </li>
 </ul>
-<h2 id="Total-Variation-distance"><a href="#Total-Variation-distance" class="headerlink" title="Total Variation distance"></a>Total Variation distance</h2><p><img src="http://latex.codecogs.com/svg.latex?%5Cdelta(%5Cpi_1,%5Cpi_2)=%5Cfrac%7B1%7D%7B2%7D%5CSigma_i%7C%5Cpi_%7B1,i%7D-%5Cpi_%7B2,i%7D%7C" alt="img"></p>
+<h2 id="Total-Variation-distance"><a href="#Total-Variation-distance" class="headerlink" title="Total Variation distance"></a>Total Variation distance</h2><p>$$<br>\delta(\pi_1,\pi_2)=\frac{1}{2}\sum_i |\pi_{1,i}-\pi_{2,i}|<br>$$</p>
 <ul>
 <li>normalized by 2: to restrict the value less than or equal to 1. The biggest value of the sum of differences for each dimension is 2, with the 1-sum restriction. </li>
 <li>used to measure if a sequences of vectors converges.</li>
 </ul>
 <h1 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h1><h2 id="Connectivity-of-directed-networks"><a href="#Connectivity-of-directed-networks" class="headerlink" title="Connectivity of directed networks"></a>Connectivity of directed networks</h2><ul>
-<li>strongly connected: all pairs of nodes i,j have a path from i to j and from j to i.</li>
+<li>strongly connected: all pairs of nodes $i,j$​ have a path from $i$​ to $j$​ and from $j$​ to $i$.</li>
 <li>weakly connected: if the corresponding undirected network is connected.</li>
 </ul>
-<h2 id="Feedback-Centrality"><a href="#Feedback-Centrality" class="headerlink" title="Feedback Centrality"></a>Feedback Centrality</h2><p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Cpi=%5Cpi%5Ccdot">http://latex.codecogs.com/svg.latex?%5Cpi%3D%5Cpi%5Ccdot</a> T)</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cpi_j%20=%20%5CSigma_i%20%5Cpi_iT_%7Bij%7D" alt="img"></p>
+<h2 id="Feedback-Centrality"><a href="#Feedback-Centrality" class="headerlink" title="Feedback Centrality"></a>Feedback Centrality</h2><p>$$<br>\pi = \pi \cdot T<br>$$</p>
+<p>$$<br>\pi_j = \sum_i \pi_i T_{ij}<br>$$</p>
 <ul>
 <li><p>feedback: the centrality of those nodes that point to a node influence the node’s centrality.</p>
 </li>
@@ -643,21 +635,20 @@
 <li><p>a node’s importance transition on others will be reduced with more outgoing links.</p>
 </li>
 </ul>
-<h3 id="Zero-indegree"><a href="#Zero-indegree" class="headerlink" title="Zero-indegree"></a>Zero-indegree</h3><p>  Since a node’s eigenvector(feedback) centrality is determined by its in-going nodes, a node with indegree 0 has 0 centrality.</p>
+<h3 id="Zero-indegree"><a href="#Zero-indegree" class="headerlink" title="Zero-indegree"></a>Zero-indegree</h3><p>  Since a node’s eigenvector, feedback centrality, is determined by its in-going nodes, a node with indegree 0 has 0 centrality.</p>
 <p>  <strong>Useless</strong> for <strong>directed acyclic graphs</strong>.</p>
-<h4 id="Solution-PageRank"><a href="#Solution-PageRank" class="headerlink" title="Solution (PageRank)"></a>Solution (PageRank)</h4><p>  assign constant amount of one unit of centrality “for free”</p>
-<p>  <img src="http://latex.codecogs.com/svg.latex?%5Calpha%20x=%20x%5Ccdot%20T+%5Cvec%7B1%7D" alt="img"></p>
-<p>  <img src="http://latex.codecogs.com/svg.latex?x_j%20=%20%5Cfrac%7B1%7D%7B%5Calpha%7D%5CSigma_i%20x_i%5Cfrac%7BA_%7Bij%7D%7D%7Bd_%7Bout%7D(i)%7D+1" alt="img"></p>
-<h2 id="Eigenvector-Centrality"><a href="#Eigenvector-Centrality" class="headerlink" title="Eigenvector Centrality"></a>Eigenvector Centrality</h2><p><img src="http://latex.codecogs.com/svg.latex?%5Calpha%20x=%20x%5Ccdot%20A" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?x_j%20=%20%5Cfrac%7B1%7D%7B%5Calpha%7D%5CSigma_i%20x_iA_%7Bij%7D" alt="img"></p>
+<h4 id="Solution-PageRank"><a href="#Solution-PageRank" class="headerlink" title="Solution: PageRank"></a>Solution: PageRank</h4><p>  assign constant amount of one unit of centrality “for free”<br>$$<br>\alpha x= x\cdot T+\vec{1}<br>$$</p>
+<p>$$<br>x_j =\frac{1}{\alpha}\sum_i x_i\frac{A_{ij}}{d_{out}(i)}+1<br>$$</p>
+<h2 id="Eigenvector-Centrality"><a href="#Eigenvector-Centrality" class="headerlink" title="Eigenvector Centrality"></a>Eigenvector Centrality</h2><p>$$<br>\alpha x= x\cdot A<br>$$</p>
+<p>$$<br>x_j=\frac{1}{\alpha}\sum_i x_iA_{ij}<br>$$</p>
 <ul>
-<li><img src="http://latex.codecogs.com/svg.latex?%5Calpha" alt="img"> is the largest eigenvalue of <strong>A</strong><ul>
+<li>$\alpha$ is the largest eigenvalue of  $A$<ul>
 <li>usually, we take the largest one, but not necessarily.</li>
 </ul>
 </li>
-<li><strong>T</strong> is replaced by the adjacency matrix <strong>A</strong>. The difference is whether to normalize the degrees. In another way, whether “conserve quantity”. <ul>
-<li>T: conserve</li>
-<li>A: not conserve</li>
+<li>$T$ is replaced by the adjacency matrix $A$. The difference is whether to normalize the degrees. In another way, whether “conserve quantity”. <ul>
+<li>$T$: conserve</li>
+<li>$A$: not conserve</li>
 <li>The importance of a node will keep even with more outgoing links.</li>
 </ul>
 </li>
@@ -730,12 +721,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/complex-system/">
-                                    <span class="chip bg-color">complex system</span>
+                                <a href="../tags/Graph/">
+                                    <span class="chip bg-color">Graph</span>
                                 </a>
                             
-                                <a href="../tags/network/">
-                                    <span class="chip bg-color">network</span>
+                                <a href="../tags/Complex-System/">
+                                    <span class="chip bg-color">Complex System</span>
                                 </a>
                             
                         </div>
@@ -1220,8 +1211,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1231,12 +1222,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/complex-system/">
-                        <span class="chip bg-color">complex system</span>
+                    <a href="../tags/Graph/">
+                        <span class="chip bg-color">Graph</span>
                     </a>
                     
-                    <a href="../tags/network/">
-                        <span class="chip bg-color">network</span>
+                    <a href="../tags/Complex-System/">
+                        <span class="chip bg-color">Complex System</span>
                     </a>
                     
                 </div>
@@ -1448,6 +1439,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

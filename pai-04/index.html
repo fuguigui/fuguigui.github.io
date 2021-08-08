@@ -420,12 +420,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/probabilistic-artificial-intelligence/">
-                                <span class="chip tag-color">probabilistic artificial intelligence</span>
+                            <a href="../tags/AI/">
+                                <span class="chip tag-color">AI</span>
                             </a>
                         
-                            <a href="../tags/reinforcement-learning/">
-                                <span class="chip tag-color">reinforcement learning</span>
+                            <a href="../tags/Reinforcement-Learning/">
+                                <span class="chip tag-color">Reinforcement Learning</span>
+                            </a>
+                        
+                            <a href="../tags/Bayesian/">
+                                <span class="chip tag-color">Bayesian</span>
                             </a>
                         
                     </div>
@@ -436,8 +440,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -460,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    14 Min
+                    17 Min
                 </div>
                 
 
@@ -478,21 +482,21 @@
                 <h1 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h1><h2 id="Typical-queries"><a href="#Typical-queries" class="headerlink" title="Typical queries"></a>Typical queries</h2><ul>
 <li>What are these typical queries for?</li>
 <li>what kinds of typical queries?<ul>
-<li>conditional/marginal query: Given conditional variable(s)’ value, what is the probability of the objective variable(s)? <img src="http://latex.codecogs.com/svg.latex?%5CPr%5BX_i%7CX_S=x_s%5D=?" alt="cond"></li>
-<li>MPE(most probable explanation): a special case of MAP. given the values for some variables, compute most likely assignment to all remaining variables: <img src="http://latex.codecogs.com/svg.latex?%5Carg%5Cmax%20x_%7B%5Cbar%7Bs%7D%7D%20%5CPr%5BX_%7B%5Cbar%7Bs%7D%7D=x_%7B%5Cbar%7Bs%7D%7D%7CX_s=x_s%5D" alt="mpe"></li>
-<li>MAP (maximum a posterior): compute most likely assignment to some variables.  Two kinds of queries: 1. the arg giving the maximum, 2. just the maximum value<img src="http://latex.codecogs.com/svg.latex?%5Carg%5Cmax_%7Bx_a%7D%5CPr%5BX_A=x_a%7CX_B=x_b%5D" alt="mpe"></li>
+<li>conditional/marginal query: Given conditional variable $s$’ value, what is the probability of the objective variable $s$? $\Pr[X_i|X_S=x_s]=?$​</li>
+<li>MPE, most probable explanation: a special case of MAP. given the values for some variables, compute most likely assignment to all remaining variables: $\arg\max x_{\bar{s}} \Pr[X_{\bar{s}}=x_{\bar{s}}|X_s=x_s]$</li>
+<li>MAP, maximum a posterior: compute most likely assignment to some variables.  Two kinds of queries: 1. the arg giving the maximum, 2. just the maximum value $\arg\max_{x_a}\Pr[X_A=x_a|X_B=x_b]$</li>
 </ul>
 </li>
 </ul>
-<p>Formally, any probabilistic inference system is to compute the posterior probability distribution for a set of query variables, given some observed event (that is some assignment of values to a set of evidence variables).</p>
+<p>Formally, any probabilistic inference system is to compute the posterior probability distribution for a set of query variables, given some observed event, that is some assignment of values to a set of evidence variables.</p>
 <p>Define three types of variables:</p>
 <ul>
-<li>evidence variables: the set of variables give the observed event, denoted as E</li>
-<li>query variables, denoted as X</li>
-<li>hidden variables: all the variables except for evidence or query variables, denoted as Y</li>
+<li>evidence variables: the set of variables give the observed event, denoted as $E$</li>
+<li>query variables, denoted as $X$</li>
+<li>hidden variables: all the variables except for evidence or query variables, denoted as $Y$</li>
 </ul>
 <h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><ul>
-<li><p>exact: exploit structure(conditional independence) to efficiently perform exact inference. Variable elimination, factor graph</p>
+<li><p>exact: exploit structure/conditional independence to efficiently perform exact inference. Variable elimination, factor graph</p>
 </li>
 <li><p>approximation: loopy factor graph</p>
 </li>
@@ -507,46 +511,47 @@
 </ul>
 <h4 id="Factor"><a href="#Factor" class="headerlink" title="Factor"></a>Factor</h4><p><strong>Factor</strong> is a function over a set of variables. It maps each instantiation of these variables to a real number. For instance, CPT(conditional probability table)s  are factors. In other words, a factor is a matrix indexed by the values of its argument variables. It has three operations:</p>
 <ul>
-<li><p>product: the variables are the <em>union</em> of two factors’ variables, the result is the product of two factors.<img src="http://latex.codecogs.com/svg.latex?f(X_1,X_2,%5Ccdots,X_n,Y_1,Y_2,%5Ccdots,Y_k,Z_1,Z_2,%5Ccdots,Z_m)=f_1(X_1,X_2,%5Ccdots,X_n,Y_1,Y_2,%5Ccdots,Y_k)%5Ccdot%20f_2(Y_1,Y_2,%5Ccdots,Y_k,Z_1,Z_2,%5Ccdots,Z_m)" alt="prod"></p>
+<li><p>product: the variables are the <em>union</em> of two factors’ variables, the result is the product of two factors.<br>$$<br>f(X_1,X_2,\cdots,X_n,Y_1,Y_2,\cdots,Y_k,Z_1,Z_2,\cdots,Z_m)<br>$$</p>
+<p>$$<br>=f_1(X_1,X_2,\cdots,X_n,Y_1,Y_2,\cdots,Y_k)\cdot f_2(Y_1,Y_2,\cdots,Y_k,Z_1,Z_2,\cdots,Z_m)<br>$$</p>
 </li>
-<li><p>marginalization: <img src="http://latex.codecogs.com/svg.latex?f(B,C)=%5Csum_%7Ba%7Df(A=a,B,C)" alt="margin"></p>
+<li><p>marginalization: $f(B,C)=\sum_{a}f(A=a,B,C)$</p>
 </li>
 </ul>
 <h4 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h4><p>Case: marginal variables</p>
-<p>Given BN and Query P(X|E)</p>
+<p>Given BN and Query $P(X|E)$</p>
 <ol>
-<li>choose an ordering of X_1,…,X_n for all elements in Y.</li>
-<li>set up initial factors: f_i=P(X_i|Pa_i), Pa_i, the set of nodes who have edges pointing to X_i</li>
-<li>For i=1:n, X_i\in Y<ol>
-<li>collect and multiply all factors that include X_i</li>
-<li>generate new factor by marginalizing out X_i, <img src="http://latex.codecogs.com/svg.latex?g=%5Csum_%7Bx_i%7D%5Cprod_j%20f_j" alt="gene"></li>
+<li>choose an ordering of $X_1,\cdots,X_n$ for all elements in $Y$.</li>
+<li>set up initial factors: $f_i=P(X_i|Pa_i), Pa_i,$ the set of nodes who have edges pointing to $X_i$</li>
+<li>For $i=1:n, X_i\in Y$<ol>
+<li>collect and multiply all factors that include $X_i$</li>
+<li>generate new factor by marginalizing out $X_i$, $g=\sum_{x_i}\prod_j f_j$</li>
+<li>add $g$ to the set of factors.</li>
+</ol>
+</li>
+<li>renormalize $P(X,E)$ to get $P(X|E)$</li>
+</ol>
+<p>Case: maximum arguments, similar to the former algorithm</p>
+<p>Given BN and evidence $E=e$</p>
+<ol>
+<li><p>choose an ordering of $X_1,\cdots,X_n$​ for all elements in $Y$.</p>
+</li>
+<li><p>set up initial factors: $f_i=P(X_i|Pa_i), Pa_i,$​ the minimum parent  set subsetting to the set of ancestors of given variable $X_i$. Like the definition in the building BN algorithm</p>
+</li>
+<li><p>For $i=1:n, X_i\in Y$</p>
+<ol>
+<li>collect and multiply all factors that include $X_i$</li>
+<li>generate new factor by marginalizing out $X_i$,  $g=\max_{x_i}\prod_j f_j$</li>
 <li>add g to the set of factors.</li>
 </ol>
 </li>
-<li>renormalize P(X,E) to get P(X|E)</li>
-</ol>
-<p>Case: maximum arguments (Similar to the former algorithm)</p>
-<p>Given BN and evidence E=e</p>
-<ol>
-<li><p>choose an ordering of X_1,…,X_n for all elements in Y.</p>
-</li>
-<li><p>set up initial factors: f_i=P(X_i|Pa_i), Pa_i, the minimum parent  set subsetting to the set of ancestors of given variable X_i. Like the definition in the building BN algorithm</p>
-</li>
-<li><p>For i=1:n, X_i\in Y</p>
-<ol>
-<li>collect and multiply all factors that include X_i</li>
-<li>generate new factor by marginalizing out X_i, <img src="http://latex.codecogs.com/svg.latex?g=%5Cmax_%7Bx_i%7D%5Cprod_j%20f_j" alt="genemax"></li>
-<li>add g to the set of factors.</li>
-</ol>
-</li>
-<li><p>For i = n:-1:1, X_i\in Y</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Chat%7Bx_i%7D=%5Carg%5Cmax_%7Bx_i%7Dg_i(x_i,%5Chat%7Bx%7D_%7Bi+1:n%7D)" alt="argmax"></p>
+<li><p>For $i = n:-1:1, X_i\in Y$</p>
+<p>$$<br>\hat{x_i}=\arg\max_{x_i}g_i(x_i,\hat{x}_{i+1:n})<br>$$</p>
 </li>
 </ol>
 <h4 id="Order"><a href="#Order" class="headerlink" title="Order"></a>Order</h4><p><strong>The order matters</strong>! But how does it matter?</p>
 <p>In general, the time and space requirements of variable elimination are dominated by the size of the largest factor constructed during the operation of the algorithm. It turns out to be intractable to determine the optimal ordering, but several good heuristics are available.</p>
 <ul>
-<li>eliminate whichever variable minimizes the size of the next factor to be constructed. In general, we can remove any leaf node that is not a query variable or an evidence variable. -&gt; every variable that is not an ancestor of a query variable or evidence variable is irrelevant to the query.</li>
+<li>eliminate whichever variable minimizes the size of the next factor to be constructed. In general, we can remove any leaf node that is not a query variable or an evidence variable.$\to$ every variable that is not an ancestor of a query variable or evidence variable is irrelevant to the query.</li>
 </ul>
 <h4 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h4><ul>
 <li>polytree: linear in the size of the network. The size is defined as the number of  CPT entries.<ul>
@@ -556,46 +561,52 @@
 </ul>
 <p><strong>polytree</strong>: a DAG, dropping edge directions is a tree.</p>
 <ul>
-<li>multiply connected networks: has exponential time and space complexity in the worst case, even when the number of parents per node is bounded. (???? Example???)</li>
+<li>multiply connected networks: has exponential time and space complexity in the worst case, even when the number of parents per node is bounded. ???? Example???</li>
 </ul>
 <p>Special case of the Algorithm for a polytree:</p>
 <ol>
 <li>pick a root within Y</li>
-<li>orient edges (in the undirected tree) towards root.</li>
-<li>eliminate in topological order (bottom up, first all the children, then the parent)</li>
+<li>orient edges in the undirected tree towards root.</li>
+<li>eliminate in topological order bottom up: first all the children, then the parent</li>
 </ol>
-<p>All intermediate factors will contain at most 1+max|Pa_i| variables.</p>
+<p>All intermediate factors will contain at most $1+\max|Pa_i|$ variables.</p>
 <h3 id="Factor-graphs"><a href="#Factor-graphs" class="headerlink" title="Factor graphs"></a>Factor graphs</h3><p>Why we need factor graph?</p>
 <p>what advantages of it?</p>
 <p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Factor_graph">from the wiki</a></p>
 <h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><p>a factor graph is a <em>bipartite graph</em> representing the <em>factorization</em> of a function. Given a function and its factorization:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?g(X_1,X_2,%5Ccdots,X_n)=%5Cprod_%7Bj%7Df_j(S_j),%20S_j%5Csubset%5C%7BX_1,X_2,%5Ccdots,X_n%5C%7D,%5Cforall%20j%5Cin%5Bm%5D" alt="fact"></p>
-<p>The corresponding factor graph: G=(X,F,E)</p>
+<p>$$<br>g(X_1,X_2,\cdots,X_n)=\prod_{j}f_j(S_j), S_j\subset{X_1,X_2,\cdots,X_n},\forall j\in[m]<br>$$</p>
+<p>The corresponding factor graph: $G=(X,F,E)$</p>
 <ul>
-<li>X: the set of variables. One variable node for each variable.</li>
-<li>F: f_1,f_2,…f_m, the set of factors. One factor node for each factor.</li>
-<li>E: <em>undirected edge</em> between a factor vertex f_j and a variable vertex X_i iff <img src="http://latex.codecogs.com/svg.latex?X_i%5Cin%20S_j" alt="fact2"></li>
+<li>$X$: the set of variables. One variable node for each variable.</li>
+<li>$F: f_1,f_2,…f_m$, the set of factors. One factor node for each factor.</li>
+<li>$E$: <em>undirected edge</em> between a factor vertex $f_j$ and a variable vertex $X_i$ iff $X_i\in S_j$</li>
 </ul>
-<h4 id="Message-passing"><a href="#Message-passing" class="headerlink" title="Message passing"></a>Message passing</h4><p>Messages are real-valued <em>functions</em>. It contains the “influence” that one variable (not a factor) exerts on others. There are two kinds of message: (1) message from a variable to a factor and (2) message from a factor to a variable. Messages are always denoted by variables, not factors. That is <img src="http://latex.codecogs.com/svg.latex?%5Cmu_%7Bv%5Cto%20u%7D(x_v)%20,%20%5Cmu_%7Bu%5Cto%20v%7D(x_v)" alt="mess"> All uses x_v.</p>
+<h4 id="Message-passing"><a href="#Message-passing" class="headerlink" title="Message passing"></a>Message passing</h4><p>Messages are real-valued <em>functions</em>. It contains the “influence” that one variable ,not a factor, exerts on others. There are two kinds of message: </p>
+<ol>
+<li><p>message from a variable to a factor and</p>
+</li>
+<li><p>message from a factor to a variable. </p>
+<p>Messages are always denoted by variables, not factors. That is $\mu_{v\to u}(x_v) , \mu_{u\to v}(x_v)$.  All uses $x_v$.</p>
+</li>
+</ol>
 <ul>
-<li><p>message from a variable v to a factor u: the product of all message this variable receives from its neighbors (factors) except for the one it sends to.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cmu_%7Bv%5Cto%20u%7D(x_v)=%5Cprod_%7Bu%27%5Cin%20N(v)%5Csetminus%5C%7Bu%5C%7D%7D%5Cmu_%7Bu%27%5Cto%20v%7D(x_v)" alt="mess1"></p>
-<p>Upon convergence (if convergence happened), the estimated <em>marginal  distribution of each variable</em> is proportional to the product of all messages from adjoining factors (missing the normalization constant):</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CPr%5BX_v=x_v%5D%5Cpropto%20%5Cprod_%7Bu%5Cin%20N(v)%7D%20%5Cmu_%7Bu%5Cto%20v%7D(x_v)" alt="conv1"></p>
-<p>In other words, <img src="http://latex.codecogs.com/svg.latex?%5CPr%5BX_v=x_v%5D%5Cpropto%20%5Cmu_%7Bu%5Cto%20v%7D(x_v)%5Cmu_%7Bv%5Cto%20u%7D(x_v)" alt="conv1"></p>
+<li><p>message from a variable v to a factor u: the product of all message this variable receives from its neighbors/factors except for the one it sends to.</p>
+<p>$$<br>\mu_{v\to u}(x_v)=\prod_{u’\in N(v)\setminus{u}}\mu_{u’\to v}(x_v)<br>$$</p>
+<p>Upon convergence if convergence happened, the estimated <em>marginal  distribution of each variable</em> is proportional to the product of all messages from adjoining factors missing the normalization constant:<br>$$<br>\Pr[X_v=x_v]\propto \prod_{u\in N(v)} \mu_{u\to v}(x_v)<br>$$</p>
+<p>In other words,<br>$$<br>\Pr[X_v=x_v]\propto \mu_{u\to v}(x_v)\mu_{v\to u}(x_v)<br>$$</p>
 </li>
 <li><p>message from a factor to a variable: </p>
 <ul>
-<li><p>the product of all message this factor receives from its neighbors (variables) except for the one it sends to </p>
+<li><p>the product of all message this factor receives from its neighbors variables except for the one it sends to </p>
 </li>
 <li><p>weighted by the value of the factor, fixed the objective variable.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cmu_%7Bu%5Cto%20v%7D(x_v)=%5Csum_%7Bx_u%5Csim%20x_v%7Df_u(x_u)%5Cprod_%7Bv%27%5Cin%20N(u)%5Csetminus%5C%7Bv%5C%7D%7D%5Cmu_%7Bv%27%5Cto%20u%7D(x_%7Bv%27%7D)" alt="mess2"></p>
+<p>$$<br>\mu_{u\to v}(x_v)=\sum_{x_u\sim x_v}f_u(x_u)\prod_{v’\in N(u)\setminus{v}}\mu_{v’\to u}(x_{v’})<br>$$</p>
 <p>Max version, to get the arg of max, also needs to store the arg information for each factor.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cmu_%7Bu%5Cto%20v%7D(x_v)=%5Cmax_%7Bx_u%5Csim%20x_v%7Df_u(x_u)%5Cprod_%7Bv%27%5Cin%20N(u)%5Csetminus%5C%7Bv%5C%7D%7D%5Cmu_%7Bv%27%5Cto%20u%7D(x_%7Bv%27%7D)" alt="max2"></p>
+<p>$$<br>\mu_{u\to v}(x_v)=\max_{x_u\sim x_v}f_u(x_u)\prod_{v’\in N(u)\setminus{v}}\mu_{v’\to u}(x_{v’})<br>$$</p>
 <p>Likewise, the estimated joint marginal distribution of the set of  variables belonging to <em>one factor</em> is proportional to the product of the factor and the messages from the variables:</p>
 </li>
 </ul>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CPr%5BX_f=x_f%5D%5Cpropto%20f_f(x_f)%5Cprod_%7Bv%5Cin%20N(f)%7D%20%5Cmu_%7Bv%5Cto%20f%7D(x_v)" alt="conv2"></p>
+<p>$$<br>\Pr[X_f=x_f]\propto f_f(x_f)\prod_{v\in N(f)} \mu_{v\to f}(x_v)<br>$$</p>
 </li>
 </ul>
 <h4 id="Algorithm-1"><a href="#Algorithm-1" class="headerlink" title="Algorithm"></a>Algorithm</h4><ul>
@@ -613,9 +624,9 @@
 <li>approximate algorithms for loops</li>
 </ul>
 <ol>
-<li>initialize all messages as uniform distribution (instead of void product as 1)</li>
+<li>initialize all messages as uniform distribution, instead of void product as 1</li>
 <li>until converged to<ol>
-<li>pick some ordering on the factor graph edges (+directions, because of loops)</li>
+<li>pick some ordering on the factor graph edges +directions, because of loops</li>
 <li>update messages according to this ordering</li>
 <li>break once all messages change by at most epsilon</li>
 </ol>
@@ -636,88 +647,87 @@
 </ul>
 <h4 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h4><p>Factor graph can be used to compute <strong>marginal</strong> probability with low computation complexity.</p>
 <h3 id="Variational-inference"><a href="#Variational-inference" class="headerlink" title="Variational inference"></a>Variational inference</h3><p>Compared to factor graphs, this method always converges.</p>
-<h4 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h4><p>Given unnormalized distribution P with the form of the product of factors, the idea is to try to find a “simple” (tractable) distribution Q that approximates P well. Then, compute marginals under Q* instead of P</p>
+<h4 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h4><p>Given unnormalized distribution P with the form of the product of factors, the idea is to try to find a “simple” (tractable distribution Q that approximates P well. Then, compute marginals under Q* instead of P</p>
 <ul>
-<li><p><img src="http://latex.codecogs.com/svg.latex?%5CPr%5BX_%7B1:n%7D%5D=%5Cfrac%7B1%7D%7BZ%7D%5Cprod_%7Bj=1%7D%5Em%20%5CPhi_j(X_%7BA_j%7D)" alt="vi1"></p>
+<li><p>$\Pr[X_{1:n}]=\frac{1}{Z}\prod_{j=1}^m \Phi_j(X_{A_j})$</p>
 </li>
-<li><p><img src="http://latex.codecogs.com/svg.latex?Q%5E*%5Cin%5Carg%5Cmin_%7BQ%5Cin%5Cmathcal%7BQ%7D%7DKL(Q%7C%7CP)" alt="vi2"></p>
+<li><p>$Q^*\in\arg\min_{Q\in\mathcal{Q}}KL(Q||P)$</p>
 </li>
-<li><p>Q is chosen from a distribution family. A simple instance: independent distributions: <img src="http://latex.codecogs.com/svg.latex?%5Cmathcal%7BQ%7D=%5C%7BQ:Q(X_%7B1:n%7D)=%5Cprod_%7Bi=1%7D%5En%20Q_i(X_i)%5C%7D" alt="independent"></p>
+<li><p>Q is chosen from a distribution family. A simple instance: independent distributions: $\mathcal{Q}={Q:Q(X_{1:n})=\prod_{i=1}^n Q_i(X_i)}$</p>
 </li>
 </ul>
-<p>A key question is when to do this? On the prior? Or on the posterior?<br>Typically, the distribution of prior may be terrible, hard to catch, could be a lot configurations to capture, but once you have evidence, the “localized probability” (posterior) is somehow simplified. Then, the approximation of the posterior is hopeful. <em>Posterior often much better approximated by simple distribution</em>. That means the posterior only needs to capture features on a very very limited, much smaller space.</p>
-<h4 id="KL-Divergence"><a href="#KL-Divergence" class="headerlink" title="KL Divergence"></a>KL Divergence</h4><p><img src="http://latex.codecogs.com/svg.latex?KL(Q%7C%7CP)=%5Csum_x%20Q(x)%5Clog%5Cfrac%7BQ(x)%7D%7BP(x)%7D=%5Csum_xQ(x)%5Clog%20Q(x)-%5Csum_xQ(x)%5Clog%20P(x)" alt="kldiverg"></p>
+<p>A key question is when to do this? On the prior? Or on the posterior?<br>Typically, the distribution of prior may be terrible, hard to catch, could be a lot configurations to capture, but once you have evidence, the “localized probability” posterior is somehow simplified. Then, the approximation of the posterior is hopeful. <em>Posterior often much better approximated by simple distribution</em>. That means the posterior only needs to capture features on a very very limited, much smaller space.</p>
+<h4 id="KL-Divergence"><a href="#KL-Divergence" class="headerlink" title="KL Divergence"></a>KL Divergence</h4><p>$$<br>KL(Q||P)=\sum_x Q(x)\log\frac{Q(x)}{P(x)}=\sum_xQ(x)\log Q(x)-\sum_xQ(x)\log P(x)<br>$$</p>
 <p>Not a distance: not satisfying: (1)symmetricity, (2) triangle inequality.</p>
 <p><strong>Entropy</strong> of a distribution:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?H(Q)=-%5Csum_xQ(x)%5Clog%20Q(x)" alt="ent"></p>
-<p>Entropy of a product distribution, where <img src="http://latex.codecogs.com/svg.latex?Q(X_%7B1:n%7D)=%5Cprod_i%20Q_i(X_i),H(Q)=%5Csum_i%20H(Q_i)" alt="prod"></p>
+<p>$$<br>H(Q)=-\sum_xQ(x)\log Q(x)<br>$$<br>Entropy of a product distribution, where $Q(X_{1:n})=\prod_i Q_i(X_i),H(Q)=\sum_i H(Q_i)$</p>
 <p>A proof ketch:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?H(Q)=-%5Csum_x%5Cprod_i%20Q_i(X_i)%5Clog%5Cprod_i%20Q_i(X_i)=-%5Csum_%7Bx_j%7DQ_j(X_j)%5Csum_%7Bx_k,k%5Cneq%20j%7D%5Cprod_%7Bk%5Cneq%20j%7DQ_k(X_k)%5Csum_%7Bi%7D%5Clog%20Q_i(X_i)" alt="calculation"> </p>
-<p><img src="http://latex.codecogs.com/svg.latex?=-%5Csum_%7Bx_j%7DQ_j(X_j)%5Clog%20Q_j(X_j)%5Ccdot%201+%5Csum_%7Bx_j%7DQ_j(X_j)H(Q_%7B-j%7D)=H(Q_j)+H(Q_%7B-j%7D)" alt="calculation"></p>
+<p>$$<br> H(Q)=-\sum_x\prod_i Q_i(X_i)\log\prod_i Q_i(X_i)<br>$$</p>
+<p>$$<br>=-\sum_{x_j}Q_j(X_j)\sum_{x_k,k\neq j}\prod_{k\neq j}Q_k(X_k)\sum_{i}\log Q_i(X_i)<br>$$</p>
+<p>$$<br>=-\sum_{x_j}Q_j(X_j)\log Q_j(X_j)\cdot 1+\sum_{x_j}Q_j(X_j)H(Q_{-j})<br>$$</p>
+<p>$$<br>=H(Q_j)+H(Q_{-j})<br>$$</p>
 <h4 id="ELBO"><a href="#ELBO" class="headerlink" title="ELBO"></a>ELBO</h4><p>evidence lower bound</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Carg%5Cmin_%7BQ%5Cin%5Cmathcal%7BQ%7D%7DKL(Q%7C%7CP)=%5Carg%5Cmax_%7BQ%5Cin%5Cmathcal%7BQ%7D%7D%5Csum_%7Bi=1%7D%5EnH(Q_i)+%5Csum_%7Bi=1%7D%5Em%5Csum_%7Bx_%7BA_i%7D%7D%5Cprod_%7Bj%5Cin%20A_i%7D%20Q_j(x_j)%5Clog%5CPhi(x_%7BA_i%7D)" alt="obj"></p>
-<p>Want to optimize this objective according to Q. Methods:</p>
+<p>$$<br>\arg\min_{Q\in\mathcal{Q}}KL(Q||P)=\arg\max_{Q\in\mathcal{Q}}\sum_{i=1}^nH(Q_i)+\sum_{i=1}^m\sum_{x_{A_i}}\prod_{j\in A_i} Q_j(x_j)\log\Phi(x_{A_i})<br>$$<br>Want to optimize this objective according to Q. Methods:</p>
 <ul>
 <li>gradient-based</li>
 <li>mean-field algorithm, also called coordinate ascent. The idea is to optimize one variable at a time.</li>
 </ul>
 <p><strong>Mean-filed algorithm</strong></p>
 <ol>
-<li>initialize. (Start with a guess, e.g. uniform distribution for each variable) Q^{(0)}</li>
+<li>initialize. Start with a guess, e.g. uniform distribution for each variable: $Q^{(0)}$</li>
 <li>Operate until convergence:<ol>
 <li>cycle throughout variables and update one each time. </li>
 </ol>
 </li>
 </ol>
 <h3 id="Marginal-as-Expectations"><a href="#Marginal-as-Expectations" class="headerlink" title="Marginal as Expectations"></a>Marginal as Expectations</h3><p>Before, there are all <em>deterministic</em> algorithms, now we turn to randomized algorithms. Using randomness to get a trade-off between computation time and accuracy.  The core idea is treat marginals as expectations and approximate expectation by sampling. </p>
-<h4 id="Convergence"><a href="#Convergence" class="headerlink" title="Convergence"></a>Convergence</h4><p>The law of large numbers (valid on independent samples) gives a hope of convergence.<br><img src="http://latex.codecogs.com/svg.latex?%5Cmathbb%7BE%7D_P%5Bf(X)%5D=%5Csum_x%20P(x)f(x),%20%5Cint%20P(x)f(x)dx" alt="exp"></p>
-<p>examples: </p>
+<h4 id="Convergence"><a href="#Convergence" class="headerlink" title="Convergence"></a>Convergence</h4><p>The law of large numbers, valid on independent samples, gives a hope of convergence.<br>$$<br>\mathbb{E}_P[f(X)]=\sum_x P(x)f(x), \int P(x)f(x)\mathrm{d}x<br>$$<br>examples: </p>
 <ul>
-<li>marginals: <img src="http://latex.codecogs.com/svg.latex?%5CPr%5BX_i=x%5D=%5Cmathbb%7BE%7D_P%5B%5BX_i=x%5D%5D" alt="marg"></li>
+<li>marginals: $\Pr[X_i=x]=\mathbb{E}_P[[X_i=x]]$</li>
 </ul>
-<h4 id="Sampling-methods"><a href="#Sampling-methods" class="headerlink" title="Sampling methods"></a>Sampling methods</h4><p>How to sample from structured models (e.g. a Bayesian network)?</p>
+<h4 id="Sampling-methods"><a href="#Sampling-methods" class="headerlink" title="Sampling methods"></a>Sampling methods</h4><p>How to sample from structured models, e.g. a Bayesian network?</p>
 <ul>
-<li>forward sampling (Monte Carlo sampling), using the structure to sample step by step. Proceed according to the topological order.<ul>
+<li>forward sampling Monte Carlo sampling, using the structure to sample step by step. Proceed according to the topological order.<ul>
 <li>algorithm:<ol>
-<li>sort variables in topological ordering X1,…,Xn</li>
-<li>For i = 1 to n do<ol>
-<li>sample xi according to the probability P(Xi|X1=x1,…,Xi-1=xi-1)</li>
+<li>sort variables in topological ordering $X_1,\cdots,X_n$</li>
+<li>For $i = 1$ to n do<ol>
+<li>sample $x_i$ according to the probability $P(X_i|X_1=x_1,…,X_{i-1}=x_{i-1})$</li>
 </ol>
 </li>
 </ol>
 </li>
-<li>estimation of marginal: the mean of count of Xi = xi</li>
-<li>conditional: the joint divided by the marginal. one count divides another. (<strong>Rejection sampling</strong>) Also, this algorithm can be <em>problematic</em> if the denominator event is very rare, could be 0 after sampling. </li>
+<li>estimation of marginal: the mean of count of $X_i = x_i$</li>
+<li>conditional: the joint divided by the marginal. one count divides another. <strong>Rejection sampling</strong>. Also, this algorithm can be <em>problematic</em> if the denominator event is very rare, could be 0 after sampling. </li>
 </ul>
 </li>
-<li>sampling directly from posterior distribution to avoid the rare events effect (the case that the denominator almost 0) MCMC: ingenious idea: using some dependent variables to sample.</li>
+<li>sampling directly from posterior distribution to avoid the rare events effect, the case that the denominator almost 0, MCMC: ingenious idea: using some dependent variables to sample.</li>
 </ul>
 <h4 id="Complexity-1"><a href="#Complexity-1" class="headerlink" title="Complexity"></a>Complexity</h4><p>How many samples do we need?</p>
 <ul>
 <li>Hoeffding’s inequality: bound the relation between an estimation’s distance from the true expectation and its probability. </li>
 </ul>
-<p>We have two kinds of errors. Suppose C=1,</p>
+<p>We have two kinds of errors. Suppose $C=1$,</p>
 <ul>
-<li><p>absolute error: <img src="http://latex.codecogs.com/svg.latex?%5CPr%5B%5Chat%7BP%7D(x)%5Cnotin%5BP(x)-%5Cepsilon,%20P(x)+%5Cepsilon%5D%5D%5Cleq%202%5Cexp(-2N%5Cepsilon%5E2)" alt="error-ab"></p>
+<li><p>absolute error: $\Pr[\hat{P}(x)\notin[P(x)-\epsilon, P(x)+\epsilon]]\leq 2\exp(-2N\epsilon^2)$</p>
 </li>
-<li><p>relative error: <img src="http://latex.codecogs.com/svg.latex?%5CPr%5B%5Chat%7BP%7D(x)%5Cnotin%20P(x)(1%5Cpm%5Cepsilon)%5D%5Cleq%202%5Cexp(-NP(x)%5Cepsilon%5E2/3)" alt="error_rela"></p>
+<li><p>relative error: $\Pr[\hat{P}(x)\notin P(x)(1\pm\epsilon)]\leq 2\exp(-NP(x)\epsilon^2/3)$</p>
 </li>
 </ul>
-<h3 id="MCMC"><a href="#MCMC" class="headerlink" title="MCMC"></a>MCMC</h3><p>The idea of MCMC is to directly sample from posterior distribution. Forward sampling couldn’t do this. Assuming that given evidences appear later than some variables according to the topological order, if we do forward sampling, we start from root (parents) and may get only few of these samples with observed variables as the observed values. Forward sampling uses likelihood to sample, while MCMC uses posterior to sample.</p>
-<h4 id="Settings-1"><a href="#Settings-1" class="headerlink" title="Settings"></a>Settings</h4><p>Given unnormalized distribution Q(x), we want to sample from the normalized version P(X) = Q(X)/Z. For example, given P(A,B,C) but we want to sample from P(A|B,C)=P(A,B,C)/Z, Z is an unknown constant.</p>
-<p>The solution is to create Markov chain from Q(X), which has the stationary distribution P(X) which we want to sample from.</p>
+<h3 id="MCMC"><a href="#MCMC" class="headerlink" title="MCMC"></a>MCMC</h3><p>The idea of MCMC is to directly sample from posterior distribution. Forward sampling couldn’t do this. Assuming that given evidences appear later than some variables according to the topological order, if we do forward sampling, we start from root/parents and may get only few of these samples with observed variables as the observed values. Forward sampling uses likelihood to sample, while MCMC uses posterior to sample.</p>
+<h4 id="Settings-1"><a href="#Settings-1" class="headerlink" title="Settings"></a>Settings</h4><p>Given unnormalized distribution $Q(x)$, we want to sample from the normalized version $P(X) = Q(X)/Z$. For example, given $P(A,B,C)$ but we want to sample from $P(A|B,C)=P(A,B,C)/Z$, $Z$ is an unknown constant.</p>
+<p>The solution is to create Markov chain from $Q(X)$, which has the stationary distribution $P(X)$ which we want to sample from.</p>
 <p>An important statement: an</p>
 <ul>
 <li><em>ergodic</em> </li>
 <li><em>Markov Chain</em><br>has a </li>
 <li>unique </li>
-<li>and positive stationary distribution \pi(X)&gt;0, such that for all x, <img src="http://latex.codecogs.com/svg.latex?%5Clim_%7Bt%5Cto%5Cinfty%7D%5CPr%5BX_t=x%5D=%5Cpi(x)" alt="mcmc"></li>
+<li>and positive stationary distribution $\pi(X)&gt;0$, such that for all $x$,$\lim_{t\to\infty}\Pr[X_t=x]=\pi(x)$</li>
 </ul>
-<h4 id="Detailed-Balance"><a href="#Detailed-Balance" class="headerlink" title="Detailed Balance"></a>Detailed Balance</h4><p>Detailed balance equation: <img src="http://latex.codecogs.com/svg.latex?Q(x)P(x%27%7Cx)=Q(x%27)P(x%7Cx%27)" alt="dbe"></p>
-<p>In the our application, it builds the transfer from likelihood probability to posterior by the replacement in conditional distribution. The equation is <img src="http://latex.codecogs.com/svg.latex?Q(X_t=x)P(X_%7Bt+1%7D=x%27%7CX_t=x)=Q(X_%7Bt+1%7D=x%27)P(X_t=x%7CX_%7Bt+1%7D=x%27)" alt="dbe1"></p>
+<h4 id="Detailed-Balance"><a href="#Detailed-Balance" class="headerlink" title="Detailed Balance"></a>Detailed Balance</h4><p>Detailed balance equation: $Q(x)P(x’|x)=Q(x’)P(x|x’)$ </p>
+<p>In the our application, it builds the transfer from likelihood probability to posterior by the replacement in conditional distribution. The equation is<br>$$<br>Q(X_t=x)P(X_{t+1}=x’|X_t=x)=Q(X_{t+1}=x’)P(X_t=x|X_{t+1}=x’)<br>$$</p>
 <h4 id="Algorithm-2"><a href="#Algorithm-2" class="headerlink" title="Algorithm"></a>Algorithm</h4><p>a framework</p>
 <ol>
-<li><p>provide a proposal distribution R(X’|X), this is chosen by ourselves. (Performance of the algorithm will strongly depend on R). </p>
+<li><p>provide a proposal distribution $R(X’|X)$​, this is chosen by ourselves. Performance of the algorithm will strongly depend on $R$. </p>
 <p>What does the performance mean? Convergence? Complexity?</p>
 <ul>
 <li>bad proposal may cause alpha never been accepted. The state seldom moves.</li>
@@ -725,58 +735,58 @@
 </li>
 <li><p>acceptance distribution:</p>
 <ol>
-<li>suppose X_t=x</li>
-<li>accept the transition from R with probability <img src="http://latex.codecogs.com/svg.latex?%5Calpha=%5Cmin%5C%7B1,%5Cfrac%7BQ(x%27)R(x%7Cx%27)%7D%7BQ(x)R(x%27%7Cx)%7D%5C%7D" alt="prob"> </li>
+<li>suppose $X_t=x$</li>
+<li>accept the transition from R with probability $\alpha=\min{1,\frac{Q(x’)R(x|x’)}{Q(x)R(x’|x)}}$</li>
 </ol>
 </li>
 </ol>
 <p>Remarks:</p>
 <ul>
-<li>in the case that R(x|x’) is symmetric, alpha is decided by Q(x’)/Q(x). It means it will definitely transit to a value with higher probability (Q(x’)&gt;Q(x)). For a value with lower probability, it has some chance to transit to that (Q(x’)/Q(x)).</li>
+<li>in the case that $R(x|x’)$ is symmetric, alpha is decided by $Q(x’)/Q(x)$. It means it will definitely transit to a value with higher probability $Q(x’)&gt;Q(x)$​. For a value with lower probability, it has some chance to transit to that $Q(x’)/Q(x)$.</li>
 </ul>
-<p>Theorem: the stationary distribution is Z^{-1}Q(X).</p>
+<p>Theorem: the stationary distribution is $Z^{-1}Q(X).$</p>
 <p>How to design the proposal? Why this proposal needs to satisfy the detailed balance equation?</p>
 <h5 id="Gibbs-sampling"><a href="#Gibbs-sampling" class="headerlink" title="Gibbs sampling"></a>Gibbs sampling</h5><p>Algorithm:</p>
 <ol>
-<li>start with initial assignment x(0) to all variables</li>
-<li>fix observed variables X_E to their observed values x_E</li>
+<li>start with initial assignment $x(0)$ to all variables</li>
+<li>fix observed variables $X_E$ to their observed values $x_E$</li>
 <li>For t = 1 to infty do:<ol>
-<li>set x^{(t)}=x^{(t-1)}</li>
-<li>For each variable X_i (not in E)<ol>
-<li>set v_i=values of all x^{(t)} except x_i</li>
-<li>sample x^{(t)}_i from P(X_i|v_i)</li>
+<li>set $x^{(t)}=x^{(t-1)}$</li>
+<li>For each variable $X_i$ (not in E)<ol>
+<li>set $v_i$=values of all $x^{(t)}$ except $x_i$</li>
+<li>sample $x^{(t)}_i$ from $P(X_i|v_i)$</li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
-<p>In Gibbs sampling, we still use an unknown conditional distribution P(X_i|v_i). Good news is this special type of conditional distribution, which conditions on everything except one variable, could be calculated efficiently.  Because when calculating the denominator, we focus on a small space where only the aimed variable takes different values. The space is |V|. The whole space’s size is |V|^n, hard to calculate.</p>
+<p>In Gibbs sampling, we still use an unknown conditional distribution $P(X_i|v_i)$. Good news is this special type of conditional distribution, which conditions on everything except one variable, could be calculated efficiently.  Because when calculating the denominator, we focus on a small space where only the aimed variable takes different values. The space is $|V|$. The whole space’s size is $|V|^n$, hard to calculate.</p>
 <p>Advantage:</p>
 <ul>
 <li>can do update parallel. </li>
 </ul>
 <p>Algorithm via Gibbs sampling</p>
 <ol>
-<li><p>use Gibbs sampling to obtain samples, X^{(1)},…X^{(T)}</p>
+<li><p>use Gibbs sampling to obtain samples, $X^{(1)},\cdots, X^{(T)}$</p>
 </li>
-<li><p>ignore the first t0 samples in “burn in” stage, and approximate</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cmathbb%7BE%7D_%7Bx_E%7D%5Bf(X)%5D%5Csimeq%5Cfrac%7B1%7D%7BT-t_0%7D%5Csum_%7B%5Ctau=t_0+1%7D%5ET%20f(X%5E%7B(%5Ctau)%7D)" alt="gb-exp"></p>
+<li><p>ignore the first $t_0$ samples in “burn in” stage, and approximate</p>
+<p>$$<br>\mathbb{E}<em>{x_E}[f(X)]\simeq\frac{1}{T-t_0}\sum</em>{\tau=t_0+1}^T f(X^{(\tau)}<br>$$</p>
 </li>
 </ol>
-<h4 id="Convergence-1"><a href="#Convergence-1" class="headerlink" title="Convergence"></a>Convergence</h4><p>We want to use MCMC to answer the question, what is the expectation of some function f(X) given the probability distribution. In the former, the law of large numbers works on the independent samples. Here, all of our samples are x^{(t)}, sample at time t depends on sample at time t-1. How to calculate E_p[f(X)] now?</p>
+<h4 id="Convergence-1"><a href="#Convergence-1" class="headerlink" title="Convergence"></a>Convergence</h4><p>We want to use MCMC to answer the question, what is the expectation of some function $f(X)$ given the probability distribution. In the former, the law of large numbers works on the independent samples. Here, all of our samples are $x^{(t)}$​, sample at time t depends on sample at time $t-1$. How to calculate $E_p[f(X)]$ now?</p>
 <p>Hopefully, we have <strong>ergodic theorem</strong>. This is a strong law of large numbers for Markov chain. </p>
 <p>Ergodic theorem: </p>
 <ul>
-<li>suppose X1,X2,…,XN,…is an ergodic Markov chain </li>
+<li>suppose $X_1,X_2,\cdots,X_N, \cdots$ is an ergodic Markov chain </li>
 <li>over a finite state space D, </li>
-<li>with stationary distribution pi. </li>
-<li>f is a function on D.</li>
+<li>with stationary distribution $\pi$. </li>
+<li>$f$ is a function on D.</li>
 </ul>
 <p>Then, we have</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Clim_%7BN%5Cto%5Cinfty%7D%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bi=1%7D%5EN%20f(x_i)=%5Csum_%7Bx%5Cin%20D%7D%5Cpi(x)f(x)=%5Cmathbb%7BE%7D_%7Bx%5Csim%5Cpi%7D%5Bf(x)%5D" alt="ergodic"></p>
+<p>$$<br>\lim_{N\to\infty}\frac{1}{N}\sum_{i=1}^N f(x_i)=\sum_{x\in D}\pi(x)f(x)=\mathbb{E}_{x\sim\pi}[f(x)]<br>$$</p>
 <ul>
 <li>how about the convergence rate?<ul>
-<li>Establishing convergence rates generally very difficult. (No Hoeffding for it)</li>
+<li>Establishing convergence rates generally very difficult. No Hoeffding for it</li>
 </ul>
 </li>
 </ul>
@@ -882,12 +892,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/probabilistic-artificial-intelligence/">
-                                    <span class="chip bg-color">probabilistic artificial intelligence</span>
+                                <a href="../tags/AI/">
+                                    <span class="chip bg-color">AI</span>
                                 </a>
                             
-                                <a href="../tags/reinforcement-learning/">
-                                    <span class="chip bg-color">reinforcement learning</span>
+                                <a href="../tags/Reinforcement-Learning/">
+                                    <span class="chip bg-color">Reinforcement Learning</span>
+                                </a>
+                            
+                                <a href="../tags/Bayesian/">
+                                    <span class="chip bg-color">Bayesian</span>
                                 </a>
                             
                         </div>
@@ -1372,8 +1386,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1383,12 +1397,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/probabilistic-artificial-intelligence/">
-                        <span class="chip bg-color">probabilistic artificial intelligence</span>
+                    <a href="../tags/AI/">
+                        <span class="chip bg-color">AI</span>
                     </a>
                     
-                    <a href="../tags/reinforcement-learning/">
-                        <span class="chip bg-color">reinforcement learning</span>
+                    <a href="../tags/Reinforcement-Learning/">
+                        <span class="chip bg-color">Reinforcement Learning</span>
+                    </a>
+                    
+                    <a href="../tags/Markov/">
+                        <span class="chip bg-color">Markov</span>
                     </a>
                     
                 </div>
@@ -1402,13 +1420,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../pai-01/">
+                <a href="../pai-02/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/6.jpeg" class="responsive-img" alt="Introduction">
+                        <img src="../medias/featureimages/5.jpeg" class="responsive-img" alt="Foundamention">
                         
-                        <span class="card-title">Introduction</span>
+                        <span class="card-title">Foundamention</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1425,8 +1443,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1436,12 +1454,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/probabilistic-artificial-intelligence/">
-                        <span class="chip bg-color">probabilistic artificial intelligence</span>
+                    <a href="../tags/AI/">
+                        <span class="chip bg-color">AI</span>
                     </a>
                     
-                    <a href="../tags/reinforcement-learning/">
-                        <span class="chip bg-color">reinforcement learning</span>
+                    <a href="../tags/Reinforcement-Learning/">
+                        <span class="chip bg-color">Reinforcement Learning</span>
+                    </a>
+                    
+                    <a href="../tags/Probability-Theory/">
+                        <span class="chip bg-color">Probability Theory</span>
                     </a>
                     
                 </div>
@@ -1604,6 +1626,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

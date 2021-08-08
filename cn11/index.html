@@ -420,12 +420,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/complex-system/">
-                                <span class="chip tag-color">complex system</span>
+                            <a href="../tags/Graph/">
+                                <span class="chip tag-color">Graph</span>
                             </a>
                         
-                            <a href="../tags/network/">
-                                <span class="chip tag-color">network</span>
+                            <a href="../tags/Complex-System/">
+                                <span class="chip tag-color">Complex System</span>
                             </a>
                         
                     </div>
@@ -436,8 +436,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -460,7 +460,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    4 Min
+                    5 Min
                 </div>
                 
 
@@ -482,44 +482,52 @@
 </li>
 </ul>
 <h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ul>
-<li>how is the entropy of a probability mass function defined?<ul>
-<li>H(x)=-\sum_i p(x_i)log p(x_i)</li>
+<li><p>how is the entropy of a probability mass function defined?</p>
+<ul>
+<li>$H(x)=-\sum_i p(x_i)\log p(x_i)$</li>
 </ul>
 </li>
-<li>how is the entropy of a statistical ensemble defined?<ul>
+<li><p>how is the entropy of a statistical ensemble defined?</p>
+<ul>
 <li>using the distribution</li>
 </ul>
 </li>
-<li>What is the entropy of a micro-canonical statistical ensemble? <ul>
+<li><p>What is the entropy of a micro-canonical statistical ensemble? </p>
+<ul>
 <li>the log of the microstates number</li>
 </ul>
 </li>
-<li>how can entropy be used for community detection based on the stochastic block model?<ul>
+<li><p>how can entropy be used for community detection based on the stochastic block model?</p>
+<ul>
 <li>define description length and minimize it.</li>
 </ul>
 </li>
-<li>how is the description length of stochastic block model defined?<ul>
-<li><img src="http://latex.codecogs.com/svg.latex?H(M,z)=%5Clog%20Z(M,z)%20=%20%5Clog%20%5CPi_%7B1%5Cleq%20k%5Cleq%20l%5Cleq%20B%7D%7BN_%7Bkl%7D%5Cchoose%20M_%7Bkl%7D%7D=%5Csum_%7B1%5Cleq%20k%5Cleq%20l%5Cleq%20B%7D%5Clog%20P%7BN_%7Bkl%7D%5Cchoose%20M_%7Bkl%7D%7D" alt="img"></li>
-</ul>
+<li><p>how is the description length of stochastic block model defined?<br>$$<br>H(M,z)=\log Z(M,z) = \log \Pi_{1\leq k\leq l\leq B}{N_{kl}\choose M_{kl}}<br>$$</p>
+<p>$$<br>=\sum_{1\leq k\leq l\leq B}\log P{N_{kl}\choose M_{kl}}<br>$$</p>
 </li>
-<li>Explain the basic idea behind flow compression.<ul>
+<li><p>Explain the basic idea behind flow compression.</p>
+<ul>
 <li>minimize description length and random walk.</li>
 </ul>
 </li>
-<li>How is the MapEquation defind? How is it used in InfoMap?<ul>
-<li>L(z) = qH(Q)+\sum_ip_iH(P_i)</li>
+<li><p>How is the MapEquation defind? How is it used in InfoMap?</p>
+<ul>
+<li>$L(z) = qH(Q)+\sum_ip_iH(P_i)$</li>
 <li>as a guidance</li>
 </ul>
 </li>
-<li>How can we calculate the MapEquation for an undirected and unweighted network?<ul>
-<li>stationary probability of edge, 1/m</li>
+<li><p>How can we calculate the MapEquation for an undirected and unweighted network?</p>
+<ul>
+<li>stationary probability of edge, $1/m$</li>
 </ul>
 </li>
-<li>How can we generalize InfoMap to directed and weighted network?<ul>
+<li><p>How can we generalize InfoMap to directed and weighted network?</p>
+<ul>
 <li>eigenvectors</li>
 </ul>
 </li>
-<li>How can we quickly discover a community mapping that minimizes the MapEquation?<ul>
+<li><p>How can we quickly discover a community mapping that minimizes the MapEquation?</p>
+<ul>
 <li>heuristic algorithms, e.g. simulated annealing, greedy optimization.</li>
 </ul>
 </li>
@@ -530,18 +538,18 @@
 <li>flow compression</li>
 <li>InfoMap</li>
 </ul>
-<h1 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h1><h2 id="Definition-of-Shannon-entropy"><a href="#Definition-of-Shannon-entropy" class="headerlink" title="Definition of Shannon entropy"></a>Definition of Shannon entropy</h2><p><img src="http://latex.codecogs.com/svg.latex?H(x)=-%5Csum_%7Bi%7D%20P(X=i)%5Clog%20P(X=i)" alt="img"></p>
+<h1 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h1><h2 id="Definition-of-Shannon-entropy"><a href="#Definition-of-Shannon-entropy" class="headerlink" title="Definition of Shannon entropy"></a>Definition of Shannon entropy</h2><p>$$<br>H(x)=-\sum_{i} P(X=i)\log P(X=i)<br>$$</p>
 <ul>
-<li>meaning: describe the amount of information needed to know the value of x.<ul>
-<li>the higher H(x) is, the more bit of information, except the x’s own distribution, we need to know the value of x.</li>
+<li>meaning: describe the amount of information needed to know the value of $x$.<ul>
+<li>the higher $H(x)$ is, the more bit of information, except the $x$’s own distribution, we need to know the value of $x$.</li>
 </ul>
 </li>
 </ul>
-<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h3 id="G-n-p-model"><a href="#G-n-p-model" class="headerlink" title="G(n,p) model"></a>G(n,p) model</h3><p><img src="http://latex.codecogs.com/svg.latex?H(n,p)=-%5Csum_%7Bm=1%7D%5E%7B%7B%7Bn+1%5Cchoose%202%7D%20%5Cchoose%20m%7D%7D%7B%7Bn+1%5Cchoose%202%7D%5Cchoose%20m%7Dp(n,m)%5Clog%20p(n,m)" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?p(n,m)=p%5Em(1-p)%5E%7B%7Bn+1%5Cchoose%202%7D-m%7D" alt="img"></p>
-<h3 id="G-n-m-model"><a href="#G-n-m-model" class="headerlink" title="G(n,m) model"></a>G(n,m) model</h3><p><img src="http://latex.codecogs.com/svg.latex?H(n,m)=-%7B%7Bn+1%5Cchoose%202%7D%5Cchoose%20m%7Dp_0%5Clog%20p_0" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?p_0=%5Cfrac%7B1%7D%7B%7B%7Bn+1%5Cchoose%202%7D%5Cchoose%20m%7D%7D" alt="img"></p>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5CRightarrow">http://latex.codecogs.com/svg.latex?%5CRightarrow</a> H%28n%2Cm%29%3D-%5Clog%20p_0%3D%5Clog%7B%7Bn%2B1%5Cchoose%202%7D%5Cchoose%20m%7D)</p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h3 id="G-n-p-model"><a href="#G-n-p-model" class="headerlink" title="$G(n,p)$ model"></a>$G(n,p)$ model</h3><p>$$<br>H(n,p)=-\sum_{m=1}^{T}T p(n, m)\log p(n,m)<br>$$</p>
+<p>where $T={D \choose m}$ and $D ={n+1\choose 2} $<br>$$<br>p(n,m)=p^m(1-p)^{D-m}<br>$$</p>
+<h3 id="G-n-m-model"><a href="#G-n-m-model" class="headerlink" title="$G(n,m)$ model"></a>$G(n,m)$ model</h3><p>$$<br>H(n,m)=-T p_0\log p_0<br>$$</p>
+<p>$$<br>p_0=\frac{1}{T}<br>$$</p>
+<p>$$<br>\Rightarrow H(n,m)=-\log p_0=\log T<br>$$</p>
 <h4 id="Micro-canonical-ensemble"><a href="#Micro-canonical-ensemble" class="headerlink" title="Micro-canonical ensemble"></a>Micro-canonical ensemble</h4><ul>
 <li><p>All microstates are equiprobable.</p>
 </li>
@@ -549,64 +557,74 @@
 </li>
 <li><p>the likelihood is simply the inverse of the number of realizations.</p>
 <ul>
-<li>the smaller the number</li>
-<li>the larger the likelihood</li>
-<li>the smaller the entropy</li>
-<li>MLE = minimize entropy</li>
-</ul>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?H(%5Ctheta)=%5Clog">http://latex.codecogs.com/svg.latex?H%28%5Ctheta%29%3D%5Clog</a> Z%28%5Ctheta%29)</p>
-<ul>
-<li><img src="http://latex.codecogs.com/svg.latex?Z(%5Ctheta)" alt="img"> is the number of instances.</li>
+<li><p>the smaller the number</p>
+</li>
+<li><p>the larger the likelihood</p>
+</li>
+<li><p>the smaller the entropy</p>
+</li>
+<li><p>MLE = minimize entropy<br>$$<br>H(\theta)=\log Z(\theta)<br>$$</p>
+</li>
+<li><p>$Z(\theta)$ is the number of instances.</p>
+</li>
 </ul>
 </li>
 </ul>
-<h3 id="stochastic-block-model"><a href="#stochastic-block-model" class="headerlink" title="stochastic block model"></a>stochastic block model</h3><p>Modify the block matrix M by M_{ij} representing the number of edges between block i and block j, not the probability of edges appearing. Hence, we <strong>change the stochastic block model as a micro-canonical ensemble</strong>.</p>
+<h3 id="stochastic-block-model"><a href="#stochastic-block-model" class="headerlink" title="stochastic block model"></a>stochastic block model</h3><p>Modify the block matrix M by $M_{ij}$ representing the number of edges between block i and block j, not the probability of edges appearing. Hence, we <strong>change the stochastic block model as a micro-canonical ensemble</strong>.</p>
 <p>We have two parameters: M and z. They are independent.</p>
 <ul>
-<li> N_{kl} are decided by the vector z, the block assignment vector. When we know z, we can know how many nodes in each block and calculate N.</li>
-<li>E_{kl} are decided by the vector z and the topology of the network. We need combine the block assignment of a node and its link to others to count.</li>
-<li>M: note that <strong>not all M and z match</strong> each other. There exists contradiction, e.g. M_{ij} &gt; N_{ij}</li>
-<li>the likelihood is based on three objects:<ul>
-<li>the block matrix M</li>
-<li>the block assignment vector z</li>
+<li><p>$N_{kl}$ are decided by the vector z, the block assignment vector. When we know z, we can know how many nodes in each block and calculate N.</p>
+</li>
+<li><p>$E_{kl}$ are decided by the vector z and the topology of the network. We need combine the block assignment of a node and its link to others to count.</p>
+</li>
+<li><p>M: note that <strong>not all M and z match</strong> each other. There exists contradiction, e.g. $M_{ij} &gt; N_{ij}$</p>
+</li>
+<li><p>the likelihood is based on three objects:</p>
+<ul>
+<li>the block matrix $M$</li>
+<li>the block assignment vector $z$</li>
 <li>the known network (with link information)</li>
 </ul>
+<p>$$<br>H(M,z)=\log Z(M,z)= \log \Pi_{1\leq k\leq l\leq B}{N_{kl}\choose M_{kl}}<br>$$</p>
+<p>$$<br>=\sum_{1\leq k\leq l\leq B}\log P{N_{kl}\choose M_{kl}}<br>$$</p>
 </li>
 </ul>
-<p><img src="http://latex.codecogs.com/svg.latex?H(M,z)=%5Clog%20Z(M,z)%20=%20%5Clog%20%5CPi_%7B1%5Cleq%20k%5Cleq%20l%5Cleq%20B%7D%7BN_%7Bkl%7D%5Cchoose%20M_%7Bkl%7D%7D=%5Csum_%7B1%5Cleq%20k%5Cleq%20l%5Cleq%20B%7D%5Clog%20P%7BN_%7Bkl%7D%5Cchoose%20M_%7Bkl%7D%7D" alt="img"></p>
-<p>The maximum likelihood given z is</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Chat%7BH%7D(z)=%5Csum_%7B1%5Cleq%20k%5Cleq%20l%5Cleq%20B%7D%5Clog%20p%7BN_%7Bkl%7D%5Cchoose%20E_%7Bkl%7D%7D" alt="img"></p>
+<p>The maximum likelihood given $z$ is<br>$$<br>\hat{H}(z)=\sum_{1\leq k\leq l\leq B}\log p{N_{kl}\choose E_{kl}}<br>$$</p>
 <h1 id="Description-length"><a href="#Description-length" class="headerlink" title="Description length"></a>Description length</h1><p>This is a trade-off between explanatory power and complexity, like AIC (interesting, AIC is also based on the information theory). It works by adding punishment of parameters. The good thing of this criterion is the number can be directly interpreted as bit of information.</p>
-<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p> <img src="http://latex.codecogs.com/svg.latex?%5Clambda(z)=H(z)+%5CDelta(z)" alt="img"></p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>$$<br>\lambda(z)=H(z)+\Delta(z)<br>$$</p>
 <ul>
-<li><img src="http://latex.codecogs.com/svg.latex?%5CDelta(z)" alt="img">: the bits of information needed for parameters.</li>
+<li>$\Delta(z)$: the bits of information needed for parameters.</li>
 </ul>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>For stochastic block model, the approximation solution is</p>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Clambda(z)=%5CDelta(z)+m%5Ccdot">http://latex.codecogs.com/svg.latex?%5Clambda%28z%29%3D%5CDelta%28z%29%2Bm%5Ccdot</a> h%28x%29%2Ch%28x%29%3D%281%2Bx%29%5Clog%281%2Bx%29-x%5Clog%28x%29%2C%20x%3D%20%5Cfrac%7BB%28B%2B1%29%7D%7B2m%7D%2Bn%5Ccdot%5Clog%28B%29)</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>For stochastic block model, the approximation solution is<br>$$<br>\lambda(z)=\Delta(z)+m\cdot h(x),h(x)=(1+x)\log(1+x)-x\log(x)<br>$$</p>
+<p>$$<br>x= \frac{B(B+1)}{2m}+n\cdot\log(B)<br>$$</p>
 <h1 id="Flow-compression"><a href="#Flow-compression" class="headerlink" title="Flow compression"></a>Flow compression</h1><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h2><p>using the cluster to compress the flow description sequence</p>
 <h2 id="Hierarchy-coding-scheme"><a href="#Hierarchy-coding-scheme" class="headerlink" title="Hierarchy coding scheme"></a>Hierarchy coding scheme</h2><h2 id="Huffman-code"><a href="#Huffman-code" class="headerlink" title="Huffman code"></a>Huffman code</h2><p>pre-fix coding</p>
 <h2 id="Source-coding-theorem"><a href="#Source-coding-theorem" class="headerlink" title="Source coding theorem"></a>Source coding theorem</h2><p>the minimum pre-symbol length of lossless code given by Shannon entropy</p>
-<p>Hoffman code is asymptotically optimal for n i.i.d symbols with known prob. mass function P</p>
-<p><img src="http://latex.codecogs.com/svg.latex?L_n%5Cto%20n%5Ccdot%20H(p)" alt="img"></p>
-<h1 id="MapEquation"><a href="#MapEquation" class="headerlink" title="MapEquation"></a>MapEquation</h1><h2 id="Definition-1"><a href="#Definition-1" class="headerlink" title="Definition"></a>Definition</h2><p>The minimal code length for mapping nodes to k communities</p>
-<p><img src="http://latex.codecogs.com/svg.latex?L(%5Cvec%7Bz_k%7D)=qH(Q)+%5Csum_%7Bi=1%7D%5Ek%20p_i%20H(P_i)" alt="img"></p>
+<p>Hoffman code is asymptotically optimal for n i.i.d symbols with known prob. mass function $P$​<br>$$<br>L_n\to n\cdot H(p)<br>$$</p>
+<h1 id="MapEquation"><a href="#MapEquation" class="headerlink" title="MapEquation"></a>MapEquation</h1><h2 id="Definition-1"><a href="#Definition-1" class="headerlink" title="Definition"></a>Definition</h2><p>The minimal code length for mapping nodes to $k$​ communities<br>$$<br>L(\vec{z_k})=qH(Q)+\sum_{i=1}^k p_i H(P_i)<br>$$</p>
 <ul>
 <li>q: the per-step probability that random walker switches between communities</li>
-<li>p_i: the per-step probability that random walker switches within community i. <ul>
-<li><img src="http://latex.codecogs.com/svg.latex?q+%5Csum_%7Bi=1%7D%5Ekp_i=1" alt="img"></li>
-<li>Not  <img src="http://latex.codecogs.com/svg.latex?%5Csum_%7Bi=1%7D%5Ekp_i=1" alt="img"></li>
+<li>p_i: the per-step probability that random walker switches within community $i$. <ul>
+<li><p>$$<br>q+\sum_{i=1}^kp_i=1<br>$$</p>
+</li>
+<li><p>Not  $\sum_{i=1}^kp_i=1$</p>
+</li>
 </ul>
 </li>
-<li>H(Q): the bits needed to encode clusters.</li>
-<li>H(P_i): the bits needed to encode nodes within cluster P_i</li>
+<li>$H(Q)$: the bits needed to encode clusters.</li>
+<li>$H(P_i)$: the bits needed to encode nodes within cluster $P_i$</li>
 </ul>
-<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h2><h3 id="undirected-and-unweighted-network"><a href="#undirected-and-unweighted-network" class="headerlink" title="undirected and unweighted network"></a>undirected and unweighted network</h3><p>each edge has the same visit probability <img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7B1%7D%7Bm%7D" alt="img"> </p>
-<p>node with degree d_v has the stationary visit probability <img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7Bd_v%7D%7B2m%7D" alt="img"></p>
-<p>so we can get q and p_i</p>
+<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h2><h3 id="undirected-and-unweighted-network"><a href="#undirected-and-unweighted-network" class="headerlink" title="undirected and unweighted network"></a>undirected and unweighted network</h3><p>each edge has the same visit probability $\frac{1}{m}$ </p>
+<p>node with degree $d_v$ has the stationary visit probability $\frac{d_v}{2m}$ </p>
+<p>so we can get $q$ and $p_i$</p>
 <h2 id="generalized-to-directed-weighted-network"><a href="#generalized-to-directed-weighted-network" class="headerlink" title="generalized to directed/weighted network"></a>generalized to directed/weighted network</h2><p>Instead of using the relative frequencies of links within and across communities, we now actually have to calculate eigenvectors to find the stationary visitation probabilities of nodes and communities.</p>
-<h2 id="Detection-algorithms"><a href="#Detection-algorithms" class="headerlink" title="Detection algorithms"></a>Detection algorithms</h2><h3 id="InfoMap"><a href="#InfoMap" class="headerlink" title="InfoMap"></a>InfoMap</h3><p>find community assignment (with any number of communities) s.t.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Chat%7B%5Cvec%7Bz%7D%7D=%5Carg_%7B%5Cvec%7Bz%7D%7D%5Cmin%20L(%5Cvec%7Bz%7D)" alt="img"></p>
-<h3 id="Heuristic-to-find-to-discover-algorithms"><a href="#Heuristic-to-find-to-discover-algorithms" class="headerlink" title="Heuristic (to find/to discover) algorithms"></a>Heuristic (to find/to discover) algorithms</h3><h4 id="Simulated-annealing"><a href="#Simulated-annealing" class="headerlink" title="Simulated annealing"></a>Simulated annealing</h4><h4 id="Greedy-optimization"><a href="#Greedy-optimization" class="headerlink" title="Greedy optimization"></a>Greedy optimization</h4><h4 id="Genetic-algorithms"><a href="#Genetic-algorithms" class="headerlink" title="Genetic algorithms"></a>Genetic algorithms</h4>
+<h2 id="Detection-algorithms"><a href="#Detection-algorithms" class="headerlink" title="Detection algorithms"></a>Detection algorithms</h2><h3 id="InfoMap"><a href="#InfoMap" class="headerlink" title="InfoMap"></a>InfoMap</h3><p>find community assignment (with any number of communities) s.t.<br>$$<br>\hat{\vec{z}}=\arg_{\vec{z}}\min L(\vec{z})<br>$$</p>
+<h3 id="Heuristic-to-find-to-discover-algorithms"><a href="#Heuristic-to-find-to-discover-algorithms" class="headerlink" title="Heuristic (to find/to discover) algorithms"></a>Heuristic (to find/to discover) algorithms</h3><ul>
+<li>Simulated annealing</li>
+<li>Greedy optimization</li>
+<li>Genetic algorithms</li>
+</ul>
+
             </div>
             <hr/>
 
@@ -669,12 +687,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/complex-system/">
-                                    <span class="chip bg-color">complex system</span>
+                                <a href="../tags/Graph/">
+                                    <span class="chip bg-color">Graph</span>
                                 </a>
                             
-                                <a href="../tags/network/">
-                                    <span class="chip bg-color">network</span>
+                                <a href="../tags/Complex-System/">
+                                    <span class="chip bg-color">Complex System</span>
                                 </a>
                             
                         </div>
@@ -1159,8 +1177,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1170,12 +1188,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/complex-system/">
-                        <span class="chip bg-color">complex system</span>
+                    <a href="../tags/Graph/">
+                        <span class="chip bg-color">Graph</span>
                     </a>
                     
-                    <a href="../tags/network/">
-                        <span class="chip bg-color">network</span>
+                    <a href="../tags/Complex-System/">
+                        <span class="chip bg-color">Complex System</span>
                     </a>
                     
                 </div>
@@ -1212,8 +1230,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1223,12 +1241,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/complex-system/">
-                        <span class="chip bg-color">complex system</span>
+                    <a href="../tags/Graph/">
+                        <span class="chip bg-color">Graph</span>
                     </a>
                     
-                    <a href="../tags/network/">
-                        <span class="chip bg-color">network</span>
+                    <a href="../tags/Complex-System/">
+                        <span class="chip bg-color">Complex System</span>
                     </a>
                     
                 </div>
@@ -1391,6 +1409,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

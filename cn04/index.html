@@ -420,12 +420,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/complex-system/">
-                                <span class="chip tag-color">complex system</span>
+                            <a href="../tags/Graph/">
+                                <span class="chip tag-color">Graph</span>
                             </a>
                         
-                            <a href="../tags/network/">
-                                <span class="chip tag-color">network</span>
+                            <a href="../tags/Complex-System/">
+                                <span class="chip tag-color">Complex System</span>
                             </a>
                         
                     </div>
@@ -436,8 +436,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -485,9 +485,9 @@
 <li>see below.</li>
 </ul>
 </li>
-<li><p>what is the expected clustering coefficient for G(n,p) microstates?</p>
+<li><p>what is the expected clustering coefficient for $G(n,p)$ microstates?</p>
 <ul>
-<li>p</li>
+<li>$p$</li>
 </ul>
 </li>
 <li><p>what clustering coefficient do you expect in the limit of infinite, sparse random networks?</p>
@@ -495,7 +495,7 @@
 <li>0</li>
 </ul>
 </li>
-<li><p>what degree assortativity r do you expect for G(n,p) microstates?</p>
+<li><p>what degree assortativity $r$ do you expect for $G(n,p)$ microstates?</p>
 <ul>
 <li>0</li>
 </ul>
@@ -503,11 +503,11 @@
 <li><p>describe the construction mechanism of a Watts-Strogatz network.</p>
 <ul>
 <li>build a regular lattice m networks first</li>
-<li> (<strong>no</strong>) for each node, randomly choose p portion edges and rewire them to randomly selected other neighbours.</li>
-<li>for each edge, rewire the source of it with the probability p to a random node.</li>
+<li> (<strong>no</strong>) for each node, randomly choose $p$ portion edges and rewire them to randomly selected other neighbours.</li>
+<li>for each edge, rewire the source of it with the probability $p$ to a random node.</li>
 </ul>
 </li>
-<li><p>show that the clustering coefficient in a ring lattice where s nearest neighbors are connected is  <img src="http://latex.codecogs.com/svg.latex?C=%5Cfrac%7B3s-3%7D%7B4s-2%7D" alt="img"></p>
+<li><p>show that the clustering coefficient in a ring lattice where s nearest neighbors are connected is $C=\frac{3s-3}{4s-2}$  </p>
 <ul>
 <li>see below</li>
 </ul>
@@ -531,15 +531,14 @@
 <h1 id="Erdos-Renyi-Network"><a href="#Erdos-Renyi-Network" class="headerlink" title="Erdos-Renyi Network"></a>Erdos-Renyi Network</h1><p>The expected statistical index of ER model. </p>
 <p>We have already know, </p>
 <ul>
-<li>the number of nodes n,</li>
-<li>the number of edges n^2p/2 (or others) or m</li>
-<li>the mean degree np</li>
-<li>the variance of edges np(1-p) </li>
+<li>the number of nodes $n$,</li>
+<li>the number of edges $\frac{n^2p}{2}$ (or others) or m</li>
+<li>the mean degree $np$</li>
+<li>the variance of edges $np(1-p)$ </li>
 </ul>
-<h2 id="Clustering-coefficient"><a href="#Clustering-coefficient" class="headerlink" title="Clustering coefficient"></a>Clustering coefficient</h2><p>In G(n,p) model, since links are independent,</p>
-<p><img src="http://latex.codecogs.com/svg.latex?P%5B(j,k)%5Cin%20E%7C(i,j)%5Cin%20E,%20(i,k)%5Cin%20E%5D=P%5B(j,k)%5Cin%20E%5D%20=%20p=C" alt="img"></p>
+<h2 id="Clustering-coefficient"><a href="#Clustering-coefficient" class="headerlink" title="Clustering coefficient"></a>Clustering coefficient</h2><p>In $G(n,p)$​ model, since links are independent,<br>$$<br>P[(j,k)\in E|(i,j)\in E,(i,j)\in E]=P[(j,k)\in E]=p=C<br>$$</p>
 <h2 id="Diameter"><a href="#Diameter" class="headerlink" title="Diameter"></a>Diameter</h2><p>The idea is starting from an arbitrary node, how many expected steps will this node reach other nodes?</p>
-<p>Suppose each node has <img src="http://latex.codecogs.com/svg.latex?k" alt="img"> neighbors, in <img src="http://latex.codecogs.com/svg.latex?l" alt="img"> steps, it will approximately reach <img src="http://latex.codecogs.com/svg.latex?k+k%5E2+%5Ccdots+k%5El" alt="img"> nodes, totally <img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7Bk%5E%7Bl+1%7D-1%7D%7Bk-1%7D%5Csim%20k%5El" alt="img"> nodes (including himself). When <img src="http://latex.codecogs.com/svg.latex?k%5El" alt="img"> equals to <img src="http://latex.codecogs.com/svg.latex?N" alt="img">, the total number of nodes, ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?l%5Csim%5Cfrac%7B%5Clog">http://latex.codecogs.com/svg.latex?l%5csim%5cfrac%7B%5clog</a> N%7D%7B%5clog k%7D)</p>
+<p>Suppose each node has $k$ neighbors, in $l$ steps, it will approximately reach $k+k^2+\cdots k^l$ nodes, totally $\frac{k^{l+1}-1}{k-1}\sim k^l$  nodes (including himself). When $k^l$  equals to $N$ , the total number of nodes, $l\sim\frac{\log N}{\log k}$ </p>
 <h1 id="Small-world-network"><a href="#Small-world-network" class="headerlink" title="Small-world network"></a>Small-world network</h1><h2 id="Stylised-fact"><a href="#Stylised-fact" class="headerlink" title="Stylised fact"></a>Stylised fact</h2><ul>
 <li>small diameters</li>
 <li>high clustering coefficient</li>
@@ -557,26 +556,25 @@
 </li>
 </ul>
 <h2 id="Detection"><a href="#Detection" class="headerlink" title="Detection"></a>Detection</h2><p>We can judge if a network is a small-world network by randomly generating networks and compare their <strong>diameter and clustering coefficient</strong>.</p>
-<h2 id="Watts-Strogatz-Model"><a href="#Watts-Strogatz-Model" class="headerlink" title="Watts-Strogatz Model"></a>Watts-Strogatz Model</h2><h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><p>Randomly rewire links in ring lattice network of size n.</p>
+<h2 id="Watts-Strogatz-Model"><a href="#Watts-Strogatz-Model" class="headerlink" title="Watts-Strogatz Model"></a>Watts-Strogatz Model</h2><h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><p>Randomly rewire links in ring lattice network of size $n$.</p>
 <h3 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h3><ul>
-<li>d: dimensionality (no deep study)</li>
-<li>s: the distance of the farthest neighbor</li>
-<li>p: the rewiring probability</li>
+<li>$d$: dimensionality (no deep study)</li>
+<li>$s$: the distance of the farthest neighbor</li>
+<li>$p$: the rewiring probability</li>
 </ul>
 <h3 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h3><ol>
-<li>start with regular lattice of dimension d (ring lattice: d = 1)</li>
-<li>connect nodes at lattice distance up to s (example: s = 5)</li>
-<li>rewire source of each link to random node with probability p</li>
+<li>start with regular lattice of dimension $d$ , ring lattice: $d = 1$​</li>
+<li>connect nodes at lattice distance up to $s$, example: $s = 5$​</li>
+<li>rewire source of each link to random node with probability $p$</li>
 </ol>
-<h3 id="Ring-lattice"><a href="#Ring-lattice" class="headerlink" title="Ring lattice"></a>Ring lattice</h3><h4 id="Clustering-coefficient-1"><a href="#Clustering-coefficient-1" class="headerlink" title="Clustering coefficient"></a>Clustering coefficient</h4><p>Assume each node maintains a window with width of <img src="http://latex.codecogs.com/svg.latex?2s+1" alt="img">. For each node, it has <img src="http://latex.codecogs.com/svg.latex?2s" alt="img"> neighbors. For the node with the distance <img src="http://latex.codecogs.com/svg.latex?t,t%3Cs" alt="img">, its window overlaps with the original node with the size of <img src="http://latex.codecogs.com/svg.latex?2s+1-t" alt="img">. Among these <img src="http://latex.codecogs.com/svg.latex?2s+1-t" alt="img"> nodes, one is the original node and the other is the center of the new window. So, totally the new node is linked to <img src="http://latex.codecogs.com/svg.latex?2s-t-1" alt="img"> to the old node’s neighbors. </p>
-<p>The clustering coefficient is the number of appearance links <img src="http://latex.codecogs.com/svg.latex?%5CSigma_%7Bi%7Doverlap_i" alt="img"> divided by the total number of possible links <img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7B2s(2s-1)%7D%7B2%7D" alt="img">. </p>
-<p><img src="http://latex.codecogs.com/svg.latex?C%20=%20%5Cfrac%7B2%5B%5CSigma_%7Bi=1%7D%5Es%20(2s-i-1)%5D/2%7D%7B(2s-1)2s/2%7D=%5Cfrac%7B3s-3%7D%7B4s-2%7D" alt="img"></p>
-<h4 id="Diameter-1"><a href="#Diameter-1" class="headerlink" title="Diameter"></a>Diameter</h4><p>Assume a circle, in one step, a node can reach to the node with <img src="http://latex.codecogs.com/svg.latex?s" alt="img"> distance from it farthest. The farthest node has <img src="http://latex.codecogs.com/svg.latex?n/2" alt="img"> steps from it. It totally costs <img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7Bn/2%7D%7Bs%7D" alt="img"> steps.</p>
-<p>Therefore, ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?D%5Csim">http://latex.codecogs.com/svg.latex?D%5csim</a> %5cfrac%7Bn%7D%7B2s%7D)</p>
+<h3 id="Ring-lattice"><a href="#Ring-lattice" class="headerlink" title="Ring lattice"></a>Ring lattice</h3><h4 id="Clustering-coefficient-1"><a href="#Clustering-coefficient-1" class="headerlink" title="Clustering coefficient"></a>Clustering coefficient</h4><p>Assume each node maintains a window with width of $2s+1$ . For each node, it has $2s$ neighbors. For the node with the distance $t,t&lt;s$, its window overlaps with the original node with the size of $2s+1-t$. Among these  $2s+1-t$ nodes, one is the original node and the other is the center of the new window. So, totally the new node is linked to $2s-1-t$ to the old node’s neighbors. </p>
+<p>The clustering coefficient is the number of appearance links $\sum_i\text{overlap}<em>i$​  divided by the total number of possible links $\frac{2s(2s-1)}{2}$ .<br>$$<br>C=\frac{2[\sum</em>{i=1}^s(2s-i-1)]/2}{(2s-1)2s/2}=\frac{3s-3}{4s-2}<br>$$</p>
+<h4 id="Diameter-1"><a href="#Diameter-1" class="headerlink" title="Diameter"></a>Diameter</h4><p>Assume a circle, in one step, a node can reach to the node with $s$ distance from it farthest. The farthest node has $\frac{n}{2}$ steps from it. It totally costs  $\frac{n}{2s}$ steps.</p>
+<p>Therefore, $D\sim \frac{n}{2s}$</p>
 <h4 id="Degree-distribution"><a href="#Degree-distribution" class="headerlink" title="Degree distribution"></a>Degree distribution</h4><p>all the nodes have the same degree.</p>
-<h3 id="Clustering-coefficient-2"><a href="#Clustering-coefficient-2" class="headerlink" title="Clustering coefficient"></a>Clustering coefficient</h3><p><img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7BC_p%7D%7BC_0%7D" alt="img"> drops slowly first and then rapidly</p>
-<h3 id="Diameter-2"><a href="#Diameter-2" class="headerlink" title="Diameter"></a>Diameter</h3><p><img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7Bl_p%7D%7Bl_0%7D" alt="img"> drops rapidly first and then slowly.</p>
-<h3 id="Small-world-regime"><a href="#Small-world-regime" class="headerlink" title="Small world regime"></a>Small world regime</h3><p>A range of <img src="http://latex.codecogs.com/svg.latex?p" alt="img">, where <img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7Bl_p%7D%7Bl_0%7D%5Cll1" alt="img"> and ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Cfrac%7BC_p%7D%7BC_0%7D%5Cgg">http://latex.codecogs.com/svg.latex?%5cfrac%7BC_p%7D%7BC_0%7D%5cgg</a> 0)</p>
+<h3 id="Clustering-coefficient-2"><a href="#Clustering-coefficient-2" class="headerlink" title="Clustering coefficient"></a>Clustering coefficient</h3><p> $\frac{C_p}{C_0}$​ drops slowly first and then rapidly</p>
+<h3 id="Diameter-2"><a href="#Diameter-2" class="headerlink" title="Diameter"></a>Diameter</h3><p>$\frac{l_p}{l_0}$​ drops rapidly first and then slowly.</p>
+<h3 id="Small-world-regime"><a href="#Small-world-regime" class="headerlink" title="Small world regime"></a>Small world regime</h3><p>A range of $p$, where  $\frac{l_p}{l_0}\ll 1$and $\frac{C_p}{C_0}\gg 0$</p>
 <h1 id="Fix-degree-sequence-network"><a href="#Fix-degree-sequence-network" class="headerlink" title="Fix degree sequence network"></a>Fix degree sequence network</h1><p>We study degree sequence because we can</p>
 <ul>
 <li><strong>analytically</strong> study expected properties of networks.<ul>
@@ -588,24 +586,21 @@
 </ul>
 <h2 id="Molloy-Reed-model"><a href="#Molloy-Reed-model" class="headerlink" title="Molloy-Reed model"></a>Molloy-Reed model</h2><ol>
 <li>create empty network with n nodes</li>
-<li>for each node i generate <img src="http://latex.codecogs.com/svg.latex?d_i" alt="img"> “link stubs”</li>
+<li>for each node $i$ generate $d_i$ “link stubs”</li>
 <li>draw pairs of link stubs uniformly at random and connect them until no stubs are left.</li>
 </ol>
 <h2 id="Difference-with-degree-distribution"><a href="#Difference-with-degree-distribution" class="headerlink" title="Difference with degree distribution"></a>Difference with degree distribution</h2><p>Given the degree sequence, the number of edges is given.</p>
 <p>But given the degree distribution, e.g. Poisson degree distribution, the number of edges is still flexible, but the expectation is fixed.</p>
-<h3 id="Poisson-Degree-Distribution"><a href="#Poisson-Degree-Distribution" class="headerlink" title="Poisson Degree Distribution"></a>Poisson Degree Distribution</h3><ul>
-<li><img src="http://latex.codecogs.com/svg.latex?p(k)=%5Cfrac%7B%5Clambda%5Eke%5E%7B-%5Clambda%7D%7D%7Bk!%7D" alt="img"></li>
-<li><img src="http://latex.codecogs.com/svg.latex?%5Clambda" alt="img"> is the mean degree</li>
+<h3 id="Poisson-Degree-Distribution"><a href="#Poisson-Degree-Distribution" class="headerlink" title="Poisson Degree Distribution"></a>Poisson Degree Distribution</h3><p>$$<br>p(k)=\frac{\lambda^ke^{-\lambda}}{k!}<br>$$</p>
+<ul>
+<li>$\lambda$ is the mean degree</li>
 <li>it describes the degree distribution of <strong>sparse</strong> random networks</li>
-<li>for large <img src="http://latex.codecogs.com/svg.latex?n" alt="img">, it is equivalent to statistical ensemble generated by G(n,p) model with <img src="http://latex.codecogs.com/svg.latex?np=%5Clambda" alt="img"></li>
+<li>for large $n$, it is equivalent to statistical ensemble generated by $G(n,p)$ model with $np=\lambda$ </li>
 </ul>
-<h3 id="Zipf-degree-distribution"><a href="#Zipf-degree-distribution" class="headerlink" title="Zipf degree distribution"></a>Zipf degree distribution</h3><ul>
-<li><p><img src="http://latex.codecogs.com/svg.latex?p(k)=k%5E%7B-%5Cgamma%7D%5Ccdot%5Czeta(%5Cgamma)%5E%7B-1%7D" alt="img"></p>
-</li>
-<li><p>power law with ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Cgamma%5Cgeq">http://latex.codecogs.com/svg.latex?%5cgamma%5cgeq</a> 2)</p>
-</li>
-<li><p>it describes for a <strong>broad degree</strong> distribution, to imitate <strong>scale-free</strong> networks.</p>
-</li>
+<h3 id="Zipf-degree-distribution"><a href="#Zipf-degree-distribution" class="headerlink" title="Zipf degree distribution"></a>Zipf degree distribution</h3><p>$$<br>p(k)=k^{-\gamma}\cdot \zeta(\gamma)^{-1}<br>$$</p>
+<ul>
+<li>power law with $\gamma\geq 2$ </li>
+<li>it describes for a <strong>broad degree</strong> distribution, to imitate <strong>scale-free</strong> networks.</li>
 </ul>
 
             </div>
@@ -670,12 +665,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/complex-system/">
-                                    <span class="chip bg-color">complex system</span>
+                                <a href="../tags/Graph/">
+                                    <span class="chip bg-color">Graph</span>
                                 </a>
                             
-                                <a href="../tags/network/">
-                                    <span class="chip bg-color">network</span>
+                                <a href="../tags/Complex-System/">
+                                    <span class="chip bg-color">Complex System</span>
                                 </a>
                             
                         </div>
@@ -1160,8 +1155,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1171,12 +1166,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/complex-system/">
-                        <span class="chip bg-color">complex system</span>
+                    <a href="../tags/Graph/">
+                        <span class="chip bg-color">Graph</span>
                     </a>
                     
-                    <a href="../tags/network/">
-                        <span class="chip bg-color">network</span>
+                    <a href="../tags/Complex-System/">
+                        <span class="chip bg-color">Complex System</span>
                     </a>
                     
                 </div>
@@ -1388,6 +1383,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

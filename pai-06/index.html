@@ -420,12 +420,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/probabilistic-artificial-intelligence/">
-                                <span class="chip tag-color">probabilistic artificial intelligence</span>
+                            <a href="../tags/AI/">
+                                <span class="chip tag-color">AI</span>
                             </a>
                         
-                            <a href="../tags/reinforcement-learning/">
-                                <span class="chip tag-color">reinforcement learning</span>
+                            <a href="../tags/Reinforcement-Learning/">
+                                <span class="chip tag-color">Reinforcement Learning</span>
+                            </a>
+                        
+                            <a href="../tags/Markov/">
+                                <span class="chip tag-color">Markov</span>
                             </a>
                         
                     </div>
@@ -436,8 +440,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -460,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    7 Min
+                    9 Min
                 </div>
                 
 
@@ -479,17 +483,17 @@
 <h1 id="Markov-Decision-Process"><a href="#Markov-Decision-Process" class="headerlink" title="Markov Decision Process"></a>Markov Decision Process</h1><p>An essential model studied in the context of decision making under uncertainty. The most basic model in making inference is Markov chain. MDP is the most basic model in making decisions, which is controlled Markov chain.</p>
 <p>An MDP is specified by:</p>
 <ul>
-<li>a set of states X={1, 2, …, n}</li>
-<li>a set of actions A={1,2,…,m}</li>
-<li>Transition probabilities: the next state not only depends on the current state, but also on the taken actions. P(x’|x,a)=Prob(Next state = x’|Action a in state x)</li>
-<li>A reward function r(x,a): objective: state and action pair. <ul>
+<li>a set of states $X={1, 2, \cdots, n}$</li>
+<li>a set of actions $A={1,2,\cdots,m}$</li>
+<li>Transition probabilities: the next state not only depends on the current state, but also on the taken actions. $P(x’|x,a)=\Pr(\text{Next state} = x’|\text{Action } a \text{ in state } x)$​</li>
+<li>A reward function $r(x,a)$: objective: state and action pair. <ul>
 <li>where does the reward come from? An engineering choice. Many works on how to define a good reward function. For instance, reverse reinforcement learning, where I have an ideal series of actions, I want to define a kind of reward to make this series come true.</li>
 <li>This reward function could be deterministic or random. If it is random, we look its expected value.</li>
 </ul>
 </li>
 </ul>
 <p>The problem is how to choose actions to maximize rewards. </p>
-<h2 id="Planning-in-MDPs"><a href="#Planning-in-MDPs" class="headerlink" title="Planning in MDPs"></a>Planning in MDPs</h2><p>Currently, assuming that r (reward function) and P(transition) are known.</p>
+<h2 id="Planning-in-MDPs"><a href="#Planning-in-MDPs" class="headerlink" title="Planning in MDPs"></a>Planning in MDPs</h2><p>Currently, assuming that $r$ reward function and $P$ transition are known.</p>
 <p><strong>Policy</strong> is a function from states to actions. It could be deterministic or stochastic. </p>
 <p>How to compare policies? According to the reward function. Several strategies to use the reward function</p>
 <ul>
@@ -498,19 +502,15 @@
 <li>This is a generalization of naive greedy. Question: what is the certain number? why others?</li>
 </ul>
 </li>
-<li>count more on the current step than those in future. Discount calculation. How to make discounts?<ul>
-<li><img src="http://latex.codecogs.com/svg.latex?%5Cmathbb%7BE%7D%5Br(X_0,%5Cpi(X_0))+%5Cgamma%20r(X_1,%5Cpi(X_1))+%5Cgamma%5E2r(X_2,%5Cpi(X_2))+%5Ccdots%5D" alt="value"></li>
-</ul>
-</li>
+<li>count more on the current step than those in future. Discount calculation. How to make discounts?<br>$$<br>\mathbb{E}[r(X_0,\pi(X_0))+\gamma r(X_1,\pi(X_1))+\gamma^2r(X_2,\pi(X_2))+\cdots]<br>$$</li>
 </ul>
 <p>Assuming that, we have a strategy to score policy, then, what is the optimal policy?</p>
 <h3 id="Value-function"><a href="#Value-function" class="headerlink" title="Value function"></a>Value function</h3><p>Given the starting state x, try to evaluate a policy from a long term view:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?V%5E%7B%5Cpi%7D(x)=J(%5Cpi%7CX_0=x)=%5Cmathbb%7BE%7D%5B%5Csum_%7Bt=0%7D%5E%7B%5Cinfty%7D%5Cgamma%5Et%20r(X_t,%5Cpi(X_t))%7CX_0=x%5D" alt="valuefunc"></p>
-<p>This is a function on the state. Each state is mapped to one value.</p>
+<p>$$<br>V^{\pi}(x)=J(\pi|X_0=x)=\mathbb{E}[\sum_{t=0}^{\infty}\gamma^t r(X_t,\pi(X_t))|X_0=x]<br>$$<br>This is a function on the state. Each state is mapped to one value.</p>
 <p>It has <strong>recursive relation</strong>. What is recursion? </p>
-<p><img src="http://latex.codecogs.com/svg.latex?V%5E%7B%5Cpi%7D(x)=r(x,%5Cpi(x))+%5Cgamma%5Csum_%7Bx%27%7D%5CPr%5Bx%27%7Cx,%5Cpi(x)%5DV%5E%7B%5Cpi%7D(x%27)" alt="recurs"></p>
+<p>$$<br>V^{\pi}(x)=r(x,\pi(x))+\gamma\sum_{x’}\Pr[x’|x,\pi(x)]V^{\pi}(x’)<br>$$</p>
 <h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>How to solve this function?</p>
-<p>Supposing there are finite states with n states. Then, this is a group of n linear functions with n unknown variables, which have a unique solution when gamma&lt;1. </p>
+<p>Supposing there are finite states with n states. Then, this is a group of n linear functions with n unknown variables, which have a unique solution when $\gamma&lt;1$. </p>
 <ul>
 <li>for any given start state, we can have the value of the policy</li>
 <li>if the start state is random, we can take the expectation of the policy’s value.</li>
@@ -519,27 +519,27 @@
 <ul>
 <li><p>A simple algorithm</p>
 <ol>
-<li>for every policy pi compute <img src="http://latex.codecogs.com/svg.latex?J(%5Cpi)=%5Csum_x%5CPr%5BX_0=x%5DV%5E%7B%5Cpi%7D(x)" alt="policyfunc"></li>
+<li>for every policy pi compute $J(\pi)=\sum_x\Pr[X_0=x]V^{\pi}(x)$  </li>
 <li>pick the policy with the maximum expected value.</li>
 </ol>
-<p>The complexity is linear to the number of polices, which is the number of actions exponential to the number of states. <img src="http://latex.codecogs.com/svg.latex?O(m%5En)" alt="complexity"></p>
+<p>The complexity is linear to the number of polices, which is the number of actions exponential to the number of states $O(m^n)$</p>
 </li>
-<li><p>A more efficient algorithm. Consider a new setting, we have been told the value of each state, which action to take? An intuition is greedy maximizing the trade-off between the immediate action and the future states. In this way, we achieve a “best” policy. (best under the meaning of our maximize standard)</p>
-<p> <img src="http://latex.codecogs.com/svg.latex?a%5E*%5Cin%5Carg_a%5Cmax%20r(x,a)+%5Cgamma%5Csum_%7Bx%27%7D%5CPr%5Bx%27%7Cx,a%5DV(x%27)" alt="best-action"></p>
+<li><p>A more efficient algorithm. Consider a new setting, we have been told the value of each state, which action to take? An intuition is greedy maximizing the trade-off between the immediate action and the future states. In this way, we achieve a “best” policy. Best under the meaning of our maximize standard.</p>
+<p> $$<br>a^*\in\arg_a\max r(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V(x’)<br>$$</p>
 <ul>
 <li>the <strong>greedy police</strong> is with respect to the value of state.</li>
 </ul>
 </li>
 </ul>
-<p><strong>Theorem</strong> (Bellman): A policy is optimal &lt;=&gt; The greedy policy w.r.t its induced value function is itself.</p>
+<p><strong>Theorem</strong> Bellman: A policy is optimal $\Leftrightarrow$ The greedy policy w.r.t its induced value function is itself.</p>
 <p>How to use this theorem to find optimal policy?</p>
 <h4 id="Policy-iteration"><a href="#Policy-iteration" class="headerlink" title="Policy iteration"></a>Policy iteration</h4><p>This is an intuitive way to perform the cycle in the theorem</p>
 <ol>
-<li>Start with an arbitrary (e.g. random) policy pi</li>
+<li>Start with an arbitrary, e.g. random policy $\pi$</li>
 <li>until converge, do:<ol>
-<li>compute value function <img src="http://latex.codecogs.com/svg.latex?V%5E%7B%5Cpi%7D(x)" alt="valuefunc"></li>
-<li>compute greedy policy <img src="http://latex.codecogs.com/svg.latex?%5Cpi_G%20%20w.r.tV%5E%7B%5Cpi%7D" alt="valuefunc"></li>
-<li>set <img src="http://latex.codecogs.com/svg.latex?%5Cpi%5Cgets%5Cpi_G" alt="valuefunc"></li>
+<li>compute value function $V^{\pi}(x)$</li>
+<li>compute greedy policy  $\pi_G  w.r.tV^{\pi}$</li>
+<li>set $ \pi\gets\pi_G$</li>
 </ol>
 </li>
 </ol>
@@ -548,44 +548,42 @@
 <ul>
 <li>monotonically improve</li>
 <li>converge to an exact optimal policy <ul>
-<li>in polynomial iterations <img src="http://latex.codecogs.com/svg.latex?O(n%5E2m/(1-%5Cgamma))" alt="complexity"></li>
-<li>in every iteration, the complexity is <img src="http://latex.codecogs.com/svg.latex?O(n%5E2%5Ccdot%20(n+m))" alt="complexity"><ul>
-<li>needs to solve a linear system in the number of states (n^2) for each state (n), which is expensive <img src="http://latex.codecogs.com/svg.latex?O(n%5E2%5Ccdot%20n)" alt="complexity"></li>
-<li>Also, for each state (n), for each action (m), needs to calculate the value (n), which is <img src="http://latex.codecogs.com/svg.latex?O(n%5E2%5Ccdot%20m)" alt="complexity"></li>
-<li>this complexity can be reduced if a state just reaches some of other states. (called sparse MDPS)</li>
+<li>in polynomial iterations $O(n^2m/(1-\gamma))$</li>
+<li>in every iteration, the complexity is $  O(n^2\cdot (n+m))$<ul>
+<li>needs to solve a linear system in the number of states $n^2$ for each state n, which is expensive  $O(n^2\cdot n)$ </li>
+<li>Also, for each state $n$, for each action $m$, needs to calculate the value $n$, which is $O(n^2\cdot m)$​</li>
+<li>this complexity can be reduced if a state just reaches some of other states, called sparse MDPS</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h4 id="Value-iteration"><a href="#Value-iteration" class="headerlink" title="Value iteration"></a>Value iteration</h4><p>An alternative approach is to find the value of optimal policy first and then use the greedy policy. For the optimal policy pi* it holds</p>
-<p><img src="http://latex.codecogs.com/svg.latex?V%5E*(x)=%5Cmax_a%20r(x,a)+%5Cgamma%5Csum_%7Bx%27%7D%5CPr%5Bx%27%7Cx,a%5DV%5E*(x%27)" alt="optpolicy"></p>
-<p>we can compute pi* using dynamic programming:</p>
-<p>define Vt(x): the maximum expected reward when starting in state x and world ends in t time steps</p>
+<h4 id="Value-iteration"><a href="#Value-iteration" class="headerlink" title="Value iteration"></a>Value iteration</h4><p>An alternative approach is to find the value of optimal policy first and then use the greedy policy. For the optimal policy $\pi\ast i_t$ holds</p>
+<p>$$<br>V^*(x)=\max_a r(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V^*(x’)<br>$$</p>
+<p>we can compute $\pi\ast$ using dynamic programming:</p>
+<p>define $V_t(x)$: the maximum expected reward when starting in state $x$ and world ends in $t$ time steps</p>
 <ul>
-<li><p><img src="http://latex.codecogs.com/svg.latex?V_0(x)=%5Cmax_ar(x,a)" alt="policy0"></p>
+<li><p>$V_0(x)=\max_ar(x,a)$</p>
 </li>
-<li><p><img src="http://latex.codecogs.com/svg.latex?V_1(x)=%5Cmax_ar(x,a)+%5Cgamma%5Csum_%7Bx%27%7D%5CPr%5Bx%27%7Cx,a%5DV_0(x%27)" alt="policy1"></p>
+<li><p>$V_1(x)=\max_ar(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V_0(x’)$</p>
 </li>
-<li><p><img src="http://latex.codecogs.com/svg.latex?V_%7Bt+1%7D(x)=%5Cmax_ar(x,a)+%5Cgamma%5Csum_%7Bx%27%7D%5CPr%5Bx%27%7Cx,a%5DV_t(x%27)" alt="policy2"></p>
+<li><p>$V_{t+1}(x)=\max_ar(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V_t(x’)$</p>
 </li>
 </ul>
 <p>Iterate until convergence.</p>
 <p>Algorithm:</p>
 <ol>
-<li>initialize <img src="http://latex.codecogs.com/svg.latex?V_0(x)=%5Cmax_ar(x,a)" alt="policy0"></li>
-<li>For t=1 to infty:<ol>
-<li>For each x, a, let <img src="http://latex.codecogs.com/svg.latex?Q_t(x,a)=r(x,a)+%5Cgamma%5Csum_%7Bx%27%7D%5CPr%5Bx%27%7Cx,a%5DV_%7Bt-1%7D(x%27)" alt="policy0"></li>
-<li>For each x let Vt(x)=max_a Qt(x,a)</li>
-<li>Break if <img src="http://latex.codecogs.com/svg.latex?%7C%7CV_t-V_%7Bt-1%7D%7C%7C_%7B%5Cinfty%7D=%5Cmax_x%7CV_t(x)-V_%7Bt-1%7D(x)%7C%5Cleq%5Cepsilon" alt="breakcond"></li>
+<li>initialize $V_0(x)=\max_ar(x,a)$</li>
+<li>For $t=1, \cdots, \infty$:<ol>
+<li>For each $x, a$, let $Q_t(x,a)=r(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V_{t-1}(x’)$</li>
+<li>For each $x$ let $V_t(x)=\max_a Q_t(x,a)$</li>
+<li>Break if $ ||V_t-V_{t-1}||<em>{\infty}=\max_x|V_t(x)-V</em>{t-1}(x)|\leq\epsilon$</li>
 </ol>
 </li>
 </ol>
 <p>Guarantee:</p>
 <ul>
-<li><p>converge to epsilon-optimal policy. The proof is Bellman update (using Vt to update Vt+1) is a contraction. <img src="http://latex.codecogs.com/svg.latex?B:%5Cmathbb%7BR%7D%5En%5Cto%5Cmathbb%7BR%7D%5En,%20B:V%5Cto%20BV.%20(BV)(x)=%5Cmax_ar(x,a)+%5Cgamma%5Csum_%7Bx%27%7D%5CPr%5Bx%27%7Cx,a%5DV(x%27)" alt="bellupdate"></p>
-<p>There is a theorem: <img src="http://latex.codecogs.com/svg.latex?%5Cforall%20V,V%27%5Cin%5Cmathbb%7BR%7D%5En,%20%7C%7CBV-BV%27%7C%7C_%7B%5Cinfty%7D%5Cleq%5Cgamma%7C%7CV-V%27%7C%7C_%7B%5Cinfty%7D" alt="bellupdate"></p>
-<p>A contraction has two important properties:</p>
+<li><p>converge to $\epsilon$​-optimal policy. The proof is Bellman update, using $V_t$ to update $V_{t+1}$,  is a contraction.<br>$$<br>B:\mathbb{R}^n\to\mathbb{R}^n, B:V\to BV. (BV)(x)=\max_ar(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V(x’)<br>$$<br>There is a theorem:<br>$$<br>\forall V,V’\in\mathbb{R}^n, ||BV-BV’||<em>{\infty}\leq\gamma||V-V’||</em>{\infty}<br>$$<br>A contraction has two important properties:</p>
 <ul>
 <li>existence of a unique fixed point</li>
 <li>convergence to the fixed point</li>
@@ -593,7 +591,7 @@
 <p>Convergence rate:</p>
 <ul>
 <li>number of iterations: depends a lot on initial  policy and epsilon.</li>
-<li>in each iteration:  the complexity is <img src="http://latex.codecogs.com/svg.latex?O(n%5E2%5Ccdot%20m)" alt="complexity"></li>
+<li>in each iteration:  the complexity is $O(n^2\cdot m)$</li>
 </ul>
 </li>
 <li><p><strong>no</strong> monotonical property.</p>
@@ -601,39 +599,39 @@
 </ul>
 <h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><p>In practice, which one is better depends on the application. Can combine both of them. Like take one greedy policy in some step of policy iteration as the initial policy for value iteration.</p>
 <h1 id="POMDP"><a href="#POMDP" class="headerlink" title="POMDP"></a>POMDP</h1><p>Partially observed markov decision process = controlled HMM = Belief-state MDP</p>
-<p>We have a series of observations Y1,…,Yt. The key idea is the last belief Xt, including all information from the previous observations. In other words, if we have Xt, we can forget all of Y1,…,Yt. Instead of solving markov decision process over the state space, we are going to solve MDP over the belief of state space. </p>
-<p>Key idea: interpret POMDP as an MDP with enlarged state space: new states correspond to beliefs P(Xt|y1:t) in the original POMDP.</p>
-<p>Once we have the newest observation Yt+1, applying Bayesian filtering, a deterministic function, to update on the observations</p>
+<p>We have a series of observations $Y_1,\cdots,Y_t$. The key idea is the last belief $X_t$, including all information from the previous observations. In other words, if we have $X_t$, we can forget all of $Y_1,\cdots,Y_t$. Instead of solving markov decision process over the state space, we are going to solve MDP over the belief of state space. </p>
+<p>Key idea: interpret POMDP as an MDP with enlarged state space: new states correspond to beliefs $P(X_t|y_{1:t})$ in the original POMDP.</p>
+<p>Once we have the newest observation $Y_{t+1}$, applying Bayesian filtering, a deterministic function, to update on the observations</p>
 <h2 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h2><ul>
-<li>the set of state space: X1,X2,…,Xn</li>
-<li>the set of action space: A1,A2,…Am</li>
-<li>the set of observation space: Y1,Y2,…Yk</li>
-<li>Transition probability: P(Xt+1|Xt,At)</li>
-<li>observation probability: P(Yt|Xt)</li>
+<li>the set of state space: $X_1,X_2,\cdots,X_n$</li>
+<li>the set of action space: $A_1,A_2,\cdots A_m$</li>
+<li>the set of observation space: $Y_1,Y_2,\cdots Y_k$</li>
+<li>Transition probability: $P(X_{t+1}|X_t,A_t)$</li>
+<li>observation probability: $P(Y_t|X_t)$</li>
 </ul>
-<p>Consider at time t, </p>
+<p>Consider at time $t$, </p>
 <ul>
-<li>we have the belief Bt=bt, where bt is an instance of n-dimension probability vector.</li>
+<li>we have the belief $B_t=b_t$​, where $b_t$​ is an instance of $n$-dimension probability vector.</li>
 <li>Suppose we take the action at </li>
-<li>and observe yt+1.</li>
+<li>and observe $y_{t+1}$.</li>
 </ul>
 <p>In this way,</p>
-<p> <img src="http://latex.codecogs.com/svg.latex?b_%7Bt+1%7D(x)=%5CPr%5BX_%7Bt+1%7D=x%7Cy_%7B1:t+1%7D,a_%7B1:t%7D%5D" alt="belief"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?=%5Cfrac%7B1%7D%7BZ%7D%5Csum_%7Bx%27%7D%5CPr%5BX_t=x%27%7Cy_%7B1:t%7D,a_%7B1:t-1%7D%5D%5CPr%5BX_%7Bt+1%7D=x%7CX_t=x%27,a_t%5D%5CPr%5BY_%7Bt+1%7D=y_%7Bt+1%7D%7Cx%5D" alt="belief"></p>
-<p>That means <img src="http://latex.codecogs.com/svg.latex?b_%7Bt+1%7D=f(b_t,a_t,y_%7Bt+1%7D)" alt="belief"></p>
+<p>$$<br>b_{t+1}(x)=\Pr[X_{t+1}=x|y_{1:t+1},a_{1:t}]<br>$$</p>
+<p>$$<br>=\frac{1}{Z}\sum_{x’}\Pr[X_t=x’|y_{1:t},a_{1:t-1}]\Pr[X_{t+1}=x|X_t=x’,a_t]\Pr[Y_{t+1}=y_{t+1}|x]<br>$$</p>
+<p>That means $  b_{t+1}=f(b_t,a_t,y_{t+1})$</p>
 <h2 id="Transformation"><a href="#Transformation" class="headerlink" title="Transformation"></a>Transformation</h2><p>Transform into a new MDP problem:</p>
 <ul>
-<li><p>states: beliefs over states for original POMDP: <img src="http://latex.codecogs.com/svg.latex?%5Cmathcal%7BB%7D=%5C%7Bb:%5C%7B1,2,%5Ccdots,n%5C%7D%5Cto%5B0,1%5D,%5Csum_xb(x)=1%5C%7D" alt="belief-state"></p>
+<li><p>states: beliefs over states for original POMDP: $\mathcal{B}={b:{1,2,\cdots,n}\to[0,1],\sum_xb(x)=1}$</p>
 </li>
 <li><p>actions: same as original MDP</p>
 </li>
 <li><p>Transition model: </p>
 <ul>
-<li>stochastic observations: the observation of the next time only depends on our belief of the current time and the action we take. <img src="http://latex.codecogs.com/svg.latex?%5CPr%5BY_%7Bt+1%7D=y%7Cb_t,a_t%5D=%5Csum_x%20b_t(x)%5CPr%5BY_%7Bt+1%7D=y%7CX_t=x,a_t%5D" alt="belief"></li>
-<li>state update (Bayesian filtering): Given bt, at, yt+1: <img src="http://latex.codecogs.com/svg.latex?b_%7Bt+1%7D(x%27)=%5Cfrac%7B1%7D%7BZ%7D%5Csum_x%20b_t(x)%5CPr%5BX_%7Bt+1%7D=x%27%7CX_t=x,a_t%5D%5CPr%5By_%7Bt+1%7D%7Cx%27%5D" alt="belief"></li>
+<li>stochastic observations: the observation of the next time only depends on our belief of the current time and the action we take. $\Pr[Y_{t+1}=y|b_t,a_t]=\sum_x b_t(x)\Pr[Y_{t+1}=y|X_t=x,a_t]$</li>
+<li>state update Bayesian filtering: Given $b_t$, $a_t$, $y_{t+1}$: $b_{t+1}(x’)=\frac{1}{Z}\sum_x b_t(x)\Pr[X_{t+1}=x’|X_t=x,a_t]\Pr[y_{t+1}|x’]$​</li>
 </ul>
 </li>
-<li><p>Reward function: <img src="http://latex.codecogs.com/svg.latex?r(b_t,a_t)=%5Csum_x%20b_t(x)r(x,a_t)" alt="belief"></p>
+<li><p>Reward function: $r(b_t,a_t)=\sum_x b_t(x)r(x,a_t)$</p>
 <p>If we can solve the new MDP, we can solve the original MDP.</p>
 </li>
 </ul>
@@ -711,12 +709,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/probabilistic-artificial-intelligence/">
-                                    <span class="chip bg-color">probabilistic artificial intelligence</span>
+                                <a href="../tags/AI/">
+                                    <span class="chip bg-color">AI</span>
                                 </a>
                             
-                                <a href="../tags/reinforcement-learning/">
-                                    <span class="chip bg-color">reinforcement learning</span>
+                                <a href="../tags/Reinforcement-Learning/">
+                                    <span class="chip bg-color">Reinforcement Learning</span>
+                                </a>
+                            
+                                <a href="../tags/Markov/">
+                                    <span class="chip bg-color">Markov</span>
                                 </a>
                             
                         </div>
@@ -1201,8 +1203,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1212,12 +1214,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/probabilistic-artificial-intelligence/">
-                        <span class="chip bg-color">probabilistic artificial intelligence</span>
+                    <a href="../tags/AI/">
+                        <span class="chip bg-color">AI</span>
                     </a>
                     
-                    <a href="../tags/reinforcement-learning/">
-                        <span class="chip bg-color">reinforcement learning</span>
+                    <a href="../tags/Reinforcement-Learning/">
+                        <span class="chip bg-color">Reinforcement Learning</span>
+                    </a>
+                    
+                    <a href="../tags/Baysian/">
+                        <span class="chip bg-color">Baysian</span>
                     </a>
                     
                 </div>
@@ -1254,8 +1260,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1265,12 +1271,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/probabilistic-artificial-intelligence/">
-                        <span class="chip bg-color">probabilistic artificial intelligence</span>
+                    <a href="../tags/AI/">
+                        <span class="chip bg-color">AI</span>
                     </a>
                     
-                    <a href="../tags/reinforcement-learning/">
-                        <span class="chip bg-color">reinforcement learning</span>
+                    <a href="../tags/Reinforcement-Learning/">
+                        <span class="chip bg-color">Reinforcement Learning</span>
+                    </a>
+                    
+                    <a href="../tags/Bayesian/">
+                        <span class="chip bg-color">Bayesian</span>
                     </a>
                     
                 </div>
@@ -1433,6 +1443,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

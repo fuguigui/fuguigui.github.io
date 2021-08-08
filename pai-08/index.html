@@ -420,12 +420,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/probabilistic-artificial-intelligence/">
-                                <span class="chip tag-color">probabilistic artificial intelligence</span>
+                            <a href="../tags/AI/">
+                                <span class="chip tag-color">AI</span>
                             </a>
                         
-                            <a href="../tags/reinforcement-learning/">
-                                <span class="chip tag-color">reinforcement learning</span>
+                            <a href="../tags/Reinforcement-Learning/">
+                                <span class="chip tag-color">Reinforcement Learning</span>
+                            </a>
+                        
+                            <a href="../tags/Baysian/">
+                                <span class="chip tag-color">Baysian</span>
                             </a>
                         
                     </div>
@@ -436,8 +440,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -460,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    8 Min
+                    10 Min
                 </div>
                 
 
@@ -511,8 +515,8 @@
 <h1 id="Approaches"><a href="#Approaches" class="headerlink" title="Approaches"></a>Approaches</h1><ul>
 <li>model-based RL:<ol>
 <li>learn the MDP<ul>
-<li>estimate the transition probabilities P(x’|x,a)</li>
-<li>estimate reward function r(x,a)</li>
+<li>estimate the transition probabilities $P(x’|x,a)$</li>
+<li>estimate reward function $r(x,a)$</li>
 </ul>
 </li>
 <li>optimize policy based on estimated MDP</li>
@@ -525,16 +529,16 @@
 </ul>
 </li>
 </ul>
-<h2 id="Model-based"><a href="#Model-based" class="headerlink" title="Model-based"></a>Model-based</h2><p>The data set looks like: x1,a1,r1,x2,a2,r2,… given an observation xi, take an action ai and get a reward ri, which leads to the next observation xi+1.</p>
-<p>Elements: (xi,ai,ri,xi+1) are independent from each other.</p>
-<p>D = {(xi,ai,ri,xi+1)}, expressed in this way, we can do counting on the elements.</p>
+<h2 id="Model-based"><a href="#Model-based" class="headerlink" title="Model-based"></a>Model-based</h2><p>The data set looks like: $x_1,a_1,r_1,x_2,a_2,r_2,\cdots$  given an observation $x_i$, take an action $a_i$ and get a reward $r_i$, which leads to the next observation $x_{i+1}$.</p>
+<p>Elements: $(x_i,a_i,r_i,x_{i+1})$ are independent from each other.</p>
+<p>$D = {(x_i,a_i,r_i,x_{i+1})},$ expressed in this way, we can do counting on the elements.</p>
 <p>MDP can be viewed as controlled Markov chain. </p>
 <ul>
-<li><p>estimate transitions (MLE):</p>
-<p> <img src="http://latex.codecogs.com/svg.latex?%5CPr%5BX_%7Bt+1%7D%7CX_t,A%5D%5Csimeq%5Cfrac%7BCount(X_%7Bt+1%7D,X_t,A)%7D%7BCount(X_t,A)%7D" alt="est-trans"></p>
+<li><p>estimate transitions MLE:</p>
+<p> $$<br> \Pr[X_{t+1}|X_t,A]\simeq\frac{Count(X_{t+1},X_t,A)}{Count(X_t,A)}<br> $$</p>
 </li>
 <li><p>estimate rewards:</p>
-<p> <img src="http://latex.codecogs.com/svg.latex?r(x,a)%5Csimeq%5Cfrac%7B1%7D%7BN_%7Bx,a%7D%7D%5Csum_%7Bt:X_t=x,A_t=a%7DR_t" alt="est-rew"></p>
+<p> $$<br> r(x,a)\simeq\frac{1}{N_{x,a}}\sum_{t:X_t=   x,A_t=   a}R_t<br> $$</p>
 </li>
 </ul>
 <p>How accurate could the estimation be? More data will give more accurate estimations.</p>
@@ -565,73 +569,67 @@
 <li><p>The Rmax algorithm: the principle is <em>optimism in the face of uncertainty</em>. When an action is unknown, try it!</p>
 <p>Assume the reward has a upper bound Rmax</p>
 <ul>
-<li>if you don’t know r(x,a): set it to Rmax. That means try this action.</li>
-<li>if you don’t know P(x’|x,a): set P(x’|x,a)=1. That means explore a new state.</li>
+<li>if you don’t know $r(x,a)$: set it to Rmax. That means try this action.</li>
+<li>if you don’t know $P(x’|x,a)$: set $P(x’|x,a)=1$. That means explore a new state.</li>
 </ul>
 </li>
 </ul>
 <h3 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h3><ul>
-<li>memory:  store P(x’|x,a)=&gt;O(|x|^2|A|), store r(x,a)=&gt; O(|X||A|)</li>
-<li>time: solving once MDP requires poly(|X|,|A|,1/epsilon,log(1/delta). Need to do this often. </li>
+<li>memory:  store $P(x’|x,a)\Rightarrow O(|x|^2|A|)$, store $r(x,a)\Rightarrow O(|X||A|)$</li>
+<li>time: solving once MDP requires $poly(|X|,|A|,1/\epsilon,\log(1/delta)$. Need to do this often. </li>
 </ul>
 <h2 id="Model-free"><a href="#Model-free" class="headerlink" title="Model-free"></a>Model-free</h2><p>According to Theorem Bellman, once we have the optimal value function, we can get a greedy policy, which is optimal.</p>
-<p>Q^{pi}(x,a) : the expected reward of a policy pi, given the state and action pair (x,a)</p>
-<p><img src="http://latex.codecogs.com/svg.latex?Q%5E%7B%5Cpi%7D(x,a)=r(x,a)+%5Cgamma%5Csum_%7Bx%27%7D%5CPr%5Bx%27%7Cx,a%5DV%5E%7B%5Cpi%7D(x%27)" alt="qfunction"></p>
-<p>For the optimal policy pi^*: It holds  </p>
-<p><img src="http://latex.codecogs.com/svg.latex?V%5E*(x)=%5Cmax_a%20Q%5E*(x,a)" alt="optvalue"></p>
-<p>The key idea is to estimate Q*(x,a) from samples.</p>
+<p>$Q^{\pi}(x,a)$​ : the expected reward of a policy $\pi$​, given the state and action pair $(x,a)$</p>
+<p>$$<br>Q^{\pi}(x,a)=   r(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V^{\pi}(x’)<br>$$<br>For the optimal policy $\pi^\ast$: It holds  </p>
+<p>$$<br>V^*(x)=   \max_a Q^*(x,a)<br>$$<br>The key idea is to estimate $Q^\ast(x,a)$ from samples.</p>
 <h3 id="Q-learning"><a href="#Q-learning" class="headerlink" title="Q-learning"></a>Q-learning</h3><p>To estimate the best policy’s Q function, which is  </p>
-<p><img src="http://latex.codecogs.com/svg.latex?Q%5E*(x,a)=r(x,a)+%5Cgamma%5Csum_%7Bx%27%7D%5CPr%5Bx%27%7Cx,a%5DV%5E*(x%27)" alt="optimalq"></p>
-<p>instead of using transition probability to get the exact expectation, we estimate from on instance (x,a,x’).</p>
-<p><img src="http://latex.codecogs.com/svg.latex?Q(x,a)%5Cgets%20r(x,a)+%5Cgamma%20V%5E*(x%27)=r(x,a)+%5Cgamma%5Cmax_%7Ba%27%7D%20Q(x%27,a%27)" alt="qudpate"></p>
+<p>$$<br>Q^*(x,a)=   r(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V^*(x’)<br>$$<br>instead of using transition probability to get the exact expectation, we estimate from on instance $(x,a,x’)$.<br>$$<br>Q(x,a)\gets r(x,a)+\gamma V^*(x’)=   r(x,a)+\gamma\max_{a’} Q(x’,a’)<br>$$</p>
 <p>To trade-off huge variance from just one sample, we weight this update by alpha</p>
-<p><img src="http://latex.codecogs.com/svg.latex?Q(x,a)%5Cgets%20(1-%5Calpha_t)Q(x,a)+%5Calpha_t(r(x,a)+%5Cgamma%5Cmax_%7Ba%27%7D%20Q(x%27,a%27))" alt="weightqudpate"></p>
-<p>alpha: usually decrease along the time. means: at the beginning we put much weight on a new sample. Later, we put less and less.</p>
+<p>$$<br>Q(x,a)\gets (1-\alpha_t)Q(x,a)+\alpha_t(r(x,a)+\gamma\max_{a’} Q(x’,a’))<br>$$<br>$\alpha$: usually decrease along the time. means: at the beginning we put much weight on a new sample. Later, we put less and less.</p>
 <h4 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h4><p>Random version</p>
 <ol>
-<li>have initial estimate of Q(x,a)</li>
-<li>observe transition x,a,x’ with reward r. Update Q(x,a) for long enough times.</li>
+<li>have initial estimate of $Q(x,a)$</li>
+<li>observe transition $x,a,x’$ with reward $r$. Update $Q(x,a)$ for long enough times.</li>
 </ol>
-<p>Optimistic algorithm (similar to Rmax):</p>
-<p>starting with an optimistic initialization. But only Rmax is not enough, have to consider the discount effect and weight effect.</p>
+<p>Optimistic algorithm, similar to $R_{\max}$:</p>
+<p>starting with an optimistic initialization. But only $R_{\max}$ is not enough, have to consider the discount effect and weight effect.</p>
 <ol>
-<li>initialize <img src="http://latex.codecogs.com/svg.latex?Q(x,a)%5Cgets%5Cfrac%7BR_%7Bmax%7D%7D%7B1-%5Cgamma%7D%5Cprod_%7Bt=1%7D%5E%7BT_%7Binit%7D%7D(1-%5Calpha_t)%5E%7B-1%7D" alt="optimisticq"></li>
+<li>initialize $Q(x,a)\gets\frac{R_{max}}{1-\gamma}\prod_{t=   1}^{T_{init}}(1-\alpha_t)^{-1}$</li>
 </ol>
-<h4 id="Convergence"><a href="#Convergence" class="headerlink" title="Convergence"></a>Convergence</h4><p><strong>Theorem</strong> (for random) If learning rate alpha satisfies:</p>
+<h4 id="Convergence"><a href="#Convergence" class="headerlink" title="Convergence"></a>Convergence</h4><p><strong>Theorem</strong> for random: If learning rate alpha satisfies:</p>
 <ul>
-<li>never stops updating: <img src="http://latex.codecogs.com/svg.latex?%5Csum_t%5Calpha_t=%5Cinfty" alt="alpha"></li>
-<li>later samples have smaller weights: <img src="http://latex.codecogs.com/svg.latex?%5Csum_t%5Calpha_t%5E2%3C%5Cinfty" alt="alpha"></li>
-<li>and actions are chosen at random,</li>
+<li>never stops updating: $ \sum_t\alpha_t=   \infty$</li>
+<li>later samples have smaller weights: $\sum_t\alpha_t^2&lt;\infty$</li>
+<li>and actions are chosen at random</li>
 </ul>
 <p>Then</p>
-<p>Q learning converges to optimal Q* with probability 1.</p>
-<p><strong>Theorem</strong> (for optimistic) With probability 1-delta, optimistic Q-learning obtains an epsilon-approximation policy after a number of time steps that is polynomial in |X|,|A|, 1/epsilon and log(1/delta).</p>
+<p>$Q$ learning converges to optimal $Q^\ast$ with probability 1.</p>
+<p><strong>Theorem</strong> for optimistic: With probability $1-\delta$, optimistic Q-learning obtains an $\epsilon$​-approximation policy after a number of time steps that is polynomial in $|X|,|A|, 1/\epsilon$ and $\log(1/\delta)$.</p>
 <h4 id="Complexity-1"><a href="#Complexity-1" class="headerlink" title="Complexity"></a>Complexity</h4><ul>
-<li>memory: store the Q-table: Q(x,a): O(|X||A|)</li>
+<li>memory: store the Q-table: $Q(x,a): O(|X||A|)$</li>
 <li>time: <ul>
-<li>update per sample: find the action which gives the maximum Q(x’,a’), O(|A|) </li>
-<li>iterations: polynomial in |X|,|A|, 1/epsilon and log(1/delta).</li>
+<li>update per sample: find the action which gives the maximum $Q(x’,a’)$, $O(|A|)$ </li>
+<li>iterations: polynomial in $|X|,|A|, 1/\epsilon$ and $\log(1/\delta)$</li>
 </ul>
 </li>
 </ul>
-<h4 id="Parametric-Q-function-approximation"><a href="#Parametric-Q-function-approximation" class="headerlink" title="Parametric Q-function approximation"></a>Parametric Q-function approximation</h4><p>The general idea is that we don’t update the entries of Q table one by one in the update, but use some parameters to calculate the the entries and update the parameters in each step. In this way, we turn the question into an optimization problem and can solve it by approximation. Also, this approach allows us to go from the finite tabular Q to infinite Q.</p>
+<h4 id="Parametric-Q-function-approximation"><a href="#Parametric-Q-function-approximation" class="headerlink" title="Parametric Q-function approximation"></a>Parametric Q-function approximation</h4><p>The general idea is that we don’t update the entries of $Q$ table one by one in the update, but use some parameters to calculate the the entries and update the parameters in each step. In this way, we turn the question into an optimization problem and can solve it by approximation. Also, this approach allows us to go from the finite tabular $Q$ to infinite $Q$.</p>
 <p>At convergence, we want:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?Q(x,a)=%5Cmathbb%7BE%7D_%7B(r,x%27)%7Cx,a%7D(r+%5Cgamma%5Cmax_%7Ba%27%7DQ(x%27,a%27))" alt="qexp"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CRightarrow%5Cmathbb%7BE%7D_%7B(r,x%27,x,a)%7D(Q(x,a)-r-%5Cgamma%5Cmax_%7Ba%27%7DQ(x%27,a%27))=0" alt="qexp"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CRightarrow%5Cmin_%7B%5Ctheta%7D%5Cmathbb%7BE%7D_%7B(r,x%27,x,a)%7D%5BQ(x,a)-r-%5Cgamma%5Cmax_%7Ba%27%7DQ(x%27,a%27)%5D%5E2" alt="qexp"></p>
+<p>$$<br>Q(x,a)=   \mathbb{E}<em>{(r,x’)|x,a}(r+\gamma\max</em>{a’}Q(x’,a’))<br>$$</p>
+<p>$$<br>\Rightarrow\mathbb{E}<em>{(r,x’,x,a)}(Q(x,a)-r-\gamma\max</em>{a’}Q(x’,a’))=   0<br>$$</p>
+<p>$$<br>\Rightarrow\min_{\theta}\mathbb{E}<em>{(r,x’,x,a)}[Q(x,a)-r-\gamma\max</em>{a’}Q(x’,a’)]^2<br>$$</p>
 <p>In this way, we can use mean to approximate expectation.</p>
-<p>Example of parametric q-function: linear function approximation: <img src="http://latex.codecogs.com/svg.latex?Q(x,a;%5Ctheta)=%5Ctheta%5ET%5Cphi(x,a)" alt="paramq"></p>
+<p>Example of parametric $q$-function: linear function approximation: $Q(x,a;\theta)=   \theta^T\phi(x,a)$ </p>
 <p>Fit parameters to data: define the loss function on parameters as:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?L(%5Ctheta)=%5Csum_%7B(x,a,r,x%27)%5Cin%20D%7D(r+%5Cgamma%5Cmax_%7Ba%27%7DQ(x%27,a%27;%5Ctheta%5E%7Bold%7D)-Q(x,a;%5Ctheta))%5E2" alt="lossq"></p>
+<p>$$<br>L(\theta)=   \sum_{(x,a,r,x’)\in D}(r+\gamma\max_{a’}Q(x’,a’;\theta^{old})-Q(x,a;\theta))^2<br>$$</p>
 <p>So, the goal is to find parameters to minimize the loss function:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Ctheta%5E*=%5Carg_%7B%5Ctheta%7D%5Cmin%20L(%5Ctheta)" alt="loss-mini"></p>
+<p>$$<br>\theta^*=   \arg_{\theta}\min L(\theta)<br>$$</p>
 <ul>
-<li>label: the estimation of Q entry given the observed sample:<img src="http://latex.codecogs.com/svg.latex?r+%5Cgamma%5Cmax_%7Ba%27%7DQ(x%27,a%27;%5Ctheta%5E%7Bold%7D)" alt="label"></li>
-<li>prediction given theta: <img src="http://latex.codecogs.com/svg.latex?Q(x,a;%5Ctheta)" alt="pred"></li>
+<li>label: the estimation of Q entry given the observed sample:$r+\gamma\max_{a’}Q(x’,a’;\theta^{old})$</li>
+<li>prediction given theta: $ Q(x,a;\theta))$</li>
 </ul>
 <h4 id="Deep-learning"><a href="#Deep-learning" class="headerlink" title="Deep learning"></a>Deep learning</h4><p>Recall what deep learning does: deep learning is a tool to solve the loss minimization problem, given data:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?w%5E*=%5Carg_w%5Cmin%20%5Csum_%7Bi=1%7D%5EN%20l(y_i,f(x_i;w))" alt="dlobj"></p>
-<p>by fitting nested nonlinear function of f(x;w)</p>
+<p>$$<br>w^*=   \arg_w\min \sum_{i=   1}^N l(y_i,f(x_i;w))<br>$$<br>by fitting nested nonlinear function of $f(x;w)$</p>
 <h4 id="Deep-Q-Networks"><a href="#Deep-Q-Networks" class="headerlink" title="Deep Q Networks"></a>Deep Q Networks</h4><p>this is a variant of Q-learning:</p>
 <ul>
 <li>use convolutional neural nets to approximate Q function</li>
@@ -639,28 +637,26 @@
 <li><p>maintain constant “target” values across episodes. save the initial labels as y, and use these ys throughout training, instead of calculating new label in each iteration.</p>
 </li>
 <li><p>double DQN: two networks, use old parameters to evaluate Q function, but new parameters for action selection. Want to use old parameters to calculate the value to avoid oscillations. Current parameters are more closed to the policy would do.</p>
-<p> <img src="http://latex.codecogs.com/svg.latex?L(%5Ctheta)=%5Csum_%7B(x,a,r,x%27)%5Cin%20D%7D(r+%5Cgamma%20Q(x%27,%5Chat%7Ba%7D(x,%5Ctheta);%5Ctheta%5E%7Bold%7D)-Q(x,a;%5Ctheta))%5E2" alt="double"></p>
-<p>where <img src="http://latex.codecogs.com/svg.latex?%5Chat%7Ba%7D(x,%5Ctheta)=%5Carg_%7Ba%27%7D%5Cmax%20Q(x,a%27,%5Ctheta)" alt="hata"></p>
+<p> $$<br>L(\theta)=   \sum_{(x,a,r,x’)\in D}(r+\gamma Q(x’,\hat{a}(x,\theta);\theta^{old})-Q(x,a;\theta))^2<br>$$<br>where $ \hat{a}(x,\theta)=   \arg_{a’}\max Q(x,a’,\theta)$</p>
 </li>
 </ul>
 </li>
 </ul>
 <h3 id="Policy-search-methods"><a href="#Policy-search-methods" class="headerlink" title="Policy search methods"></a>Policy search methods</h3><p>Learning a policy without the detour of learning a value function.</p>
-<p>Given a policy, do forward sampling on the controlled Markov chain and evaluate this policy J(theta). Then, adjust the parameters by gradient descent or other methods to get a new policy.</p>
+<p>Given a policy, do forward sampling on the controlled Markov chain and evaluate this policy $J(\theta)$. Then, adjust the parameters by gradient descent or other methods to get a new policy.</p>
 <h4 id="Bayesian-Learning-for-policy-search"><a href="#Bayesian-Learning-for-policy-search" class="headerlink" title="Bayesian Learning for policy search"></a>Bayesian Learning for policy search</h4><p>Go beyond point estimation, but the whole distribution.</p>
 <p>Using the Bayesian, on the data domain, find which part we are not certain about and which part we are certain about and then guide the samples drawing procedure.</p>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>Model-based (MDP) and model-free (RL) are polynomial in |A| and |X|. However, structured domains (|A|,|X| exponential in #agents) and continuous domains (|A| and |X| are infinite) are not applicable.</p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>Model-based MDP and model-free RL are polynomial in $|A|$​​ and $|X|$​​. However, structured domains $(|A|,|X|$​​ exponential in Nr. agents $)$​ and continuous domains $(|A|$​ and $|X|$​​ are infinite$)$ are not applicable.</p>
 <h1 id="Outlook"><a href="#Outlook" class="headerlink" title="Outlook"></a>Outlook</h1><h2 id="Bayesian-Deep-RL"><a href="#Bayesian-Deep-RL" class="headerlink" title="Bayesian Deep RL"></a>Bayesian Deep RL</h2><p>Express the uncertainty of the model itself, by maintaining multiple models, ensemble of models.</p>
 <p>How to go beyond point estimate’s uncertainty?</p>
 <h2 id="Improving-action-selection-by-planning"><a href="#Improving-action-selection-by-planning" class="headerlink" title="Improving action selection by planning"></a>Improving action selection by planning</h2><p>Beyond one-step transitions, multiple steps forward to plan. </p>
-<h2 id="Risk-in-exploration"><a href="#Risk-in-exploration" class="headerlink" title="Risk in exploration"></a>Risk in exploration</h2><h3 id="Safe-Bayesian-optimization"><a href="#Safe-Bayesian-optimization" class="headerlink" title="Safe Bayesian optimization"></a>Safe Bayesian optimization</h3><p>not only consider the reward, but also maintains safety constraints. Try to never violate these constraints. Formally,<img src="http://latex.codecogs.com/svg.latex?%5Cmax%20f(x),%20s.t.%20g(x)%5Cgeq%5Ctau" alt="constraint"></p>
-<p>One challenge is that none of f(x), g(x) are given in closed form, access only via noisy black box.</p>
+<h2 id="Risk-in-exploration"><a href="#Risk-in-exploration" class="headerlink" title="Risk in exploration"></a>Risk in exploration</h2><h3 id="Safe-Bayesian-optimization"><a href="#Safe-Bayesian-optimization" class="headerlink" title="Safe Bayesian optimization"></a>Safe Bayesian optimization</h3><p>not only consider the reward, but also maintains safety constraints. Try to never violate these constraints. Formally, $\max f(x), s.t. g(x)\geq\tau)$</p>
+<p>One challenge is that none of $f(x), g(x)$ are given in closed form, access only via noisy black box.</p>
 <p>Approach: </p>
 <ol>
 <li>find a safe start point</li>
 <li>go to reachable optimal points, instead of global optimal.</li>
 </ol>
-<p>![alpha](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex">http://latex.codecogs.com/svg.latex</a>?</p>
 
             </div>
             <hr/>
@@ -724,12 +720,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/probabilistic-artificial-intelligence/">
-                                    <span class="chip bg-color">probabilistic artificial intelligence</span>
+                                <a href="../tags/AI/">
+                                    <span class="chip bg-color">AI</span>
                                 </a>
                             
-                                <a href="../tags/reinforcement-learning/">
-                                    <span class="chip bg-color">reinforcement learning</span>
+                                <a href="../tags/Reinforcement-Learning/">
+                                    <span class="chip bg-color">Reinforcement Learning</span>
+                                </a>
+                            
+                                <a href="../tags/Baysian/">
+                                    <span class="chip bg-color">Baysian</span>
                                 </a>
                             
                         </div>
@@ -1263,8 +1263,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1274,12 +1274,20 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/probabilistic-artificial-intelligence/">
-                        <span class="chip bg-color">probabilistic artificial intelligence</span>
+                    <a href="../tags/AI/">
+                        <span class="chip bg-color">AI</span>
                     </a>
                     
-                    <a href="../tags/reinforcement-learning/">
-                        <span class="chip bg-color">reinforcement learning</span>
+                    <a href="../tags/Reinforcement-Learning/">
+                        <span class="chip bg-color">Reinforcement Learning</span>
+                    </a>
+                    
+                    <a href="../tags/Bayesian/">
+                        <span class="chip bg-color">Bayesian</span>
+                    </a>
+                    
+                    <a href="../tags/Markov/">
+                        <span class="chip bg-color">Markov</span>
                     </a>
                     
                 </div>
@@ -1442,6 +1450,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

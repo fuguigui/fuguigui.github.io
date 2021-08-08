@@ -420,12 +420,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/probabilistic-artificial-intelligence/">
-                                <span class="chip tag-color">probabilistic artificial intelligence</span>
+                            <a href="../tags/AI/">
+                                <span class="chip tag-color">AI</span>
                             </a>
                         
-                            <a href="../tags/reinforcement-learning/">
-                                <span class="chip tag-color">reinforcement learning</span>
+                            <a href="../tags/Reinforcement-Learning/">
+                                <span class="chip tag-color">Reinforcement Learning</span>
+                            </a>
+                        
+                            <a href="../tags/Baysian/">
+                                <span class="chip tag-color">Baysian</span>
                             </a>
                         
                     </div>
@@ -436,8 +440,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -460,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    4 Min
+                    6 Min
                 </div>
                 
 
@@ -490,93 +494,86 @@
 <li>first assume the structure is given, to learn the parameters</li>
 <li>learn the structure as well</li>
 </ol>
-<h2 id="Parameter-learning"><a href="#Parameter-learning" class="headerlink" title="Parameter learning"></a>Parameter learning</h2><h3 id="MLE"><a href="#MLE" class="headerlink" title="MLE"></a>MLE</h3><p>A very basic estimation is MLE (maximum likelihood estimation).</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Ctheta%5E*%20=%20%5Carg_%7B%5Ctheta%7D%5Cmax%5Csum_%7Bj=1%7D%5En%5Csum_%7Bi=1%7D%5EN%5Clog%5CPr%5BX_j%5E%7B(i)%7D%7CX_%7BPa_j%7D%5E%7B(i)%7D,%5Ctheta_%7Bj%7CPa_j%7D%5D" alt="mle"></p>
+<h2 id="Parameter-learning"><a href="#Parameter-learning" class="headerlink" title="Parameter learning"></a>Parameter learning</h2><h3 id="MLE"><a href="#MLE" class="headerlink" title="MLE"></a>MLE</h3><p>A very basic estimation is MLE, maximum likelihood estimation.</p>
+<p>$$<br>\theta^* = \arg_{\theta}\max\sum_{j=1}^n\sum_{i=1}^N\log\Pr[X_j^{(i)}|X_{Pa_j}^{(i)},\theta_{j|Pa_j}]<br>$$</p>
 <p>We divide the whole parameters to individual sets on each variable. Global optimization can be composed of local optimization. Formally,</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Ctheta%5E*_%7Bj%7CPa_j%7D%20=%20%5Carg_%7B%5Ctheta%7D%5Cmax%20L_j(%5Ctheta_j%7CPa_j)%5CRightarrow%5Ctheta%5E*_%7Bj%7CPa_j%7D=%5Cfrac%7BCount(X_j,X_%7BPa_j%7D)%7D%7BCount(X_%7BPa_j%7D)%7D" alt="ind-mle"></p>
-<p>When X_j follows Bernoulli distribution.</p>
-<p>This strategy requires complete data (all variables are observable).</p>
+<p>$$<br>\theta^*_{j|Pa_j} = \arg_{\theta}\max L_j(\theta_j|Pa_j)\Rightarrow\theta^*_{j|Pa_j}=\frac{Count(X_j,X_{Pa_j})}{Count(X_{Pa_j})}<br>$$<br>When $X_j$ follows Bernoulli distribution.</p>
+<p>This strategy requires complete data, all variables are observable.</p>
 <ul>
 <li><p>If there are unobserved variables: EM-algorithm</p>
 </li>
 <li><p>if the count is small, the estimation could be imprecise. In this case, we can use <strong>pseudo-counts</strong>: make prior assumptions about parameters to correct the estimated parameters.</p>
 <ul>
-<li><p>for Bernoulli distribution, the prior is equivalent to make Beta prior over parameters. For instance, <img src="http://latex.codecogs.com/svg.latex?%5Ctheta%5Csim%20Beta(%5Calpha_c,%5Calpha_l)%20=%20%5Cfrac%7B1%7D%7BB(%5Calpha_c,%5Calpha_l)%7D%5Ctheta%5E%7B%5Calpha_c-1%7D(1-%5Ctheta)%5E%7B%5Calpha_l-1%7D" alt="beta-prior"></p>
-<p>Then observe nc and nl counts specifically, <img src="http://latex.codecogs.com/svg.latex?%5CPr%5B%5Ctheta%7Cn_c,n_l%5D=%5Cfrac%7B1%7D%7BZ%7D%5Cfrac%7BBeta(%5Calpha_c,%5Calpha_l)%7D%5Ctheta%5E%7B%5Calpha_c-1%7D(1-%5Ctheta)%5E%7B%5Calpha_l-1%7D%5Ctheta%5E%7Bn_c%7D(1-%5Ctheta)%5E%7Bn_l%7D%5Csim%20Beta(%5Calpha_c+n_c,%5Calpha_l+n_;)" alt="beta-post"></p>
-</li>
+<li>for Bernoulli distribution, the prior is equivalent to make Beta prior over parameters. For instance,<br>$$<br>\theta\sim Beta(\alpha_c,\alpha_l) = \frac{1}{B(\alpha_c,\alpha_l)}\theta^{\alpha_c-1}(1-\theta)^{\alpha_l-1}<br>$$</li>
+<li>Then observe $n_c$ and $n_l$ counts specifically,<br>$$<br>\Pr[\theta|n_c,n_l]=\frac{1}{Z}\frac{Beta(\alpha_c,\alpha_l)}\theta^{\alpha_c-1}(1-\theta)^{\alpha_l-1}\theta^{n_c}(1-\theta)^{n_l}\sim Beta(\alpha_c+n_c,\alpha_l+n_;)<br>$$</li>
 </ul>
 </li>
 </ul>
 <h3 id="MAP"><a href="#MAP" class="headerlink" title="MAP"></a>MAP</h3><p>Another view is to treat the parameters as shared variables. They are prior. Given data, which can be treated as evidence, we want to find which values of these variables are most possible. Solve via MAP.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Chat%7B%5Ctheta%7D%5Cin%5Carg_%7B%5Ctheta%7D%5Cmax%5CPr%5B%5Ctheta%7Cf%5E%7B(i)%7D,w%5E%7B(i)%7D%5D" alt="map"></p>
-<p>In this way, if we want to query the conditional probability given data, we can use the MAP estimation to do that. For instance, F,W are variables, D are the dataset.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CPr%5BF%7CW=w,D%5D%5Csimeq%5CPr%5BF%7Cw,%5Chat%7B%5Ctheta%7D%5D" alt="map-infer"></p>
+<p>$$<br>\hat{\theta}\in\arg_{\theta}\max\Pr[\theta|f^{(i)},w^{(i)}]<br>$$<br>In this way, if we want to query the conditional probability given data, we can use the MAP estimation to do that. For instance, $F,W$ are variables, $D$ are the dataset.</p>
+<p>$$<br>\Pr[F|W=w,D]\simeq\Pr[F|w,\hat{\theta}]<br>$$</p>
 <h3 id="Bayesian-learning"><a href="#Bayesian-learning" class="headerlink" title="Bayesian learning"></a>Bayesian learning</h3><p>Instead of learning the unknown parameters, just marginalize them, sum them out.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CPr%5BF%7CW=w,D%5D=%5Cint%5CPr%5BF,%5Ctheta%7Cw,D%5Dd%5Ctheta=%5Cint%20%5CPr%5BF%7Cw,%5Ctheta%5D%5CPr%5B%5Ctheta%7Cw,D%5Dd%5Ctheta" alt="bay-learn"></p>
+<p>$$<br>\Pr[F|W=w,D]=\int\Pr[F,\theta|w,D]\mathrm{d}\theta=\int \Pr[F|w,\theta]\Pr[\theta|w,D]\mathrm{d}\theta<br>$$</p>
 <h2 id="Structure-learning"><a href="#Structure-learning" class="headerlink" title="Structure learning"></a>Structure learning</h2><h3 id="Scoring"><a href="#Scoring" class="headerlink" title="Scoring"></a>Scoring</h3><p>How to score a graph structure?</p>
 <p>Given a scoring strategy, how to find the “optimal” structure?</p>
-<h3 id="MLE-1"><a href="#MLE-1" class="headerlink" title="MLE"></a>MLE</h3><p>Only mle will cause the children fully-connected to all of its parents.-&gt;Overfit</p>
+<h3 id="MLE-1"><a href="#MLE-1" class="headerlink" title="MLE"></a>MLE</h3><p>Only mle will cause the children fully-connected to all of its parents $\to$Overfit</p>
 <h4 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h4><ul>
-<li>BIC: </li>
+<li>BIC</li>
 <li>special family of graphs</li>
 </ul>
 <h3 id="MAP-1"><a href="#MAP-1" class="headerlink" title="MAP"></a>MAP</h3><p>The general idea is to condition on what we have, the dataset, and find the most probable explanation for the unknown variables, W.</p>
-<p>Placing a prior distribution P(W) on the parameters W</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Chat%7Bw%7D=%5Carg_w%5Cmax%5CPr%5Bw%7Cx_%7B1:n%7D,y_%7B1:n%7D%5D=%5Carg_w%5Cmin-%5Clog(%5CPr%5Bw%5D)-%5Csum_%7Bi=1%7D%5EN%5Clog%5CPr%5By_i%7Cx_i,w%5D" alt="map"></p>
+<p>Placing a prior distribution $P(W)$ on the parameters W</p>
+<p>$$<br>\hat{w}=\arg_w\max\Pr[w|x_{1:n},y_{1:n}]=\arg_w\min-\log(\Pr[w])-\sum_{i=1}^N\log\Pr[y_i|x_i,w]<br>$$</p>
 <ul>
 <li><p>mini-batch SGD for MAP estimation to accelerate. The algorithm:</p>
 <ol>
-<li><p>initialize w0</p>
+<li><p>initialize $w_0$</p>
 </li>
-<li><p>For t=0,1,2,…</p>
-<p><img src="http://latex.codecogs.com/svg.latex?w_%7Bt+1%7D=w_t-%5Cfrac%7B%5Cepsilon_t%7D%7B2%7D(%5Cnabla%5Clog%5CPr%5Bw_t%5D+%5Cfrac%7BN%7D%7Bk%7D%5Csum_%7Bi=1%7D%5Ek%5Cnabla%5Clog%5CPr%5By_%7Bt,i%7D%7Cx_%7Bt,i%7D,w_t%5D)" alt="weight"></p>
+<li><p>For $t=0,1,2,\cdots$ </p>
+<p>$$<br> w_{t+1}=w_t-\frac{\epsilon_t}{2}(\nabla\log\Pr[w_t]+\frac{N}{k}\sum_{i=1}^k\nabla\log\Pr[y_{t,i}|x_{t,i},w_t])<br>$$</p>
 </li>
 </ol>
 <ul>
-<li>(x_{t,i},y_{t,i}) is the i-th data point in the t-th mini-batch of k points</li>
-<li>learning rate satisfies <img src="http://latex.codecogs.com/svg.latex?%5Csum_t%5Cepsilon_t%5Cto%5Cinfty,%5Csum_t%5Cepsilon_t%5E2%3C%5Cinfty" alt="learningrate"></li>
+<li>$(x_{t,i},y_{t,i})$ is the $i$-th data point in the $t$-th mini-batch of $k$ points</li>
+<li>learning rate satisfies $\sum_t\epsilon_t\to\infty,\sum_t\epsilon_t^2:\infty$</li>
 </ul>
 </li>
 </ul>
-<h1 id="Bayesian-learning-1"><a href="#Bayesian-learning-1" class="headerlink" title="Bayesian learning"></a>Bayesian learning</h1><p>Different from MAP, Bayesian learning turns attention to prediction. Skip the unknown parameters and use them directly. That means given a new data point x’, what is the probability of Y(x’)? To perform this task, we sum out whatever we don’t know:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CPr%5BY%7Cx%27,x_%7B1:N%7D,y_%7B1:N%7D%5D=%5Cint%20%5CPr%5Bw%7Cx_%7B1:N%7D,y_%7B1:N%7D%5D%5CPr%5BY%7Cw,x%27%5Ddw" alt="blearning"></p>
+<h1 id="Bayesian-learning-1"><a href="#Bayesian-learning-1" class="headerlink" title="Bayesian learning"></a>Bayesian learning</h1><p>Different from MAP, Bayesian learning turns attention to prediction. Skip the unknown parameters and use them directly. That means given a new data point $x’$, what is the probability of $Y(x’)$? To perform this task, we sum out whatever we don’t know:</p>
+<p>$$<br>\Pr[Y|x’,x_{1:N},y_{1:N}]=\int \Pr[w|x_{1:N},y_{1:N}]\Pr[Y|w,x’]\mathrm{d}w<br>$$</p>
 <ul>
 <li>the first item on the right side: calculate how likely of a model given our data</li>
 <li>the second item: how likely is the prediction given the model and the new data point.</li>
-<li>this model not only considers the most likely weight (which MAP chooses), but also all the other weights.</li>
+<li>this model not only considers the most likely weight, which MAP chooses, but also all the other weights.</li>
 <li>However, estimate the whole weight space may be undoable.</li>
 </ul>
 <p>Several algorithms can make this task doable.</p>
 <h2 id="Bayesian-learning-with-Gaussian-process"><a href="#Bayesian-learning-with-Gaussian-process" class="headerlink" title="Bayesian learning with Gaussian process"></a>Bayesian learning with Gaussian process</h2><h3 id="Gaussian-process"><a href="#Gaussian-process" class="headerlink" title="Gaussian process"></a>Gaussian process</h3><p>It is a normal distribution over functions</p>
 <p>Pin on these functions finite points and these finite marginals are multivariate Gaussians.</p>
 <p>Particularly, the prediction of one data point follows one-dimension Gaussian distribution. We need to learn the mu function and kernel function.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CPr%5Bf(x)%5D%5Csim%20%5Cmathcal%7BN%7D(f(x);%5Cmu(x),%5Csigma%5E2(x))" alt="gp"></p>
+<p>$$<br>\Pr[f(x)]\sim \mathcal{N}(f(x);\mu(x),\sigma^2(x))<br>$$</p>
 <h4 id="kernel-covariance-functions"><a href="#kernel-covariance-functions" class="headerlink" title="kernel(covariance) functions"></a>kernel(covariance) functions</h4><ul>
-<li><p>symmetric: k(x,x’)=k(x’,x) for all x,x’</p>
+<li><p>symmetric: $k(x,x’)=k(x’,x)$ for all $x,x’$</p>
 </li>
-<li><p>positive semi-definite: for all A, Sigma_{AA} is positive semi-definite matrix &lt;=&gt; all eigenvalues of </p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5CSigma_%7BAA%7D%5Cgeq%200%5CLeftrightarrow%20%5Cforall%20x,%20x%5CSimga_%7BAA%7Dx%5Cgeq%200" alt="learningrate"></p>
+<li><p>positive semi-definite: for all A, Sigma_{AA} is positive semi-definite matrix $\Leftrightarrow$ all eigenvalues of </p>
+<p>$$<br>\Sigma_{AA}\geq 0\Leftrightarrow \forall x, x\sum_{AA}x\geq 0<br>$$</p>
 </li>
 <li><p>Examples:</p>
 <ul>
-<li><p>squared exponential kernel: </p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cmathcal%7BK%7D(x,x%27)=%5Cexp(-%7C%7Cx-x%27%7C%7C_2%5E2/h%5E2)" alt="expkernel"> when x=x’, the covariance is 1. h smaller-&gt; more punish on distance-&gt;more fluctuation</p>
+<li><p>squared exponential kernel: $\mathcal{K}(x,x’)=\exp(-||x-x’||_2^2/h^2))$ when $x=x’$, the covariance is 1. h smaller $\to$​ more punish on distance $\to$ more fluctuation</p>
 </li>
-<li><p>exponential kernel: <img src="http://latex.codecogs.com/svg.latex?%5Cmathcal%7BK%7D(x,x%27)=%5Cexp(-%7C%7Cx-x%27%7C%7C_1/h%5E2)" alt="expkernel"> very unsmooth.</p>
+<li><p>exponential kernel: $\mathcal{K}(x,x’)=\exp(-||x-x’||_1/h^2)$    very unsmooth.</p>
 </li>
-<li><p>linear kernel (Bayesian linear regression): </p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cmathcal%7BK%7D(x,x%27)=x%5ETx%27" alt="expkernel"></p>
-</li>
-</ul>
+<li><p>linear kernel, Bayesian linear regression: </p>
+<p>$$<br> \mathcal{K}(x,x’)=x^Tx’<br>$$</p>
 </li>
 </ul>
-<p>This kind of models gives us the ability to predict for the uncertainty. How much uncertain on some data points (estimate the variance).</p>
+</li>
+</ul>
+<p>This kind of models gives us the ability to predict for the uncertainty. How much uncertain on some data points, estimate the variance.</p>
 <h2 id="Bayesian-deep-learning"><a href="#Bayesian-deep-learning" class="headerlink" title="Bayesian deep learning"></a>Bayesian deep learning</h2><p>work on high-dimension data.</p>
 <ul>
-<li><p>SGLD: generate from mini-batch SGD, with a more random noise item:</p>
-<p><img src="http://latex.codecogs.com/svg.latex?w_%7Bt+1%7D=w_t-%5Cfrac%7B%5Cepsilon_t%7D%7B2%7D(%5Cnabla%5Clog%5CPr%5Bw_t%5D+%5Cfrac%7BN%7D%7Bk%7D%5Csum_%7Bi=1%7D%5Ek%5Cnabla%5Clog%5CPr%5By_%7Bt,i%7D%7Cx_%7Bt,i%7D,w_t%5D)+%5Ceta_t" alt="weight"> where <img src="http://latex.codecogs.com/svg.latex?%5Ceta%5Csim%5Cmathcal%7BN%7D(0,%5Cepsilon%5E2)" alt="weight"></p>
-<p>To avoid being stuck on some local areas.</p>
-</li>
+<li>SGLD: generate from mini-batch SGD, with a more random noise item:<br>$$<br>w_{t+1}=w_t-\frac{\epsilon_t}{2}(\nabla\log\Pr[w_t]+\frac{N}{k}\sum_{i=1}^k\nabla\log\Pr[y_{t,i}|x_{t,i},w_t])+\eta_t)<br>$$<br>where $\eta\sim\mathcal{N}(0,\epsilon^2)$To avoid being stuck on some local areas.</li>
 </ul>
 <h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>Why Bayesian learning are so popular? Because it captures two kinds of uncertainty:</p>
 <ul>
@@ -646,12 +643,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/probabilistic-artificial-intelligence/">
-                                    <span class="chip bg-color">probabilistic artificial intelligence</span>
+                                <a href="../tags/AI/">
+                                    <span class="chip bg-color">AI</span>
                                 </a>
                             
-                                <a href="../tags/reinforcement-learning/">
-                                    <span class="chip bg-color">reinforcement learning</span>
+                                <a href="../tags/Reinforcement-Learning/">
+                                    <span class="chip bg-color">Reinforcement Learning</span>
+                                </a>
+                            
+                                <a href="../tags/Baysian/">
+                                    <span class="chip bg-color">Baysian</span>
                                 </a>
                             
                         </div>
@@ -1136,8 +1137,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1147,12 +1148,20 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/probabilistic-artificial-intelligence/">
-                        <span class="chip bg-color">probabilistic artificial intelligence</span>
+                    <a href="../tags/AI/">
+                        <span class="chip bg-color">AI</span>
                     </a>
                     
-                    <a href="../tags/reinforcement-learning/">
-                        <span class="chip bg-color">reinforcement learning</span>
+                    <a href="../tags/Reinforcement-Learning/">
+                        <span class="chip bg-color">Reinforcement Learning</span>
+                    </a>
+                    
+                    <a href="../tags/Bayesian/">
+                        <span class="chip bg-color">Bayesian</span>
+                    </a>
+                    
+                    <a href="../tags/Markov/">
+                        <span class="chip bg-color">Markov</span>
                     </a>
                     
                 </div>
@@ -1189,8 +1198,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1200,12 +1209,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/probabilistic-artificial-intelligence/">
-                        <span class="chip bg-color">probabilistic artificial intelligence</span>
+                    <a href="../tags/AI/">
+                        <span class="chip bg-color">AI</span>
                     </a>
                     
-                    <a href="../tags/reinforcement-learning/">
-                        <span class="chip bg-color">reinforcement learning</span>
+                    <a href="../tags/Reinforcement-Learning/">
+                        <span class="chip bg-color">Reinforcement Learning</span>
+                    </a>
+                    
+                    <a href="../tags/Markov/">
+                        <span class="chip bg-color">Markov</span>
                     </a>
                     
                 </div>
@@ -1368,6 +1381,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

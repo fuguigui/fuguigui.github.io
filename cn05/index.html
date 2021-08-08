@@ -420,12 +420,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/complex-system/">
-                                <span class="chip tag-color">complex system</span>
+                            <a href="../tags/Graph/">
+                                <span class="chip tag-color">Graph</span>
                             </a>
                         
-                            <a href="../tags/network/">
-                                <span class="chip tag-color">network</span>
+                            <a href="../tags/Complex-System/">
+                                <span class="chip tag-color">Complex System</span>
                             </a>
                         
                     </div>
@@ -436,8 +436,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/course-notes/" class="post-category">
-                                course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
                             </a>
                         
                     </div>
@@ -485,9 +485,11 @@
 <li>a function to encode a sequence of integer probability.</li>
 </ul>
 </li>
-<li>what does the m-th power of a generating function <img src="http://latex.codecogs.com/svg.latex?G_0(x)" alt="img"> generate?<ul>
-<li>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Clangle">http://latex.codecogs.com/svg.latex?%5Clangle</a> k%5Em%5Crangle)</li>
-<li>derivate and multiplied by <img src="http://latex.codecogs.com/svg.latex?x" alt="img"> and set <img src="http://latex.codecogs.com/svg.latex?x" alt="img"> as 1.</li>
+<li>what does the $m$-th power of a generating function $G_0(x)$​ generate?<ul>
+<li><p>$$<br>\langle k^m\rangle<br>$$</p>
+</li>
+<li><p>derivate and multiplied by $x$ and set $x$  as 1.</p>
+</li>
 </ul>
 </li>
 <li>How is the second raw moment of a distribution related to its variance?<ul>
@@ -498,7 +500,7 @@
 <li>equal??? Exactly.</li>
 </ul>
 </li>
-<li>What does the composition <img src="http://latex.codecogs.com/svg.latex?G_1(G_0(x))" alt="img"> generate? </li>
+<li>What does the composition $G_1(G_0(x)$ generate? </li>
 <li>what is the friendship paradox?<ul>
 <li>the average friends number of your friends is larger than the average friends number of yours.</li>
 </ul>
@@ -513,55 +515,51 @@
 <li>it will help us  to understand <strong>the limitation of the ensemble perspective</strong>.</li>
 <li>It is a fancy way to <strong>encode a sequence of numbers</strong>. </li>
 </ul>
-<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Given an integer probability sequence, ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?(p(1),p(2),%5Ccdots,%20p(n),%5Ccdots),">http://latex.codecogs.com/svg.latex?%28p%281%29%2Cp%282%29%2C%5Ccdots%2C%20p%28n%29%2C%5Ccdots%29%2C</a> %5CSigma_%7Bi%3D1%7Dp%28i%29%3D1)</p>
-<p> <img src="http://latex.codecogs.com/svg.latex?G_0(x)=%5CSigma_%7Bi=1%7Dp(i)x%5Ei,x%5Cin%20%5B0,1%5D" alt="img"></p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Given an integer probability sequence $(p(1), p(2),\cdots, p(n),\cdots)$​​​, where $\sum_i p(i)=1$​​​,<br>$$<br>G_0(x)=\sum_{i=1} p(i)x^i, x\in[0,1]<br>$$</p>
 <ul>
 <li>the probability: the object must be an integer, <ul>
 <li>could be 0, </li>
 <li>could be infinite.</li>
 </ul>
 </li>
-<li><img src="http://latex.codecogs.com/svg.latex?x" alt="img"> must in the range from 0 to 1.</li>
+<li>$x$ must in the range from 0 to 1.</li>
 </ul>
-<h2 id="Calculation"><a href="#Calculation" class="headerlink" title="Calculation"></a>Calculation</h2><h3 id="Derivation"><a href="#Derivation" class="headerlink" title="Derivation"></a>Derivation</h3><h4 id="The-probability"><a href="#The-probability" class="headerlink" title="The probability"></a>The probability</h4><p><img src="http://latex.codecogs.com/svg.latex?P(k)" alt="img"> is the parameter of <img src="http://latex.codecogs.com/svg.latex?x%5Ek" alt="img">, so we have</p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5B%5Cfrac%7B1%7D%7Bk!%7D%5Cfrac%7Bd%5Ek%7D%7Bdx%5Ek%7DG_0(x)%5D_%7Bx=0%7D%20=%20P(k)" alt="img"></p>
+<h2 id="Calculation"><a href="#Calculation" class="headerlink" title="Calculation"></a>Calculation</h2><h3 id="Derivation"><a href="#Derivation" class="headerlink" title="Derivation"></a>Derivation</h3><h4 id="The-probability"><a href="#The-probability" class="headerlink" title="The probability"></a>The probability</h4><p>$P(k)$ is the parameter of $x^k$​​, so we have<br>$$<br>[\frac{1}{k!}\frac{\mathrm{d}^k}{\mathrm{d}x^k}G_0(x)]_{x=0}=P(k)<br>$$</p>
 <ul>
-<li>derivate by k times, to eliminate the items with power less than k.</li>
-<li>set <img src="http://latex.codecogs.com/svg.latex?x" alt="img"> as 0, to eliminate the items with power larger than k.</li>
-<li>divided by <img src="http://latex.codecogs.com/svg.latex?k!" alt="img"> to eliminate the power influence on the parameter.</li>
+<li>derivate by $k$ times, to eliminate the items with power less than $k$​.</li>
+<li>set $x$ as 0, to eliminate the items with power larger than $k$.</li>
+<li>divided by $k!$ to eliminate the power influence on the parameter.</li>
 </ul>
-<h4 id="The-average-degree"><a href="#The-average-degree" class="headerlink" title="The average degree"></a>The average degree</h4><p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?G_0%27(1)=%5B%5CSigma_%7Bk=0%7D%5E%5Cinfty%20kP(k)%20x%5E%7Bk-1%7D%5D_%7Bx=1%7D%20=%20%5CSigma_%7Bk=0%7DkP(k)%20=%20%5Clangle">http://latex.codecogs.com/svg.latex?G_0%27%281%29%3D%5B%5CSigma_%7Bk%3D0%7D%5E%5Cinfty%20kP%28k%29%20x%5E%7Bk-1%7D%5D_%7Bx%3D1%7D%20%3D%20%5CSigma_%7Bk%3D0%7DkP%28k%29%20%3D%20%5Clangle</a> k%5Crangle)</p>
+<h4 id="The-average-degree"><a href="#The-average-degree" class="headerlink" title="The average degree"></a>The average degree</h4><p>$$<br>G_0’(1)=[ \sum_{k=0}^\infty k P(k) x^{k-1} ]_{x=1}<br>$$</p>
+<p>$$<br>= \sum_{k=0} kP(k)=\langle k \rangle<br>$$</p>
 <ul>
 <li>take the <strong>first</strong> derivative, to pull down the integer.</li>
-<li>set <img src="http://latex.codecogs.com/svg.latex?x" alt="img"> as 1, to eliminate the <img src="http://latex.codecogs.com/svg.latex?x" alt="img">‘s influence.</li>
+<li>set $x$​ as 1, to eliminate the $x$​’s influence.</li>
 </ul>
-<h4 id="m-th-raw-moment-of-P-k"><a href="#m-th-raw-moment-of-P-k" class="headerlink" title="m-th raw moment of P(k)"></a>m-th raw moment of P(k)</h4><p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5B(x%5Cfrac%7Bd%7D%7Bdx%7D)%5EmG_0(x)%5D_%7Bx=1%7D=%5CSigma_%7Bk=0%7D%5E%7B%5Cinfty%7Dk%5EmP(k)=%5Clangle">http://latex.codecogs.com/svg.latex?%5B%28x%5Cfrac%7Bd%7D%7Bdx%7D%29%5EmG_0%28x%29%5D_%7Bx%3D1%7D%3D%5CSigma_%7Bk%3D0%7D%5E%7B%5Cinfty%7Dk%5EmP%28k%29%3D%5Clangle</a> k%5Em%5Crangle)</p>
+<h4 id="m-th-raw-moment-of-P-k-​"><a href="#m-th-raw-moment-of-P-k-​" class="headerlink" title="$m$-th raw moment of $P(k)$​"></a>$m$-th raw moment of $P(k)$​</h4><p>$$<br>[(x\frac{\mathrm{d}}{\mathrm{d}x})^m G_0(x)]<em>{x=1}= \sum</em>{k=0}^\infty k^m P(k)=\langle k^m\rangle<br>$$</p>
 <ul>
-<li>the <img src="http://latex.codecogs.com/svg.latex?k" alt="img"> is on the index, so take derivative to pull it as a multiplier. </li>
-<li>multiplied by <img src="http://latex.codecogs.com/svg.latex?x" alt="img"> to make up the “<img src="http://latex.codecogs.com/svg.latex?k" alt="img">“. Actually, only the first <img src="http://latex.codecogs.com/svg.latex?k-1" alt="img"> times matter. The last <img src="http://latex.codecogs.com/svg.latex?x" alt="img"> is just for the form unified.</li>
-<li>set <img src="http://latex.codecogs.com/svg.latex?x" alt="img"> as 1, to keep <img src="http://latex.codecogs.com/svg.latex?P(k)" alt="img"> while eliminating the <img src="http://latex.codecogs.com/svg.latex?x" alt="img">‘s influence.</li>
+<li>the $k$ is on the index, so take derivative to pull it as a multiplier. </li>
+<li>multiplied by $x$​ to make up the “$k$”​. Actually, only the first $k-1$​ times matter. The last $x$​ is just for the form unified.</li>
+<li>set $x$ as 1, to keep $P(k)$ while eliminating the $x$’s influence.</li>
 </ul>
-<h3 id="Multiplication"><a href="#Multiplication" class="headerlink" title="Multiplication"></a>Multiplication</h3><p>Suppose <img src="http://latex.codecogs.com/svg.latex?Z=X+Y" alt="img">,</p>
-<p><img src="http://latex.codecogs.com/svg.latex?G_Z(x)=G_%7BX+Y%7D(x)=G_X(x)G_Y(x)" alt="img"></p>
-<p>the distribution of the sum of two random independent variable X and Y.</p>
+<h3 id="Multiplication"><a href="#Multiplication" class="headerlink" title="Multiplication"></a>Multiplication</h3><p>Suppose $Z=X+Y$,<br>$$<br>G_Z(x)=G_{X+Y}(x)=G_X(x)G_Y(x)<br>$$<br>the distribution of the sum of two random independent variable $X$ and $Y$.</p>
 <p>From the multiplication, we have many variants:</p>
-<h4 id="A-“new”-variable-X"><a href="#A-“new”-variable-X" class="headerlink" title="A “new” variable X"></a>A “new” variable X</h4><p><img src="http://latex.codecogs.com/svg.latex?xG_0(x)" alt="img"> generates distribution of <img src="http://latex.codecogs.com/svg.latex?P(X=k-1)=P(X+1=k)" alt="img">.</p>
+<h4 id="A-“new”-variable-X"><a href="#A-“new”-variable-X" class="headerlink" title="A “new” variable $X$"></a>A “new” variable $X$</h4><p>$xG_0(x)$ generates distribution of $P(X=k-1)=P(X+1=k)$.</p>
 <p>We can understand by </p>
 <ul>
-<li>we take ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?G_Y(x)=0+x+0%5Ccdot">http://latex.codecogs.com/svg.latex?G_Y%28x%29%3D0%2Bx%2B0%5ccdot</a> x%5E2%2B%5ccdots). It corresponds to a random variable Y, which is always 1, <img src="http://latex.codecogs.com/svg.latex?P(Y=1)=1" alt="img"></li>
-<li>So <img src="http://latex.codecogs.com/svg.latex?xG_0(x)=G_X(x)G_Y(x)" alt="img">, means the sum of one variable follows <img src="http://latex.codecogs.com/svg.latex?P_X(x)" alt="img"> and the other one, which is always 1. </li>
+<li>we take $G_Y(x)=0+x+0\cdot x^2+\cdots$ . It corresponds to a random variable $Y$, which is always $1$, $P(Y=1)=1$ </li>
+<li>So $xG_0(x)=G_X(x)G_Y(x)$​, means the sum of one variable follows $P_X(x)$ and the other one, which is always 1. </li>
 </ul>
-<p><img src="http://latex.codecogs.com/svg.latex?%5Cfrac%7B1%7D%7Bx%7DG_0(x)" alt="img"> generates distribution of <img src="http://latex.codecogs.com/svg.latex?P(X=k+1)=P(X-1=k)" alt="img"></p>
-<p>Similarly, it can be understood by add a random variable, which is always be -1. cause <img src="http://latex.codecogs.com/svg.latex?x%5E%7B-1%7D=%5Cfrac%7B1%7D%7Bx%7D" alt="img"></p>
+<p>$\frac{1}{x}G_0(x)$ generates distribution of $P(X=k+1)=P(X-1=k)$</p>
+<p>Similarly, it can be understood by add a random variable, which is always be -1. cause $x^{-1}=\frac{1}{x}$ </p>
 <h4 id="Power"><a href="#Power" class="headerlink" title="Power"></a>Power</h4><p>This is a variant of multiplication.</p>
-<p>m-th power <img src="http://latex.codecogs.com/svg.latex?%5BG_0(x)%5D%5Em" alt="img"> generates distribution for the <strong>sum</strong> of <strong>m</strong> independent realizations of random variable X, given the distribution of X.</p>
-<p>e.g. <img src="http://latex.codecogs.com/svg.latex?%5BG_0(x)%5D%5E2%20=%20%5CSigma_%7Bi+j=0%7D%5E%7B%5Cinfty%7DP(i)P(j)x%5E%7Bi+j%7D" alt="img"></p>
-<p><img src="http://latex.codecogs.com/svg.latex?%5BG_0(x)%5D%5Em%20=%20%5CSigma_%7Bk_1+k_2+%5Cdots+k_m=0%7D%5E%7B%5Cinfty%7DP(k_1)P(k_2)%5CcdotsP(k_m)%5E%7Bk_1+%5Ccdots+k_m%7D" alt="img"></p>
-<h3 id="Composition"><a href="#Composition" class="headerlink" title="Composition"></a>Composition</h3><p><img src="http://latex.codecogs.com/svg.latex?G_1(G_0(x))" alt="img"> generates the sum of  a random number <img src="http://latex.codecogs.com/svg.latex?n_i" alt="img"> of variable <img src="http://latex.codecogs.com/svg.latex?X" alt="img">.</p>
-<p><img src="http://latex.codecogs.com/svg.latex?G_1(G_0(x))=%5CSigma_%7Bk=0%7DP_1(k)%5BG_0(x)%5D%5Ek" alt="img"></p>
+<p>m-th power $[G_0(x)]^m$  generates distribution for the <strong>sum</strong> of $m$ independent realizations of random variable $X$, given the distribution of $X$​.</p>
+<p>e.g.<br>$$<br>[G_0(x)]^2=\sum_{i+j=0}^\infty P(i)P(j)x^{i+j}<br>$$</p>
+<p>$$<br>[G_0(x)]^m=\sum_{k_1+k_2+\cdots + k_m=0}^\infty P(k_1)P(k_2)\cdots P(k_m)x^{k_1+k_2+\cdots k_m}<br>$$</p>
+<h3 id="Composition"><a href="#Composition" class="headerlink" title="Composition"></a>Composition</h3><p>$G_1(G_0(x))$​ generates the sum of  a random number  $n_i$​ of variable $X$<br>$$<br>G_1(G_0(x))=\sum_{k=0}P_1(k)[G_0(x)]^k<br>$$</p>
 <ul>
-<li> a random number <img src="http://latex.codecogs.com/svg.latex?n_i" alt="img"> follows the distribution given by <img src="http://latex.codecogs.com/svg.latex?G_1(x)" alt="img"></li>
-<li>the variable X follows the distribution given by <img src="http://latex.codecogs.com/svg.latex?G_0(x)" alt="img"></li>
+<li> a random number $n_i$ follows the distribution given by $G_1(x)$</li>
+<li>the variable $X$ follows the distribution given by $G_0(x)$</li>
 </ul>
 <p>Example: we have two dice, one with six sides, and the second one with eight sides.</p>
 <ul>
@@ -570,49 +568,50 @@
 <li>we get the distribution of this sum.</li>
 </ul>
 <h2 id="“0”-and-“1”"><a href="#“0”-and-“1”" class="headerlink" title="“0” and “1”"></a>“0” and “1”</h2><ul>
-<li>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?G_0(1)=%5CSigma_%7Bk=0%7DP(k)%5Ccdot">http://latex.codecogs.com/svg.latex?G_0%281%29%3D%5cSigma_%7Bk%3D0%7DP%28k%29%5ccdot</a> 1%3D1)</li>
-<li>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?G_0(0)=%5CSigma_%7Bk=0%7DP(k)%5Ccdot">http://latex.codecogs.com/svg.latex?G_0%280%29%3D%5cSigma_%7Bk%3D0%7DP%28k%29%5ccdot</a> 0%3D0)</li>
+<li><p>$$<br>G_0(1)=\sum_{k=0}P(k)\cdot 1 = 1<br>$$</p>
+</li>
+<li><p>$$<br>G_0(0)=\sum_{i=1} p(i)0^i=0<br>$$</p>
+</li>
 </ul>
-<h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><h3 id="Networks"><a href="#Networks" class="headerlink" title="Networks"></a>Networks</h3><p><img src="http://latex.codecogs.com/svg.latex?G_0(x)" alt="img"> generates the <strong>degree distribution</strong>.</p>
+<h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><h3 id="Networks"><a href="#Networks" class="headerlink" title="Networks"></a>Networks</h3><p>$G_0(x)$ generates the <strong>degree distribution</strong>.</p>
 <h1 id="Friendship-paradox"><a href="#Friendship-paradox" class="headerlink" title="Friendship paradox"></a>Friendship paradox</h1><p>Your friends have, on average, more friends than you.</p>
-<p>Mathematically, ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Clangle">http://latex.codecogs.com/svg.latex?%5Clangle</a> k_n%5Crangle%3E%5Clangle k%5Crangle)</p>
+<p>Mathematically, $\langle k_n\rangle&gt;\langle k\rangle$</p>
 <ul>
-<li><p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Clangle">http://latex.codecogs.com/svg.latex?%5Clangle</a> k%5Crangle) can be achieved by <img src="http://latex.codecogs.com/svg.latex?G_0(x)" alt="img">, which generates the given degree distribution.</p>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Clangle">http://latex.codecogs.com/svg.latex?%5Clangle</a> k%5Crangle%3D%5Cfrac%7B1%7D%7BN%7D%5CSigma_%7Bi%3D1%7D%5EN%7Bk%7D_i%0A)</p>
+<li><p>$\langle k\rangle$​ can be achieved by $G_0(x)$​, which generates the given degree distribution. $\langle k\rangle=\frac{1}{N}\sum_{i=1}^N k_i$​</p>
 </li>
-<li><p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Clangle">http://latex.codecogs.com/svg.latex?%5Clangle</a> k_n%5Crangle) means the average number of node’s neighbors degree. Mathematically, ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Clangle">http://latex.codecogs.com/svg.latex?%5Clangle</a> k_n%5Crangle%3D%5Cfrac%7B1%7D%7BN%7D%5CSigma_%7Bi%3D1%7D%5EN%7B%5Cbar%7Bk%7D_i%7D%0A)</p>
+<li><p>$\langle k_n\rangle$​ means the average number of node’s neighbors degree. Mathematically, $\langle k_n\rangle=\frac{1}{N}\sum_{i=1}^N\bar{k}_i$​ </p>
 <ul>
-<li>where <img src="http://latex.codecogs.com/svg.latex?%5Cbar%7Bk%7D_i" alt="img"> means how many neighbors on average, does node <img src="http://latex.codecogs.com/svg.latex?i" alt="img">‘s neighbors have. Mathematically, <img src="http://latex.codecogs.com/svg.latex?%5Cbar%7Bk%7D_i=%5Cfrac%7B1%7D%7Bk_i%7D%5CSigma_%7Bj%5Cin%20I_i%7D%20d_j" alt="img">, <img src="http://latex.codecogs.com/svg.latex?I_i" alt="img"> denotes the set of node <img src="http://latex.codecogs.com/svg.latex?i" alt="img">‘s neighbor.</li>
+<li>where $\bar{k}_i$​​​​ means how many neighbors on average, does node $i$​​​​’s neighbors have. Mathematically, $\bar{k}<em>i=\frac{1}{k_i} \sum</em>{j\in I_i} d_j$​​​​<ul>
+<li> $I_i$​​​ denotes the set of node $i$​​​’s neighbor.</li>
 </ul>
 </li>
-<li><p>Trick: if we can know the degree distribution of a node’s neighbor from the original node distribution, we will solve this problem. That is the probability <img src="http://latex.codecogs.com/svg.latex?P_1(X=k)" alt="img"> means a neighbor of a node has degree <img src="http://latex.codecogs.com/svg.latex?k" alt="img">.</p>
+</ul>
+</li>
+<li><p>Trick: if we can know the degree distribution of a node’s neighbor from the original node distribution, we will solve this problem. That is the probability $P_1(X=k)$  means a neighbor of a node has degree $k$.</p>
 </li>
 </ul>
-<h2 id="The-degree-distribution-of-a-node’s-neighbor"><a href="#The-degree-distribution-of-a-node’s-neighbor" class="headerlink" title="The degree distribution of a node’s neighbor"></a>The degree distribution of a node’s neighbor</h2><p>We define <img src="http://latex.codecogs.com/svg.latex?P_1(X=k)" alt="img"> as above. This probability means I randomly select a node’s neighbor, the probability of its degree is k. </p>
+<h2 id="The-degree-distribution-of-a-node’s-neighbor"><a href="#The-degree-distribution-of-a-node’s-neighbor" class="headerlink" title="The degree distribution of a node’s neighbor"></a>The degree distribution of a node’s neighbor</h2><p>We define $P_1(X=k)$ as above. This probability means I randomly select a node’s neighbor, the probability of its degree is $k$. </p>
 <ul>
-<li><p>If a node has degree k, it has k times to be others’ neighbor. So, ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?P_1(X=k)%5Csim">http://latex.codecogs.com/svg.latex?P_1%28X%3Dk%29%5Csim</a> kP_0%28k%29). </p>
+<li><p>If a node has degree $k$​, it has $k$​ times to be others’ neighbor. So,  $P_1(X=k)\sim k P_0(k)$​. </p>
 </li>
-<li><p>we <strong>normalize</strong> by the sum of <img src="http://latex.codecogs.com/svg.latex?P_1(X=k)" alt="img"> over <img src="http://latex.codecogs.com/svg.latex?k" alt="img">. It is </p>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5CSigma_k">http://latex.codecogs.com/svg.latex?%5CSigma_k</a> P_1%28k%29%3D%5CSigma kP_0%28k%29%3D%5Clangle k%5Crangle)</p>
+<li><p>we <strong>normalize</strong> by the sum of $P_1(X=k)$ over $k$​. It is<br>$$<br>\sum_k P_1(k)=\sum kP_0(k)=\langle k\rangle<br>$$</p>
 </li>
-<li><p>So, we get </p>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?P_1(X=k)=%5Cfrac%7BkP_0(k)%7D%7B%5Clangle">http://latex.codecogs.com/svg.latex?P_1%28X%3Dk%29%3D%5Cfrac%7BkP_0%28k%29%7D%7B%5Clangle</a> k%5Crangle%7D)</p>
+<li><p>So, we get<br>$$<br>P_1(X=k)= \frac{k P_0(k)}{\langle k\rangle}<br>$$</p>
 </li>
-<li><p>We can define <img src="http://latex.codecogs.com/svg.latex?G_1(x)" alt="img"> by ![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?P_1(X=">http://latex.codecogs.com/svg.latex?P_1%28X%3D</a> k%29), not including the edge linking these two nodes. </p>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?G_1(x)=%5Cfrac%7B1%7D%7Bx%7D%5CSigma_%7Bi=1%7DP_1(i)x%5Ei=%5Cfrac%7BG_0'%28x%29%7D%7B%5Clangle">http://latex.codecogs.com/svg.latex?G_1%28x%29%3D%5Cfrac%7B1%7D%7Bx%7D%5CSigma_%7Bi%3D1%7DP_1%28i%29x%5Ei%3D%5Cfrac%7BG_0'%28x%29%7D%7B%5Clangle</a> k%5Crangle%7D)</p>
+<li><p>We can define $G_1(x)$​ by $P_1(X=k)$​, not including the edge linking these two nodes.<br>$$<br>G_1(x)=\frac{1}{x}\sum_{i=1}P_1(i)x^i=\frac{G_0’(x)}{\langle k\rangle}<br>$$</p>
 </li>
-<li><p>The average degree </p>
-<p>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?%5Clangle">http://latex.codecogs.com/svg.latex?%5Clangle</a> k_n%5Crangle%3D1%2BG_1%27%281%29%3D1%2B%5Cfrac%7BG_0%27%27%281%29%7D%7BG_0%27%281%29%7D%3D%5CSigma_%7Bi%3D1%7DiP_1%28i%29%3D%5CSigma_%7Bi%3D1%7Di%5E2%5Cfrac%7BP_0%28i%29%7D%7B%5Clangle k%5Crangle%7D%3D%5Cfrac%7B%5Clangle k%5E2%5Crangle%7D%7B%5Clangle k%5Crangle%7D)</p>
+<li><p>The average degree<br>$$<br>\langle k_n\rangle = 1+G_1’(1)=1+\frac{G_0’’(1)}{G_0’(1)}<br>$$</p>
+<p>$$<br>=\sum_{i=1}iP_1(i)=\sum_{i=1}i^2\frac{P_0(i)}{\langle k\rangle}=\frac{\langle k^2\rangle}{\langle k\rangle}<br>$$</p>
 </li>
 <li><p>The key is the <strong>variance</strong> of the degree sequence!!!</p>
 </li>
 </ul>
-<h2 id="Variant"><a href="#Variant" class="headerlink" title="Variant"></a>Variant</h2><p>Also, we can define <img src="http://latex.codecogs.com/svg.latex?P_2(X=k)=P_1(X=k+1)" alt="img">. The probability of a degree of a node’s neighbor</p>
+<h2 id="Variant"><a href="#Variant" class="headerlink" title="Variant"></a>Variant</h2><p>Also, we can define $P_2(X=k)=P_1(X=k+1)$. The probability of a degree of a node’s neighbor</p>
 <p>According to the calculation property of generating function, it is easy to get</p>
 <ul>
-<li>![img](<a target="_blank" rel="noopener" href="http://latex.codecogs.com/svg.latex?G_2(x)=xG_1(x)=%5Cfrac%7BxG_0'%28x%29%7D%7B%5Clangle">http://latex.codecogs.com/svg.latex?G_2%28x%29%3DxG_1%28x%29%3D%5Cfrac%7BxG_0'%28x%29%7D%7B%5Clangle</a> k%5Crangle%7D)</li>
+<li>$G_2(x)=xG_1(x)=\frac{xG_0’(x)}{\langle k\rangle}$</li>
 </ul>
-<p>Besides, we can define <img src="http://latex.codecogs.com/svg.latex?G_0(G_1(x))" alt="img"> : the distribution of the number of <strong>second-neighbor</strong>.</p>
+<p>Besides, we can define $G_0(G_1(x)$ : the distribution of the number of <strong>second-neighbor</strong>.</p>
 <h2 id="Applications-1"><a href="#Applications-1" class="headerlink" title="Applications"></a>Applications</h2><ul>
 <li>vaccination strategy: Instead of sampling random individuals, we ask them to name a random friend and then offer this friend to receive a vaccination. This simple strategy has a larger impact than the vaccination of a random sample of the population.</li>
 <li>explore topology. Study from the friends to get <strong>upper limit</strong>.</li>
@@ -680,12 +679,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/complex-system/">
-                                    <span class="chip bg-color">complex system</span>
+                                <a href="../tags/Graph/">
+                                    <span class="chip bg-color">Graph</span>
                                 </a>
                             
-                                <a href="../tags/network/">
-                                    <span class="chip bg-color">network</span>
+                                <a href="../tags/Complex-System/">
+                                    <span class="chip bg-color">Complex System</span>
                                 </a>
                             
                         </div>
@@ -1219,8 +1218,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/course-notes/" class="post-category">
-                                    course notes
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1230,12 +1229,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/complex-system/">
-                        <span class="chip bg-color">complex system</span>
+                    <a href="../tags/Graph/">
+                        <span class="chip bg-color">Graph</span>
                     </a>
                     
-                    <a href="../tags/network/">
-                        <span class="chip bg-color">network</span>
+                    <a href="../tags/Complex-System/">
+                        <span class="chip bg-color">Complex System</span>
                     </a>
                     
                 </div>
@@ -1398,6 +1397,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
