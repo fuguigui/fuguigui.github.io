@@ -2,14 +2,14 @@
 title: CN review notes
 author: Guirong Fu
 date: 2019-08-18
+tags: [Complex System, Graph]
+categories: [Sharing]
 top: true
-tags: [complex system, network]
-categories: course notes
 ---
 
-Here are my review notes of course Complex Network opened by Professor Frank Schweitzer, ETH Zurich, 2019 Spring.
+Here are my review notes of course Complex Network opened by [Professor Frank Schweitze](https://www.sg.ethz.ch/team/frank_schweitzer/), Chair of Systems Design, ETH Zurich, 2019 Spring.
 
-These notes are based on lecture notes, recording important points.
+These notes include important points based on lecture notes.
 
 
 # Content
@@ -39,12 +39,14 @@ These notes are based on lecture notes, recording important points.
 - [Time series data on networks](../cn14/index.html)
 
 
+
+![the whole mindmap](mindmap.png)
+
 # Other Resources
 
 I also wrote a summary of difficult/important knowledge points of this course.
 
-
 <br>
-{% pdf ./CNSummary.pdf %}
+{% pdf CNSummary.pdf %}
 
 <br>

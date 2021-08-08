@@ -1,94 +1,93 @@
 ---
 title: Neural Network
 date: 2019-07-17
-tags: [computational intelligence]
-categories: course notes
+tags: [Machine Learning]
+categories: [Learning Notes]
+mathjax: true
 ---
 
-# Neural Network
-
-## Composition
+# Composition
 
 - layer
   - neurons/units
     - input
     - weight
     - activation function
-    - output
-
-![img](http://latex.codecogs.com/svg.latex?x%5E%7B%28l%29%7D%3D%5Csigma%5E%7B%28l%29%7D%28W%5E%7B%28l%29%7Dx%5E%7B%28l-1%29%7D%29)
+    - output $x^{(l)}=\sigma^{(l)}(W^{(l)}x^{(l-1)})$​
 
 - network depth: the feature hierarchy
 - layer width: the number of features
 
+## Activation function
 
-
-### Activation function
-
-#### Sigmoid
+### Sigmoid
 
 change the linearity to non-linearity
 
-#### ReLU
+### ReLU
 
 change the linearity in some way
 
 simple derivative
 
-## Training
+# Training
 
-### Loss function
+## Loss function
 
-Define the training objective, can be chosen by the output type. ![img](http://latex.codecogs.com/svg.latex?y%2A) is the target output, ![img](http://latex.codecogs.com/svg.latex?y) is the predicted output
+Define the training objective, can be chosen by the output type. $y^*$  is the target output, $y$ is the predicted output
 
-- ![img](http://latex.codecogs.com/svg.latex?y%2A) is categorical: **cross-entropy loss**: 
+- $y^*$​​ is categorical: **cross-entropy loss**: 
+  $$
+  l(y^*,y)=-y^* \log y - (1-y^*)\log(1-y)
+  $$
+  
 
-  ![img](http://latex.codecogs.com/svg.latex?l%28y%2A%2Cy%29%3D-y%2A%5Clog%20y%20-%20%281-y%2A%29%5Clog%281-y%29)
+- $y^*$ is numerical: **squared loss**: 
+  $$
+  l(y^*,y)=\frac{1}{2}(y^*-y)^2
+  $$
 
-- ![img](http://latex.codecogs.com/svg.latex?y%2A) is numerical: **squared loss**: ![img](http://latex.codecogs.com/svg.latex?l%28y%2A%2Cy%29%3D%5Cfrac%7B1%7D%7B2%7D%28y%2A-y%29%5E2)
-
-#### Regularization
+### Regularization
 
 to penalize the parameters
 
-- L2 regularization:![img](http://latex.codecogs.com/svg.latex?L_%7B%5Clambda%7D%28X%3B%5Ctheta%29%20%3D%20L%28X%3B%5Ctheta%29%2B%5Cfrac%7B%5Clambda%7D%7B2%7D%5C%7C%5Ctheta%5C%7C_2%5E2)
+- L2 regularization: $L_{\lambda}(X;\theta)=L(X;\theta)+\frac{\lambda}{2}\|\theta\|_2^2$
 
-### Backpropagation
+## Backpropagation
 
-#### SGD
+### SGD
 
-different from past SGD, here we also include a step size  ![img](http://latex.codecogs.com/svg.latex?%5ceta), because the steepest (original) descent is too expensive for large data sets. 
+different from past SGD, here we also include a step size  $\eta$, because the steepest / original descent is too expensive for large data sets. 
 
-In the past, it should be
+In the past, it should be $\theta\leftarrow (1-\lambda)\theta - \nabla_\theta l(y_t^*, y(x_t, \theta))$
 
-![img](http://latex.codecogs.com/svg.latex?%5Ctheta%5Cleftarrow%20%281-%5Clambda%29%5Ctheta-%5Cnabla_%7B%5Ctheta%7Dl%28y_t%5E%2A%2Cy%28x_t%2C%5Ctheta%29%29)
+But with $\eta$​​, it becomes $\theta\leftarrow (1-\eta\lambda)\theta - \eta\nabla_\theta l(y_t^*, y(x_t, \theta))$​​
 
-But with ![img](http://latex.codecogs.com/svg.latex?%5ceta), it becomes
+### Chain rule
 
-![img](http://latex.codecogs.com/svg.latex?%5Ctheta%5Cleftarrow%20%281-%5ceta%5Clambda%29%5Ctheta-%5ceta%5Cnabla_%7B%5Ctheta%7Dl%28y_t%5E%2A%2Cy%28x_t%2C%5Ctheta%29%29)
+$$
+\frac{\partial x^{(l)}}{\partial x^{(l-n)}} = J^{(l)}\cdot  J^{(l-1)}\cdots  J^{(l-n+1)}\\
+\nabla_{x^{(l)}}^T l = \nabla_y^T l\cdot J^{(L)}\cdots J^{(l+1)}
+$$
 
-#### Chain rule
+### Weights influence
 
-![img](http://latex.codecogs.com/svg.latex?%5Cfrac%7B%5Cpartial%20x%5E%7B%28l%29%7D%7D%7B%5Cpartial%20x%5E%7B%28l-n%29%7D%7D%20%3D%20J%5E%7B%28l%29%7D%5Ccdot%20J%5E%7B%28l-1%29%7D%5Ccdots%20J%5E%7B%28l-n%2B1%29%7D)
-
-![img](http://latex.codecogs.com/svg.latex?%5Cnabla%5ET_%7Bx%5E%7B%28l%29%7D%7Dl%3D%5Cnabla%5ET_y%20l%5Ccdot%20J%5E%7B%28L%29%7D%5Ccdots J%5E%7B%28l%2B1%29%7D)
-
-#### Weights influence
-
-![img](http://latex.codecogs.com/svg.latex?%5Cfrac%7B%5Cpartial%20x_i%5E%7B%28l%29%7D%7D%7B%5Cpartial%20w_%7Bij%7D%5E%7B%28l%29%7D%7D%20%3D%20%5Csigma%27%28%5Bw_i%5E%7Bl%7D%5D%5ETx%5E%7B%28l-1%29%7D%29x_j%5E%7B%28l-1%29%7D)
+$$
+\frac{\partial x_i^{(l)}}{\partial w_{ij}^{(l)}} = \sigma'([w_i^l]^Tx^{(l-1)})x_j^{(l-1)}
+$$
 
 is composed of two parts:
 
 - sensitivity
 - activation
 
-## Comparison to Logistics Regression
+# Comparison to Logistics Regression
 
 Logistic Regression:
 
 - linear
 
-MLP (multi-layer perceptron):
+MLP: multi-layer perceptron:
 
 - learn intermediate feature representation
 
@@ -100,7 +99,7 @@ MLP (multi-layer perceptron):
 
 ## Receptive field
 
-The creative point of convolutional neural network is how it chooses and organizes the input  ![img](http://latex.codecogs.com/svg.latex?x%5E%7B%28l%29%7D)
+The creative point of convolutional neural network is how it chooses and organizes the input $x^{(l)}$
 
 This variant in some way complicates the neural network
 
@@ -108,7 +107,7 @@ This variant in some way complicates the neural network
 
 This simplifies the neural network. Neurons share the same weights.
 
-Weights define a **filter mask**. A filter mask corresponds to a vector of ![img](http://latex.codecogs.com/svg.latex?y), in CNN, which is called channel.
+Weights define a **filter mask**. A filter mask corresponds to a vector of $y$, in CNN, which is called channel.
 
 ## Building blocks
 
@@ -125,7 +124,9 @@ Weights define a **filter mask**. A filter mask corresponds to a vector of ![img
 
 #### Formula
 
-![img](http://latex.codecogs.com/svg.latex?F_%7Bn%2Cm%7D%28x%3Bw%29%3D%5Csigma%28b%2B%5CSigma_%7Bk%3D-2%7D%5E2%5CSIgma_%7Bl%3D-2%7D%5E2w_%7Bk%2Cl%7D%5Ccdot%20x_%7Bn%2Bk%2Cm%2Bl%7D%5C%29)
+$$
+F_{n,m}(x; w)=\sigma(b+\sum_{k=-2}^2\sum_{l=-2}^2w_{k,l}\cdot x_{n+k, m+l})
+$$
 
 ### Pooling layer
 

@@ -1,10 +1,10 @@
 ---
 title: CIL review notes
-author: Guirong Fu
 date: 2019-08-26
 top: true
-tags: [computational intelligence]
-categories: course notes
+tags: [Machine Learning]
+categories: [Sharing]
+mathjax: true
 ---
 
 Here are my review notes of course [Computational Intelligence Lab](http://www.da.inf.ethz.ch/teaching/2019/CIL/) opened by ETH Zurich, 2019 Spring.
@@ -19,13 +19,13 @@ The values of these notes are my questions and thoughts. I believe question is t
 
 ## Autoencoder
 
-- [Linear autoencoder](../1la/index.html)
-- [Matrix completion](../2mc/index.html)
-- [Non-negative matrix factorization](../cil-topic-model/index.html)
+- [Linear autoencoder](../cil-1la/index.html)
+- [Matrix completion](../cil-2mc/index.html)
+- [Non-negative matrix factorization](../cil-3tm/index.html)
 
 ## Word Embedding
 
-- [Word Embedding](../5we/index.html)
+- [Word Embedding](../cil-5we/index.html)
 
 ## Data Clustering
 
@@ -33,16 +33,16 @@ The values of these notes are my questions and thoughts. I believe question is t
 
 ## Neural Network
 
-- [Neural Network](../7cnn/index.html)
+- [Neural Network](../cil-7cnn/index.html)
 
 ## Generative Model
 
-- [Generative Model](../8gm/index.html)
+- [Generative Model](../cil-8gm/index.html)
 
 ## Sparse Learning
 
-- [Sparse coding](../9sc/index.html)
-- [Dictionary learning](../10dl/index.html)
+- [Sparse coding](../cil-9sc/index.html)
+- [Dictionary learning](../cil-10dl/index.html)
 
 
 
@@ -50,14 +50,16 @@ The values of these notes are my questions and thoughts. I believe question is t
 
 I also wrote the last minute summary and cheatsheet for this course.
 
-<br>
-
-{% pdf ./CILSummary.pdf %}
+## Summary
 
 <br>
 
+{% pdf CILSummary.pdf %}
 
+<br>
 
-<br>{% pdf ./CILCheatSheet.pdf %}
+## Cheatsheet
+
+<br>{% pdf CILCheatSheet.pdf %}
 
 <br>

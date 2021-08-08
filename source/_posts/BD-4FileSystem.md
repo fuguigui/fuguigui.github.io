@@ -1,11 +1,9 @@
 ---
 title: File system
 date: 2019-01-24
-tags: [big data]
-categories: course notes
+tags: [System, Big Data]
+categories: [Learning Notes]
 ---
-
-
 
 # Use Cases
 
@@ -146,3 +144,10 @@ Block size: Cloudera HDFS: 128 MB, GFS/Apache HDFS: 64 MB.
 
 # Abbreviations
 DFS
+
+# Further Reading
+
+[Hadoop: The Definitive Guide 4th ed.](https://www.oreilly.com/library/view/hadoop-the-definitive/9781491901687/) Chapter 3
+
+[The Hadoop Distributed File System](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjJotjt6J7yAhUKgP0HHX3RByMQFnoECAQQAw&url=http%3A%2F%2Fstorageconference.us%2F2010%2FPapers%2FMSST%2FShvachko.pdf&usg=AOvVaw0_YA92FFHsSjh4za3pmHae)
+

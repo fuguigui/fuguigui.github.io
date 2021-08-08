@@ -1,13 +1,13 @@
 ---
 title: YARN
 date: 2019-01-25
-tags: [big data]
-categories: course notes
+tags: [System, Big Data]
+categories: [Learning Notes]
 ---
 
 
 
-JobTracker: 
+# JobTracker
 
 ## Responsibilities
 - Resource Management (*RM*)
@@ -23,7 +23,7 @@ JobTracker:
 4. Utilization: the task slots are set before the job starts. They all have the same size, static, fixed-size.
 5. Not fungible: the number of maps and reduces should be decided before the job starts. You may underestimate or overestimate.
 
-# YARN (version 2)
+# YARN version 2
 yet another resource negotiator
 - Resource Manager: scheduling, application management
 - Application Master: monitoring
@@ -78,4 +78,4 @@ Responsibilities: fault tolerance
 AM-> RM: negotiates resources  
 AM-> NM: executes and **monitors**: monitors the containers and relaunch the failure ones.
 # Abbreviation
-YARN, 
+YARN

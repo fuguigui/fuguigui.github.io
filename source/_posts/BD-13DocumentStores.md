@@ -1,11 +1,9 @@
 ---
 title: Document Stores
 date: 2019-01-27
-tags: [big data]
-categories: course notes
+tags: [System, Big Data]
+categories: [Learning Notes]
 ---
-
-
 
 Document stores don't like joins. 
 
@@ -71,3 +69,11 @@ When a row is deleted only left with one node, it will draw its parent down and 
 - hash: ```db.**.createIndex({"key":"hash"})```
 - B-tree: ```db.**.createIndex({"key":1})```
 - compound:```db.**.createIndex({"key1":1,"key2":-1})``` sort order. **prefixes are implied**
+
+# Further Reading
+
+[MongoDB: The Definitive Guide, 3rd Edition](https://www.oreilly.com/library/view/mongodb-the-definitive/9781491954454/) Chapter 3, 4, 5
+
+My reading notes:
+
+{% pdf 13MongoDB.pdf %}

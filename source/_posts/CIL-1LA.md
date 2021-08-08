@@ -1,17 +1,16 @@
 ---
 title: Linear Autoencoder
-author: Gui
+author: Lulu
 date: 2019-07-04
-tags: computational intelligence
-categories: course notes
+tags: [Machine Learning]
+categories: [Learning Notes]
+mathjax: true
 ---
 
-# Linear Autoencoder
-
 # Pre-Questions
-1. what? The framework of linear matrix low rank construction
-2. Problem? To approximate a matrix with low-rank matrix. This is an encoding problem.
-3. Key? Find the encoder C and decoder D.
+1. *What?* The framework of linear matrix low rank construction
+2. *Problem?* To approximate a matrix with low-rank matrix. This is an encoding problem.
+3. *Key?* Find the encoder $C$ and decoder $D$.
 4. Formula? $Z = CX, X' = DZ=DCX$
 5. Applications? feature engineering, saving storage space.
 6. Further Development? Non-linear? Supervized, not auto?
@@ -22,7 +21,7 @@ categories: course notes
 - Remarks
 
 # Dimension Reduction
-- Object? A matrix or a data point? what kinds of conditions should this matrix satisfy?
+- *Object?* A matrix or a data point? what kinds of conditions should this matrix satisfy?
 	- A matrix, a series of data points. The data points have the same length (dimension)
 - How to deal with missing values?
   - delete the data points
@@ -47,7 +46,7 @@ $$
 
 ## Method
 The methods should be selected according to the to-encode objects.
-### Change Basis(Space)
+### Change Basis/Space
 The original vector is expressed on one set of units, change the expression units, and express the vector by new units. Take picture for an example, a $100\times 100$ head photo, the original unit is pixel, now we change the units as four layers, a fixed head, the hair contour, part highlight one and part highlight two. Therefore a $100\times 100$ vector in the original space is expressed by $1\times 4$ vector in new space. 
 In another word, the new basis may save a lot of information for the data. Problem: the data points must be similar in some way to make basis useful. 
 
@@ -149,10 +148,10 @@ $$
 
 ### Interpretation
 
-- $U: M*M$, map the $M$ objects to $M$ classes, the entry $U_ij$ is the object $i$ 's value on class $j$. 
+- $U: M\times M$​​, map the $M$​​ objects to $M$​​ classes, the entry $U_{ij}$​​ is the object $i$​​ 's value on class $j$​​. 
 
 
-- $V: N*N$, map the $N$ objects to $N$ classes, the entry $V_ij$ is the object $i$ 's value on class $j$
+- $V: N\times N$​​, map the $N$​​ objects to $N$​​ classes, the entry $V_{ij}$​​ is the object $i$​​ 's value on class $j$​​
 
 - $D: D_{ii}$ express the strength or expression ability of the class $i$ or the strength of each factor.
 
@@ -207,7 +206,7 @@ Stochastic gradient descending method.
 	   \|v-w\|^2 = <v-w, v-w>=\|v\|^2+\|w\|^2-2<v,w>
 	   $$
 	   
-	4. $$\to \|I-(uu^\top)x_i\|^2=\|x_i - uu^\top x_i\|^2=\|x_i\|^2 + \|uu\top x_i\|^2-2<x_i,uu\top x_i>=x_i^\top x_i+(u^\topu-2)x_i^\top uu^\top x_i$$
+	4. $$\to \|I-(uu^\top)x_i\|^2=\|x_i - uu^\top x_i\|^2=\|x_i\|^2 + \|uu\top x_i\|^2-2<x_i,uu\top x_i>=x_i^\top x_i+(u^\top u-2)x_i^\top uu^\top x_i$$​
 	
 	5. $$
 	   u:\arg\min\frac{1}{n}\sum_{i=1}^n x_ix_i^\top + \frac{1}{n}\sum_{i=1}^n(u^\top u-2)u^\top x_ix_i^\top u
@@ -238,9 +237,22 @@ Stochastic gradient descending method.
 	
 - is it expensive to do PCA decomposition?
 
-- The reconstruction error (using Frobenius norm) of PCA $err=\sum_{i=K+1}^M\lambda_i$ **Proof**:
+- The reconstruction error (using Frobenius norm) of PCA $err=\sum_{i=K+1}^M\lambda_i$​ 
 
-  ![img](./imgs/2pca_1.png)
+  Proof:
+  $$
+  \begin{align}
+  
+   err & = \frac{1}{N}\|\tilde{\bar{X}} - \bar{X}\|_F^2 = \frac{1}{N}\|(U_KU_K^\top - I_d)\bar{X}\|_F^2\\
+  & =\frac{1}{N}\text{trace}[(U_KU_K^\top - I_d)\cdot \bar{X}\bar{X}^\top \cdot (U_K U_K^\top - I_d)^\top] \\
+  & = \text{trace}[(U_KU_K^\top - I_d)\cdot \Sigma \cdot (U_K U_K^\top - I_d)]\\
+  & = \text{trace}[(U_KU_K^\top - I_d)\cdot U\Lambda U^\top \cdot (U_K U_K^\top - I_d)] \\
+  & = \text{trace}[(U_KU_K^\top U - U)\cdot \Lambda \cdot (U^\top U_K U_K^\top - U^\top)] \\
+  & = \text{trace}[([U_K; 0] - U)\Lambda([U_K; 0] - U)^\top] \\
+  & = \text{trace}(\sum_{i=K+1}^D \lambda_i u_i u_i^\top) = \sum_{i=K+1}^D \lambda_i\cdot \text{trace}(u_i u_i^\top)\\
+  & \overset{\text{unit norm}}{=}\sum_{i=K+1}^D \lambda_i 
+  \end{align}
+  $$
 ### Iterative View
 
 This view provides a method to calculate the main direction once at a time, then remove this direction to find the second best direction.
@@ -296,7 +308,7 @@ This view gives the mathematical proof and solution of the problem, but not says
 
 4. Eigenvalue Decomposition.
 
-5. Model Selection, pick $K\leq D$  and keep the projections associated with the top ![img](http://latex.codecogs.com/svg.latex?K) eigenvalues. 
+5. Model Selection, pick $K\leq D$  and keep the projections associated with the top  $K$ eigenvalues. 
 
 6. Transform the data onto the new basis of $K$ dimensions. 
    $$
@@ -305,5 +317,5 @@ This view gives the mathematical proof and solution of the problem, but not says
 
 7. Reconstruction.
 
-   1. $\tilde{\bar{X}}=U)K\bar{Z}$
+   1. $\tilde{\bar{X}}=U_K\bar{Z}$​
    2. $\tilde{X}=\tilde{\bar{X}}+M$

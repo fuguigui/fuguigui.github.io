@@ -1,8 +1,8 @@
 ---
 title: Database Basics
 date: 2019-01-22
-tags: [big data]
-categories: course notes
+tags: [System, Big Data]
+categories: [Learning Notes]
 ---
 
 

@@ -1,40 +1,38 @@
 ---
 title: Storage
 date: 2019-01-23
-tags: [big data]
-categories: course notes
+tags: [System, Big Data]
+categories: [Learning Notes]
 ---
 
 
 
-# Storage
-
-## Old Local File System
+# Old Local File System
 File = Content + Metadata
 1. fixed metadata -> fixed Schema
 2. organized in a hierarchy
 3. files are stored in blocks
 4. work in local machine, LAN(local-area network), NAS (network-attached storage), **not in WAN** (wide-area network)
 
-## Object Storage
+# Object Storage
 1. "Black-box" objects
 2. Flat and global key-value model
 3. Flexible metadata
 4. Commodity hardware
 
-## Data Center
+# Data Center
 1000-100,000 machines in a data center.
 RU: rack units
-### Per Server
+## Per Server
 1. 1-14 TB local storage
 2. 16GB-4TB RAM
 3. 1-10 GB/s network bandwidth
 4. 1-100 cores
-### Rack modular
+## Rack modular
 - servers  
 - storage  
 - routers
-## Replication
+# Replication
 it is for fault tolerance. We have replications in different regions. Why?  
 - optimize latency
 - resilient to natural catastrophes
@@ -62,7 +60,8 @@ scheme + authority + path + query + fragment
 - POST: when you want to transfer something really complex.
 
 ## Status Code
-![REST API tutorial](https://restapitutorial.com/httpstatuscodes.html)
+[REST API tutorial](https://restapitutorial.com/httpstatuscodes.html)
+
 ### 1: infromational
 
 ### 2: success
@@ -193,3 +192,10 @@ It offers an easy way to see where there is a conflict. The leaf nodes are the h
 # Abbrevations
 SLA: service-level-agreement
 - RDBMS: relational database 
+
+# Further reading notes
+
+Thanks my classmate Claudio Andrea Ferrai and  Ruben Marias for reading and organizing the notes.
+
+{% pdf 03_object_and_keyvalue_storage.pdf %}
+

@@ -1,23 +1,23 @@
 ---
 title: Data Clustering
 date: 2019-07-15
-tags: [computational intelligence]
-categories: course notes
+tags: [Machine Learning]
+categories: [Learning Notes]
 mathjax: true
 ---
 
-# Data Clustering
 
-## Vector Quantization
+
+# Vector Quantization
 
 assign vectors to some groups, denoted by the centroids. Methods: K-means, Mixture Model.
 
-## K-Means
+# K-Means
 
 - $k$: the number of clusters
 - means: the way we get the centroids is by averaging.
 
-### Objective
+## Objective
 
 $$
 \min_{U,Z}J(U,Z)=\sum_{i=1}^N \sum_{j=1}^K z_{ij}=\|x_i-u_j\|^2 = \|X-UZ^\top\|_F^2
@@ -25,23 +25,23 @@ $$
 
 Here, we use the **squared** Euclidean distance, not the Euclidean distance.
 
-### Algorithms
+## Algorithms
 
 Alternating minimization
 
 - update $Z$, given $U$: the closest $U$
 - update $U$, given $Z$: the average of $Z$.
 
-### Practical considerations
+## Practical considerations
 
 - Quadratic convergence rate.
 - computational cost: $O(nkd)$ per iteration.
 
 
 
-### Variant
+## Variant
 
-#### K-Means++ (initialization)
+### initialization: K-Means++
 
 Since initialize $U$ and $Z$ matter a lot to the computation cost and final result, this variant try to find a better way to initialize $U$. 
 
@@ -52,7 +52,7 @@ The intuition behind this approach is that **spreading out** the $k$  initial cl
 1. the first cluster center is chosen uniformly at random from the data points that are being clustered, 
 2. after which each subsequent cluster center is chosen from the remaining data points with probability proportional to its squared distance from the point's closest existing cluster center.
 
-#### Core set (sub-training dataset)
+###  sub-training dataset: Core set
 
 The idea is our dataset is too big to run the K-Means algorithm. Therefore, we need to extract a sub-sample dataset from it. This method solves how to select the sub-training dataset.
 
@@ -79,7 +79,7 @@ The idea is our dataset is too big to run the K-Means algorithm. Therefore, we n
       - the original vector quantization error is 
 
       $$
-\phi_{\chi}(Q)=\sum_{x\in \chi}d(x,Q)^2 = \sum_{x\in\chi}q(x)\frac{d(x,Q)^2}{q(x)}
+      \phi_{\chi}(Q)=\sum_{x\in \chi}d(x,Q)^2 = \sum_{x\in\chi}q(x)\frac{d(x,Q)^2}{q(x)}
       $$
 
       The quantization error can hence be approximated by sampling m points from $\mathcal{X}$ using $q(x)$and assigning them weights inversely proportional to  $q(x)$.  Back to the original dataset, we can assign each data point with the selection probability $\frac{1}{N}$, and weight $1$, we get  $\mathbb{E}(\phi_\chi(Q)=\frac{1}{N}\mathbb{E}(\sum_{x\in\chi}d(x,Q)^2)$
@@ -115,7 +115,7 @@ $$
 Maximum likelihood method usually 
 
 - makes some general assumption about the distribution. Here: the Gaussian distribution.
-- then try to obtain("infer") the specifics from the data available.
+- then try to obtain/ "infer" the specifics from the data available.
 
 ### Generation- EM algorithms
 

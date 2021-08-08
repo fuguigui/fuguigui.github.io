@@ -1,11 +1,9 @@
 ---
 title: Data Warehousing
 date: 2019-01-27
-tags: [big data]
-categories: course notes
+tags: [System, Big Data, Graph]
+categories: [Learning Notes]
 ---
-
-
 
 # The road to analytics
 
@@ -62,3 +60,7 @@ A cube is a list of dimensions indexing a list of measures.
 based on XML  
 
 The feeling: XML schema can be used to describe graphs, cubes.
+
+# Further Reading
+
+[Database Systems: The Complete Book 2nd Edition](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjh9oGooZ_yAhX-hf0HHXgKDiMQFnoECAQQAw&url=https%3A%2F%2Fpeople.inf.elte.hu%2Fkiss%2FDB%2Fullman_the_complete_book.pdf&usg=AOvVaw1WFUgTOmS2hu3L-bvD7T8U) Chapter 10.6, 10.7

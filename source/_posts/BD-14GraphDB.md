@@ -1,8 +1,8 @@
 ---
 title: Graph Database
 date: 2019-01-27
-tags: [big data]
-categories: course notes
+tags: [System, Big Data, Graph]
+categories: [Learning Notes]
 ---
 
 
@@ -68,9 +68,9 @@ Fixed-size records: serialize the nodes/edges/labels/properties.
 	- relationship name: 5 bytes
 	- property: 33 bytes
 
-# Semantics
-## RDF schema
-the property itself can be a node.
+# Further Reading
 
-OWL: 
+[Graph Databases, 2nd Edition](https://www.oreilly.com/library/view/graph-databases-2nd/9781491930885/) Chapter 1, 2, 3, 4, 6, 
+
+
 

@@ -1,13 +1,12 @@
 ---
 title: Word Embeddings
 date: 2019-07-10
-tags: [computational intelligence]
-categories: course notes
+tags: [Machine Learning]
+categories: [Learning Notes]
+mathjax: true
 ---
 
-#  Word Embeddings
-
-## Motivation
+# Motivation
 
 Using **vector** as the symbol to represent words, which can capture their meaning in some way.
 
@@ -26,9 +25,9 @@ Using **vector** as the symbol to represent words, which can capture their meani
   
   - CBOW (continuous bag-of-word model): Contrary to the skip-ram model, given the context words, learn the probability of this word. The context is a window, the predicted word is a point.
 
-## Models
+# Models
 
-### Latent Vector Model
+## Latent Vector Model
 
 $$
 w\mapsto (\vec{x_w},b_w)\in\mathbb{R}^{d+1}
@@ -38,21 +37,20 @@ represent a word by a vector and a scalar bias.
 
 - what is the function of bias?
   - to make sure that some words are more likely than other words **under all conditioning**. Reflected by the definition of probabilistic:
-    ![img](http://latex.codecogs.com/svg.latex?%5Clog%20p_%7B%5Ctheta%7D%28w%7Cw%27%29%3D%3Cx_w%2Cx_%7Bw%27%7D%3E%2Bb_w%2Bconst%28w'%29)
     $$
     \log p_\theta(w|w')=<x_w, x_{w'}> + b_w+\text{const}(w')
-  $$
-    
+    $$
+  
     -  the const is to guarantee the sum conditioned on $w'$ is 1.
     
   - it is not necessary but very helpful to have the bias item.
   **Inner product** is a natural way to evaluate the similarity of vectors
-#### Objective
+### Objective
 $$
 L(\theta;w)=\sum_{t=1}^T \sum_{\Delta\in I}[\log b_{w(t+\Delta)}+\log <x_{w(t+\Delta)},x_{w(t)}>-\log\sum_{v\in V}\exp[<x_v, x_{w(t)}> + b_v]]
 $$
 
-#### Modification
+### Modification
 
 - why to distinguish the main vocabulary and context vocabulary? 
 
@@ -69,7 +67,7 @@ $$
 
   - see the below models
 
-#### Negative sampling
+### Negative sampling
 
 This is a method of sampling. It is natural to use sampling when the object is exponentially big. One classic sampling method is MCMC.
 
@@ -83,7 +81,7 @@ This is a method of sampling. It is natural to use sampling when the object is e
 
 - what is the relationship between Negative sampling and PMI?
 
-### Global vectors for word representation (GloVe)
+## Glove: Global vectors for word representation
 
   The key idea of GloVe is: 
 
@@ -91,7 +89,7 @@ This is a method of sampling. It is natural to use sampling when the object is e
 
      - Each row is a word in the vocabulary
      - Each column is a context
-     - Each entry n_ij is the appearance times of the word i in the context j
+     - Each entry $n_{ij}$ is the appearance times of the word i in the context $j$
 
   2. construct another matrix from the vector representation of vocabularies and contexts.
 
@@ -99,7 +97,7 @@ This is a method of sampling. It is natural to use sampling when the object is e
 
   3. update vectors to make these two matrices as close as possible.
 
-     (optional) using weight function to weight items with different counts.
+     optional: using weight function to weight items with different counts.
 
   In this way, the vector representation problem is transferred as a matrix factorization problem.
 
@@ -111,9 +109,9 @@ $$
 
   - it uses the **unnormalized** "probability" instead of the normalized ones to avoid the exponential item. Because the exponential item works for normalization. 
 
-## Methods
+# Methods
 
-### SGD (Stochastic gradient descent)
+## SGD: Stochastic gradient descent
 
 - The objective function: $f(x)=\sum_i f_i(x)$
 
@@ -126,9 +124,9 @@ $$
 - Stochastic way:
 
   $$
-\frac{\partial f}{\partial x}=\frac{\partial f_\gamma}{\partial x}, \gamma\sim\text{Uniform}(1,n)
+  \frac{\partial f}{\partial x}=\frac{\partial f_\gamma}{\partial x}, \gamma\sim\text{Uniform}(1,n)
   $$
-Key Idea: 
+  Key Idea: 
   
   - derivative
   - only part of objective

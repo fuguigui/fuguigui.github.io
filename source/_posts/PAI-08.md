@@ -1,8 +1,9 @@
 ---
 title: Reinforcement Learning
 date: 2020-01-29
-tags: [probabilistic artificial intelligence, reinforcement learning]
-categories: course notes
+tags: [AI, Reinforcement Learning, Baysian]
+categories: [Learning Notes]
+mathjax: true
 ---
 
 The data is assumed to be drawn from some distributions. In reinforcement learning, we learn by interacting with environment. For example, one agent could perform some actions, and these actions will give him different rewards. He wants to learn how to take actions. One big issue is that the reward is based on a sequence of actions, not only one action. Considering the case that a sequence of actions leads to some reward, how to figure out exactly which action is responsible for this reward. Generally, it is impossible. We need some assumptions.
@@ -46,8 +47,8 @@ Types:
 
 - model-based RL:
   1. learn the MDP
-     - estimate the transition probabilities P(x'|x,a)
-     - estimate reward function r(x,a)
+     - estimate the transition probabilities $P(x'|x,a)$
+     - estimate reward function $r(x,a)$
   2. optimize policy based on estimated MDP
 - model-free RL:
   - jump the transition probabilities, or reward function, but directly to estimate, what we need to learn to make a policy, *the value function*
@@ -56,23 +57,25 @@ Types:
 
 ## Model-based
 
-The data set looks like: x1,a1,r1,x2,a2,r2,... given an observation xi, take an action ai and get a reward ri, which leads to the next observation xi+1.
+The data set looks like: $x_1,a_1,r_1,x_2,a_2,r_2,\cdots$  given an observation $x_i$, take an action $a_i$ and get a reward $r_i$, which leads to the next observation $x_{i+1}$.
 
-Elements: (xi,ai,ri,xi+1) are independent from each other.
+Elements: $(x_i,a_i,r_i,x_{i+1})$ are independent from each other.
 
-D = {(xi,ai,ri,xi+1)}, expressed in this way, we can do counting on the elements.
+$D = \{(x_i,a_i,r_i,x_{i+1})\},$ expressed in this way, we can do counting on the elements.
 
 MDP can be viewed as controlled Markov chain. 
 
-- estimate transitions (MLE):
+- estimate transitions MLE:
 
-   ![est-trans](http://latex.codecogs.com/svg.latex?%5CPr%5BX_%7Bt%2B1%7D%7CX_t%2CA%5D%5Csimeq%5Cfrac%7BCount%28X_%7Bt%2B1%7D%2CX_t%2CA%29%7D%7BCount%28X_t%2CA%29%7D)
+   $$
+   \Pr[X_{t+1}|X_t,A]\simeq\frac{Count(X_{t+1},X_t,A)}{Count(X_t,A)}
+   $$
 
 - estimate rewards:
 
-   ![est-rew](http://latex.codecogs.com/svg.latex?r%28x%2Ca%29%5Csimeq%5Cfrac%7B1%7D%7BN_%7Bx%2Ca%7D%7D%5Csum_%7Bt%3AX_t%3Dx%2CA_t%3Da%7DR_t)
-
-  
+   $$
+   r(x,a)\simeq\frac{1}{N_{x,a}}\sum_{t:X_t=   x,A_t=   a}R_t
+   $$
 
 How accurate could the estimation be? More data will give more accurate estimations.
 
@@ -100,114 +103,132 @@ How accurate could the estimation be? More data will give more accurate estimati
 
   Assume the reward has a upper bound Rmax
 
-  - if you don't know r(x,a): set it to Rmax. That means try this action.
-  - if you don't know P(x'|x,a): set P(x'|x,a)=1. That means explore a new state.
+  - if you don't know $r(x,a)$: set it to Rmax. That means try this action.
+  - if you don't know $P(x'|x,a)$: set $P(x'|x,a)=1$. That means explore a new state.
 
 ### Complexity
 
-- memory:  store P(x'|x,a)=>O(|x|^2|A|), store r(x,a)=> O(|X||A|)
-- time: solving once MDP requires poly(|X|,|A|,1/epsilon,log(1/delta). Need to do this often. 
+- memory:  store $P(x'|x,a)\Rightarrow O(|x|^2|A|)$, store $r(x,a)\Rightarrow O(|X||A|)$
+- time: solving once MDP requires $poly(|X|,|A|,1/\epsilon,\log(1/delta)$. Need to do this often. 
 
 ## Model-free
 
 According to Theorem Bellman, once we have the optimal value function, we can get a greedy policy, which is optimal.
 
-Q^{pi}(x,a) : the expected reward of a policy pi, given the state and action pair (x,a)
+$Q^{\pi}(x,a)$​ : the expected reward of a policy $\pi$​, given the state and action pair $(x,a)$
 
-![qfunction](http://latex.codecogs.com/svg.latex?Q%5E%7B%5Cpi%7D%28x%2Ca%29%3Dr%28x%2Ca%29%2B%5Cgamma%5Csum_%7Bx%27%7D%5CPr%5Bx%27%7Cx%2Ca%5DV%5E%7B%5Cpi%7D%28x%27%29)
+$$
+Q^{\pi}(x,a)=   r(x,a)+\gamma\sum_{x'}\Pr[x'|x,a]V^{\pi}(x')
+$$
+For the optimal policy $\pi^\ast$: It holds  
 
-For the optimal policy pi^*: It holds  
-
-![optvalue](http://latex.codecogs.com/svg.latex?V%5E%2A%28x%29%3D%5Cmax_a%20Q%5E%2A%28x%2Ca%29)
-
-The key idea is to estimate Q*(x,a) from samples.
+$$
+V^*(x)=   \max_a Q^*(x,a)
+$$
+The key idea is to estimate $Q^\ast(x,a)$ from samples.
 
 ### Q-learning
 
 To estimate the best policy's Q function, which is  
 
-![optimalq](http://latex.codecogs.com/svg.latex?Q%5E%2A%28x%2Ca%29%3Dr%28x%2Ca%29%2B%5Cgamma%5Csum_%7Bx%27%7D%5CPr%5Bx%27%7Cx%2Ca%5DV%5E%2A%28x%27%29)
+$$
+Q^*(x,a)=   r(x,a)+\gamma\sum_{x'}\Pr[x'|x,a]V^*(x')
+$$
+instead of using transition probability to get the exact expectation, we estimate from on instance $(x,a,x')$.
+$$
+Q(x,a)\gets r(x,a)+\gamma V^*(x')=   r(x,a)+\gamma\max_{a'} Q(x',a')
+$$
 
-instead of using transition probability to get the exact expectation, we estimate from on instance (x,a,x').
-
-![qudpate](http://latex.codecogs.com/svg.latex?Q%28x%2Ca%29%5Cgets%20r%28x%2Ca%29%2B%5Cgamma%20V%5E%2A%28x%27%29%3Dr%28x%2Ca%29%2B%5Cgamma%5Cmax_%7Ba%27%7D%20Q%28x%27%2Ca%27%29)
 
 To trade-off huge variance from just one sample, we weight this update by alpha
 
-![weightqudpate](http://latex.codecogs.com/svg.latex?Q%28x%2Ca%29%5Cgets%20%281-%5Calpha_t%29Q%28x%2Ca%29%2B%5Calpha_t%28r%28x%2Ca%29%2B%5Cgamma%5Cmax_%7Ba%27%7D%20Q%28x%27%2Ca%27%29%29)
-
-alpha: usually decrease along the time. means: at the beginning we put much weight on a new sample. Later, we put less and less.
+$$
+Q(x,a)\gets (1-\alpha_t)Q(x,a)+\alpha_t(r(x,a)+\gamma\max_{a'} Q(x',a'))
+$$
+$\alpha$: usually decrease along the time. means: at the beginning we put much weight on a new sample. Later, we put less and less.
 
 #### Algorithm
 
 Random version
 
-1. have initial estimate of Q(x,a)
-2. observe transition x,a,x' with reward r. Update Q(x,a) for long enough times.
+1. have initial estimate of $Q(x,a)$
+2. observe transition $x,a,x'$ with reward $r$. Update $Q(x,a)$ for long enough times.
 
-Optimistic algorithm (similar to Rmax):
+Optimistic algorithm, similar to $R_{\max}$:
 
-starting with an optimistic initialization. But only Rmax is not enough, have to consider the discount effect and weight effect.
+starting with an optimistic initialization. But only $R_{\max}$ is not enough, have to consider the discount effect and weight effect.
 
-1. initialize ![optimisticq](http://latex.codecogs.com/svg.latex?Q%28x%2Ca%29%5Cgets%5Cfrac%7BR_%7Bmax%7D%7D%7B1-%5Cgamma%7D%5Cprod_%7Bt%3D1%7D%5E%7BT_%7Binit%7D%7D%281-%5Calpha_t%29%5E%7B-1%7D)
+1. initialize $Q(x,a)\gets\frac{R_{max}}{1-\gamma}\prod_{t=   1}^{T_{init}}(1-\alpha_t)^{-1}$
 
 #### Convergence
 
-**Theorem** (for random) If learning rate alpha satisfies:
+**Theorem** for random: If learning rate alpha satisfies:
 
-- never stops updating: ![alpha](http://latex.codecogs.com/svg.latex?%5Csum_t%5Calpha_t%3D%5Cinfty)
-- later samples have smaller weights: ![alpha](http://latex.codecogs.com/svg.latex?%5Csum_t%5Calpha_t%5E2%3C%5Cinfty)
-- and actions are chosen at random,
+- never stops updating: $ \sum_t\alpha_t=   \infty$
+- later samples have smaller weights: $\sum_t\alpha_t^2<\infty$
+- and actions are chosen at random
 
 Then
 
-Q learning converges to optimal Q* with probability 1.
+$Q$ learning converges to optimal $Q^\ast$ with probability 1.
 
-**Theorem** (for optimistic) With probability 1-delta, optimistic Q-learning obtains an epsilon-approximation policy after a number of time steps that is polynomial in |X|,|A|, 1/epsilon and log(1/delta).
+**Theorem** for optimistic: With probability $1-\delta$, optimistic Q-learning obtains an $\epsilon$​-approximation policy after a number of time steps that is polynomial in $|X|,|A|, 1/\epsilon$ and $\log(1/\delta)$.
 
 #### Complexity
 
-- memory: store the Q-table: Q(x,a): O(|X||A|)
+- memory: store the Q-table: $Q(x,a): O(|X||A|)$
 - time: 
-  - update per sample: find the action which gives the maximum Q(x',a'), O(|A|) 
-  - iterations: polynomial in |X|,|A|, 1/epsilon and log(1/delta).
+  - update per sample: find the action which gives the maximum $Q(x',a')$, $O(|A|)$ 
+  - iterations: polynomial in $|X|,|A|, 1/\epsilon$ and $\log(1/\delta)$
 
 #### Parametric Q-function approximation
 
-The general idea is that we don't update the entries of Q table one by one in the update, but use some parameters to calculate the the entries and update the parameters in each step. In this way, we turn the question into an optimization problem and can solve it by approximation. Also, this approach allows us to go from the finite tabular Q to infinite Q.
+The general idea is that we don't update the entries of $Q$ table one by one in the update, but use some parameters to calculate the the entries and update the parameters in each step. In this way, we turn the question into an optimization problem and can solve it by approximation. Also, this approach allows us to go from the finite tabular $Q$ to infinite $Q$.
 
 At convergence, we want:
 
-![qexp](http://latex.codecogs.com/svg.latex?Q%28x%2Ca%29%3D%5Cmathbb%7BE%7D_%7B%28r%2Cx%27%29%7Cx%2Ca%7D%28r%2B%5Cgamma%5Cmax_%7Ba%27%7DQ%28x%27%2Ca%27%29%29)
+$$
+Q(x,a)=   \mathbb{E}_{(r,x')|x,a}(r+\gamma\max_{a'}Q(x',a'))
+$$
 
-![qexp](http://latex.codecogs.com/svg.latex?%5CRightarrow%5Cmathbb%7BE%7D_%7B%28r%2Cx%27%2Cx%2Ca%29%7D%28Q%28x%2Ca%29-r-%5Cgamma%5Cmax_%7Ba%27%7DQ%28x%27%2Ca%27%29%29%3D0)
+$$
+\Rightarrow\mathbb{E}_{(r,x',x,a)}(Q(x,a)-r-\gamma\max_{a'}Q(x',a'))=   0
+$$
 
-![qexp](http://latex.codecogs.com/svg.latex?%5CRightarrow%5Cmin_%7B%5Ctheta%7D%5Cmathbb%7BE%7D_%7B%28r%2Cx%27%2Cx%2Ca%29%7D%5BQ%28x%2Ca%29-r-%5Cgamma%5Cmax_%7Ba%27%7DQ%28x%27%2Ca%27%29%5D%5E2)
+$$
+\Rightarrow\min_{\theta}\mathbb{E}_{(r,x',x,a)}[Q(x,a)-r-\gamma\max_{a'}Q(x',a')]^2
+$$
 
 In this way, we can use mean to approximate expectation.
 
 
 
-Example of parametric q-function: linear function approximation: ![paramq](http://latex.codecogs.com/svg.latex?Q%28x%2Ca%3B%5Ctheta%29%3D%5Ctheta%5ET%5Cphi%28x%2Ca%29)
+Example of parametric $q$-function: linear function approximation: $Q(x,a;\theta)=   \theta^T\phi(x,a)$ 
 
 Fit parameters to data: define the loss function on parameters as:
 
-![lossq](http://latex.codecogs.com/svg.latex?L%28%5Ctheta%29%3D%5Csum_%7B%28x%2Ca%2Cr%2Cx%27%29%5Cin%20D%7D%28r%2B%5Cgamma%5Cmax_%7Ba%27%7DQ%28x%27%2Ca%27%3B%5Ctheta%5E%7Bold%7D%29-Q%28x%2Ca%3B%5Ctheta%29%29%5E2)
+$$
+L(\theta)=   \sum_{(x,a,r,x')\in D}(r+\gamma\max_{a'}Q(x',a';\theta^{old})-Q(x,a;\theta))^2
+$$
+
 
 So, the goal is to find parameters to minimize the loss function:
 
-![loss-mini](http://latex.codecogs.com/svg.latex?%5Ctheta%5E%2A%3D%5Carg_%7B%5Ctheta%7D%5Cmin%20L%28%5Ctheta%29)
+$$
+\theta^*=   \arg_{\theta}\min L(\theta)
+$$
 
-- label: the estimation of Q entry given the observed sample:![label](http://latex.codecogs.com/svg.latex?r%2B%5Cgamma%5Cmax_%7Ba%27%7DQ%28x%27%2Ca%27%3B%5Ctheta%5E%7Bold%7D%29)
-- prediction given theta: ![pred](http://latex.codecogs.com/svg.latex?Q%28x%2Ca%3B%5Ctheta%29)
+- label: the estimation of Q entry given the observed sample:$r+\gamma\max_{a'}Q(x',a';\theta^{old})$
+- prediction given theta: $ Q(x,a;\theta))$
 
 #### Deep learning
 
 Recall what deep learning does: deep learning is a tool to solve the loss minimization problem, given data:
 
-![dlobj](http://latex.codecogs.com/svg.latex?w%5E%2A%3D%5Carg_w%5Cmin%20%5Csum_%7Bi%3D1%7D%5EN%20l%28y_i%2Cf%28x_i%3Bw%29%29)
-
-by fitting nested nonlinear function of f(x;w)
+$$
+w^*=   \arg_w\min \sum_{i=   1}^N l(y_i,f(x_i;w))
+$$
+by fitting nested nonlinear function of $f(x;w)$
 
 #### Deep Q Networks
 
@@ -220,9 +241,10 @@ this is a variant of Q-learning:
   
   - double DQN: two networks, use old parameters to evaluate Q function, but new parameters for action selection. Want to use old parameters to calculate the value to avoid oscillations. Current parameters are more closed to the policy would do.
   
-     ![double](http://latex.codecogs.com/svg.latex?L%28%5Ctheta%29%3D%5Csum_%7B%28x%2Ca%2Cr%2Cx%27%29%5Cin%20D%7D%28r%2B%5Cgamma%20Q%28x%27%2C%5Chat%7Ba%7D%28x%2C%5Ctheta%29%3B%5Ctheta%5E%7Bold%7D%29-Q%28x%2Ca%3B%5Ctheta%29%29%5E2)
-  
-    where ![hata](http://latex.codecogs.com/svg.latex?%5Chat%7Ba%7D%28x%2C%5Ctheta%29%3D%5Carg_%7Ba%27%7D%5Cmax%20Q%28x%2Ca%27%2C%5Ctheta%29)
+     $$
+    L(\theta)=   \sum_{(x,a,r,x')\in D}(r+\gamma Q(x',\hat{a}(x,\theta);\theta^{old})-Q(x,a;\theta))^2
+    $$
+    where $ \hat{a}(x,\theta)=   \arg_{a'}\max Q(x,a',\theta)$
   
 
 
@@ -231,7 +253,7 @@ this is a variant of Q-learning:
 
 Learning a policy without the detour of learning a value function.
 
-Given a policy, do forward sampling on the controlled Markov chain and evaluate this policy J(theta). Then, adjust the parameters by gradient descent or other methods to get a new policy.
+Given a policy, do forward sampling on the controlled Markov chain and evaluate this policy $J(\theta)$. Then, adjust the parameters by gradient descent or other methods to get a new policy.
 
 #### Bayesian Learning for policy search
 
@@ -241,7 +263,7 @@ Using the Bayesian, on the data domain, find which part we are not certain about
 
 ### Summary
 
-Model-based (MDP) and model-free (RL) are polynomial in |A| and |X|. However, structured domains (|A|,|X| exponential in #agents) and continuous domains (|A| and |X| are infinite) are not applicable.
+Model-based MDP and model-free RL are polynomial in $|A|$​​ and $|X|$​​. However, structured domains $(|A|,|X|$​​ exponential in Nr. agents $)$​ and continuous domains $(|A|$​ and $|X|$​​ are infinite$)$ are not applicable.
 
 # Outlook
 
@@ -259,15 +281,11 @@ Beyond one-step transitions, multiple steps forward to plan.
 
 ### Safe Bayesian optimization
 
-not only consider the reward, but also maintains safety constraints. Try to never violate these constraints. Formally,![constraint](http://latex.codecogs.com/svg.latex?%5Cmax%20f%28x%29%2C%20s.t.%20g%28x%29%5Cgeq%5Ctau)
+not only consider the reward, but also maintains safety constraints. Try to never violate these constraints. Formally, $\max f(x), s.t. g(x)\geq\tau)$
 
-One challenge is that none of f(x), g(x) are given in closed form, access only via noisy black box.
+One challenge is that none of $f(x), g(x)$ are given in closed form, access only via noisy black box.
 
 Approach: 
 
 1. find a safe start point
 2. go to reachable optimal points, instead of global optimal.
-
-
-
-![alpha](http://latex.codecogs.com/svg.latex?

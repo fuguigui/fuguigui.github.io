@@ -1,8 +1,8 @@
 ---
 title: Spark
 date: 2019-01-25
-tags: [big data]
-categories: course notes
+tags: [System, Big Data]
+categories: [Learning Notes]
 ---
 
 

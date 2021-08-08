@@ -1,8 +1,9 @@
 ---
-title: Advanced algorithms
+title: Advanced algorithms review notes
 date: 2020-01-22
-tags: [advanced algorithms]
-categories: course notes
+tags: [Algorithm]
+categories: [Sharing]
+top: true
 ---
 
 

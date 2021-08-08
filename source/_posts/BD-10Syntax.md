@@ -1,11 +1,9 @@
 ---
 title: Syntax
 date: 2019-01-26
-tags: [big data]
-categories: course notes
+tags: [System, Big Data]
+categories: [Learning Notes]
 ---
-
-
 
 # Use case
 
@@ -85,3 +83,11 @@ Unprefixed attributes are in no namespace even if there is a default namespace i
 ### Well-formedness
 ## Others
 XHTML, YAML (the "Python of JSON"), CSV(comma separated values)
+
+# Further Reading
+
+[XML in a Nutshell](https://www.oreilly.com/library/view/xml-in-a/0596007647/) Chapter 1, 2, 4, 9
+
+Thanks Alessandro Stolfo for reading notes
+
+{% pdf 10-xml-syntax.pdf %}

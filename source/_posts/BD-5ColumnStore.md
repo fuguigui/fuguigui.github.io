@@ -1,11 +1,9 @@
 ---
 title: Wide Column Store
 date: 2019-01-24
-tags: [big data]
-categories: course notes
+tags: [System, Big Data]
+categories: [Learning Notes]
 ---
-
-
 
 HBase: design to run on a **scalable** cluster of **commodity hardware**, built on **HDFS**. Founding paper: Google's BigTable.
 
@@ -134,3 +132,9 @@ tries to bring back ACID to Big Data.
 # Abbreviation
 LSM Tree: log-structured merge tree.  
 LRU: least recently used.
+
+# Further Reading
+
+[HBase: The Definitive Guide 1st ed.](https://www.oreilly.com/library/view/hbase-the-definitive/9781449314682/) Chapter 1, 3, 8, 9
+
+[Hadoop: The Definitive Guide 4th ed. ](https://www.oreilly.com/library/view/hadoop-the-definitive/9781491901687/)Chapter 20

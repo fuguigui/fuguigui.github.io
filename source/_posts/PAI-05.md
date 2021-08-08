@@ -1,8 +1,9 @@
 ---
 title: Reasoning over Time
 date: 2020-01-28
-tags: [probabilistic artificial intelligence, reinforcement learning]
-categories: course notes
+tags: [AI, Reinforcement Learning, Bayesian, Markov]
+categories: [Learning Notes]
+mathjax: true
 ---
 
 Before, we talk about static models, which means variables don't change possible values. For temporal models, in which variables' value states can change over time, approaches are generated from static model:
@@ -21,17 +22,17 @@ Markov chain can have orders: k-order means the current event depends only on th
 
 Settings:
 
-- X1,X2,...,XT: unobserved (hidden) variables (called states) change over time.
-- Y1, Y2,...,YT: observations
+- $X_1,X_2,\cdots,X_T$: unobserved or hidden variables, called states change over time.
+- $Y_1, Y_2,\cdots,Y_T$: observations
 
 Tasks:
 
-- Filtering: given the observations till now, what is the current state? P(Xt|y1:t)
-- Prediction: given the observations, predict the next state: P(Xt+delta|y1:t)
-- Smoothing: what is the probability of some event happened before given what are known now.P(Xt|y1:T) for 1<=t<=T
-- MPE: arg max_{X1:T} P(X1:T|y1:T). Observing something, what is the most likely path?
+- Filtering: given the observations till now, what is the current state? $P(X_t|y_{1:t})$
+- Prediction: given the observations, predict the ne$X_t$ state: $P(X_{t+\delta}|y_{1:t})$​
+- Smoothing: what is the probability of some event happened before given what are known now.$P(X_t|y_{1:T})$ for $1\leq t\leq T$
+- MPE: $\arg \max_{X_{1:T}} P(X_{1:T}|y_{1:T})$. Observing something, what is the most likely path?
 
-These tasks can be solved by previously learned methods, e.g. variable elimination/belief propagation. But one problem is if we want to calculate for t, we need to start from the beginning. The complexity grows with time. Therefore, we want some model much efficient. 
+These tasks can be solved by previously learned methods, e.g. variable elimination/belief propagation. But one problem is if we want to calculate for $t$, we need to start from the beginning. The complexity grows with time. Therefore, we want some model much efficient. 
 
 
 
@@ -42,12 +43,20 @@ In general, a family of models that behave some Markovian process but not direct
 Particularly, we assume:
 
 - Markov property holds over time: the current states only depends on the previous one, not the much older ones.
-- conditional independence: yt only depends on xt, not the older xs. 
-- stationary: the transition probability ( (1)Xi to Xi+1 not dependent on i, and (2) Xt to Yt, not dependent on t) is the same over the time. 
 
-HMM(discrete): Xi categorical, Yi can be anything
+- conditional independence: $y_t$ only depends on $x_t$, not the older $x_s$. 
 
-Kalman Filters(continuous): Xi, Yi: continuous, follow Gaussian distributions
+- stationary: the transition probability 
+
+  1. $X_i$ to $X_{i+1}$ not dependent on $i$, and 
+
+  2. $X_t$​ to $Y_t$​, not dependent on $t$
+
+     is the same over the time. 
+
+discrete HMM: $X_i$​ categorical, $Y_i$ can be an$Y_t$hing
+
+continuous Kalman Filters: $X_i, Y_i$: continuous, follow Gaussian distributions
 
 ## HMM
 
@@ -55,13 +64,16 @@ Kalman Filters(continuous): Xi, Yi: continuous, follow Gaussian distributions
 
 #### Filtering
 
-Answer the question that how to update (efficiently) our belief of states given the previous states. Formally,
+Answer the question that how to efficiently update our belief of states given the previous states. Formally,
 
-Given P(Xt|y1...t-1) and y_t, compute P(Xt|y1...t)
+Given $P(X_t|y_{1\cdots t-1})$ and $y_t$, compute $P(X_t|y{1\cdots t})$
 
-![condtion](http://latex.codecogs.com/svg.latex?%5CPr%5BX_t%7Cy_%7B1%3At%7D%5D%3D%5Cfrac%7B1%7D%7BZ%7D%5CPr%5BX_t%7Cy_%7B1%3At-1%7D%5D%5CPr%5By_t%7CX_t%2Cy_%7B1%3At-1%7D%5D%20%3D%5Cfrac%7B1%7D%7BZ%7D%5CPr%5BX_t%7Cy_%7B1%3At-1%7D%5D%5CPr%5By_t%7CX_t%5D)
+$$
+\Pr[X_t|y_{1:t}]=\frac{1}{Z}\Pr[X_t|y_{1:t-1}]\Pr[y_t|X_t,y_{1:t-1}] =\frac{1}{Z}\Pr[X_t|y_{1:t-1}]\Pr[y_t|X_t]
+$$
 
-with ![condition2](http://latex.codecogs.com/svg.latex?Z%3D%5Csum_x%5CPr%5BX_t%3Dx%7Cy_%7B1%3At-1%7D%5D%5CPr%5By_t%7CX_t%3Dx%5D)
+
+with $ Z=\sum_x\Pr[X_t=x|y_{1:t-1}]\Pr[y_t|X_t=x]$
 
 #### Smoothing
 
@@ -69,16 +81,22 @@ Run sum product to calculate the interested marginals.
 
 #### Prediction
 
-![pred](http://latex.codecogs.com/svg.latex?%5CPr%5BX_%7Bt%2B1%7D%7Cy_%7B1%3At%7D%5D%3D%5Csum_x%5CPr%5BX_t%3Dx%2CX_%7Bt%2B1%7D%7Cy_%7B1%3At%7D%5D%3D%5Csum_x%20%5CPr%5BX_t%3Dx%7Cy_%7B1%3At%7D%5D%5CPr%5BX_%7Bt%2B1%7D%7CX_t%3Dx%2Cy_%7B1%3At%7D%5D%3D%5Csum_x%5CPr%5BX_t%3Dx%7Cy_%7B1%3At%7D%5D%5CPr%5BX_%7Bt%2B1%7D%7CX_t%3Dx%5D)
+$$
+\Pr[X_{t+1}|y_{1:t}]=\sum_x\Pr[X_t=x,X_{t+1}|y_{1:t}]=\sum_x \Pr[X_t=x|y_{1:t}]\Pr[X_{t+1}|X_t=x,y_{1:t}]
+$$
 
-The computation complexity of condition and prediction doesn't grow with t. Reuse what are computed before.
+$$
+=\sum_x\Pr[X_t=x|y_{1:t}]\Pr[X_{t+1}|X_t=x]
+$$
+
+The computation complexity of condition and prediction doesn't grow with $t$. Reuse what are computed before.
 
 ## Kalman Filter
 
 Employing Gaussian properties, encode two stuffs:
 
-- transition between Xt+1 and Xt (Motion model, linear)
-- transition between Yt and Xt (Sensor model, linear)
+- transition between $X_{t+1}$ and $X_t$​ , Motion model, linear
+- transition between $Y_t$ and $X_t$​ , Sensor model, linear
 
 ### Gaussian
 
@@ -95,7 +113,7 @@ Properties:
 
 How to do filtering fast? 
 
-Similar to HMM (because we utilize the Markov chain structure, which is not changed), change the summation to integral.
+Similar to HMM, because we utilize the Markov chain structure, which is not changed, change the summation to integral.
 
 #### Smoothing
 #### Prediction

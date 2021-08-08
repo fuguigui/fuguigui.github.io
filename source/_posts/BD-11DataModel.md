@@ -1,11 +1,9 @@
 ---
 title: Data Model
 date: 2019-01-22
-tags: [big data]
-categories: course notes
+tags: [System, Big Data]
+categories: [Learning Notes]
 ---
-
-
 
 # Type System
 
@@ -107,3 +105,11 @@ PSVI: post-schema-validation infoset
 DTD: document type declaration  
 XDM: XPath and XQuery Data Model  
 JDM: JSONiq Data Model
+
+# Further Reading
+
+[XML in a Nutshell](https://www.oreilly.com/library/view/xml-in-a/0596007647/) Chapter 3, 17
+
+Thanks Ruben and Christina for reading notes
+
+{% pdf 11_DataModels.pdf %}

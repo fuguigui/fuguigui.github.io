@@ -1,23 +1,31 @@
 ---
 title: Performance at large scale
 date: 2019-01-25
-tags: [big data]
-categories: course notes
+tags: [System, Big Data]
+categories: [Learning Notes]
+mathjax: true
 ---
-
-
 
 # Measurements
 
-Prefixes: mili(m, 0.001,3), micro(\mu, 0.000 001, 6), nano(n, 9), pico(p, 12), femto(f, 15), atto(a, 18), zepto(z, 21), yocto(y, 24)
+Prefixes: 
+
+- mili: $m$, 0.001,3, 
+- micro: $\mu$, 0.000 001, 6, 
+- nano: $n$, 9, 
+- pico: $p$, 12, 
+- femto: $f$, 15, 
+- atto: $a$, 18, 
+- zepto: $z$, 21, 
+- yocto: $y$, 24
 
 ## Speedup
-- Amdahl's law: SpeedUp=$\frac{1}{1-p+p/s$. Constant problem size.  
+- Amdahl's law: SpeedUp= $\frac{1}{1-p+p/s}$. Constant problem size.  
 - Gustafson's law: SpeedUp=$1-p+sp$. Constant computing power.
 
 # Tuning
 - scale out  
-- scale up: memory, disk, CPU, network ... ** an easy but last resort** 
+- scale up: memory, disk, CPU, network ... **an easy but last resort** 
 - code:
 	- look for large **loops**
 	- avoid exception catching
@@ -50,3 +58,10 @@ when 95% percentile reached, launch duplicate tasks.
 
 ### Tied request
 basic idea **cancel request**. A task is duplicated and waiting in several queues. Cancel other requests when one of them starts.
+
+
+
+# Further Reading
+
+[Spark SQL: Relational Data Processing in Spark](https://dl.acm.org/doi/10.1145/2723372.2742797)
+

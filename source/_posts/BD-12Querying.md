@@ -1,11 +1,9 @@
 ---
 title: Querying
 date: 2019-01-26
-tags: [big data]
-categories: course notes
+tags: [System, Big Data]
+categories: [Learning Notes]
 ---
-
-
 
 # XML Navigation
 
@@ -48,4 +46,6 @@ Use ```.``` to represent the current element
 3. Optimization: Expression Tree
 4. Code Generation: from Expression Tree to Iterator Tree
 
-# Stream Execution
+# Further Reading
+
+[XQuery, 2nd Edition](https://www.oreilly.com/library/view/xquery-2nd-edition/9781491915080/) Chapter 2, 3, 4, 6, 7, 10, 11, 
