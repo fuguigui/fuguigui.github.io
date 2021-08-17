@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="German grammar:词语变化, Travling,Coding,Food,Learning">
+    <meta name="keywords" content="Hexo写作和主题, Travling,Coding,Food,Learning">
     <meta name="description" content="Warning! You accidentally rushed into Lulu&#39;s secret garden. Here, everything is created by heart.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>German grammar:词语变化 | Fululu</title>
+    <title>Hexo写作和主题 | Fululu</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="../medias/logo_fu.ico">
 
     <link rel="stylesheet" type="text/css" href="../libs/awesome/css/all.css">
@@ -291,12 +291,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/7.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/0.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">German grammar:词语变化</h1>
+                    <h1 class="description center-align post-title">Hexo写作和主题</h1>
                 </div>
             </div>
         </div>
@@ -420,8 +420,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/deutsch/">
-                                <span class="chip tag-color">deutsch</span>
+                            <a href="../tags/Hexo/">
+                                <span class="chip tag-color">Hexo</span>
                             </a>
                         
                     </div>
@@ -432,8 +432,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../categories/language/" class="post-category">
-                                language
+                            <a href="../categories/Sharing/" class="post-category">
+                                Sharing
                             </a>
                         
                     </div>
@@ -445,7 +445,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-09-06
+                    2021-08-17
                 </div>
                 
 
@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    8 Min
+                    3 Min
                 </div>
                 
 
@@ -471,683 +471,72 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>ö ä ü ß</p>
-<h1 id="Verb"><a href="#Verb" class="headerlink" title="Verb"></a>Verb</h1><ul>
-<li><p>弱变化动词：词干不发生变化，作过去式和第二分词时要加辅音t。（一种解释：”弱”：需要辅音来辅助）</p>
+                <p>本篇主要介绍Hexo的写作常用命令，基本构成要素及教程和主题模板。</p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p>推荐有任何疑问点的时候，先去查阅<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/writing.html">hexo官方文档</a>。但是官方文档，就像一般的工具书一样，存在的弊端是：缺乏对日常操作的指导性，难以分清阅读顺序，难以区分各个内容的重要程度和优先级。此处，根据一次hexo更新博客的基础流程，来重新整理命令操作。网上也有很多博文进行此方面操作，可参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/156915260">知乎Hexo博客写文章及基本操作</a>。不同于这些博文，我会着重介绍操作背后的原理。</p>
+<p>一次使用hexo更新博客的基础操作流程为：</p>
+<ol>
+<li>新建一个文章</li>
+<li>本地预览更新后的博客</li>
+<li>远程部署更新博客</li>
+</ol>
+<h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><ul>
+<li><input disabled="" type="checkbox"> 新建博客页面</li>
+</ul>
+<p>实际上，hexo渲染一篇博文的工作流程是：</p>
+<ol>
+<li><p>拿到一个markdown文件，</p>
 </li>
-<li><p>强变化动词：词干<strong>元音</strong>发生变化的动词，有一定的规则：变音现象，换音现象。不用加辅音t，通过自身元音变化即可（“强”：不需要辅音来辅助）</p>
+<li><p>根据这个文件的layout类型，</p>
+</li>
+<li><p>进行样式排版，生成html文件，</p>
+</li>
+<li><p>最终展示到网页端。</p>
+</li>
+</ol>
+<p>因此，一个<code>_posts/</code>文件夹下的markdown文件就会对应到一篇博文。所以，第一步是创建一个markdown文件。有两种方法：</p>
 <ul>
-<li>a-ä</li>
-<li>e-i-o: helfen, hilft, hat geholfen</li>
-<li>e-ie</li>
+<li>使用hexo的命令</li>
+<li>按常规的操作，新建一个markdown文件，并保存到<code>_posts/</code>文件夹下即可。</li>
 </ul>
-<p><img src="./imgs/verb10.jpg" alt="verb"></p>
-</li>
-<li><p>不规则变化：又换音又加辅音，如</p>
+<h3 id="使用hexo的命令"><a href="#使用hexo的命令" class="headerlink" title="使用hexo的命令"></a>使用hexo的命令</h3><p>官方文档是这么说的：</p>
+<pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token punctuation">[</span>layout<span class="token punctuation">]</span> <span class="token operator">&lt;</span>title<span class="token operator">></span>
+</code></pre>
+<p>实际上，常用的操作是：</p>
+<pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"我的第一篇文章"</span>
+</code></pre>
+<p>输入这行命令背后的操作是：默认生成一个<strong>layout</strong>为post类型的markdown文件，该文件存储为<code>***.github.io/source/_posts/我的第一篇文章.md</code>。</p>
+<h3 id="常规的操作"><a href="#常规的操作" class="headerlink" title="常规的操作"></a>常规的操作</h3><p>也可以不使用命令行进行生成，我更习惯于直接在Typora中新建文件，并保存到<code>***.github.io/source/_posts/</code>这个位置。</p>
+<p>我觉得这样的操作更便捷，因为我常常是打开Typora之后，有多个文档要写，直接<code>Ctrl + N</code>新建一个文档，会快很多。但是这样操作需要手动添加文章头部信息Front Matter。添加头部信息Front Matter的操作是：</p>
 <ul>
-<li><p>Infinitiv中-enn-,-end-变化到过去分词/第二分词：-annt-,-andt-</p>
-<p>brennen, brannte, gebrannt</p>
-<p>kennen, kannte, gekannt</p>
-<p>nennen, nannte, genannt</p>
-<p>rennen, rannte, gerannt</p>
-<p>senden, sandte, gesandt</p>
-<p>wenden, wandte, gewandt</p>
-<p>bringen, brachte, gebracht</p>
-<p>denken, dachte, gedacht</p>
-</li>
-</ul>
-</li>
-<li><p>特殊变化：找不出规则，如sein,war,gewesen,sitzen,sitzt, ist gesessen, wissen, weiss, hat gewusst</p>
-<p>后三类加起来一共288个单词</p>
-</li>
-</ul>
-<h2 id="Die-Partizipien-分词"><a href="#Die-Partizipien-分词" class="headerlink" title="Die Partizipien (分词)"></a>Die Partizipien (分词)</h2><table>
-<thead>
-<tr>
-<th>不定式</th>
-<th>现在分词</th>
-<th>过去分词</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>fragen</td>
-<td>fragend</td>
-<td>gefragt</td>
-</tr>
-<tr>
-<td>arbeiten</td>
-<td>arbeitend</td>
-<td>gearbeitet</td>
-</tr>
-<tr>
-<td>lesen</td>
-<td>lesend</td>
-<td>gelesen</td>
-</tr>
-<tr>
-<td>laufen</td>
-<td>laufend</td>
-<td>gelaufen</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="现在分词"><a href="#现在分词" class="headerlink" title="现在分词"></a>现在分词</h3><ul>
-<li>表示主动意义，与动词谓语同时进行的动作。</li>
-<li>作状语和定语。除少数外一般不能作表语。</li>
-<li>作定语时，同过去分词一样，按<strong>形容词</strong>变化。</li>
-<li>e.g.<ul>
-<li>状语：<u>Stehend</u> liest der Student.</li>
-<li>定语：Der <u>lesende</u> Student ist mein Freund.</li>
+<li>先输入三个短横线-，<code>---</code>，然后回车。</li>
+<li>在出现的阴影框里，输入希望添加的属性值，<ul>
+<li>常用的有<code>title, date, author</code></li>
+<li>次常用的有<code>categories, tags</code></li>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">Front-Matter official manual</a></li>
+<li>其他的还有比如：<code>mathjax</code>, <code>top</code>等是hexo的一些插件需要使用的参数。</li>
 </ul>
 </li>
 </ul>
-<h4 id="带zu"><a href="#带zu" class="headerlink" title="带zu"></a>带zu</h4><ul>
-<li>具有被动意义</li>
-<li>可以作定语或者扩展定语</li>
-<li>分离动词：zu放在可分前缀与根动词之间，连写。如：der anzurufende Vater</li>
-</ul>
-<h3 id="过去分词"><a href="#过去分词" class="headerlink" title="过去分词"></a>过去分词</h3><ul>
-<li>表示已经完成了的动作。及物动词的过去分词具有被动意义。</li>
-<li>作定语，状语，表语。<ul>
-<li>定语：对于不及物动词来说<ul>
-<li>可作定语的：与sein构成完成时的，并且表示已经完成的行为的。</li>
-<li>不可作定语的：用haben构成完成时的。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>e.g.<ul>
-<li>定语：<ul>
-<li>Er sitzt am <u>geöffneten</u> Fenster. (过去分词：geöffnet, 修饰 中性 第三格 无冠词？？？)</li>
-<li>Er kam von einer <u>zerstörten</u> Stadt. （过去分词：zerstört，修饰 阴性 第三格 有不定冠词）</li>
-<li>Wir begrüssten den <u>angekommenen</u> Freund. （过去分词：angekommen，修饰 阳性 第四格 有定冠词）</li>
-</ul>
-</li>
-<li>状语：<ul>
-<li><u>Begeistert</u> erzählt er von dem Erfolg der Arbeiter. </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="分词词组"><a href="#分词词组" class="headerlink" title="分词词组"></a>分词词组</h3><ul>
-<li><p>可作状语和后置定语</p>
-</li>
-<li><p>可位于：</p>
-<ul>
-<li><p>主句前，用逗号与主句隔开；主句用反语序。</p>
-</li>
-<li><p>主句后，用逗号与主句隔开；</p>
-</li>
-<li><p>主句两部分之间，作为插入成分。</p>
-</li>
-</ul>
-</li>
-<li><p>分词的位置：</p>
-<ul>
-<li><p>词组末尾，现在分词一般都放在末尾。</p>
-</li>
-<li><p>词组开头</p>
-</li>
-</ul>
-</li>
-<li><p>e.g.</p>
-<ul>
-<li>Er geht im Zimmer hin und her, nach seinem Füller suchend. （主句后，状语，现在分词句尾）</li>
-<li>Arbeitend mit einer neuen Maschine, erhöht er die Produktion. （主句前，状语，主句反语序，现在分词）</li>
-<li>Diese Stadt, zerstört vor vierzig Jahren, wird jetzt von Tag zu Tag schöner. （主句中，定语，过去分词）</li>
-</ul>
-</li>
-</ul>
-<h3 id="完成式"><a href="#完成式" class="headerlink" title="完成式"></a>完成式</h3><ul>
-<li>构成：助动词+第二分词<ul>
-<li>助动词：haben和sein<ul>
-<li>haben：<ul>
-<li>所有的及物动词，情态动词，反身动词</li>
-</ul>
-</li>
-<li>sein：<ul>
-<li>位置移动的动词：laufen, gehen, fahren</li>
-<li>表状态变化的动词：aufwachen, sterben, werden, passieren</li>
-<li>例外：sein, bleiben</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>第二分词变化规则：<ul>
-<li>弱变化动词：<ul>
-<li>ge+动词词干+t</li>
-<li>词干以-d,-t,-ffn,-chn结尾，ge+动词词干+et</li>
-<li>以-ieren结尾的动词不加ge</li>
-<li>有轻读的不可分前缀：be-,ebt-,er-,ge-,ver-,zer-，不加ge</li>
-<li>可分动词：可分前缀+ge+动词词干+t/et</li>
-</ul>
-</li>
-<li>强变化动词：<ul>
-<li>ge+动词词干+en</li>
-</ul>
-</li>
-<li>其他不规则变化</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="./imgs/verb1.jpg" alt="verb"></p>
-<p><img src="./imgs/verb2.jpg" alt="verb"></p>
-<p><img src="./imgs/verb3.jpg" alt="verb"></p>
-<p><img src="./imgs/verb4.jpg" alt="verb"></p>
-<p><img src="./imgs/verb5.jpg" alt="verb"></p>
-<p><img src="./imgs/verb6.jpg" alt="verb"></p>
-<p><img src="./imgs/verb7.jpg" alt="verb"></p>
-<p><img src="./imgs/verb8.jpg" alt="verb"></p>
-<p><img src="./imgs/verb9.jpg" alt="verb"></p>
-<h2 id="Modalverb"><a href="#Modalverb" class="headerlink" title="Modalverb"></a>Modalverb</h2><table>
-<thead>
-<tr>
-<th>现在时</th>
-<th>wollen</th>
-<th>können</th>
-<th>dürfen</th>
-<th>mögen</th>
-<th>müssen</th>
-<th>möchten</th>
-<th>sollen</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ich</td>
-<td>will</td>
-<td>kann</td>
-<td>darf</td>
-<td>mag</td>
-<td>muss</td>
-<td>möchte</td>
-<td>soll</td>
-</tr>
-<tr>
-<td>du</td>
-<td>willst</td>
-<td>kannst</td>
-<td>darfst</td>
-<td>magst</td>
-<td>musst</td>
-<td>möchtest</td>
-<td>sollst</td>
-</tr>
-<tr>
-<td>er,sie,es</td>
-<td>will</td>
-<td>kann</td>
-<td>darf</td>
-<td>mag</td>
-<td>muss</td>
-<td>möchte</td>
-<td>soll</td>
-</tr>
-<tr>
-<td>wir</td>
-<td>wollen</td>
-<td>können</td>
-<td>dürfen</td>
-<td>mögen</td>
-<td>müssen</td>
-<td>möchten</td>
-<td>sollen</td>
-</tr>
-<tr>
-<td>ihr</td>
-<td>wollt</td>
-<td>könnt</td>
-<td>dürft</td>
-<td>mögt</td>
-<td>müsst</td>
-<td>möchtet</td>
-<td>sollt</td>
-</tr>
-<tr>
-<td>sie,Sie</td>
-<td>wollen</td>
-<td>können</td>
-<td>dürfen</td>
-<td>mögen</td>
-<td>müssen</td>
-<td>möchten</td>
-<td>sollen</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>过去时</th>
-<th>wollen-wollten</th>
-<th>können-konnten</th>
-<th>dürfen-durften</th>
-<th>mögen-mochten</th>
-<th>müssen-mussten</th>
-<th>möchten-mochten</th>
-<th>sollen-sollten</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ich</td>
-<td>wollte</td>
-<td>konnte</td>
-<td>durfte</td>
-<td>mochte</td>
-<td>musste</td>
-<td>mochte</td>
-<td>sollte</td>
-</tr>
-<tr>
-<td>du</td>
-<td>wolltest</td>
-<td>konntest</td>
-<td>durftest</td>
-<td>mochtest</td>
-<td>musstest</td>
-<td>mochtest</td>
-<td>solltest</td>
-</tr>
-<tr>
-<td>er,sie,es</td>
-<td>wollte</td>
-<td>konnte</td>
-<td>durfe</td>
-<td>mochte</td>
-<td>musste</td>
-<td>mochte</td>
-<td>sollte</td>
-</tr>
-<tr>
-<td>wir</td>
-<td>wollten</td>
-<td>konnten</td>
-<td>durften</td>
-<td>mochten</td>
-<td>mussten</td>
-<td>mochten</td>
-<td>sollten</td>
-</tr>
-<tr>
-<td>ihr</td>
-<td>wolltet</td>
-<td>konntet</td>
-<td>durftet</td>
-<td>mochtet</td>
-<td>musstet</td>
-<td>mochtet</td>
-<td>solltet</td>
-</tr>
-<tr>
-<td>sie,Sie</td>
-<td>wollten</td>
-<td>konnten</td>
-<td>durften</td>
-<td>mochten</td>
-<td>mussten</td>
-<td>mochten</td>
-<td>sollten</td>
-</tr>
-<tr>
-<td>第二虚拟式</td>
-<td>wollte</td>
-<td>könnte</td>
-<td>dürfte</td>
-<td>möchte</td>
-<td>müsste</td>
-<td>-</td>
-<td>sollte</td>
-</tr>
-</tbody></table>
-<p>würden (would)</p>
-<p>ich würde, du würdest, er/sie/er würde, wir würden, ihr würdet, sie/Sie würden</p>
-<p>wären (were)</p>
-<p>ich wäre, du wärst, er/sie/es wäre, wir wären, ihr wärt, sie/Sie wären</p>
-<p>wäre 和 würden 连用，表示虚拟语气</p>
-<p>Wenn ich du wäre, würde ich eine Tablette nehmen.</p>
-<h1 id="derselbe-derjenige"><a href="#derselbe-derjenige" class="headerlink" title="derselbe/derjenige"></a>derselbe/derjenige</h1><ul>
-<li>jenige: 这样的人/物</li>
-</ul>
-<p>der-selbe/jenige:</p>
-<ul>
-<li>前半部分：der按照定冠词变化</li>
-<li>后半部分：selbe/jenige按照形容词变化</li>
-</ul>
-<h1 id="Adjective"><a href="#Adjective" class="headerlink" title="Adjective"></a>Adjective</h1><h2 id="定冠词-der-die-das-die"><a href="#定冠词-der-die-das-die" class="headerlink" title="定冠词 der,die,das,die"></a>定冠词 der,die,das,die</h2><table>
-<thead>
-<tr>
-<th></th>
-<th>M</th>
-<th>F</th>
-<th>N</th>
-<th>pl.</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>N</td>
-<td>der -e</td>
-<td>die  -e</td>
-<td>das -e</td>
-<td>die -en</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>A</td>
-<td>den -en</td>
-<td>die -e</td>
-<td>das -e</td>
-<td>die -en</td>
-</tr>
-</tbody></table>
-<h2 id="无冠词（强变化）"><a href="#无冠词（强变化）" class="headerlink" title="无冠词（强变化）"></a>无冠词（强变化）</h2><table>
-<thead>
-<tr>
-<th></th>
-<th>M</th>
-<th>F</th>
-<th>N</th>
-<th>pl.</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>N</td>
-<td>-er</td>
-<td>-e</td>
-<td>-es</td>
-<td>-e</td>
-</tr>
-<tr>
-<td>G</td>
-<td>-en</td>
-<td>-er</td>
-<td>-en</td>
-<td>-er</td>
-</tr>
-<tr>
-<td>D</td>
-<td>-em</td>
-<td>-er</td>
-<td>-em</td>
-<td>-en</td>
-</tr>
-<tr>
-<td>A</td>
-<td>-en</td>
-<td>-e</td>
-<td>-es</td>
-<td>-e</td>
-</tr>
-</tbody></table>
-<h2 id="不定冠词和物主代词"><a href="#不定冠词和物主代词" class="headerlink" title="不定冠词和物主代词"></a>不定冠词和物主代词</h2><ul>
-<li>Dativ, Plural: Die Adjektivendung ist im Dativ und im Plural immer -en. z.B: <ul>
-<li>mit einem alt<strong>en</strong> Mann (m), mit einer jung<strong>en</strong> Frau (f), mit einem klein<strong>en</strong> Kind(n), </li>
-<li>mit traurig<strong>en</strong> Leuten (pl./D) verschieden<strong>en</strong> Menschen (N), alten Männer (A)</li>
-</ul>
-</li>
-<li>Nominativ/Akkusativ (Singular): Das Adjektiv erhält die Signalendung des bestimmten Arkikels, z.B:<ul>
-<li>ein kleines(das) Kind; eine schöne (die) Blume; einen hohen (den) Berg.</li>
-</ul>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>M</th>
-<th>F</th>
-<th>N</th>
-<th>pl.</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>N</td>
-<td>ein -er<br>mein -er</td>
-<td>eine -e<br>meine -e</td>
-<td>ein -es<br>mein -es</td>
-<td>eine -en<br>meine -en</td>
-</tr>
-<tr>
-<td>G</td>
-<td>eines -en</td>
-<td>einer -en</td>
-<td>eines -en</td>
-<td>einer -en</td>
-</tr>
-<tr>
-<td>D</td>
-<td>einem -en</td>
-<td>einer -en</td>
-<td>einem -en</td>
-<td>seien -en</td>
-</tr>
-<tr>
-<td>A</td>
-<td>einen -en<br>meinen -en</td>
-<td>eine -e<br>meine -e</td>
-<td>ein -es<br>mein -es</td>
-<td>seine -en<br>meine  -en</td>
-</tr>
-</tbody></table>
-<h1 id="Personalpronomen"><a href="#Personalpronomen" class="headerlink" title="Personalpronomen"></a>Personalpronomen</h1><table>
-<thead>
-<tr>
-<th>Nominativ</th>
-<th>Dativ</th>
-<th>Akkusativ</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ich</td>
-<td>mir</td>
-<td>mich</td>
-</tr>
-<tr>
-<td>du</td>
-<td>dir</td>
-<td>dich</td>
-</tr>
-<tr>
-<td>er</td>
-<td>ihm</td>
-<td>sich</td>
-</tr>
-<tr>
-<td>sie</td>
-<td>ihr</td>
-<td>sich</td>
-</tr>
-<tr>
-<td>es</td>
-<td>ihm</td>
-<td>sich</td>
-</tr>
-<tr>
-<td>wir</td>
-<td>uns</td>
-<td>uns</td>
-</tr>
-<tr>
-<td>ihr</td>
-<td>euch</td>
-<td>euch</td>
-</tr>
-<tr>
-<td>sie</td>
-<td>ihnen</td>
-<td>sich</td>
-</tr>
-<tr>
-<td>Sie</td>
-<td>ihnen</td>
-<td>sich</td>
-</tr>
-</tbody></table>
-<h2 id="Relexivpronomen"><a href="#Relexivpronomen" class="headerlink" title="Relexivpronomen"></a>Relexivpronomen</h2><p>只有在一个akkusativ-object存在的情况下，反身代词用Dativ。如果不存在，反身代词就用Akkusativ</p>
-<p>例子：</p>
-<p>Ich kämme mir die Haare. (存在充当akkusativ的对象die Haare，用mir做Dativ)</p>
-<p>–&gt; Ich kämme mich. （不存在充当akkusativ的对象，用mich做Akkusativ）</p>
-<h2 id="冠词的变化"><a href="#冠词的变化" class="headerlink" title="冠词的变化"></a>冠词的变化</h2><p>冠词直接作代词（后面不需要加名词）时，diese, jede, ein,  kein, mein 都随der的变化形式而变化</p>
-<p>冠词不直接作代词（后面加名词）与这个不同，如：ein Bus = einer, kein Geschaft = keines</p>
-<table>
-<thead>
-<tr>
-<th>冠词直接作代词</th>
-<th>Nominativ</th>
-<th>Dativ</th>
-<th>Akkusativ</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>m</td>
-<td>der<br>dieser/jeder/einer/keiner/meiner</td>
-<td>dem<br>diesem/jedem/einem/keinem/meinem</td>
-<td>den<br>diesen/jeden/einen/keinen/meinen</td>
-</tr>
-<tr>
-<td>f</td>
-<td>die<br>diese/jede/eine/keine/meine</td>
-<td>der<br>dieser/jeder/einer/keiner/meiner</td>
-<td>die<br>diese/jede/eine/keine/meine</td>
-</tr>
-<tr>
-<td>n</td>
-<td>das<br>dieses/jedes/eins/keins/meins</td>
-<td>dem<br>diesem/jedem/einem/keinem/meinem</td>
-<td>das<br>dieses/jedes/eins/keins/meins</td>
-</tr>
-<tr>
-<td>pl</td>
-<td>die<br>diese/alle/welche/keine/meine</td>
-<td>denen<br>diesen/allen/welchen/keinen/meinen</td>
-<td>die<br>diese/alle/welche/keine/meine</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>冠词接名词</th>
-<th>Nominativ</th>
-<th>Dativ</th>
-<th>Akkusativ</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>m</td>
-<td>der<br> diese/jede/ein/kein/mein</td>
-<td>dem diesem/jedem/einem/keinem/meinem</td>
-<td>den diesen/jeden/einen/keinen/meinen</td>
-</tr>
-<tr>
-<td>f</td>
-<td>die diese/jede/eine/keine/meine</td>
-<td>der <br>dieser/jeder/einer/keiner/meiner</td>
-<td>die <br>diese/jede/eine/keine/meine</td>
-</tr>
-<tr>
-<td>n</td>
-<td>das diese/jede/ein/kein/mein</td>
-<td>dem diesem/jedem/einem/keinem/meinem</td>
-<td>das <br>diese/jede/ein/kein/mein</td>
-</tr>
-<tr>
-<td>pl</td>
-<td>die diese/alle/welche/keine/meine</td>
-<td>denen diesen/allen/welchen/keinen/meinen</td>
-<td>die <br>diese/alle/welche/keine/meine</td>
-</tr>
-</tbody></table>
-<h2 id="动词辨析"><a href="#动词辨析" class="headerlink" title="动词辨析"></a>动词辨析</h2><table>
-<thead>
-<tr>
-<th>静三动四</th>
-<th>静（状态）</th>
-<th>动（动作，加反身动词）</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>躺</td>
-<td>liegen (lag, gelegen)</td>
-<td>legen</td>
-<td>Er liegt noch im Bett.<br>Er hat <strong>sich</strong> ins Bett gelegt.</td>
-</tr>
-<tr>
-<td>坐</td>
-<td>sitzen (sass, gesessen)</td>
-<td>setzen</td>
-<td>Er sitzt vor seiner Frau.<br>Er hat <strong>sich</strong> vor seine Frau gesetzt.</td>
-</tr>
-<tr>
-<td>站</td>
-<td>stehen</td>
-<td>stellen</td>
-<td>Er steht vor seiner Frau.<br>Er hat <strong>sich</strong> vor seine Frau gestellt.</td>
-</tr>
-<tr>
-<td>挂</td>
-<td>hängen</td>
-<td>hängen</td>
-<td>Die Landkarte hängt an der Wand.<br>Er hat die Landkarte an die Wand gehängt.</td>
-</tr>
-<tr>
-<td>粘</td>
-<td>kleben</td>
-<td>kleben</td>
-<td>Ein Zettel klebt an der Tur.<br>Er hat einen Zettel an die Tur geklebt.</td>
-</tr>
-</tbody></table>
-<h1 id="Arktikel"><a href="#Arktikel" class="headerlink" title="Arktikel"></a>Arktikel</h1><table>
-<thead>
-<tr>
-<th></th>
-<th>Nominativ</th>
-<th>Dativ</th>
-<th>Akkusativ</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>m (maskulin)</td>
-<td>der</td>
-<td>dem</td>
-<td>den</td>
-</tr>
-<tr>
-<td>f (feminin)</td>
-<td>die</td>
-<td>der</td>
-<td>die</td>
-</tr>
-<tr>
-<td>n (neutrum)</td>
-<td>das</td>
-<td>dem</td>
-<td>das</td>
-</tr>
-<tr>
-<td>p (Plural)</td>
-<td>die</td>
-<td>den(+-n)</td>
-<td>die</td>
-</tr>
-</tbody></table>
+<p>Front Matter其实就是预先告诉hexo该博文的一些基本属性。可以用文件类比，理解为文件的类型信息，创建日期信息，用什么方式打开，而不涉及具体的文件内容。</p>
+<p>使用hexo命令方式创建文档，会自动生成<code>title, date</code>信息。</p>
+<h3 id="layout是什么"><a href="#layout是什么" class="headerlink" title="layout是什么"></a>layout是什么</h3><p>感兴趣且可以科学上网的同学，强烈推荐一个<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Jiwbmyc4nCA&amp;list=PLLAZ4kZ9dFpOMJR6D25ishrSedvsguVSm&amp;index=6">YouTube Hexo系列视频</a>。第六集scaffolds和第十二集layout基本就对应本小节内容。</p>
+<p>回到官方文档，会看到<code>hexo new</code>命令有个可选参数叫做<code>[layout]</code>。在文档的下一句说到</p>
+<blockquote>
+<p>您可以在命令中指定文章的布局（layout），默认为 <code>post</code>，可以通过修改 <code>_config.yml</code> 中的 <code>default_layout</code> 参数来指定默认布局。</p>
+</blockquote>
+<p>有的博主会介绍说，布局有三种：<code>post</code>（文章）、<code>draft</code>（草稿）、<code>page</code>（页面）。其实不够准确。如果你愿意，你可以有n多种布局。只不过这三种是hexo默认已经帮你写好的。</p>
+<p><em>那么什么是layout呢？</em></p>
+<p>layout：英文直译是版面设计。也就是说这个命令告诉hexo，该如何排版。不同的排版使用不同的html网页布局，css样式，展示不同的属性。</p>
+<p><em>hexo是如何根据这个layout参数值进行后续操作的呢？</em></p>
+<p>首先，每一个markdown文件都有自己的layout。</p>
+<p>清理</p>
+<p>部署</p>
+<p>预览</p>
+<p>发布</p>
+<h1 id="基本构成要素及教程"><a href="#基本构成要素及教程" class="headerlink" title="基本构成要素及教程"></a>基本构成要素及教程</h1><h1 id="主题模板"><a href="#主题模板" class="headerlink" title="主题模板"></a>主题模板</h1><h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/writing.html">hexo官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/156915260">知乎Hexo博客写文章及基本操作</a></li>
+</ol>
 
             </div>
             <hr/>
@@ -1211,8 +600,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/deutsch/">
-                                    <span class="chip bg-color">deutsch</span>
+                                <a href="../tags/Hexo/">
+                                    <span class="chip bg-color">Hexo</span>
                                 </a>
                             
                         </div>
@@ -1383,7 +772,7 @@
         repo: 'fuguigui.github.io',
         owner: 'fuguigui',
         admin: ["fuguigui"],
-        id: '2019-09-06T00-00-00',
+        id: '2021-08-17T10-04-36',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1674,13 +1063,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="../grammar-ju-zi-cheng-fen/">
+                <a href="../hexo3/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/0.jpeg" class="responsive-img" alt="German grammar:句子成分">
+                        <img src="../medias/featureimages/1.jpeg" class="responsive-img" alt="Hexo个性化配置（一）">
                         
-                        <span class="card-title">German grammar:句子成分</span>
+                        <span class="card-title">Hexo个性化配置（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1691,14 +1080,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-17
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/language/" class="post-category">
-                                    language
+                            <a href="../categories/Sharing/" class="post-category">
+                                    Sharing
                                 </a>
                             
                             
@@ -1708,8 +1097,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/deutsch/">
-                        <span class="chip bg-color">deutsch</span>
+                    <a href="../tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
                 </div>
@@ -1723,13 +1112,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../grammar-ci-yu-bian-hua-zhi-dai-ci-yu-guan-ci/">
+                <a href="../du-shu-ru-he-yue-du-yi-ben-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/11.jpeg" class="responsive-img" alt="German grammar词语变化之代词与冠词">
+                        <img src="../medias/featureimages/4.jpeg" class="responsive-img" alt="读书：如何阅读一本书">
                         
-                        <span class="card-title">German grammar词语变化之代词与冠词</span>
+                        <span class="card-title">读书：如何阅读一本书</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1740,14 +1129,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/language/" class="post-category">
-                                    language
+                            <a href="../categories/Reading-Summary/" class="post-category">
+                                    Reading Summary
                                 </a>
                             
                             
@@ -1757,8 +1146,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/deutsch/">
-                        <span class="chip bg-color">deutsch</span>
+                    <a href="../tags/Book/">
+                        <span class="chip bg-color">Book</span>
+                    </a>
+                    
+                    <a href="../tags/Tips/">
+                        <span class="chip bg-color">Tips</span>
                     </a>
                     
                 </div>

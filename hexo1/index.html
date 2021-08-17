@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo配置加闲聊, Travling,Coding,Food,Learning">
+    <meta name="keywords" content="Hexo环境配置, Travling,Coding,Food,Learning">
     <meta name="description" content="Warning! You accidentally rushed into Lulu&#39;s secret garden. Here, everything is created by heart.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hexo配置加闲聊 | Fululu</title>
+    <title>Hexo环境配置 | Fululu</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="../medias/logo_fu.ico">
 
     <link rel="stylesheet" type="text/css" href="../libs/awesome/css/all.css">
@@ -291,12 +291,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/13.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/11.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo配置加闲聊</h1>
+                    <h1 class="description center-align post-title">Hexo环境配置</h1>
                 </div>
             </div>
         </div>
@@ -464,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    3 Min
+                    4 Min
                 </div>
                 
 
@@ -479,10 +479,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>俗话说“跑程序一小时，配环境一整天”。</p>
-<p>第一步就是要配置环境。这有一个<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官方教程</a>，供参考</p>
-<p>其实只要环境配置好了，后续的操作都非常简单。</p>
-<h1 id="Tools总览"><a href="#Tools总览" class="headerlink" title="Tools总览"></a>Tools总览</h1><p>我们这里维护博客一共需要以下的工具：</p>
+                <p>这一系列分享如何使用Hexo搭建个人博客网站。</p>
+<p>俗话说“跑程序一小时，配环境一整天”。</p>
+<p>第一步就是要配置环境。这有一个<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官方教程</a>，供参考。其实只要环境配置好了，后续的操作都非常简单。</p>
+<h1 id="工具总览"><a href="#工具总览" class="headerlink" title="工具总览"></a>工具总览</h1><p>我们使用以下的工具来维护博客：</p>
 <ul>
 <li>Typora</li>
 <li>Git</li>
@@ -492,62 +492,93 @@
 <h1 id="详细配置"><a href="#详细配置" class="headerlink" title="详细配置"></a>详细配置</h1><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>Git是用来管理/存储代码和部署网页的地方。</p>
 <p>需要对git进行的操作</p>
 <ul>
-<li><input checked="" disabled="" type="checkbox"> 安装git</li>
-<li><input checked="" disabled="" type="checkbox"> 配置git账户</li>
-<li><input checked="" disabled="" type="checkbox"> 从github上下载仓库，并日后维护。</li>
+<li><p>安装git</p>
+</li>
+<li><p>配置git账户</p>
+</li>
+<li><p>从github上下载仓库，并日后进行维护。</p>
+</li>
 </ul>
-<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><h3 id="配置git账户"><a href="#配置git账户" class="headerlink" title="配置git账户"></a>配置git账户</h3><p>在本地生成密钥，把密钥添加到远端，达到本地远程的链接效果。</p>
-<p>可以参考<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/25587e049d54">link</a></p>
-<p>如果电脑上有多个账户，且没有配置全局账户，以后的操作应该是对于每一个repo都要单独配置账户。</p>
+<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>如何安装git，去网上搜索有很多现成的教程，这里就不赘述了。可参考<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600/896067074338496">廖雪峰git安装教程</a></p>
+<h3 id="配置git账户"><a href="#配置git账户" class="headerlink" title="配置git账户"></a>配置git账户</h3><ol>
+<li>在本地生成密钥，把密钥添加到远端。这一步是为了将本地机器和远程账户进行链接。可以参考<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6e1de95828a8">简书git基本配置</a></li>
+</ol>
+<p>疑难解答：</p>
 <ul>
 <li><p><input checked="" disabled="" type="checkbox">  .ssh/config文件是什么</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/foohack/p/10027083.html">https://www.cnblogs.com/foohack/p/10027083.html</a></p>
 </li>
-<li><p><input checked="" disabled="" type="checkbox">  多个账户配置</p>
+<li><p><input checked="" disabled="" type="checkbox">  多个账户配置。注：如果电脑上有多个账户，且没有配置全局账户，以后的操作应该是对于每一个repo都要单独配置账户。</p>
 </li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fbbf6efb50ba">https://www.jianshu.com/p/fbbf6efb50ba</a></p>
-<h3 id="仓库配置"><a href="#仓库配置" class="headerlink" title="仓库配置"></a>仓库配置</h3><ul>
-<li><input checked="" disabled="" type="checkbox"> 如何将远程仓库下载到本地，并且配置用户？</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yshang/p/11230209.html">将远程仓库下载到本地</a></p>
+<h3 id="GitHub-Pages连接"><a href="#GitHub-Pages连接" class="headerlink" title="GitHub Pages连接"></a>GitHub Pages连接</h3><p>若没有GitHub Pages，则需：</p>
+<ol>
+<li>在github上新建一个Github Pages仓库</li>
+<li>配置仓库链接</li>
+</ol>
+<p>若已建立GitHub Pages，则只需：</p>
+<ol>
+<li>配置仓库链接</li>
+</ol>
+<h4 id="创建新GitHub-Pages（可选）"><a href="#创建新GitHub-Pages（可选）" class="headerlink" title="创建新GitHub Pages（可选）"></a>创建新GitHub Pages（可选）</h4><p>参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60578464">知乎：hexo和git配置</a></p>
+<h4 id="配置仓库链接"><a href="#配置仓库链接" class="headerlink" title="配置仓库链接"></a>配置仓库链接</h4><p>如何将远程仓库下载到本地，并且配置用户？ <a target="_blank" rel="noopener" href="https://www.cnblogs.com/yshang/p/11230209.html">cnblogs：将远程仓库下载到本地</a></p>
 <ol>
 <li><p>在本地新建一个文件夹</p>
 </li>
 <li><p>将本地仓库初始化<code>git init</code></p>
 </li>
-<li><p>将相应的代码从远程下载下来 <code>git clone git@github.com:guiyuanhood/guiyuanhood.github.io.git</code></p>
+<li><p>将相应的代码从远程下载下来 <code>git clone git@github.com:gitacount/blogname.github.io.git</code></p>
 </li>
 <li><p>进入这个仓库的目录下，输入以下代码</p>
 <p><code>git config --unset user.name</code></p>
 <p><code>git config --unset user.email</code></p>
-<p><code>git config user.name "Losermoto"</code></p>
-<p><code>git config user.email andywongpku@gmail.com</code></p>
+<p><code>git config user.name "GitAccount"</code></p>
+<p><code>git config user.email gitemail@***.***</code></p>
 </li>
 </ol>
+<p><span class="github-emoji"><span>🌟</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 对于GitHub Pages的仓库配置有个小技巧，就是<strong>使用两个分支</strong>，一个分支用于存储hexo渲染好的静态页面，也就是直接展示给读者的html等文件；另一个分支用于存储源代码，也就是hexo渲染前的文件，这样便于在多台机器上更新博客，或者更换机器后，直接从git上拉取下来就好。</p>
+<p><a target="_blank" rel="noopener" href="https://haoshuai6.github.io/2016-10-28-hexo-github.html">haoshuai6: hexo两个分支</a></p>
 <h2 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h2><p>我喜欢使用这个markdown文本编辑器。</p>
-<p>Typora比一般markdown编辑器好的地方是：即时展现。也就是它的界面展现给你的就是已经渲染好效果的版本，而不是原始版本。</p>
+<p>Typora比一般markdown编辑器好的地方是：即时展现。也就是它的界面展现给你的就是已经渲染好效果的版本，而不是原始版本的所有字符输入。</p>
 <p>原始版本是什么样呢？在键盘上按下<code>Ctrl+/</code>就能看见了。再按一次<code>Ctrl + /</code>就可以返回展示界面。    </p>
 <p>Typora的左侧可以把文章的结构展现出来，而且Typora可以很方便地把markdown导出为pdf或者html等多种结构。在左上角菜单栏里有一个导出（Export）。</p>
-<h3 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h3><p>markdown类型的文本后缀是.md，是一种文本标记语言。常见于代码仓库的readme文件。类似的文件类型还有.rst。</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/youxin/p/3597229.html">markdown vs rst</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1885d5570b37">rst intro</a></p>
+<h3 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h3><p>markdown类型的文本后缀是.md，是一种文本标记语言。常见于代码仓库的readme文件。长处在于减少排版工作，支持方便输入数学公式，代码，引用，表情包等日常需求。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/335db5716248">简书：Markdown基础教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.webfx.com/tools/emoji-cheat-sheet/">emoji-cheat-sheet</a></li>
+</ul>
+<p>类似的文件类型还有.rst。</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/youxin/p/3597229.html">cnblogs: markdown vs rst</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1885d5570b37">简书: rst introduction</a></p>
+</li>
+</ul>
 <p>hexo可以直接将markdown类型的文本转化为html类型，用做网页。</p>
-<p>支线任务</p>
-<ul>
-<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/335db5716248">基础教程</a></li>
-<li><input disabled="" type="checkbox"> 特别好玩的是，markdown插入emoji非常方便（程序员的小浪漫），比如<span class="github-emoji"><span>😗</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f617.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 这里是<a target="_blank" rel="noopener" href="https://www.webfx.com/tools/emoji-cheat-sheet/">emoji的链接</a></li>
-</ul>
 <h2 id="Node-js和npm"><a href="#Node-js和npm" class="headerlink" title="Node.js和npm"></a>Node.js和npm</h2><p>node.js的简单解释是一种javascript的运行环境，能够使得javascript脱离浏览器运行。</p>
-<p>支线任务</p>
-<ul>
-<li>具体javascrpit是什么，请自行百度。建议现在先不看，可以作为支线任务。其他还可以看html, css. html, css, javascript几乎是前端标配。</li>
-</ul>
-<p>npm简单说就是nodejs内置的包管理器。可以理解为anaconda之于python的地位。npm就是anaconda，nodejs就是python</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">hexo</a>是一个博客框架，能将markdown格式的文件解析生成静态网页。</p>
-<p>hexo据说是一个很二次元的台湾小哥写的。这里是<a target="_blank" rel="noopener" href="https://zespia.tw/blog/2012/10/11/hexo-debut/">Hexo诞生的介绍</a>。小哥是在玩前端的时候，对现有的博客框架很不满意，于是就自己写了一个。。。。（大佬就是任性，遇到不喜欢的东西就自己写一个。。。类似的故事还有git，linux，latex，matlab等等。我深深地被小哥任性的初衷吸引了，非常种草这个框架。）</p>
+<p>npm(<strong>n</strong>odejs <strong>p</strong>ackage <strong>m</strong>anager)简单说就是nodejs内置的包管理器。可以理解为anaconda之于python的地位。将npm类比为anaconda，nodejs类比为python</p>
+<h3 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/nodejs/nodejs-install-setup.html">runoob: nodejs安装配置windows/Linux/Mac</a></p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">hexo</a>是一个博客框架，能将markdown格式的文件解析生成静态网页。</p>
+<p>hexo据说是一个二次元的台湾小哥写的。这里是<a target="_blank" rel="noopener" href="https://zespia.tw/blog/2012/10/11/hexo-debut/">Hexo诞生的介绍</a>。小哥是在玩前端的时候，对现有的博客框架很不满意，于是就自己写了一个。。。。（大佬就是任性，遇到不喜欢的东西就自己写一个。。。类似的故事还有git，linux，latex，matlab等等。我深深地被小哥任性的初衷吸引了，非常种草这个框架。）</p>
 <p>安装参考官方文档。</p>
-<p>之后就可以去选择自己喜欢的主题，并且进行修饰啦。</p>
+<p>之后就可以去选择自己喜欢的主题，进行写作和装饰啦。</p>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo官方安装教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600/896067074338496">廖雪峰git安装教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6e1de95828a8">简书git基本配置</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/foohack/p/10027083.html">cnblogs: ssh</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fbbf6efb50ba">简书：Git多账户配置</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60578464">知乎：hexo和git配置</a></li>
+<li><a target="_blank" rel="noopener" href="https://haoshuai6.github.io/2016-10-28-hexo-github.html">haoshuai6: hexo两个分支</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/335db5716248">简书：Markdown基础教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.webfx.com/tools/emoji-cheat-sheet/">emoji-cheat-sheet</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/youxin/p/3597229.html">cnblogs: markdown vs rst</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1885d5570b37">简书: rst introduction</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/nodejs/nodejs-install-setup.html">runoob: nodejs安装配置windows/Linux/Mac</a></li>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">hexo官方介绍</a></li>
+<li><a target="_blank" rel="noopener" href="https://zespia.tw/blog/2012/10/11/hexo-debut/">Hexo的诞生</a></li>
+</ol>
 
             </div>
             <hr/>
@@ -1135,13 +1166,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../grammar-shi-tai/">
+                <a href="../sysml-willump/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/8.jpeg" class="responsive-img" alt="German grammar:时态">
+                        <img src="../medias/featureimages/13.jpeg" class="responsive-img" alt="Background Knowledge of Paper Willnump">
                         
-                        <span class="card-title">German grammar:时态</span>
+                        <span class="card-title">Background Knowledge of Paper Willnump</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1152,14 +1183,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/language/" class="post-category">
-                                    language
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1169,8 +1200,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/deutsch/">
-                        <span class="chip bg-color">deutsch</span>
+                    <a href="../tags/System/">
+                        <span class="chip bg-color">System</span>
                     </a>
                     
                 </div>
