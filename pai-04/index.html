@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Bayesian Network 2 - Inference, Travling,Coding,Food,Learning">
+    <meta name="keywords" content="PAI4 Reasoning over Time, Travling,Coding,Food,Learning">
     <meta name="description" content="Warning! You accidentally rushed into Lulu&#39;s secret garden. Here, everything is created by heart.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Bayesian Network 2 - Inference | Fululu</title>
+    <title>PAI4 Reasoning over Time | Fululu</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="../medias/logo_fu.ico">
 
     <link rel="stylesheet" type="text/css" href="../libs/awesome/css/all.css">
@@ -291,12 +291,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/0.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/9.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Bayesian Network 2 - Inference</h1>
+                    <h1 class="description center-align post-title">PAI4 Reasoning over Time</h1>
                 </div>
             </div>
         </div>
@@ -432,6 +432,10 @@
                                 <span class="chip tag-color">Bayesian</span>
                             </a>
                         
+                            <a href="../tags/Markov/">
+                                <span class="chip tag-color">Markov</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -453,7 +457,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-01-26
+                    2020-01-28
                 </div>
                 
 
@@ -464,7 +468,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    17 Min
+                    4 Min
                 </div>
                 
 
@@ -479,356 +483,68 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h1><h2 id="Typical-queries"><a href="#Typical-queries" class="headerlink" title="Typical queries"></a>Typical queries</h2><ul>
-<li>What are these typical queries for?</li>
-<li>what kinds of typical queries?<ul>
-<li>conditional/marginal query: Given conditional variable $s$’ value, what is the probability of the objective variable $s$? $\Pr[X_i|X_S=x_s]=?$​</li>
-<li>MPE, most probable explanation: a special case of MAP. given the values for some variables, compute most likely assignment to all remaining variables: $\arg\max x_{\bar{s}} \Pr[X_{\bar{s}}=x_{\bar{s}}|X_s=x_s]$</li>
-<li>MAP, maximum a posterior: compute most likely assignment to some variables.  Two kinds of queries: 1. the arg giving the maximum, 2. just the maximum value $\arg\max_{x_a}\Pr[X_A=x_a|X_B=x_b]$</li>
-</ul>
-</li>
-</ul>
-<p>Formally, any probabilistic inference system is to compute the posterior probability distribution for a set of query variables, given some observed event, that is some assignment of values to a set of evidence variables.</p>
-<p>Define three types of variables:</p>
+                <p>Before, we talk about static models, which means variables don’t change possible values. For temporal models, in which variables’ value states can change over time, approaches are generated from static model:</p>
+<p>The basic idea is to create “copies” of variables, one per time step.</p>
+<p>??? How should we model dependence over time? That is the dependence between variables.</p>
+<p>A very natural kind of model is Markov chain. </p>
+<p>Markov chain can have orders: k-order means the current event depends only on the previous k events. k-order Markov chain can be easily reduced into 1-order Markov chain by creating k-length vectors.</p>
+<h1 id="Inference-Tasks"><a href="#Inference-Tasks" class="headerlink" title="Inference Tasks"></a>Inference Tasks</h1><p>Settings:</p>
 <ul>
-<li>evidence variables: the set of variables give the observed event, denoted as $E$</li>
-<li>query variables, denoted as $X$</li>
-<li>hidden variables: all the variables except for evidence or query variables, denoted as $Y$</li>
+<li>$X_1,X_2,\cdots,X_T$: unobserved or hidden variables, called states change over time.</li>
+<li>$Y_1, Y_2,\cdots,Y_T$: observations</li>
 </ul>
-<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><ul>
-<li><p>exact: exploit structure/conditional independence to efficiently perform exact inference. Variable elimination, factor graph</p>
-</li>
-<li><p>approximation: loopy factor graph</p>
-</li>
-</ul>
-<h3 id="Variable-elimination"><a href="#Variable-elimination" class="headerlink" title="Variable elimination"></a>Variable elimination</h3><p>It is called variable elimination because it eliminates one by one variables which are irrelevant for the query.</p>
-<p>It lies on some <strong>basic operations</strong> on a class of functions known as <strong>factors</strong>.</p>
-<p>It uses an algorithmic technique called <strong>dynamic programming</strong>.</p>
-<p>The general idea:</p>
+<p>Tasks:</p>
 <ul>
-<li>push sums through products as far as possible</li>
-<li>create new factor by summing out variables, intermediate solutions are distributions on fewer variables.</li>
+<li>Filtering: given the observations till now, what is the current state? $P(X_t|y_{1:t})$</li>
+<li>Prediction: given the observations, predict the ne$X_t$ state: $P(X_{t+\delta}|y_{1:t})$​</li>
+<li>Smoothing: what is the probability of some event happened before given what are known now.$P(X_t|y_{1:T})$ for $1\leq t\leq T$</li>
+<li>MPE: $\arg \max_{X_{1:T}} P(X_{1:T}|y_{1:T})$. Observing something, what is the most likely path?</li>
 </ul>
-<h4 id="Factor"><a href="#Factor" class="headerlink" title="Factor"></a>Factor</h4><p><strong>Factor</strong> is a function over a set of variables. It maps each instantiation of these variables to a real number. For instance, CPT(conditional probability table)s  are factors. In other words, a factor is a matrix indexed by the values of its argument variables. It has three operations:</p>
+<p>These tasks can be solved by previously learned methods, e.g. variable elimination/belief propagation. But one problem is if we want to calculate for $t$, we need to start from the beginning. The complexity grows with time. Therefore, we want some model much efficient. </p>
+<h1 id="State-space-models"><a href="#State-space-models" class="headerlink" title="State space models"></a>State space models</h1><p>In general, a family of models that behave some Markovian process but not directly observed. We only observe some noisy estimates. Some examples: Hidden Markov model, Kalman Filter.</p>
+<p>Particularly, we assume:</p>
 <ul>
-<li><p>product: the variables are the <em>union</em> of two factors’ variables, the result is the product of two factors.<br>$$<br>f(X_1,X_2,\cdots,X_n,Y_1,Y_2,\cdots,Y_k,Z_1,Z_2,\cdots,Z_m)<br>$$</p>
-<p>$$<br>=f_1(X_1,X_2,\cdots,X_n,Y_1,Y_2,\cdots,Y_k)\cdot f_2(Y_1,Y_2,\cdots,Y_k,Z_1,Z_2,\cdots,Z_m)<br>$$</p>
+<li><p>Markov property holds over time: the current states only depends on the previous one, not the much older ones.</p>
 </li>
-<li><p>marginalization: $f(B,C)=\sum_{a}f(A=a,B,C)$</p>
+<li><p>conditional independence: $y_t$ only depends on $x_t$, not the older $x_s$. </p>
 </li>
-</ul>
-<h4 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h4><p>Case: marginal variables</p>
-<p>Given BN and Query $P(X|E)$</p>
+<li><p>stationary: the transition probability </p>
 <ol>
-<li>choose an ordering of $X_1,\cdots,X_n$ for all elements in $Y$.</li>
-<li>set up initial factors: $f_i=P(X_i|Pa_i), Pa_i,$ the set of nodes who have edges pointing to $X_i$</li>
-<li>For $i=1:n, X_i\in Y$<ol>
-<li>collect and multiply all factors that include $X_i$</li>
-<li>generate new factor by marginalizing out $X_i$, $g=\sum_{x_i}\prod_j f_j$</li>
-<li>add $g$ to the set of factors.</li>
-</ol>
+<li><p>$X_i$ to $X_{i+1}$ not dependent on $i$, and </p>
 </li>
-<li>renormalize $P(X,E)$ to get $P(X|E)$</li>
-</ol>
-<p>Case: maximum arguments, similar to the former algorithm</p>
-<p>Given BN and evidence $E=e$</p>
-<ol>
-<li><p>choose an ordering of $X_1,\cdots,X_n$​ for all elements in $Y$.</p>
-</li>
-<li><p>set up initial factors: $f_i=P(X_i|Pa_i), Pa_i,$​ the minimum parent  set subsetting to the set of ancestors of given variable $X_i$. Like the definition in the building BN algorithm</p>
-</li>
-<li><p>For $i=1:n, X_i\in Y$</p>
-<ol>
-<li>collect and multiply all factors that include $X_i$</li>
-<li>generate new factor by marginalizing out $X_i$,  $g=\max_{x_i}\prod_j f_j$</li>
-<li>add g to the set of factors.</li>
-</ol>
-</li>
-<li><p>For $i = n:-1:1, X_i\in Y$</p>
-<p>$$<br>\hat{x_i}=\arg\max_{x_i}g_i(x_i,\hat{x}_{i+1:n})<br>$$</p>
-</li>
-</ol>
-<h4 id="Order"><a href="#Order" class="headerlink" title="Order"></a>Order</h4><p><strong>The order matters</strong>! But how does it matter?</p>
-<p>In general, the time and space requirements of variable elimination are dominated by the size of the largest factor constructed during the operation of the algorithm. It turns out to be intractable to determine the optimal ordering, but several good heuristics are available.</p>
-<ul>
-<li>eliminate whichever variable minimizes the size of the next factor to be constructed. In general, we can remove any leaf node that is not a query variable or an evidence variable.$\to$ every variable that is not an ancestor of a query variable or evidence variable is irrelevant to the query.</li>
-</ul>
-<h4 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h4><ul>
-<li>polytree: linear in the size of the network. The size is defined as the number of  CPT entries.<ul>
-<li>if the number of parents of each node is bounded by a constant, then the complexity will also be linear in the number of nodes.</li>
-</ul>
-</li>
-</ul>
-<p><strong>polytree</strong>: a DAG, dropping edge directions is a tree.</p>
-<ul>
-<li>multiply connected networks: has exponential time and space complexity in the worst case, even when the number of parents per node is bounded. ???? Example???</li>
-</ul>
-<p>Special case of the Algorithm for a polytree:</p>
-<ol>
-<li>pick a root within Y</li>
-<li>orient edges in the undirected tree towards root.</li>
-<li>eliminate in topological order bottom up: first all the children, then the parent</li>
-</ol>
-<p>All intermediate factors will contain at most $1+\max|Pa_i|$ variables.</p>
-<h3 id="Factor-graphs"><a href="#Factor-graphs" class="headerlink" title="Factor graphs"></a>Factor graphs</h3><p>Why we need factor graph?</p>
-<p>what advantages of it?</p>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Factor_graph">from the wiki</a></p>
-<h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><p>a factor graph is a <em>bipartite graph</em> representing the <em>factorization</em> of a function. Given a function and its factorization:</p>
-<p>$$<br>g(X_1,X_2,\cdots,X_n)=\prod_{j}f_j(S_j), S_j\subset{X_1,X_2,\cdots,X_n},\forall j\in[m]<br>$$</p>
-<p>The corresponding factor graph: $G=(X,F,E)$</p>
-<ul>
-<li>$X$: the set of variables. One variable node for each variable.</li>
-<li>$F: f_1,f_2,…f_m$, the set of factors. One factor node for each factor.</li>
-<li>$E$: <em>undirected edge</em> between a factor vertex $f_j$ and a variable vertex $X_i$ iff $X_i\in S_j$</li>
-</ul>
-<h4 id="Message-passing"><a href="#Message-passing" class="headerlink" title="Message passing"></a>Message passing</h4><p>Messages are real-valued <em>functions</em>. It contains the “influence” that one variable ,not a factor, exerts on others. There are two kinds of message: </p>
-<ol>
-<li><p>message from a variable to a factor and</p>
-</li>
-<li><p>message from a factor to a variable. </p>
-<p>Messages are always denoted by variables, not factors. That is $\mu_{v\to u}(x_v) , \mu_{u\to v}(x_v)$.  All uses $x_v$.</p>
-</li>
-</ol>
-<ul>
-<li><p>message from a variable v to a factor u: the product of all message this variable receives from its neighbors/factors except for the one it sends to.</p>
-<p>$$<br>\mu_{v\to u}(x_v)=\prod_{u’\in N(v)\setminus{u}}\mu_{u’\to v}(x_v)<br>$$</p>
-<p>Upon convergence if convergence happened, the estimated <em>marginal  distribution of each variable</em> is proportional to the product of all messages from adjoining factors missing the normalization constant:<br>$$<br>\Pr[X_v=x_v]\propto \prod_{u\in N(v)} \mu_{u\to v}(x_v)<br>$$</p>
-<p>In other words,<br>$$<br>\Pr[X_v=x_v]\propto \mu_{u\to v}(x_v)\mu_{v\to u}(x_v)<br>$$</p>
-</li>
-<li><p>message from a factor to a variable: </p>
-<ul>
-<li><p>the product of all message this factor receives from its neighbors variables except for the one it sends to </p>
-</li>
-<li><p>weighted by the value of the factor, fixed the objective variable.</p>
-<p>$$<br>\mu_{u\to v}(x_v)=\sum_{x_u\sim x_v}f_u(x_u)\prod_{v’\in N(u)\setminus{v}}\mu_{v’\to u}(x_{v’})<br>$$</p>
-<p>Max version, to get the arg of max, also needs to store the arg information for each factor.</p>
-<p>$$<br>\mu_{u\to v}(x_v)=\max_{x_u\sim x_v}f_u(x_u)\prod_{v’\in N(u)\setminus{v}}\mu_{v’\to u}(x_{v’})<br>$$</p>
-<p>Likewise, the estimated joint marginal distribution of the set of  variables belonging to <em>one factor</em> is proportional to the product of the factor and the messages from the variables:</p>
-</li>
-</ul>
-<p>$$<br>\Pr[X_f=x_f]\propto f_f(x_f)\prod_{v\in N(f)} \mu_{v\to f}(x_v)<br>$$</p>
-</li>
-</ul>
-<h4 id="Algorithm-1"><a href="#Algorithm-1" class="headerlink" title="Algorithm"></a>Algorithm</h4><ul>
-<li>Exact algorithm for trees:</li>
-</ul>
-<p><strong>Sum-product (also called belief propagation) algorithm</strong>. It computes the functions on edges. <a target="_blank" rel="noopener" href="https://www.doc.ic.ac.uk/~mpd37/teaching/ml_tutorials/2016-11-09-Svensson-BP.pdf">A detailed introduction</a> and <a target="_blank" rel="noopener" href="http://mlg.eng.cam.ac.uk/teaching/4f13/1920/factor%20graphs.pdf">a demo</a></p>
-<p>Given a factor graph, choose one node as root.</p>
-<p>There are three phases.</p>
-<ol>
-<li>Initialization. Void product is set as 1. </li>
-<li>message passing. Compute outgoing messages when incoming messages are available.</li>
-<li>termination. A marginal distribution is the product of the incoming messages to the variable node.</li>
-</ol>
-<ul>
-<li>approximate algorithms for loops</li>
-</ul>
-<ol>
-<li>initialize all messages as uniform distribution, instead of void product as 1</li>
-<li>until converged to<ol>
-<li>pick some ordering on the factor graph edges +directions, because of loops</li>
-<li>update messages according to this ordering</li>
-<li>break once all messages change by at most epsilon</li>
-</ol>
-</li>
-</ol>
-<p>Remarks:</p>
-<ul>
-<li><p>Does loopy BP always converge?</p>
-<ul>
-<li>No. The more “deterministic” of the initial distribution, the less likely that this algorithm will converge.</li>
-</ul>
-</li>
-<li><p>If it converges, is it closed to the true value?</p>
-<ul>
-<li>This convergence may <strong>not</strong> always equal to the true marginals. It is often <strong>overconfident</strong>, having a posterior bigger than the true posterior.</li>
-</ul>
-</li>
-</ul>
-<h4 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h4><p>Factor graph can be used to compute <strong>marginal</strong> probability with low computation complexity.</p>
-<h3 id="Variational-inference"><a href="#Variational-inference" class="headerlink" title="Variational inference"></a>Variational inference</h3><p>Compared to factor graphs, this method always converges.</p>
-<h4 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h4><p>Given unnormalized distribution P with the form of the product of factors, the idea is to try to find a “simple” (tractable distribution Q that approximates P well. Then, compute marginals under Q* instead of P</p>
-<ul>
-<li><p>$\Pr[X_{1:n}]=\frac{1}{Z}\prod_{j=1}^m \Phi_j(X_{A_j})$</p>
-</li>
-<li><p>$Q^*\in\arg\min_{Q\in\mathcal{Q}}KL(Q||P)$</p>
-</li>
-<li><p>Q is chosen from a distribution family. A simple instance: independent distributions: $\mathcal{Q}={Q:Q(X_{1:n})=\prod_{i=1}^n Q_i(X_i)}$</p>
-</li>
-</ul>
-<p>A key question is when to do this? On the prior? Or on the posterior?<br>Typically, the distribution of prior may be terrible, hard to catch, could be a lot configurations to capture, but once you have evidence, the “localized probability” posterior is somehow simplified. Then, the approximation of the posterior is hopeful. <em>Posterior often much better approximated by simple distribution</em>. That means the posterior only needs to capture features on a very very limited, much smaller space.</p>
-<h4 id="KL-Divergence"><a href="#KL-Divergence" class="headerlink" title="KL Divergence"></a>KL Divergence</h4><p>$$<br>KL(Q||P)=\sum_x Q(x)\log\frac{Q(x)}{P(x)}=\sum_xQ(x)\log Q(x)-\sum_xQ(x)\log P(x)<br>$$</p>
-<p>Not a distance: not satisfying: (1)symmetricity, (2) triangle inequality.</p>
-<p><strong>Entropy</strong> of a distribution:</p>
-<p>$$<br>H(Q)=-\sum_xQ(x)\log Q(x)<br>$$<br>Entropy of a product distribution, where $Q(X_{1:n})=\prod_i Q_i(X_i),H(Q)=\sum_i H(Q_i)$</p>
-<p>A proof ketch:</p>
-<p>$$<br> H(Q)=-\sum_x\prod_i Q_i(X_i)\log\prod_i Q_i(X_i)<br>$$</p>
-<p>$$<br>=-\sum_{x_j}Q_j(X_j)\sum_{x_k,k\neq j}\prod_{k\neq j}Q_k(X_k)\sum_{i}\log Q_i(X_i)<br>$$</p>
-<p>$$<br>=-\sum_{x_j}Q_j(X_j)\log Q_j(X_j)\cdot 1+\sum_{x_j}Q_j(X_j)H(Q_{-j})<br>$$</p>
-<p>$$<br>=H(Q_j)+H(Q_{-j})<br>$$</p>
-<h4 id="ELBO"><a href="#ELBO" class="headerlink" title="ELBO"></a>ELBO</h4><p>evidence lower bound</p>
-<p>$$<br>\arg\min_{Q\in\mathcal{Q}}KL(Q||P)=\arg\max_{Q\in\mathcal{Q}}\sum_{i=1}^nH(Q_i)+\sum_{i=1}^m\sum_{x_{A_i}}\prod_{j\in A_i} Q_j(x_j)\log\Phi(x_{A_i})<br>$$<br>Want to optimize this objective according to Q. Methods:</p>
-<ul>
-<li>gradient-based</li>
-<li>mean-field algorithm, also called coordinate ascent. The idea is to optimize one variable at a time.</li>
-</ul>
-<p><strong>Mean-filed algorithm</strong></p>
-<ol>
-<li>initialize. Start with a guess, e.g. uniform distribution for each variable: $Q^{(0)}$</li>
-<li>Operate until convergence:<ol>
-<li>cycle throughout variables and update one each time. </li>
-</ol>
-</li>
-</ol>
-<h3 id="Marginal-as-Expectations"><a href="#Marginal-as-Expectations" class="headerlink" title="Marginal as Expectations"></a>Marginal as Expectations</h3><p>Before, there are all <em>deterministic</em> algorithms, now we turn to randomized algorithms. Using randomness to get a trade-off between computation time and accuracy.  The core idea is treat marginals as expectations and approximate expectation by sampling. </p>
-<h4 id="Convergence"><a href="#Convergence" class="headerlink" title="Convergence"></a>Convergence</h4><p>The law of large numbers, valid on independent samples, gives a hope of convergence.<br>$$<br>\mathbb{E}_P[f(X)]=\sum_x P(x)f(x), \int P(x)f(x)\mathrm{d}x<br>$$<br>examples: </p>
-<ul>
-<li>marginals: $\Pr[X_i=x]=\mathbb{E}_P[[X_i=x]]$</li>
-</ul>
-<h4 id="Sampling-methods"><a href="#Sampling-methods" class="headerlink" title="Sampling methods"></a>Sampling methods</h4><p>How to sample from structured models, e.g. a Bayesian network?</p>
-<ul>
-<li>forward sampling Monte Carlo sampling, using the structure to sample step by step. Proceed according to the topological order.<ul>
-<li>algorithm:<ol>
-<li>sort variables in topological ordering $X_1,\cdots,X_n$</li>
-<li>For $i = 1$ to n do<ol>
-<li>sample $x_i$ according to the probability $P(X_i|X_1=x_1,…,X_{i-1}=x_{i-1})$</li>
-</ol>
+<li><p>$X_t$​ to $Y_t$​, not dependent on $t$</p>
+<p>is the same over the time. </p>
 </li>
 </ol>
 </li>
-<li>estimation of marginal: the mean of count of $X_i = x_i$</li>
-<li>conditional: the joint divided by the marginal. one count divides another. <strong>Rejection sampling</strong>. Also, this algorithm can be <em>problematic</em> if the denominator event is very rare, could be 0 after sampling. </li>
 </ul>
-</li>
-<li>sampling directly from posterior distribution to avoid the rare events effect, the case that the denominator almost 0, MCMC: ingenious idea: using some dependent variables to sample.</li>
-</ul>
-<h4 id="Complexity-1"><a href="#Complexity-1" class="headerlink" title="Complexity"></a>Complexity</h4><p>How many samples do we need?</p>
+<p>discrete HMM: $X_i$​ categorical, $Y_i$ can be an$Y_t$hing</p>
+<p>continuous Kalman Filters: $X_i, Y_i$: continuous, follow Gaussian distributions</p>
+<h2 id="HMM"><a href="#HMM" class="headerlink" title="HMM"></a>HMM</h2><h3 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h3><h4 id="Filtering"><a href="#Filtering" class="headerlink" title="Filtering"></a>Filtering</h4><p>Answer the question that how to efficiently update our belief of states given the previous states. Formally,</p>
+<p>Given $P(X_t|y_{1\cdots t-1})$ and $y_t$, compute $P(X_t|y{1\cdots t})$</p>
+<p>$$<br>\Pr[X_t|y_{1:t}]=\frac{1}{Z}\Pr[X_t|y_{1:t-1}]\Pr[y_t|X_t,y_{1:t-1}] =\frac{1}{Z}\Pr[X_t|y_{1:t-1}]\Pr[y_t|X_t]<br>$$</p>
+<p>with $ Z=\sum_x\Pr[X_t=x|y_{1:t-1}]\Pr[y_t|X_t=x]$</p>
+<h4 id="Smoothing"><a href="#Smoothing" class="headerlink" title="Smoothing"></a>Smoothing</h4><p>Run sum product to calculate the interested marginals.</p>
+<h4 id="Prediction"><a href="#Prediction" class="headerlink" title="Prediction"></a>Prediction</h4><p>$$<br>\Pr[X_{t+1}|y_{1:t}]=\sum_x\Pr[X_t=x,X_{t+1}|y_{1:t}]=\sum_x \Pr[X_t=x|y_{1:t}]\Pr[X_{t+1}|X_t=x,y_{1:t}]<br>$$</p>
+<p>$$<br>=\sum_x\Pr[X_t=x|y_{1:t}]\Pr[X_{t+1}|X_t=x]<br>$$</p>
+<p>The computation complexity of condition and prediction doesn’t grow with $t$. Reuse what are computed before.</p>
+<h2 id="Kalman-Filter"><a href="#Kalman-Filter" class="headerlink" title="Kalman Filter"></a>Kalman Filter</h2><p>Employing Gaussian properties, encode two stuffs:</p>
 <ul>
-<li>Hoeffding’s inequality: bound the relation between an estimation’s distance from the true expectation and its probability. </li>
+<li>transition between $X_{t+1}$ and $X_t$​ , Motion model, linear</li>
+<li>transition between $Y_t$ and $X_t$​ , Sensor model, linear</li>
 </ul>
-<p>We have two kinds of errors. Suppose $C=1$,</p>
+<h3 id="Gaussian"><a href="#Gaussian" class="headerlink" title="Gaussian"></a>Gaussian</h3><p>Properties: </p>
 <ul>
-<li><p>absolute error: $\Pr[\hat{P}(x)\notin[P(x)-\epsilon, P(x)+\epsilon]]\leq 2\exp(-2N\epsilon^2)$</p>
-</li>
-<li><p>relative error: $\Pr[\hat{P}(x)\notin P(x)(1\pm\epsilon)]\leq 2\exp(-NP(x)\epsilon^2/3)$</p>
-</li>
+<li>marginalization: for Gaussian distribution, marginalization is nothing but indexing/selection.</li>
+<li>conditioning: conditions of Gaussian’s are still Gaussian. The new mean is the original mean, linearly corrected by observations. The new variance is also the original variance, corrected by the covariance and the variance of observations. It shrinks. <em>Variance can only decrease</em>.</li>
+<li>multiplication: a Gaussian random vector multiplied by a constant matrix is still Gaussian.</li>
+<li>summation: sums of Gaussian are Gaussian. New mean: the sum of means. New variance: the sum of variances.</li>
 </ul>
-<h3 id="MCMC"><a href="#MCMC" class="headerlink" title="MCMC"></a>MCMC</h3><p>The idea of MCMC is to directly sample from posterior distribution. Forward sampling couldn’t do this. Assuming that given evidences appear later than some variables according to the topological order, if we do forward sampling, we start from root/parents and may get only few of these samples with observed variables as the observed values. Forward sampling uses likelihood to sample, while MCMC uses posterior to sample.</p>
-<h4 id="Settings-1"><a href="#Settings-1" class="headerlink" title="Settings"></a>Settings</h4><p>Given unnormalized distribution $Q(x)$, we want to sample from the normalized version $P(X) = Q(X)/Z$. For example, given $P(A,B,C)$ but we want to sample from $P(A|B,C)=P(A,B,C)/Z$, $Z$ is an unknown constant.</p>
-<p>The solution is to create Markov chain from $Q(X)$, which has the stationary distribution $P(X)$ which we want to sample from.</p>
-<p>An important statement: an</p>
-<ul>
-<li><em>ergodic</em> </li>
-<li><em>Markov Chain</em><br>has a </li>
-<li>unique </li>
-<li>and positive stationary distribution $\pi(X)&gt;0$, such that for all $x$,$\lim_{t\to\infty}\Pr[X_t=x]=\pi(x)$</li>
-</ul>
-<h4 id="Detailed-Balance"><a href="#Detailed-Balance" class="headerlink" title="Detailed Balance"></a>Detailed Balance</h4><p>Detailed balance equation: $Q(x)P(x’|x)=Q(x’)P(x|x’)$ </p>
-<p>In the our application, it builds the transfer from likelihood probability to posterior by the replacement in conditional distribution. The equation is<br>$$<br>Q(X_t=x)P(X_{t+1}=x’|X_t=x)=Q(X_{t+1}=x’)P(X_t=x|X_{t+1}=x’)<br>$$</p>
-<h4 id="Algorithm-2"><a href="#Algorithm-2" class="headerlink" title="Algorithm"></a>Algorithm</h4><p>a framework</p>
-<ol>
-<li><p>provide a proposal distribution $R(X’|X)$​, this is chosen by ourselves. Performance of the algorithm will strongly depend on $R$. </p>
-<p>What does the performance mean? Convergence? Complexity?</p>
-<ul>
-<li>bad proposal may cause alpha never been accepted. The state seldom moves.</li>
-</ul>
-</li>
-<li><p>acceptance distribution:</p>
-<ol>
-<li>suppose $X_t=x$</li>
-<li>accept the transition from R with probability $\alpha=\min{1,\frac{Q(x’)R(x|x’)}{Q(x)R(x’|x)}}$</li>
-</ol>
-</li>
-</ol>
-<p>Remarks:</p>
-<ul>
-<li>in the case that $R(x|x’)$ is symmetric, alpha is decided by $Q(x’)/Q(x)$. It means it will definitely transit to a value with higher probability $Q(x’)&gt;Q(x)$​. For a value with lower probability, it has some chance to transit to that $Q(x’)/Q(x)$.</li>
-</ul>
-<p>Theorem: the stationary distribution is $Z^{-1}Q(X).$</p>
-<p>How to design the proposal? Why this proposal needs to satisfy the detailed balance equation?</p>
-<h5 id="Gibbs-sampling"><a href="#Gibbs-sampling" class="headerlink" title="Gibbs sampling"></a>Gibbs sampling</h5><p>Algorithm:</p>
-<ol>
-<li>start with initial assignment $x(0)$ to all variables</li>
-<li>fix observed variables $X_E$ to their observed values $x_E$</li>
-<li>For t = 1 to infty do:<ol>
-<li>set $x^{(t)}=x^{(t-1)}$</li>
-<li>For each variable $X_i$ (not in E)<ol>
-<li>set $v_i$=values of all $x^{(t)}$ except $x_i$</li>
-<li>sample $x^{(t)}_i$ from $P(X_i|v_i)$</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<p>In Gibbs sampling, we still use an unknown conditional distribution $P(X_i|v_i)$. Good news is this special type of conditional distribution, which conditions on everything except one variable, could be calculated efficiently.  Because when calculating the denominator, we focus on a small space where only the aimed variable takes different values. The space is $|V|$. The whole space’s size is $|V|^n$, hard to calculate.</p>
-<p>Advantage:</p>
-<ul>
-<li>can do update parallel. </li>
-</ul>
-<p>Algorithm via Gibbs sampling</p>
-<ol>
-<li><p>use Gibbs sampling to obtain samples, $X^{(1)},\cdots, X^{(T)}$</p>
-</li>
-<li><p>ignore the first $t_0$ samples in “burn in” stage, and approximate</p>
-<p>$$<br>\mathbb{E}<em>{x_E}[f(X)]\simeq\frac{1}{T-t_0}\sum</em>{\tau=t_0+1}^T f(X^{(\tau)}<br>$$</p>
-</li>
-</ol>
-<h4 id="Convergence-1"><a href="#Convergence-1" class="headerlink" title="Convergence"></a>Convergence</h4><p>We want to use MCMC to answer the question, what is the expectation of some function $f(X)$ given the probability distribution. In the former, the law of large numbers works on the independent samples. Here, all of our samples are $x^{(t)}$​, sample at time t depends on sample at time $t-1$. How to calculate $E_p[f(X)]$ now?</p>
-<p>Hopefully, we have <strong>ergodic theorem</strong>. This is a strong law of large numbers for Markov chain. </p>
-<p>Ergodic theorem: </p>
-<ul>
-<li>suppose $X_1,X_2,\cdots,X_N, \cdots$ is an ergodic Markov chain </li>
-<li>over a finite state space D, </li>
-<li>with stationary distribution $\pi$. </li>
-<li>$f$ is a function on D.</li>
-</ul>
-<p>Then, we have</p>
-<p>$$<br>\lim_{N\to\infty}\frac{1}{N}\sum_{i=1}^N f(x_i)=\sum_{x\in D}\pi(x)f(x)=\mathbb{E}_{x\sim\pi}[f(x)]<br>$$</p>
-<ul>
-<li>how about the convergence rate?<ul>
-<li>Establishing convergence rates generally very difficult. No Hoeffding for it</li>
-</ul>
-</li>
-</ul>
-<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><table>
-<thead>
-<tr>
-<th>methods</th>
-<th>Deterministic?</th>
-<th>applicable cases</th>
-<th>advantages</th>
-<th>disadvantages</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>variable elimination</td>
-<td>Yes</td>
-<td>tree-structured bayes net</td>
-<td>exact marginals</td>
-<td>not scalable to general models</td>
-</tr>
-<tr>
-<td>belief propagation</td>
-<td>Yes</td>
-<td>tree-structed, loopy networks</td>
-<td>efficiently compute all marginals</td>
-<td>may not converge on loopy networks</td>
-</tr>
-<tr>
-<td>variational inference</td>
-<td>Yes</td>
-<td>tree, loopy</td>
-<td>fast, converge, good if having a lot of data</td>
-<td>but the convergence may not be the exact solution</td>
-</tr>
-<tr>
-<td>gibbs sampling</td>
-<td>No</td>
-<td>tree, loopy</td>
-<td>converges to exact marginals</td>
-<td>may take a long time</td>
-</tr>
-</tbody></table>
+<h3 id="Inference-1"><a href="#Inference-1" class="headerlink" title="Inference"></a>Inference</h3><h4 id="Filtering-1"><a href="#Filtering-1" class="headerlink" title="Filtering"></a>Filtering</h4><p>How to do filtering fast? </p>
+<p>Similar to HMM, because we utilize the Markov chain structure, which is not changed, change the summation to integral.</p>
+<h4 id="Smoothing-1"><a href="#Smoothing-1" class="headerlink" title="Smoothing"></a>Smoothing</h4><h4 id="Prediction-1"><a href="#Prediction-1" class="headerlink" title="Prediction"></a>Prediction</h4><h4 id="MPE"><a href="#MPE" class="headerlink" title="MPE"></a>MPE</h4><h1 id="Dynamic-Bayesian-Networks"><a href="#Dynamic-Bayesian-Networks" class="headerlink" title="Dynamic Bayesian Networks"></a>Dynamic Bayesian Networks</h1><p>????</p>
+<p>Generalized from state space models, now there are more than one variable in each time step. Also, one variable in the current time can be influenced by several variables previously.</p>
+<h2 id="Particle-filtering"><a href="#Particle-filtering" class="headerlink" title="Particle filtering"></a>Particle filtering</h2><h2 id="Assumed-density-filtering"><a href="#Assumed-density-filtering" class="headerlink" title="Assumed density filtering"></a>Assumed density filtering</h2><p>The key idea is similar to variational inference, that is projecting marginals to simple ones.</p>
 
             </div>
             <hr/>
@@ -902,6 +618,10 @@
                             
                                 <a href="../tags/Bayesian/">
                                     <span class="chip bg-color">Bayesian</span>
+                                </a>
+                            
+                                <a href="../tags/Markov/">
+                                    <span class="chip bg-color">Markov</span>
                                 </a>
                             
                         </div>
@@ -1072,7 +792,7 @@
         repo: 'fuguigui.github.io',
         owner: 'fuguigui',
         admin: ["fuguigui"],
-        id: '2020-01-26T00-00-00',
+        id: '2020-01-28T00-00-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1367,9 +1087,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/2.jpeg" class="responsive-img" alt="Learning">
+                        <img src="../medias/featureimages/6.jpeg" class="responsive-img" alt="PAI7 Reinforcement Learning">
                         
-                        <span class="card-title">Learning</span>
+                        <span class="card-title">PAI7 Reinforcement Learning</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1380,7 +1100,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-28
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-29
                         </span>
                         <span class="publish-author">
                             
@@ -1420,13 +1140,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../pai-02/">
+                <a href="../pai-05/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/5.jpeg" class="responsive-img" alt="Foundamention">
+                        <img src="../medias/featureimages/5.jpeg" class="responsive-img" alt="PAI5 Probabilistic Planning">
                         
-                        <span class="card-title">Foundamention</span>
+                        <span class="card-title">PAI5 Probabilistic Planning</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1437,7 +1157,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-28
                             </span>
                         <span class="publish-author">
                             
@@ -1462,8 +1182,8 @@
                         <span class="chip bg-color">Reinforcement Learning</span>
                     </a>
                     
-                    <a href="../tags/Probability-Theory/">
-                        <span class="chip bg-color">Probability Theory</span>
+                    <a href="../tags/Markov/">
+                        <span class="chip bg-color">Markov</span>
                     </a>
                     
                 </div>

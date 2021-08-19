@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Word Embeddings, Travling,Coding,Food,Learning">
+    <meta name="keywords" content="CIL9 Dictionary Learning, Travling,Coding,Food,Learning">
     <meta name="description" content="Warning! You accidentally rushed into Lulu&#39;s secret garden. Here, everything is created by heart.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Word Embeddings | Fululu</title>
+    <title>CIL9 Dictionary Learning | Fululu</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="../medias/logo_fu.ico">
 
     <link rel="stylesheet" type="text/css" href="../libs/awesome/css/all.css">
@@ -291,12 +291,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/2.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/9.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Word Embeddings</h1>
+                    <h1 class="description center-align post-title">CIL9 Dictionary Learning</h1>
                 </div>
             </div>
         </div>
@@ -445,7 +445,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-07-10
+                    2019-07-25
                 </div>
                 
 
@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    4 Min
+                    7 Min
                 </div>
                 
 
@@ -471,109 +471,114 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h1><p>Using <strong>vector</strong> as the symbol to represent words, which can capture their meaning in some way.</p>
+                <h1 id="Compressive-Sensing"><a href="#Compressive-Sensing" class="headerlink" title="Compressive Sensing"></a>Compressive Sensing</h1><h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>Compress data while gathering. This will save a lot of storage memory.</p>
+<p>The problem is we also need to decompress the signals.</p>
+<h2 id="Concept"><a href="#Concept" class="headerlink" title="Concept"></a>Concept</h2><ul>
+<li><p>original signal:  $x\in\mathbb{R}^D$</p>
+</li>
+<li><p>“root signal”:  $z\in\mathbb{R}^D$</p>
+<p>This signal tells something essence of $x$. For example, we have 5 clusters in a 20-D data points. The  $z$ shows which cluster  $x$ belongs to. So,  $z$ can be very simple, $K$-sparse, here $K\ll D, K=5$ , but  may $x$ <strong>look</strong> complex.  We view  $z$ as the root of the signal $x$​.<br>$$<br>x=Uz<br>$$</p>
+</li>
+<li><p>measured signal, also compressed signal: $y\in\mathbb{R}^M, M&lt;D$​. It is what we get after compression. $y=Wx$</p>
+</li>
+<li><p>reconstructed signal: $\hat{x}=U\hat{z}$ . We get the reconstructed signal by find the “optimal” $\hat{z}$​.</p>
 <ul>
-<li>the advantage of vector representation?</li>
-<li>maybe capture the meaning closeness of words. e.g. similar words have similar vectors.</li>
-<li>how do we know if the embedding is good?<ul>
-<li><p>usually, we use the prediction ability to evaluate the goodness. </p>
-</li>
-<li><p>skip-ram model (distributional context model): a model of prediction. Given a context word, learn the probability distribution of all the vocabularies. Our objective is to maximize:<br>$$<br>L(\theta;w) = \sum_{t=1}^T \sum_{\Delta\in I}\log p_\theta(w^{t+\Delta}|w^{(t)})<br>$$<br>the context is a point, the predicted words are a window.</p>
-</li>
-<li><p>CBOW (continuous bag-of-word model): Contrary to the skip-ram model, given the context words, learn the probability of this word. The context is a window, the predicted word is a point.</p>
-</li>
+<li>does it assume that we have already known $U$ and $W$?</li>
 </ul>
 </li>
 </ul>
-<h1 id="Models"><a href="#Models" class="headerlink" title="Models"></a>Models</h1><h2 id="Latent-Vector-Model"><a href="#Latent-Vector-Model" class="headerlink" title="Latent Vector Model"></a>Latent Vector Model</h2><p>$$<br>w\mapsto (\vec{x_w},b_w)\in\mathbb{R}^{d+1}<br>$$</p>
-<p>represent a word by a vector and a scalar bias.</p>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><h3 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h3><p>Recover a sparse signal $x$ from measurements $y$. However, we cannot directly use the inversion of matrix. Because the matrix is invertible due to the rank. How should we do? We try to use the condition of the sparsity. Instead of find  $x$ directly, we find  $\hat{z}$​<br>$$<br>\hat{z}\in\arg_z\min |z|_0, \text{s.t. } y=WUz<br>$$</p>
+<h3 id="Sufficient-conditions"><a href="#Sufficient-conditions" class="headerlink" title="Sufficient conditions"></a>Sufficient conditions</h3><p>Given any orthonormal basis $U$ we can obtain a stable reconstruction for any $K$-sparse, compressible signal.</p>
+<p>two conditions to be satisfied:</p>
 <ul>
-<li>what is the function of bias?<ul>
-<li><p>to make sure that some words are more likely than other words <strong>under all conditioning</strong>. Reflected by the definition of probabilistic:<br>$$<br>\log p_\theta(w|w’)=&lt;x_w, x_{w’}&gt; + b_w+\text{const}(w’)<br>$$</p>
+<li> $W$ = Gaussian random projection, i.e. $w_{ij}\sim\mathcal{N}(0,\frac{1}{D})$</li>
+<li>$M\geq cK\log \frac{D}{K}$</li>
+</ul>
+<h3 id="Algorithms"><a href="#Algorithms" class="headerlink" title="Algorithms"></a>Algorithms</h3><p>using (1) convex optimization or (2) matching pursuit to solve the objective.</p>
+<h1 id="Dictionary-Learning"><a href="#Dictionary-Learning" class="headerlink" title="Dictionary Learning"></a>Dictionary Learning</h1><p>In traditional encoding, we are given a basis $U\in\mathbb{R}^{D\times D}$ and directly code the “root” signal by $Uz$ to get $x$. However, it is not problem-specific. We try to learn a $U\in\mathbb{R}^{D\times L}$  to do sparse encoding and more problem-specific. </p>
+<p>Mathematically, it is to find $U\in\mathbb{R}^{D\times L}$​, s.t. $X\simeq U\cdot Z$</p>
 <ul>
-<li> the const is to guarantee the sum conditioned on $w’$ is 1.</li>
+<li>subject to sparsity on $Z\in\mathbb{R}^{L\times N}$</li>
+<li>subject to column/atom norm constraint on $U\in\mathbb{R}^{D\times L}$</li>
 </ul>
-</li>
-<li><p>it is not necessary but very helpful to have the bias item.</p>
-</li>
-</ul>
-<strong>Inner product</strong> is a natural way to evaluate the similarity of vectors<h3 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h3>$$<br>L(\theta;w)=\sum_{t=1}^T \sum_{\Delta\in I}[\log b_{w(t+\Delta)}+\log &lt;x_{w(t+\Delta)},x_{w(t)}&gt;-\log\sum_{v\in V}\exp[&lt;x_v, x_{w(t)}&gt; + b_v]]<br>$$</li>
-</ul>
-<h3 id="Modification"><a href="#Modification" class="headerlink" title="Modification"></a>Modification</h3><ul>
-<li><p>why to distinguish the main vocabulary and context vocabulary? </p>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>$$<br>(U^\ast, Z^\ast)\in\arg\min_{U,Z}|X-U\cdot Z|_F^2<br>$$</p>
 <ul>
-<li><p>if we don’t distinguish, a word as to be predicted and as the context will have the same representation. But the reality isn’t like that. If we use different representation when a word has different roles, it will add the expression ability of the model.</p>
-</li>
-<li><p>symmetric could be a problem. For instance, according to the bayesian rule: </p>
-<p>$$<br>p(w,w’)=p(w|w’)p(w’)=p(w’|w)p(w)<br>$$<br>if $w$ and $w’$ have different probability, the two conditional probabilities also should be different. In other words, these two are not symmetric.</p>
-</li>
+<li>not convex jointly in $U$ and $Z$, but separately</li>
 </ul>
-</li>
-<li><p>how to deal with the exponential item?</p>
+<h3 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h3><p>Using <strong>iteratively greedy algorithm</strong> to solve, like EM algorithm</p>
 <ul>
-<li>see the below models</li>
+<li>coding step:<br>$$<br>Z^{(t+1)}=\arg\min_Z|X-U^{(t)}Z^{(t)}|_F^2<br>$$</li>
 </ul>
-</li>
-</ul>
-<h3 id="Negative-sampling"><a href="#Negative-sampling" class="headerlink" title="Negative sampling"></a>Negative sampling</h3><p>This is a method of sampling. It is natural to use sampling when the object is exponentially big. One classic sampling method is MCMC.</p>
+<p>This is <strong>column separable</strong> problem. </p>
+<p>$$<br>z_j^{(t+1)}=\arg\min_{z_j}|x_j -U^{(t)}z_j^{(t)}|_F^2, j\in 1,2,\cdots, N<br>$$</p>
+<p>it is a sparse coding problem. Change the Frobenius norm as non-zero norm:<br>$$<br>z_n^{(t+1)}=\arg\min_{z_n}|z_n|_0<br>$$<br>s.t.<br>$$<br>|x_n - U^tz_n|_2\leq \sigma\cdot |x_n|_2<br>$$<br>​    - are these two equivalent???        </p>
 <ul>
-<li><p>sampling: In the maximum likelihood estimation, each time for one context word, we need to update all the other words vectors, represented by the exponential items. This is very time-consuming. Instead, we only update a few words’ vectors. These few words are selected by sampling. </p>
-</li>
-<li><p>negative: all the words not the one we expected are called negative words. </p>
-<ul>
-<li>how to know which word is our expected word? the word itself as the context must be a positive word.</li>
-</ul>
-</li>
-<li><p>how to update the word vectors?</p>
-</li>
-<li><p>what is the relationship between Negative sampling and PMI?</p>
-</li>
-</ul>
-<h2 id="Glove-Global-vectors-for-word-representation"><a href="#Glove-Global-vectors-for-word-representation" class="headerlink" title="Glove: Global vectors for word representation"></a>Glove: Global vectors for word representation</h2><p>  The key idea of GloVe is: </p>
+<li><p>dictionary update step:<br>$$<br>U^{(t+1)}=\arg\min_U|X-U^{(t)}Z^{(t+1)}|_F^2<br>$$<br>it is <strong>not separable</strong> for U. We use <strong>approximation</strong> strategy, updating one atom at a time</p>
 <ol>
-<li><p>extract a count matrix from the given dataset. </p>
+<li>Set $U=[u_1^t,u_2^t,\cdots, u_l^t, \cdots, u_L^t]$,  fix all other atoms except $u_l$</li>
+<li>Isolate $R_l^t$, the residual that is due to atom $u_l$</li>
+<li>Find $u_l^\ast$​ that minimizes $R_l^t$​, subject to $|u_l^\ast|_2=1$. </li>
+</ol>
+</li>
+</ul>
+<h4 id="Precise-Solution-of-U"><a href="#Precise-Solution-of-U" class="headerlink" title="Precise Solution of U"></a>Precise Solution of U</h4><p>Actually, $u_l^\ast$​​ can be exactly calculated. The objective can be rewritten into<br>$$<br>u_l^\ast = \arg\min_{u_l} |R_l - u_l z_l^\top |_F^2<br>$$</p>
+<p>Here, $z_l$ is the $l$-th row of the matrix $Z$. $|R_l - u_l z_l^\top |<em>F^2$<br>$$<br>=\sum |R</em>{l(\cdot, n)}-u_l z_{l,n}|_F^2<br>$$</p>
+<p>$$<br>=\sum_{n=1}^N\sum_{i=1}^L[R_{l(i,n)}-u_{l(i)}z_{l,n}]^2<br>$$</p>
+<p>$$<br>=\sum_{i=1}^L\sum_{n=1}^N[R_{l(i,n)}-u_{l(i)}z_{l,n}]^2<br>$$</p>
+<p>Using Lagrange equation and derivative by $u_{l(i)}$​, we get<br>$$<br>u_{l(i)}=\frac{\sum_{n=1}^N R_{l(n,i)}z_n}{\lambda + \sum_{n=1}^N z_n^2}<br>$$<br>Normalized to replace $\lambda$​, we can get<br>$$<br>u_{l(i)}^\ast = \frac{\sum_{n=1}^N R_{l(n,i)}z_n}{\sum_{n=1}^N\sum_{i=1}^L R_{l(n,i)}z_n}<br>$$<br>After getting $u_l^\ast$, we still need to update $z_l$.</p>
+<p>Compared to the below approximate solution, this method is much computation consuming, needing multiple times iterations. But the SVD solution directly catches the essence of the matrix, only needing one time computation.</p>
+<h4 id="Approximate-solution-of-U"><a href="#Approximate-solution-of-U" class="headerlink" title="Approximate solution of U"></a>Approximate solution of U</h4><p>We can also solve $u_l^\ast$ by approximate K-SVD update. K means the sparsity is $K$.<br>$$<br>|Z^\ast|_0\leq K<br>$$<br>Since our objective is to minimize the residual:<br>$$<br>|R_l - u_lz_l^\top|_F^2<br>$$<br>Actually, it is to approximate $R_l$ by a rank-1 matrix $u_lz_l^\top$</p>
+<p><strong>SVD can be viewed as decompose a matrix by the sum of several rank-1 matrices.</strong><br>$$<br>E_l = \sum_{i}\sigma u_i v_i^\top<br>$$<br>The framework is:</p>
+<ol>
+<li>we do SVD decomposition of $R$</li>
+<li>take the first left-singular vector $u_l^\ast = u_1$</li>
+<li>update $z=\sigma_1v_1^\top$ </li>
+</ol>
+<p>The 1st singular value realization is: </p>
+<ol>
+<li><p>we extract the active data points from the whole $N$ points at $l$​.<br>$$<br>\mathcal{N}\leftarrow {n|Z_{ln}\neq 0, 1\leq n\leq N}<br>$$</p>
+</li>
+<li><p>calculate $R$​​, by $R\leftarrow X_{:,\mathcal{N}} - UZ_{(:,\mathcal{N})}$​</p>
+</li>
+<li><p>define $g\leftarrow z_{l,\mathcal{N}}^\top$ </p>
+</li>
+<li><p>$u_l^\ast\leftarrow\frac{Rg}{|Rg|}$</p>
+</li>
+<li><p>$z_{l,\mathcal{N}}\leftarrow g^\top$</p>
+<p>In the step 4, we use the power iteration, the power is only 1 here. $\frac{R^kg}{|R^kg|}$</p>
+<p>The theory basis is if we do SVD for $R_l$, </p>
 <ul>
-<li>Each row is a word in the vocabulary</li>
-<li>Each column is a context</li>
-<li>Each entry $n_{ij}$ is the appearance times of the word i in the context $j$</li>
+<li>$u_l^\ast$ is the first left-singular vector.<ul>
+<li>any proof</li>
+<li>from the above solution. The “precise” solution is not a good solution. We should use SVD approximation. Since the precise solution of u is based on z, it is only optimal given z. However, we will update z after getting u. So, u will not be good enough under the new z. We need to iterate multiple times until convergence.</li>
+<li>But in SVD, we directly use the 1st singular value, no need to iterating.</li>
 </ul>
 </li>
-<li><p>construct another matrix from the vector representation of vocabularies and contexts.</p>
-<ul>
-<li>each entry is the inner product of the vocabulary vector and the context vector.</li>
 </ul>
-</li>
-<li><p>update vectors to make these two matrices as close as possible.</p>
-<p>optional: using weight function to weight items with different counts.</p>
 </li>
 </ol>
-<p>  In this way, the vector representation problem is transferred as a matrix factorization problem.</p>
-<p>$$<br>\min_{X,Y}=|M-X^\top Y|_F^2<br>$$</p>
-<ul>
-<li><p>how does GloVe solve the exponential problem?</p>
-<ul>
-<li>it uses the <strong>unnormalized</strong> “probability” instead of the normalized ones to avoid the exponential item. Because the exponential item works for normalization. </li>
+<h4 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h4><ul>
+<li>random atoms. Normal distribution and scale to unit</li>
+<li>samples from $X$: sample $L$ times  from $X$,  according to the uniform distribution of index. Then scale to the unit.</li>
+<li>fixed overcomplete dictionary, such as DCT.</li>
 </ul>
-</li>
+<h2 id="Adaptation"><a href="#Adaptation" class="headerlink" title="Adaptation"></a>Adaptation</h2><h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><h2 id="image-reconstruction"><a href="#image-reconstruction" class="headerlink" title="image reconstruction:"></a>image reconstruction:</h2><ul>
+<li>train a lot of data to get the dictionary</li>
+<li>learn a sparse code $z$ for a given data $x$</li>
+<li>modify $z$ and get $\hat{z}$</li>
+<li>reconstruct $\hat{x}=U\hat{z}$</li>
 </ul>
-<h1 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h1><h2 id="SGD-Stochastic-gradient-descent"><a href="#SGD-Stochastic-gradient-descent" class="headerlink" title="SGD: Stochastic gradient descent"></a>SGD: Stochastic gradient descent</h2><ul>
-<li><p>The objective function: $f(x)=\sum_i f_i(x)$</p>
-</li>
-<li><p>Traditional gradient descent way:</p>
-<p>$$<br>\frac{\partial f}{\partial x}=\sum_i \frac{\partial f_i}{\partial x}<br>$$</p>
-</li>
-<li><p>Stochastic way:</p>
-<p>$$<br>\frac{\partial f}{\partial x}=\frac{\partial f_\gamma}{\partial x}, \gamma\sim\text{Uniform}(1,n)<br>$$<br>Key Idea: </p>
-<ul>
-<li>derivative</li>
-<li>only part of objective</li>
-<li>stochastic each time</li>
-</ul>
-</li>
-</ul>
-<h1 id="Left-Questions"><a href="#Left-Questions" class="headerlink" title="Left Questions"></a>Left Questions</h1><ul>
-<li>the relationship of Negative Sampling and PMI?</li>
-</ul>
+<h2 id="Speech-denoise"><a href="#Speech-denoise" class="headerlink" title="Speech denoise"></a>Speech denoise</h2><p>The record is composed of the original speech and interferer. We want to remove the interferer and leave the original speech.</p>
+<h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method"></a>Method</h3><ol>
+<li>learn dictionaries for speech $U_c$ and interferer  $U_n$ specifically.</li>
+<li>Encoding the measured signal $x$on these two dictionaries $[z_c, z_n]$​.</li>
+<li>Drop the encoded signals on the interferer dictionary, only keep the speech encoded signals $[z_c, 0]$. </li>
+<li>Recover the “pure”  signal $\hat{x}=U_c z_c$</li>
+</ol>
+<h4 id="Learning-step"><a href="#Learning-step" class="headerlink" title="Learning step"></a>Learning step</h4><p>learn the two dictionaries</p>
+<p>$$<br>(U^\ast, Z^\ast)\in\arg\min_{U,Z}|X-U\cdot Z|_F^2<br>$$</p>
+<p>s.t. $|u^\ast_{(:,d)}|_2=1,\forall d=1,2,\cdots, L$ , $|Z^\ast|_0\leq K$</p>
+<h4 id="Enhancement-step"><a href="#Enhancement-step" class="headerlink" title="Enhancement step"></a>Enhancement step</h4><p>Using the learned dictionaries to encode the signals and drop noise signals.<br>$$<br>(z^{(s)\ast}, z^{(i)\ast})\leftarrow \arg\min |X-[U^{(s)}U^{(i)}]\cdot [z^{(s)}z^{(i)}]^\top|_2<br>$$<br>s.t. $|z_s^\ast|_0 + |z_i^\ast|_0\leq K$, $\hat{x}=U_s^\ast z_s^\ast$ </p>
 
             </div>
             <hr/>
@@ -809,7 +814,7 @@
         repo: 'fuguigui.github.io',
         owner: 'fuguigui',
         admin: ["fuguigui"],
-        id: '2019-07-10T00-00-00',
+        id: '2019-07-25T00-00-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1100,13 +1105,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="../cn02/">
+                <a href="../cn08/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/7.jpeg" class="responsive-img" alt="Network Essentials">
+                        <img src="../medias/featureimages/4.jpeg" class="responsive-img" alt="CN8 Random Walks and Diffusion">
                         
-                        <span class="card-title">Network Essentials</span>
+                        <span class="card-title">CN8 Random Walks and Diffusion</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1117,7 +1122,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-07-11
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-07-30
                         </span>
                         <span class="publish-author">
                             
@@ -1153,13 +1158,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../cn01/">
+                <a href="../cn07/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/11.jpeg" class="responsive-img" alt="Introduction to Complex Network">
+                        <img src="../medias/featureimages/12.jpeg" class="responsive-img" alt="CN7 Scale-Free Network and limitations of Ensemble Studies">
                         
-                        <span class="card-title">Introduction to Complex Network</span>
+                        <span class="card-title">CN7 Scale-Free Network and limitations of Ensemble Studies</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1170,7 +1175,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-07-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-07-23
                             </span>
                         <span class="publish-author">
                             

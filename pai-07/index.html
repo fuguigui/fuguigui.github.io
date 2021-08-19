@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Learning, Travling,Coding,Food,Learning">
+    <meta name="keywords" content="PAI7 Reinforcement Learning, Travling,Coding,Food,Learning">
     <meta name="description" content="Warning! You accidentally rushed into Lulu&#39;s secret garden. Here, everything is created by heart.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Learning | Fululu</title>
+    <title>PAI7 Reinforcement Learning | Fululu</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="../medias/logo_fu.ico">
 
     <link rel="stylesheet" type="text/css" href="../libs/awesome/css/all.css">
@@ -291,12 +291,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/2.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/6.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Learning</h1>
+                    <h1 class="description center-align post-title">PAI7 Reinforcement Learning</h1>
                 </div>
             </div>
         </div>
@@ -453,7 +453,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-01-28
+                    2020-01-29
                 </div>
                 
 
@@ -464,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    6 Min
+                    10 Min
                 </div>
                 
 
@@ -479,107 +479,184 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>So far, we talk about how to use a given model to do some tasks, e.g. inference, planning. But where do these models come from? Now, we turn attention to learn models from training data.</p>
-<h1 id="Learning-BN-from-data"><a href="#Learning-BN-from-data" class="headerlink" title="Learning BN from data"></a>Learning BN from data</h1><p>What to learn?</p>
+                <p>The data is assumed to be drawn from some distributions. In reinforcement learning, we learn by interacting with environment. For example, one agent could perform some actions, and these actions will give him different rewards. He wants to learn how to take actions. One big issue is that the reward is based on a sequence of actions, not only one action. Considering the case that a sequence of actions leads to some reward, how to figure out exactly which action is responsible for this reward. Generally, it is impossible. We need some assumptions.</p>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>RL = planning in unknown MDPs. </p>
 <ul>
-<li>the structure of BN</li>
-<li>the parameters: conditional probability distributions</li>
+<li>not know the transition probability</li>
+<li>not know the rewards</li>
+<li>may not even know the states.</li>
 </ul>
-<p>Different case: </p>
+<p>In this way, how to come up a policy to react?</p>
+<p>A central object is the value function. In order to solve MDPs, we need to solve the value function.</p>
+<p>Difference from supervised learning:</p>
 <ul>
-<li>all variables are observed</li>
-<li>only part of variables can be observed.</li>
+<li>in RL, the data we get depends on what we did. The data is not i.i.d.</li>
+<li>what we do will affect what we learn</li>
+<li>have rewards. Not only achieve to learn a good model, but also a good policy to how to act to get a good reward.</li>
 </ul>
-<ol>
-<li>first assume the structure is given, to learn the parameters</li>
-<li>learn the structure as well</li>
+<p>Main tasks:</p>
+<ul>
+<li>explore: how to act to get more knowledge of the world?</li>
+<li>exploit: once knowing the world, how to act to get a good reward?</li>
+</ul>
+<p>Types:</p>
+<ul>
+<li>on-policy RL: agents have full control over which actions to pick</li>
+<li>off-policy RL: agents have no control over actions, only gets observational data. </li>
+</ul>
+<h1 id="Assumptions"><a href="#Assumptions" class="headerlink" title="Assumptions"></a>Assumptions</h1><ul>
+<li><p>Markovian: the actions only depend on the current state, instead of past states.</p>
+</li>
+<li><p>finite states</p>
+</li>
+<li><p>finite actions</p>
+</li>
+</ul>
+<h1 id="Approaches"><a href="#Approaches" class="headerlink" title="Approaches"></a>Approaches</h1><ul>
+<li>model-based RL:<ol>
+<li>learn the MDP<ul>
+<li>estimate the transition probabilities $P(x’|x,a)$</li>
+<li>estimate reward function $r(x,a)$</li>
+</ul>
+</li>
+<li>optimize policy based on estimated MDP</li>
 </ol>
-<h2 id="Parameter-learning"><a href="#Parameter-learning" class="headerlink" title="Parameter learning"></a>Parameter learning</h2><h3 id="MLE"><a href="#MLE" class="headerlink" title="MLE"></a>MLE</h3><p>A very basic estimation is MLE, maximum likelihood estimation.</p>
-<p>$$<br>\theta^* = \arg_{\theta}\max\sum_{j=1}^n\sum_{i=1}^N\log\Pr[X_j^{(i)}|X_{Pa_j}^{(i)},\theta_{j|Pa_j}]<br>$$</p>
-<p>We divide the whole parameters to individual sets on each variable. Global optimization can be composed of local optimization. Formally,</p>
-<p>$$<br>\theta^*_{j|Pa_j} = \arg_{\theta}\max L_j(\theta_j|Pa_j)\Rightarrow\theta^*_{j|Pa_j}=\frac{Count(X_j,X_{Pa_j})}{Count(X_{Pa_j})}<br>$$<br>When $X_j$ follows Bernoulli distribution.</p>
-<p>This strategy requires complete data, all variables are observable.</p>
-<ul>
-<li><p>If there are unobserved variables: EM-algorithm</p>
 </li>
-<li><p>if the count is small, the estimation could be imprecise. In this case, we can use <strong>pseudo-counts</strong>: make prior assumptions about parameters to correct the estimated parameters.</p>
-<ul>
-<li>for Bernoulli distribution, the prior is equivalent to make Beta prior over parameters. For instance,<br>$$<br>\theta\sim Beta(\alpha_c,\alpha_l) = \frac{1}{B(\alpha_c,\alpha_l)}\theta^{\alpha_c-1}(1-\theta)^{\alpha_l-1}<br>$$</li>
-<li>Then observe $n_c$ and $n_l$ counts specifically,<br>$$<br>\Pr[\theta|n_c,n_l]=\frac{1}{Z}\frac{Beta(\alpha_c,\alpha_l)}\theta^{\alpha_c-1}(1-\theta)^{\alpha_l-1}\theta^{n_c}(1-\theta)^{n_l}\sim Beta(\alpha_c+n_c,\alpha_l+n_;)<br>$$</li>
+<li>model-free RL:<ul>
+<li>jump the transition probabilities, or reward function, but directly to estimate, what we need to learn to make a policy, <em>the value function</em></li>
+<li>policy gradient methods: constraint to some specific families of policy. Turn into an optimization problem.</li>
+<li>actor-critic methods: combine both of them: create values, limit to some families of policies.</li>
 </ul>
 </li>
 </ul>
-<h3 id="MAP"><a href="#MAP" class="headerlink" title="MAP"></a>MAP</h3><p>Another view is to treat the parameters as shared variables. They are prior. Given data, which can be treated as evidence, we want to find which values of these variables are most possible. Solve via MAP.</p>
-<p>$$<br>\hat{\theta}\in\arg_{\theta}\max\Pr[\theta|f^{(i)},w^{(i)}]<br>$$<br>In this way, if we want to query the conditional probability given data, we can use the MAP estimation to do that. For instance, $F,W$ are variables, $D$ are the dataset.</p>
-<p>$$<br>\Pr[F|W=w,D]\simeq\Pr[F|w,\hat{\theta}]<br>$$</p>
-<h3 id="Bayesian-learning"><a href="#Bayesian-learning" class="headerlink" title="Bayesian learning"></a>Bayesian learning</h3><p>Instead of learning the unknown parameters, just marginalize them, sum them out.</p>
-<p>$$<br>\Pr[F|W=w,D]=\int\Pr[F,\theta|w,D]\mathrm{d}\theta=\int \Pr[F|w,\theta]\Pr[\theta|w,D]\mathrm{d}\theta<br>$$</p>
-<h2 id="Structure-learning"><a href="#Structure-learning" class="headerlink" title="Structure learning"></a>Structure learning</h2><h3 id="Scoring"><a href="#Scoring" class="headerlink" title="Scoring"></a>Scoring</h3><p>How to score a graph structure?</p>
-<p>Given a scoring strategy, how to find the “optimal” structure?</p>
-<h3 id="MLE-1"><a href="#MLE-1" class="headerlink" title="MLE"></a>MLE</h3><p>Only mle will cause the children fully-connected to all of its parents $\to$Overfit</p>
-<h4 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h4><ul>
-<li>BIC</li>
-<li>special family of graphs</li>
-</ul>
-<h3 id="MAP-1"><a href="#MAP-1" class="headerlink" title="MAP"></a>MAP</h3><p>The general idea is to condition on what we have, the dataset, and find the most probable explanation for the unknown variables, W.</p>
-<p>Placing a prior distribution $P(W)$ on the parameters W</p>
-<p>$$<br>\hat{w}=\arg_w\max\Pr[w|x_{1:n},y_{1:n}]=\arg_w\min-\log(\Pr[w])-\sum_{i=1}^N\log\Pr[y_i|x_i,w]<br>$$</p>
+<h2 id="Model-based"><a href="#Model-based" class="headerlink" title="Model-based"></a>Model-based</h2><p>The data set looks like: $x_1,a_1,r_1,x_2,a_2,r_2,\cdots$  given an observation $x_i$, take an action $a_i$ and get a reward $r_i$, which leads to the next observation $x_{i+1}$.</p>
+<p>Elements: $(x_i,a_i,r_i,x_{i+1})$ are independent from each other.</p>
+<p>$D = {(x_i,a_i,r_i,x_{i+1})},$ expressed in this way, we can do counting on the elements.</p>
+<p>MDP can be viewed as controlled Markov chain. </p>
 <ul>
-<li><p>mini-batch SGD for MAP estimation to accelerate. The algorithm:</p>
+<li><p>estimate transitions MLE:</p>
+<p> $$<br> \Pr[X_{t+1}|X_t,A]\simeq\frac{Count(X_{t+1},X_t,A)}{Count(X_t,A)}<br> $$</p>
+</li>
+<li><p>estimate rewards:</p>
+<p> $$<br> r(x,a)\simeq\frac{1}{N_{x,a}}\sum_{t:X_t=   x,A_t=   a}R_t<br> $$</p>
+</li>
+</ul>
+<p>How accurate could the estimation be? More data will give more accurate estimations.</p>
+<h3 id="Trade-off-exploration-and-exploitation"><a href="#Trade-off-exploration-and-exploitation" class="headerlink" title="Trade-off exploration and exploitation"></a>Trade-off exploration and exploitation</h3><ul>
+<li><p>pick a random action</p>
+<ul>
+<li>exploration: will eventually correctly estimate all probabilities and rewards.</li>
+<li>exploitation: may do extremely poorly in terms of rewards. Because each action is independent from others, not a “good” policy</li>
+</ul>
+</li>
+<li><p>pick the currently “best” action</p>
+<ul>
+<li>exploration: can get stuck in suboptimal actions, local best</li>
+<li>exploitation: can yield some reward.</li>
+</ul>
+</li>
+<li><p>combination these two, using <strong>randomized</strong> strategies, called epsilon-greedy.</p>
+<ul>
+<li>with probability epsilon: pick a random action</li>
+<li>with probability 1-epsilon: pick the best action.</li>
+</ul>
+<p>If epsilon satisfies some condition, it will converge to optimal policy with probability 1.</p>
+<p>Condition: <strong>Robbins Monro condition</strong> </p>
+<ul>
+<li>Potential issue: the random action doesn’t rule out purely bad actions.</li>
+</ul>
+</li>
+<li><p>The Rmax algorithm: the principle is <em>optimism in the face of uncertainty</em>. When an action is unknown, try it!</p>
+<p>Assume the reward has a upper bound Rmax</p>
+<ul>
+<li>if you don’t know $r(x,a)$: set it to Rmax. That means try this action.</li>
+<li>if you don’t know $P(x’|x,a)$: set $P(x’|x,a)=1$. That means explore a new state.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h3><ul>
+<li>memory:  store $P(x’|x,a)\Rightarrow O(|x|^2|A|)$, store $r(x,a)\Rightarrow O(|X||A|)$</li>
+<li>time: solving once MDP requires $poly(|X|,|A|,1/\epsilon,\log(1/delta)$. Need to do this often. </li>
+</ul>
+<h2 id="Model-free"><a href="#Model-free" class="headerlink" title="Model-free"></a>Model-free</h2><p>According to Theorem Bellman, once we have the optimal value function, we can get a greedy policy, which is optimal.</p>
+<p>$Q^{\pi}(x,a)$​ : the expected reward of a policy $\pi$​, given the state and action pair $(x,a)$</p>
+<p>$$<br>Q^{\pi}(x,a)=   r(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V^{\pi}(x’)<br>$$<br>For the optimal policy $\pi^\ast$: It holds  </p>
+<p>$$<br>V^*(x)=   \max_a Q^*(x,a)<br>$$<br>The key idea is to estimate $Q^\ast(x,a)$ from samples.</p>
+<h3 id="Q-learning"><a href="#Q-learning" class="headerlink" title="Q-learning"></a>Q-learning</h3><p>To estimate the best policy’s Q function, which is  </p>
+<p>$$<br>Q^*(x,a)=   r(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V^*(x’)<br>$$<br>instead of using transition probability to get the exact expectation, we estimate from on instance $(x,a,x’)$.<br>$$<br>Q(x,a)\gets r(x,a)+\gamma V^*(x’)=   r(x,a)+\gamma\max_{a’} Q(x’,a’)<br>$$</p>
+<p>To trade-off huge variance from just one sample, we weight this update by alpha</p>
+<p>$$<br>Q(x,a)\gets (1-\alpha_t)Q(x,a)+\alpha_t(r(x,a)+\gamma\max_{a’} Q(x’,a’))<br>$$<br>$\alpha$: usually decrease along the time. means: at the beginning we put much weight on a new sample. Later, we put less and less.</p>
+<h4 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h4><p>Random version</p>
 <ol>
-<li><p>initialize $w_0$</p>
-</li>
-<li><p>For $t=0,1,2,\cdots$ </p>
-<p>$$<br> w_{t+1}=w_t-\frac{\epsilon_t}{2}(\nabla\log\Pr[w_t]+\frac{N}{k}\sum_{i=1}^k\nabla\log\Pr[y_{t,i}|x_{t,i},w_t])<br>$$</p>
-</li>
+<li>have initial estimate of $Q(x,a)$</li>
+<li>observe transition $x,a,x’$ with reward $r$. Update $Q(x,a)$ for long enough times.</li>
 </ol>
+<p>Optimistic algorithm, similar to $R_{\max}$:</p>
+<p>starting with an optimistic initialization. But only $R_{\max}$ is not enough, have to consider the discount effect and weight effect.</p>
+<ol>
+<li>initialize $Q(x,a)\gets\frac{R_{max}}{1-\gamma}\prod_{t=   1}^{T_{init}}(1-\alpha_t)^{-1}$</li>
+</ol>
+<h4 id="Convergence"><a href="#Convergence" class="headerlink" title="Convergence"></a>Convergence</h4><p><strong>Theorem</strong> for random: If learning rate alpha satisfies:</p>
 <ul>
-<li>$(x_{t,i},y_{t,i})$ is the $i$-th data point in the $t$-th mini-batch of $k$ points</li>
-<li>learning rate satisfies $\sum_t\epsilon_t\to\infty,\sum_t\epsilon_t^2:\infty$</li>
+<li>never stops updating: $ \sum_t\alpha_t=   \infty$</li>
+<li>later samples have smaller weights: $\sum_t\alpha_t^2&lt;\infty$</li>
+<li>and actions are chosen at random</li>
+</ul>
+<p>Then</p>
+<p>$Q$ learning converges to optimal $Q^\ast$ with probability 1.</p>
+<p><strong>Theorem</strong> for optimistic: With probability $1-\delta$, optimistic Q-learning obtains an $\epsilon$​-approximation policy after a number of time steps that is polynomial in $|X|,|A|, 1/\epsilon$ and $\log(1/\delta)$.</p>
+<h4 id="Complexity-1"><a href="#Complexity-1" class="headerlink" title="Complexity"></a>Complexity</h4><ul>
+<li>memory: store the Q-table: $Q(x,a): O(|X||A|)$</li>
+<li>time: <ul>
+<li>update per sample: find the action which gives the maximum $Q(x’,a’)$, $O(|A|)$ </li>
+<li>iterations: polynomial in $|X|,|A|, 1/\epsilon$ and $\log(1/\delta)$</li>
 </ul>
 </li>
 </ul>
-<h1 id="Bayesian-learning-1"><a href="#Bayesian-learning-1" class="headerlink" title="Bayesian learning"></a>Bayesian learning</h1><p>Different from MAP, Bayesian learning turns attention to prediction. Skip the unknown parameters and use them directly. That means given a new data point $x’$, what is the probability of $Y(x’)$? To perform this task, we sum out whatever we don’t know:</p>
-<p>$$<br>\Pr[Y|x’,x_{1:N},y_{1:N}]=\int \Pr[w|x_{1:N},y_{1:N}]\Pr[Y|w,x’]\mathrm{d}w<br>$$</p>
+<h4 id="Parametric-Q-function-approximation"><a href="#Parametric-Q-function-approximation" class="headerlink" title="Parametric Q-function approximation"></a>Parametric Q-function approximation</h4><p>The general idea is that we don’t update the entries of $Q$ table one by one in the update, but use some parameters to calculate the the entries and update the parameters in each step. In this way, we turn the question into an optimization problem and can solve it by approximation. Also, this approach allows us to go from the finite tabular $Q$ to infinite $Q$.</p>
+<p>At convergence, we want:</p>
+<p>$$<br>Q(x,a)=   \mathbb{E}<em>{(r,x’)|x,a}(r+\gamma\max</em>{a’}Q(x’,a’))<br>$$</p>
+<p>$$<br>\Rightarrow\mathbb{E}<em>{(r,x’,x,a)}(Q(x,a)-r-\gamma\max</em>{a’}Q(x’,a’))=   0<br>$$</p>
+<p>$$<br>\Rightarrow\min_{\theta}\mathbb{E}<em>{(r,x’,x,a)}[Q(x,a)-r-\gamma\max</em>{a’}Q(x’,a’)]^2<br>$$</p>
+<p>In this way, we can use mean to approximate expectation.</p>
+<p>Example of parametric $q$-function: linear function approximation: $Q(x,a;\theta)=   \theta^T\phi(x,a)$ </p>
+<p>Fit parameters to data: define the loss function on parameters as:</p>
+<p>$$<br>L(\theta)=   \sum_{(x,a,r,x’)\in D}(r+\gamma\max_{a’}Q(x’,a’;\theta^{old})-Q(x,a;\theta))^2<br>$$</p>
+<p>So, the goal is to find parameters to minimize the loss function:</p>
+<p>$$<br>\theta^*=   \arg_{\theta}\min L(\theta)<br>$$</p>
 <ul>
-<li>the first item on the right side: calculate how likely of a model given our data</li>
-<li>the second item: how likely is the prediction given the model and the new data point.</li>
-<li>this model not only considers the most likely weight, which MAP chooses, but also all the other weights.</li>
-<li>However, estimate the whole weight space may be undoable.</li>
+<li>label: the estimation of Q entry given the observed sample:$r+\gamma\max_{a’}Q(x’,a’;\theta^{old})$</li>
+<li>prediction given theta: $ Q(x,a;\theta))$</li>
 </ul>
-<p>Several algorithms can make this task doable.</p>
-<h2 id="Bayesian-learning-with-Gaussian-process"><a href="#Bayesian-learning-with-Gaussian-process" class="headerlink" title="Bayesian learning with Gaussian process"></a>Bayesian learning with Gaussian process</h2><h3 id="Gaussian-process"><a href="#Gaussian-process" class="headerlink" title="Gaussian process"></a>Gaussian process</h3><p>It is a normal distribution over functions</p>
-<p>Pin on these functions finite points and these finite marginals are multivariate Gaussians.</p>
-<p>Particularly, the prediction of one data point follows one-dimension Gaussian distribution. We need to learn the mu function and kernel function.</p>
-<p>$$<br>\Pr[f(x)]\sim \mathcal{N}(f(x);\mu(x),\sigma^2(x))<br>$$</p>
-<h4 id="kernel-covariance-functions"><a href="#kernel-covariance-functions" class="headerlink" title="kernel(covariance) functions"></a>kernel(covariance) functions</h4><ul>
-<li><p>symmetric: $k(x,x’)=k(x’,x)$ for all $x,x’$</p>
-</li>
-<li><p>positive semi-definite: for all A, Sigma_{AA} is positive semi-definite matrix $\Leftrightarrow$ all eigenvalues of </p>
-<p>$$<br>\Sigma_{AA}\geq 0\Leftrightarrow \forall x, x\sum_{AA}x\geq 0<br>$$</p>
-</li>
-<li><p>Examples:</p>
+<h4 id="Deep-learning"><a href="#Deep-learning" class="headerlink" title="Deep learning"></a>Deep learning</h4><p>Recall what deep learning does: deep learning is a tool to solve the loss minimization problem, given data:</p>
+<p>$$<br>w^*=   \arg_w\min \sum_{i=   1}^N l(y_i,f(x_i;w))<br>$$<br>by fitting nested nonlinear function of $f(x;w)$</p>
+<h4 id="Deep-Q-Networks"><a href="#Deep-Q-Networks" class="headerlink" title="Deep Q Networks"></a>Deep Q Networks</h4><p>this is a variant of Q-learning:</p>
 <ul>
-<li><p>squared exponential kernel: $\mathcal{K}(x,x’)=\exp(-||x-x’||_2^2/h^2))$ when $x=x’$, the covariance is 1. h smaller $\to$​ more punish on distance $\to$ more fluctuation</p>
+<li>use convolutional neural nets to approximate Q function</li>
+<li>important empirical insights:<ul>
+<li><p>maintain constant “target” values across episodes. save the initial labels as y, and use these ys throughout training, instead of calculating new label in each iteration.</p>
 </li>
-<li><p>exponential kernel: $\mathcal{K}(x,x’)=\exp(-||x-x’||_1/h^2)$    very unsmooth.</p>
-</li>
-<li><p>linear kernel, Bayesian linear regression: </p>
-<p>$$<br> \mathcal{K}(x,x’)=x^Tx’<br>$$</p>
-</li>
-</ul>
+<li><p>double DQN: two networks, use old parameters to evaluate Q function, but new parameters for action selection. Want to use old parameters to calculate the value to avoid oscillations. Current parameters are more closed to the policy would do.</p>
+<p> $$<br>L(\theta)=   \sum_{(x,a,r,x’)\in D}(r+\gamma Q(x’,\hat{a}(x,\theta);\theta^{old})-Q(x,a;\theta))^2<br>$$<br>where $ \hat{a}(x,\theta)=   \arg_{a’}\max Q(x,a’,\theta)$</p>
 </li>
 </ul>
-<p>This kind of models gives us the ability to predict for the uncertainty. How much uncertain on some data points, estimate the variance.</p>
-<h2 id="Bayesian-deep-learning"><a href="#Bayesian-deep-learning" class="headerlink" title="Bayesian deep learning"></a>Bayesian deep learning</h2><p>work on high-dimension data.</p>
-<ul>
-<li>SGLD: generate from mini-batch SGD, with a more random noise item:<br>$$<br>w_{t+1}=w_t-\frac{\epsilon_t}{2}(\nabla\log\Pr[w_t]+\frac{N}{k}\sum_{i=1}^k\nabla\log\Pr[y_{t,i}|x_{t,i},w_t])+\eta_t)<br>$$<br>where $\eta\sim\mathcal{N}(0,\epsilon^2)$To avoid being stuck on some local areas.</li>
+</li>
 </ul>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>Why Bayesian learning are so popular? Because it captures two kinds of uncertainty:</p>
-<ul>
-<li>aleatoric uncertainty: noise in observations given perfect knowledge of the model. For instance, flipping a coin, even we know the coin is fair, the result is still uncertain.</li>
-<li>epistemic uncertainty: uncertainty about parameters due to the lack of data. For instance, I don’t know what kind of coin I have when flipping it.</li>
-</ul>
+<h3 id="Policy-search-methods"><a href="#Policy-search-methods" class="headerlink" title="Policy search methods"></a>Policy search methods</h3><p>Learning a policy without the detour of learning a value function.</p>
+<p>Given a policy, do forward sampling on the controlled Markov chain and evaluate this policy $J(\theta)$. Then, adjust the parameters by gradient descent or other methods to get a new policy.</p>
+<h4 id="Bayesian-Learning-for-policy-search"><a href="#Bayesian-Learning-for-policy-search" class="headerlink" title="Bayesian Learning for policy search"></a>Bayesian Learning for policy search</h4><p>Go beyond point estimation, but the whole distribution.</p>
+<p>Using the Bayesian, on the data domain, find which part we are not certain about and which part we are certain about and then guide the samples drawing procedure.</p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>Model-based MDP and model-free RL are polynomial in $|A|$​​ and $|X|$​​. However, structured domains $(|A|,|X|$​​ exponential in Nr. agents $)$​ and continuous domains $(|A|$​ and $|X|$​​ are infinite$)$ are not applicable.</p>
+<h1 id="Outlook"><a href="#Outlook" class="headerlink" title="Outlook"></a>Outlook</h1><h2 id="Bayesian-Deep-RL"><a href="#Bayesian-Deep-RL" class="headerlink" title="Bayesian Deep RL"></a>Bayesian Deep RL</h2><p>Express the uncertainty of the model itself, by maintaining multiple models, ensemble of models.</p>
+<p>How to go beyond point estimate’s uncertainty?</p>
+<h2 id="Improving-action-selection-by-planning"><a href="#Improving-action-selection-by-planning" class="headerlink" title="Improving action selection by planning"></a>Improving action selection by planning</h2><p>Beyond one-step transitions, multiple steps forward to plan. </p>
+<h2 id="Risk-in-exploration"><a href="#Risk-in-exploration" class="headerlink" title="Risk in exploration"></a>Risk in exploration</h2><h3 id="Safe-Bayesian-optimization"><a href="#Safe-Bayesian-optimization" class="headerlink" title="Safe Bayesian optimization"></a>Safe Bayesian optimization</h3><p>not only consider the reward, but also maintains safety constraints. Try to never violate these constraints. Formally, $\max f(x), s.t. g(x)\geq\tau)$</p>
+<p>One challenge is that none of $f(x), g(x)$ are given in closed form, access only via noisy black box.</p>
+<p>Approach: </p>
+<ol>
+<li>find a safe start point</li>
+<li>go to reachable optimal points, instead of global optimal.</li>
+</ol>
 
             </div>
             <hr/>
@@ -823,7 +900,7 @@
         repo: 'fuguigui.github.io',
         owner: 'fuguigui',
         admin: ["fuguigui"],
-        id: '2020-01-28T00-00-00',
+        id: '2020-01-29T00-00-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1114,13 +1191,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="../pai-06/">
+                <a href="../sysml-ti-qian-kan/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/2.jpeg" class="responsive-img" alt="Probabilistic Planning">
+                        <img src="../medias/featureimages/4.jpeg" class="responsive-img" alt="SysML提前看">
                         
-                        <span class="card-title">Probabilistic Planning</span>
+                        <span class="card-title">SysML提前看</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1131,14 +1208,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-28
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-24
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/Learning-Notes/" class="post-category">
-                                    Learning Notes
+                            <a href="../categories/Reading-Summary/" class="post-category">
+                                    Reading Summary
                                 </a>
                             
                             
@@ -1148,16 +1225,20 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/AI/">
-                        <span class="chip bg-color">AI</span>
+                    <a href="../tags/System/">
+                        <span class="chip bg-color">System</span>
                     </a>
                     
-                    <a href="../tags/Reinforcement-Learning/">
-                        <span class="chip bg-color">Reinforcement Learning</span>
+                    <a href="../tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
                     </a>
                     
-                    <a href="../tags/Markov/">
-                        <span class="chip bg-color">Markov</span>
+                    <a href="../tags/Security/">
+                        <span class="chip bg-color">Security</span>
+                    </a>
+                    
+                    <a href="../tags/Privacy/">
+                        <span class="chip bg-color">Privacy</span>
                     </a>
                     
                 </div>
@@ -1175,9 +1256,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/0.jpeg" class="responsive-img" alt="Bayesian Network 2 - Inference">
+                        <img src="../medias/featureimages/9.jpeg" class="responsive-img" alt="PAI4 Reasoning over Time">
                         
-                        <span class="card-title">Bayesian Network 2 - Inference</span>
+                        <span class="card-title">PAI4 Reasoning over Time</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1188,7 +1269,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-28
                             </span>
                         <span class="publish-author">
                             
@@ -1215,6 +1296,10 @@
                     
                     <a href="../tags/Bayesian/">
                         <span class="chip bg-color">Bayesian</span>
+                    </a>
+                    
+                    <a href="../tags/Markov/">
+                        <span class="chip bg-color">Markov</span>
                     </a>
                     
                 </div>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Foundamention, Travling,Coding,Food,Learning">
+    <meta name="keywords" content="PAI2 Bayesian Network 1Basic, Travling,Coding,Food,Learning">
     <meta name="description" content="Warning! You accidentally rushed into Lulu&#39;s secret garden. Here, everything is created by heart.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Foundamention | Fululu</title>
+    <title>PAI2 Bayesian Network 1Basic | Fululu</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="../medias/logo_fu.ico">
 
     <link rel="stylesheet" type="text/css" href="../libs/awesome/css/all.css">
@@ -291,12 +291,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/5.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/11.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Foundamention</h1>
+                    <h1 class="description center-align post-title">PAI2 Bayesian Network 1Basic</h1>
                 </div>
             </div>
         </div>
@@ -428,8 +428,8 @@
                                 <span class="chip tag-color">Reinforcement Learning</span>
                             </a>
                         
-                            <a href="../tags/Probability-Theory/">
-                                <span class="chip tag-color">Probability Theory</span>
+                            <a href="../tags/Bayesian/">
+                                <span class="chip tag-color">Bayesian</span>
                             </a>
                         
                     </div>
@@ -464,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    12 Min
+                    6 Min
                 </div>
                 
 
@@ -479,234 +479,127 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Fundamental-Settings"><a href="#Fundamental-Settings" class="headerlink" title="Fundamental Settings"></a>Fundamental Settings</h2><p>Use Agent-environment model to represent all tasks.</p>
-<h3 id="Agent"><a href="#Agent" class="headerlink" title="Agent"></a>Agent</h3><p>has a set $A$​ and a function $f$.</p>
+                <h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ul>
+<li>why to say the conditional independence is weaker than independence?</li>
+<li>what are the properties of conditional independence? How to compare them with independence?</li>
+<li>what is the definition of bayesian network? </li>
+<li>what is the relation between conditional independence and bayesian network?</li>
+<li>what are the advantages of bayesian network?</li>
+</ul>
+<h1 id="Keywords"><a href="#Keywords" class="headerlink" title="Keywords"></a>Keywords</h1><p>conditional independence, naive bayes models, bayesian networks</p>
+<h1 id="Conditional-independence"><a href="#Conditional-independence" class="headerlink" title="Conditional independence"></a>Conditional independence</h1><p>Using independence in formula will greatly decrease the number of parameters from $O(2^n)$  to some smaller numbers, even $O(n)$ </p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>$A$ and $B$, two random variables, are conditional independence given $C$ iff for all $a,b,c$<br>$$<br>\text{Pr}(A=a\cap B=b|C=c) = \text{Pr}(A=a|C=c)\text{Pr}(B=b|C=c)$​<br>$$</p>
 <ul>
-<li>$A$: the elements in $A$ are called actions.</li>
-<li>$f$: map sequence of percepts to action $f: P\to A$</li>
+<li>$\Pr[Y=y|Z=z]&gt;0, \Pr[X=x|Y=y,Z=z]=\Pr[X=x|Z=z]$</li>
 </ul>
-<h3 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h3><p>has a set $P$, a function $f$, a measure function $R$.</p>
+<p>It is denoted as$(X\perp Y) | Z$</p>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><p>Claim: all of the following properties should have non-conditional version</p>
 <ul>
-<li>$P$: the elements in $P$ are called percepts or environment states.</li>
-<li>$f$: map sequence of actions to percept  $f:A\to P$</li>
-<li>$R$: evaluates any given sequence of environment states: $R:S^\ast \to \mathbb{R}$ </li>
-</ul>
-<p>We want to design an agent to be rational, doing the right thing. How to define “right”?  Based on the evaluation of <strong>environment</strong> states. </p>
-<p><strong>A rational agent</strong> is defined as: for each possible percept sequence, a rational agent should select an action that is expected to maximize its performance measure, given</p>
+<li><p>symmetry: $(X\perp Y)|Z \Leftrightarrow (Y\perp X)|Z$</p>
 <ul>
-<li>the evidence provided by the percept sequence </li>
-<li>and whatever built-in knowledge the agent has.</li>
-<li>? how to show this formally? How to mathematically evaluate the performance measurement related to agent’s built-in knowledge</li>
+<li>The proof is trivial</li>
 </ul>
-<h1 id="Probability-Review"><a href="#Probability-Review" class="headerlink" title="Probability Review"></a>Probability Review</h1><h2 id="Basic-concepts"><a href="#Basic-concepts" class="headerlink" title="Basic concepts"></a>Basic concepts</h2><ul>
-<li>Probability space: three elements: atomic events space Omega, can be continuous, sigma-algebra which is closed under complement and unions and probability measure. ${\Omega, F, P}, F \subseteq 2^{\Omega}, P:F\to [0,1]$ </li>
-<li>probability axioms: <ul>
-<li><p>normalization, making the probability of the whole set is 1: $\text{Pr}(\Omega)=1$ </p>
 </li>
-<li><p>non-negativity, all the probability is larger than 0: $\Pr[A]\geq 0,\forall A\in F$ </p>
-</li>
-<li><p>“add operation” sigma-additivity, the probability of the union of disjoint sets are the sum of the probability of each set:<br>$$<br>\Pr[\bigcup_{i=1}A_i]=\sum_{i=1}\Pr[A_i],\forall A_i\in F \text{ and } A_i\cap A_j=\phi, i\neq j<br>$$</p>
+<li><p>decomposition: Given Z, X is conditional independent from Y and W. We can conclude that X is conditional independent from Y and X is conditional independent from W specifically.<br>$$<br>(X\perp (Y,W))|Z \Leftrightarrow (X\perp Y)|Z \wedge  (X\perp W)|Z<br>$$</p>
 <ul>
-<li>this axiom builds the relation between the “add” operation in the algebra and the “union” operation in the set theory.</li>
+<li><p>Proof left to right: Since Y and W are symmetric, I only prove for $Y$ in discrete version. The continuous version is similar<br>$$<br>(X\perp (Y,W))|Z\Leftrightarrow  P((XYW)|Z)=P((X(YW))|Z)<br>$$</p>
+<p>$$<br> = P(X|Z)P((YW)|Z)<br>$$</p>
+<p>$$<br>\Rightarrow P((XY)|Z) = \sum_W P((XYW)|Z) = \sum_W P(X|Z)P((YW)|Z)<br>$$</p>
+<p>$$<br>= P(X|Z)\sum_W P((YW)|Z) = P(X|Z)P(Y|Z)<br>$$</p>
+<p>$$<br>\Rightarrow (X\perp Y)|Z<br>$$</p>
+</li>
+<li><p>Proof  right to left: I <strong>don’t know</strong> how to prove it. ?????maybe it is not true??</p>
+</li>
 </ul>
 </li>
-<li><p>From the three axioms, we can deduct:</p>
+<li><p>Contraction: $((X\perp Y)|Z)\wedge (X\perp W|(YZ))\Rightarrow (X\perp (WY))|Z$</p>
+</li>
+<li><p>weak union: $(X\perp (YW))|Z\Rightarrow (X\perp Y)|(ZW)$</p>
+</li>
+<li><p>intersection:$(X\perp Y)|(WZ)\wedge (X\perp W)|(YZ)\Rightarrow (X\perp(YW))|Z$</p>
+</li>
+</ul>
+<h2 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h2><p>Example: In a naive bayes model, where: $Y$​ is the cause variable, $X_1,\cdots,X_n$​ are the effects variables. <img src="chap201.jpg" alt="A naive Bayes model example"></p>
+<p>We can give a conditional independence assertion: </p>
+<p>$$<br>X_A\perp X_{\bar{A}}|Y,\forall A\subset{1,2,\cdots,n}<br>$$<br>Where$ A={i_1,\cdots,i_k}\subset{1,2,\cdots,n}$ and $\bar{A}={1,2,\cdots,n}$ $A, X_A={X_{i_1},\cdots,X_{i_k}}$</p>
+<p>In general, conditional independence can be used to transfer <strong>joint parameterization</strong> into <strong>conditional parameterization</strong>. In this way, we can greatly reduce the number of parameters. Formally,</p>
+<p>$$<br>\Pr[X_{1:n}]=\prod_{i=1}^n\Pr[X_i|parents(X_i)]<br>$$</p>
+<p>The number of parameters change: $\prod_{i=1}^n |X_i|\to \sum_{i=1}^n |X_i|^{\prod_{X_j\in parents(X_i)}|X_j|}$</p>
+<h1 id="Bayesian-Network"><a href="#Bayesian-Network" class="headerlink" title="Bayesian Network"></a>Bayesian Network</h1><ul>
+<li>Bayesian: uses the Bayes’ theorem, which specifies an event’s probability given some conditions.</li>
+<li>network: represented by directed graph, as a network.</li>
+</ul>
+<h3 id="Definition-1"><a href="#Definition-1" class="headerlink" title="Definition"></a>Definition</h3><p>A Bayesian Network is a <em>directed acyclic graph</em> in which:</p>
 <ul>
-<li>“minus” operation: $\Pr[\Omega-A]=1-\Pr[A]$ </li>
-<li>“empty”: $\Pr[\phi]=0$ </li>
-<li>“minus” operation: $5CPr[A-B]=\Pr[A]-\Pr[A\cap B]$ since $A-B$ and $A\cap B$​ are disjoint. All minus operations are from add operations</li>
-<li>“inclusion-exclusion principle” $\Pr[A\cup B]=\Pr[A]+\Pr[B]-\Pr[A\cap B]$​</li>
-<li>“inequality”: $A\subset B\Rightarrow\Pr[A]\leq\Pr[B]$ </li>
+<li>node:<ul>
+<li>each node corresponds to a random <em>variable</em></li>
+<li>numeric parameters: each node has a <em>conditional</em> probability distribution $P(x|\text{parents}(x))$</li>
 </ul>
 </li>
+<li>links:<ul>
+<li>a link from node $X$ to node $Y, X$ is said to be a <em>parent</em> of $Y$.</li>
+<li>intuitive meaning: $X$ is a <em>parent</em> of $Y\to X$ has a <em>direct impact</em> on $Y$. Causes should be parents of effects.</li>
 </ul>
 </li>
+<li>No directed cycles. It is a DAG</li>
 </ul>
-<h2 id="Derivatives"><a href="#Derivatives" class="headerlink" title="Derivatives"></a>Derivatives</h2><p>Based on the basic definitions, we can define more advanced concepts, such as independent events, conditional probability</p>
-<h3 id="Independence"><a href="#Independence" class="headerlink" title="Independence"></a>Independence</h3><ul>
-<li><p>independent events: two random events A, A’ are independent iff $P(A\cap A’)=P(A)P(A’)$ </p>
-<ul>
-<li>event is a subset of the sample space Omega.</li>
-<li>the left side means the probability of the joint of two sets</li>
-<li>the right side means the multiplication of two probabilities</li>
-<li>this definition connects the calculation of sets with the calculation of numbers. In some way, map the “joint” operation to the “multiplication” operation. </li>
-</ul>
-</li>
-<li><p>random variable: <strong>A random variable is a mapping.</strong> Denote it as $X$. Given a set  D, $X: \Omega\to D$ . How to define probability for the element(s) in $D$? Based on the corresponding elements in $\Omega$​​. That is<br>$$<br>x\in D, \Pr[X=x]=\Pr[{w: X(w)=x, w\in\Omega}]<br>$$</p>
-<ul>
-<li>the left side is the probability definition on a new set $D$</li>
-<li>the right side is the corresponding probability on the on the original whole set $\Omega $​.</li>
-<li>I would call the left side is a symbol for representation while right side is the essence. </li>
-<li>??? Does it mean all elements in $\Omega $​ must have a corresponding element in $D$​? <ul>
-<li>Yes!!! $X$ is defined on the <strong>whole</strong> $\Omega $. That implies $\sum_{x} \Pr[X=x]=1$</li>
-</ul>
-</li>
-<li>??? Does it mean X must be deterministic???</li>
-<li> How to interpret that in continuous settings? In continuous distribution, no “good” definition of the probability of a point.</li>
-<li>From <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Elementary_event">this wiki</a>, “in a continuous distribution, individual elementary events must all have a probability  of zero because there are infinitely many of them— then non-zero  probabilities can only be assigned to non-elementary events.”</li>
-<li>I think the definition may comes from a more advanced concept <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Borel_set">Borel-algebra</a>. Also in the first chapter in this book <a target="_blank" rel="noopener" href="https://books.google.ch/books?id=uL7UBwAAQBAJ&amp;pg=PA1&amp;hl=zh-CN&amp;source=gbs_toc_r&amp;cad=4#v=onepage&amp;q&amp;f=false">Foundations of Modern Probability</a>, it says something about the Borel-algebra, which is beyond my understanding. But it convinces me that this kind definition of probability works.</li>
-</ul>
-</li>
-<li><p>independent random variable: two random variables are independent iff $P(xy)=P(x)P(y),\forall x\in X(\cdot), y\in Y(\cdot)$ </p>
-<ul>
-<li><p>different from independent events, which could be represented easily be the set (Vien graph), independent random variables are not straightforward in the Vien, because both of them work on the whole sample space. But we can show the Vien graph of their specific values.</p>
-</li>
-<li><p> use $X\perp Y$​ to denote $X$​ and $Y$​ are independent. This notation is very descriptive. Taking the algebra  view, $X$​ and $Y$​ are “orthogonal” to each other. For instance, supposing the sample space Omega is a cube. $X$ maps it to the $z$ axis, and $Y$ maps it to the $y$ axis. Then for any pair of $(x,y), P(xy)$ , shown in the Vien graph is a rectangle in surface y-z,  is exactly $P(x)P(y)$, which are two orthogonal rectangles with an overlapped rectangle.</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Joint-distributions"><a href="#Joint-distributions" class="headerlink" title="Joint distributions"></a>Joint distributions</h3><p>Instead of random variable, using random vector of several variables. </p>
-<p>$X=[X_1(w),X_2(w),\cdots, X_n(w)]$ and $\Pr[X=v_n]=\Pr[X_1(w)=v_1,X_2(w)=v_2,\cdots, X_n(w)=v_n]$</p>
-<ul>
-<li><p>Interpreted from the set theory view: supposing the Omega has high dimension and we use a n-dimension lense to inspect it to find the aimed subspace.</p>
-</li>
-<li><p>note that each item is a random variable, that means $\sum_{x} \Pr[X_i=x]&lt;1$, we cannot have $\sum_{x} \Pr[X_i=x,Y]=\Pr[Y]$</p>
-</li>
-</ul>
-<h3 id="Conditional-probability"><a href="#Conditional-probability" class="headerlink" title="Conditional probability"></a>Conditional probability</h3><p>Define a new operator “|” in the probability theory<br>$$<br>\Pr[A|B]=\frac{\Pr[A\cap B]}{\Pr[B]},\Pr[B]&gt;0<br>$$</p>
-<ul>
-<li>Observation of the left-side (set theory view): it actually changes the event space to the set of $B$ from the original set $\Omega.$</li>
-<li>calculation view: introduce the division in the probability theory.</li>
-</ul>
-<h2 id="Sum-rule-and-product-rule"><a href="#Sum-rule-and-product-rule" class="headerlink" title="Sum rule and product rule"></a>Sum rule and product rule</h2><ul>
-<li><p>sum rule marginalization: an application of the add-operation of disjoint sets<br>$$<br>\Pr[X_{1: i-1}，X_{i+1: n}]=\sum_{x_i}\Pr[X_{1:i-1},x_i,X_{i+1: n}]<br>$$</p>
-</li>
-<li><p>product rule chain rule: an application of the definition of conditional probability.<br>$$<br>\Pr[X_{1:n}]=\Pr[X_n|X_{1:n-1}]\cdots\Pr[X_3|X_1X_2]\Pr[X_2|X_1]\Pr[X_1]<br>$$</p>
-</li>
-<li><p>Application: Bayes’ Rule: from the prior $P(X)$ and likelihood $P(Y|X)$ to compute the posterior $P(X|Y)$</p>
-<p>$$<br>\Pr[X|Y]=\frac{\Pr[X]\Pr[Y|X]}{\sum_x\Pr[X]\Pr[Y|X]}<br>$$</p>
-<ul>
-<li>the nominator: product rule</li>
-<li>the denominator: sum rule, then product rule</li>
-</ul>
-</li>
-</ul>
-<h2 id="Operations-in-Probability"><a href="#Operations-in-Probability" class="headerlink" title="Operations in Probability"></a>Operations in Probability</h2><h3 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h3><ul>
-<li>and: $\cap$​  or $,$  or missed, e.g. $P(A\cap B) = P(A,B) = P(AB) $​</li>
-<li>or: $\cup$, e.g. $P(A\cup B),P(A\cup B) = P(A) + P(B)-P(A\cap B)$​</li>
-<li>conditional: $|$, e.g. $P(A| B)=\frac{P(AB)}{P(B)}$<ul>
-<li>this operator is a little bit tricky, cause if considering the sample space, “and” and “or” operators are in the original sample space but “conditional” operator <strong>changes</strong> the sample space !!!</li>
-</ul>
-</li>
-<li>conditional independence: $\perp$,e.g.$P((A\perp B)|C) = P(A|C)P(B|C)$</li>
-</ul>
-<p>Priorities from lowest to highest: $| &lt; \perp &lt; \cap, \cup$</p>
-<p>For example, $P(A,B|C) = P((A,B)|C)\neq P(A,(B|C))$</p>
-<ul>
-<li><p>“and” could be viewed as “multiply” $\ast$​ in algebra operations in some way</p>
-<ul>
-<li>exchangeable: $P(A\cap B)= P(B\cap A)$</li>
-</ul>
-</li>
-<li><p>“conditional” could be viewed as “plus” $+$, always the lowest</p>
-<ul>
-<li><p>but it is <strong>not exchangeable</strong>, that means $P(A| B)\neq P(B|A)$</p>
-</li>
-<li><p>it is <strong>ordered</strong>. I am not sure which order it exactly is. Just from my own understanding, the order should be from right to left,  which means $P(A|B|C) = P(A|(B|C))\neq P((A|B)|C)$</p>
-<p>My explanation is as follows:</p>
-<ul>
-<li><p>suppose$P(A|B|C) = P(A|(B|C))$ We will have<br>$$<br>P(A|(B|C)) = \frac{P(A,(B|C))}{P(B|C)} = \frac{P((AB)|C)}{P(B|C)}<br>$$</p>
-<p>$$<br>=\frac{P(ABC)P(C)}{P(C)P(BC)}=\frac{P(ABC)}{P(BC)}=P(A|(BC))<br>$$</p>
-<ul>
-<li><p>the second equality uses the “reducing rule”, explained in the next block.</p>
-</li>
-<li><p>this directly gives us the conclusion that $P(A|B|C) =P(A|(BC))$</p>
-</li>
-<li><p>generate it to the n cases, we will have </p>
-<p>$$<br>P(A_n|A_{n-1}|\cdots|A_1) = P(A_n|(A_{n-1}(\cdots |A_1)))<br>$$</p>
-<p>$$<br>= P(A_n|(A_{n-1}\cdots A_1))<br>$$</p>
-<p>The proof is ignored here. Using induction will easily prove it.</p>
-</li>
-</ul>
-</li>
-<li><p>suppose $P(A|B|C) = P((A|B)|C)$​ We will have<br>$$<br>P((A|B)|C)=\frac{P((A|B),C)}{P(C)}=\frac{P(C(A|B))}{P(C)}<br>$$</p>
-<p>$$<br>=\frac{P((AC)|B)}{P(C)}=\frac{P(ABC)}{P(B)P(C)}<br>$$</p>
-<ul>
-<li>also, the third equality uses the “reducing rule”</li>
-<li>well, I couldn’t find error in the algebra calculation but from the definition of probability, using $P(B)P(C)$ as the denominator, I don’t know what the sample space becomes. Based on this aspect, I will refuse this assumption and take the former one.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Rules"><a href="#Rules" class="headerlink" title="Rules"></a>Rules</h3><p>This part is based on my own deduction, I am not sure if they are true. Please contact me if you have other ideas! I would greatly appreciate it.</p>
-<ul>
-<li><p>“reducing rule”: $P(A(B|C)) = P((AB)|C)$</p>
-<ul>
-<li><p>just like the “conditional” operator, this rule is also tricky, cause $A$ and $B|C$ are in the different sample space. Here, I would reduce the larger sample space to the smaller sample space. That is reducing $A$ to $A|C$ actually.  By doing this, We will have </p>
-<p>$$<br>P(A(B|C))=P((A|C)(B|C))=P((AB)|C)<br>$$</p>
-</li>
-</ul>
-</li>
-<li><p>“association rule”: $P(A(BC)) = P((AB)C)=P(ABC)$</p>
-<ul>
-<li>from the set view, the proof is trivial.</li>
-</ul>
-</li>
-</ul>
-<h1 id="Probabilistic-propositional-logic"><a href="#Probabilistic-propositional-logic" class="headerlink" title="Probabilistic propositional logic"></a>Probabilistic propositional logic</h1><p>So far, we define the “probability” from the set theory view and so for the operations, which could be interpreted as the set operations.</p>
-<p>How to express uncertainty about logical propositions?</p>
-<p>The probability of a proposition is the probability mass of all <strong>models</strong> of it.</p>
-<ul>
-<li>model: all <strong>events</strong> that make the proposition true</li>
-<li>event: encode assignment to all propositional symbols.</li>
-</ul>
-<p>In the paper <a target="_blank" rel="noopener" href="https://faculty.arts.ubc.ca/pbartha/p520w07/comp_logic.pdf">probability, logic and probability logic</a>, there is a definition of probability theory from the logic theory view.</p>
-<p>S: a collection of sentences of a language, closed under finite truth-functional combinations, with the following axiomatization:</p>
-<ul>
-<li>normalization $\text{Pr}(T)=1$, If $T$ is a tautology</li>
-<li>non-negativity: $\Pr[A]\geq 0,\forall A\in S$</li>
-<li>“add operation”:  $\Pr[A\lor B]=\Pr[A]+\Pr[B]$ for all $A$ and $B$ in $S$, such that $A$ and $B$ are logically incompatible.</li>
-</ul>
-<h3 id="Examples-given-in-the-lecture"><a href="#Examples-given-in-the-lecture" class="headerlink" title="Examples given in the lecture"></a>Examples given in the lecture</h3><p>The method is:</p>
+<h4 id="Semantics"><a href="#Semantics" class="headerlink" title="Semantics"></a>Semantics</h4><p>Two ways to understand the semantics of Bayesian Network:</p>
 <ol>
-<li>degrade the logical operations, e.g. imply,  to the most basic three operations: and, or and not</li>
-<li>go to the set theory, find the corresponding set of the logical expression and calculate the probability of the set</li>
+<li>as a representation of the joint probability distribution</li>
+<li>as an encoding of a collection of conditional independence statements.</li>
 </ol>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Toothache</th>
-<th>Toothache</th>
-<th>no toothache</th>
-<th>no toothache</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-</td>
-<td>catch</td>
-<td>no catch</td>
-<td>catch</td>
-<td>no catch</td>
-</tr>
-<tr>
-<td>cavity</td>
-<td>0.108</td>
-<td>0.012</td>
-<td>0.072</td>
-<td>0.008</td>
-</tr>
-<tr>
-<td>no cavity</td>
-<td>0.016</td>
-<td>0.064</td>
-<td>0.144</td>
-<td>0.576</td>
-</tr>
-</tbody></table>
-<p>$P(toothache)$​​​? find the corresponding set  the left two columns $P(toothache)=0.108+0.016+0.012+0.064=0.2$</p>
-<p>$P(toothache=&gt;cavity)$?</p>
+<h4 id="Structures"><a href="#Structures" class="headerlink" title="Structures"></a>Structures</h4><p>$$<br>X\perp Z|Y,\neg X\perp Z<br>$$</p>
+<ul>
+<li>$x\leftarrow y\to z$: common cause</li>
+<li>$x\leftarrow y\leftarrow z$: indirect evidential effect</li>
+<li>$x\to y\to z$: indirect causal effect</li>
+</ul>
+<p>$$<br> \neg X\perp Z|Y, X\perp Z<br>$$</p>
+<ul>
+<li>$x\to y \leftarrow z$: common effect</li>
+</ul>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="Build-algorithm"><a href="#Build-algorithm" class="headerlink" title="Build algorithm"></a>Build algorithm</h3><ol>
+<li><p>Nodes: </p>
 <ol>
-<li><p>degrade into and, or and not: $A\Rightarrow B\Leftrightarrow \lnot A\vee B$</p>
+<li>determine the set of variables that are required to model the domain.</li>
+<li>Order them ${X_1,\cdots,X_n}$. <strong>Any order will work</strong>. But the resulting network will be more compact if the variables are ordered such that causes precede effects.</li>
+</ol>
 </li>
-<li><p>not toothache correspondents to the right two columnes, cavity correspondents to the first row. Then take the union of them.</p>
-<p>$= 0.108+0.012+0.072+0.008+0.144+0.576=0.92$</p>
+<li><p>Links: For each $X_i$ do:</p>
+<ol>
+<li>find the <em>minimal parent subset A</em> from ${1,2,\cdots,i-1}$​, s.t. $P(X_i|{1,2,\cdots,i-1})=P(X_i|A)$​ <ul>
+<li>in some way, minimal means direct influence.  For example, some variable in ${1,2,\cdots,i-1}$ may have indirect influence on $X_i$, through a variable $X_k$. Then, if we include $X_k$, they are excluded.</li>
+</ul>
+</li>
+<li>for each parent $X_k$ in A, insert a link from $X_k$ to $X_i$ </li>
+<li>write down the conditional probability table.</li>
+</ol>
 </li>
 </ol>
+<h3 id="Identification-of-conditional-independence"><a href="#Identification-of-conditional-independence" class="headerlink" title="Identification of conditional independence"></a>Identification of conditional independence</h3><p>Not independent/dependent can transmit conditions. That means if we know some condition, all variables not independent of it are known or partially known.</p>
+<p>Given a Bayesian network, how to find the independence relationship between variables from the network structures?</p>
+<p>An important theorem says:</p>
+<p>$$<br>\text{d-sep}(X;Y|Z)\Rightarrow (X\perp Y)|Z<br>$$<br>converse does not hold in general, but for “almost” all distributions.</p>
+<h4 id="d-separation"><a href="#d-separation" class="headerlink" title="d-separation"></a>d-separation</h4><p> This term describes a structural relation between variables in a given network. We can connect this structural relation with independence relation.</p>
+<p>Given observed variables $O$​, any variables Xi and Xj for which there is <strong>no active trail</strong> are called <em>d-separated</em> by $O$​.  Written as $\text{d-sep}(X_i;X_j|O) $​</p>
+<ul>
+<li><p>active trail: an undirected path in BN structure G is called active trail for observed variables $O\subset{X_1,X_2,\cdots,X_n}$​, if for every consecutive triple of vars $X,Y,Z$ on the path</p>
+<ul>
+<li>$X\to Y\to Z,Y\notin O$</li>
+<li>$ X\gets Y\gets Z,Y\notin O$</li>
+<li>$ X\gets Y\to Z,Y\notin O$</li>
+<li>$X\to Y\gets Z$, and $Y$ or any of $Y$’s descendants is observed.</li>
+</ul>
+</li>
+<li><p>linear time algorithm for d-separation: find all nodes active trail reachable from $X$</p>
+<ol>
+<li><p>mark $Z$ and its ancestors</p>
+</li>
+<li><p>do breath-first search starting from $X$; stop if path is blocked</p>
+</li>
+</ol>
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -778,8 +671,8 @@
                                     <span class="chip bg-color">Reinforcement Learning</span>
                                 </a>
                             
-                                <a href="../tags/Probability-Theory/">
-                                    <span class="chip bg-color">Probability Theory</span>
+                                <a href="../tags/Bayesian/">
+                                    <span class="chip bg-color">Bayesian</span>
                                 </a>
                             
                         </div>
@@ -1241,13 +1134,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="../pai-04/">
+                <a href="../pai-01/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/0.jpeg" class="responsive-img" alt="Bayesian Network 2 - Inference">
+                        <img src="../medias/featureimages/2.jpeg" class="responsive-img" alt="PAI1 Foundantion">
                         
-                        <span class="card-title">Bayesian Network 2 - Inference</span>
+                        <span class="card-title">PAI1 Foundantion</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1258,7 +1151,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-23
                         </span>
                         <span class="publish-author">
                             
@@ -1283,8 +1176,8 @@
                         <span class="chip bg-color">Reinforcement Learning</span>
                     </a>
                     
-                    <a href="../tags/Bayesian/">
-                        <span class="chip bg-color">Bayesian</span>
+                    <a href="../tags/Probability-Theory/">
+                        <span class="chip bg-color">Probability Theory</span>
                     </a>
                     
                 </div>
@@ -1298,13 +1191,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../pai-03/">
+                <a href="../aa-review/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/4.jpeg" class="responsive-img" alt="Bayesian Network 1 - Basic">
+                        <img src="../medias/featureimages/13.jpeg" class="responsive-img" alt="Advanced algorithms review notes">
                         
-                        <span class="card-title">Bayesian Network 1 - Basic</span>
+                        <span class="card-title">Advanced algorithms review notes</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1315,14 +1208,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/Learning-Notes/" class="post-category">
-                                    Learning Notes
+                            <a href="../categories/Sharing/" class="post-category">
+                                    Sharing
                                 </a>
                             
                             
@@ -1332,16 +1225,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/AI/">
-                        <span class="chip bg-color">AI</span>
-                    </a>
-                    
-                    <a href="../tags/Reinforcement-Learning/">
-                        <span class="chip bg-color">Reinforcement Learning</span>
-                    </a>
-                    
-                    <a href="../tags/Bayesian/">
-                        <span class="chip bg-color">Bayesian</span>
+                    <a href="../tags/Algorithm/">
+                        <span class="chip bg-color">Algorithm</span>
                     </a>
                     
                 </div>

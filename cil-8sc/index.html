@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Reinforcement Learning, Travling,Coding,Food,Learning">
+    <meta name="keywords" content="CIL8 Sparse Coding, Travling,Coding,Food,Learning">
     <meta name="description" content="Warning! You accidentally rushed into Lulu&#39;s secret garden. Here, everything is created by heart.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Reinforcement Learning | Fululu</title>
+    <title>CIL8 Sparse Coding | Fululu</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="../medias/logo_fu.ico">
 
     <link rel="stylesheet" type="text/css" href="../libs/awesome/css/all.css">
@@ -291,12 +291,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/5.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/0.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Reinforcement Learning</h1>
+                    <h1 class="description center-align post-title">CIL8 Sparse Coding</h1>
                 </div>
             </div>
         </div>
@@ -420,16 +420,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../tags/AI/">
-                                <span class="chip tag-color">AI</span>
-                            </a>
-                        
-                            <a href="../tags/Reinforcement-Learning/">
-                                <span class="chip tag-color">Reinforcement Learning</span>
-                            </a>
-                        
-                            <a href="../tags/Bayesian/">
-                                <span class="chip tag-color">Bayesian</span>
+                            <a href="../tags/Machine-Learning/">
+                                <span class="chip tag-color">Machine Learning</span>
                             </a>
                         
                     </div>
@@ -453,7 +445,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-01-29
+                    2019-07-22
                 </div>
                 
 
@@ -464,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    10 Min
+                    4 Min
                 </div>
                 
 
@@ -479,184 +471,109 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>The data is assumed to be drawn from some distributions. In reinforcement learning, we learn by interacting with environment. For example, one agent could perform some actions, and these actions will give him different rewards. He wants to learn how to take actions. One big issue is that the reward is based on a sequence of actions, not only one action. Considering the case that a sequence of actions leads to some reward, how to figure out exactly which action is responsible for this reward. Generally, it is impossible. We need some assumptions.</p>
-<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>RL = planning in unknown MDPs. </p>
+                <h1 id="Sparse-Coding"><a href="#Sparse-Coding" class="headerlink" title="Sparse Coding"></a>Sparse Coding</h1><p>Encode an entity by fewer digits. What we need: a dictionary to encoding and the input signal. We will return the output signal.</p>
 <ul>
-<li>not know the transition probability</li>
-<li>not know the rewards</li>
-<li>may not even know the states.</li>
+<li>how to build the dictionary or find the suitable basis?<ul>
+<li>Fixed ahead: Fourier, wavelet</li>
+<li>Build according to the data: PCA.</li>
 </ul>
-<p>In this way, how to come up a policy to react?</p>
-<p>A central object is the value function. In order to solve MDPs, we need to solve the value function.</p>
-<p>Difference from supervised learning:</p>
-<ul>
-<li>in RL, the data we get depends on what we did. The data is not i.i.d.</li>
-<li>what we do will affect what we learn</li>
-<li>have rewards. Not only achieve to learn a good model, but also a good policy to how to act to get a good reward.</li>
-</ul>
-<p>Main tasks:</p>
-<ul>
-<li>explore: how to act to get more knowledge of the world?</li>
-<li>exploit: once knowing the world, how to act to get a good reward?</li>
-</ul>
-<p>Types:</p>
-<ul>
-<li>on-policy RL: agents have full control over which actions to pick</li>
-<li>off-policy RL: agents have no control over actions, only gets observational data. </li>
-</ul>
-<h1 id="Assumptions"><a href="#Assumptions" class="headerlink" title="Assumptions"></a>Assumptions</h1><ul>
-<li><p>Markovian: the actions only depend on the current state, instead of past states.</p>
-</li>
-<li><p>finite states</p>
-</li>
-<li><p>finite actions</p>
 </li>
 </ul>
-<h1 id="Approaches"><a href="#Approaches" class="headerlink" title="Approaches"></a>Approaches</h1><ul>
-<li>model-based RL:<ol>
-<li>learn the MDP<ul>
-<li>estimate the transition probabilities $P(x’|x,a)$</li>
-<li>estimate reward function $r(x,a)$</li>
+<h2 id="Key-idea"><a href="#Key-idea" class="headerlink" title="Key idea"></a>Key idea</h2><p>the dictionary should be orthogonal!</p>
+<h2 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/YZXnuaa/article/details/80054179">csdn</a></p>
+<p>Using as little resource as possible to learn as much knowledge as possible and accelerate the speed.</p>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="Fourier"><a href="#Fourier" class="headerlink" title="Fourier"></a>Fourier</h3><p>basis functions:<br>$$<br>f(k)=\sum_na_n\sin(\omega_n k)<br>$$</p>
+<ul>
+<li><p>continuous: $a_n=\frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin nx \mathrm{d}x$</p>
+</li>
+<li><p>discrete: $a_n = \sum_{k=1}^N x_k\sin(\omega_n k)$<br>$$<br>f(x)=\sum_{n=1}\frac{4}{(2n-1)\pi}\sin(2n-1)x<br>$$</p>
+</li>
+<li><p>not sufficient for localized signals</p>
+</li>
+</ul>
+<h4 id="In-2-D"><a href="#In-2-D" class="headerlink" title="In 2-D"></a>In 2-D</h4><ul>
+<li>procedure:<ul>
+<li>first take FT of the columns then FT of the rows. can be interchanged</li>
 </ul>
 </li>
-<li>optimize policy based on estimated MDP</li>
+<li>Interpretation:<ul>
+<li>large changes in the pixel values: high frequency, e.g. edges, background objects.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Discrete-cosine-transform"><a href="#Discrete-cosine-transform" class="headerlink" title="Discrete cosine transform"></a>Discrete cosine transform</h3><ul>
+<li><p>1-D: $z_k=\sum_{n=0}^{N-1}x_n\cos\frac{(2n+1)\pi k}{2N}$​​​​</p>
+</li>
+<li><p>2-D: $z_{k_1, k_2}=\sum_{n_1=0}^{N_1-1}\sum_{n_2=0}^{N_2-1}\cos\frac{(2n_1+1)\pi k_1}{2N_1}\cos\frac{(2n_2+1)\pi k_2}{2N_2}$</p>
+</li>
+</ul>
+<h3 id="Wavelet"><a href="#Wavelet" class="headerlink" title="Wavelet"></a>Wavelet</h3><h4 id="Haar-Wavelet"><a href="#Haar-Wavelet" class="headerlink" title="Haar Wavelet"></a>Haar Wavelet</h4><ul>
+<li>Construction: all basis functions have zero mean, that’s why we add (1,1,…,1) vectors.</li>
+<li>use the <strong>mother wavelet</strong> to create the other Haar functions.</li>
+<li>use the scaling function to normalize it.</li>
+</ul>
+<h3 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h3><p>PCA is too sensitive to noise. That is it is only valid for data having the Gaussian distribution.</p>
+<h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><h3 id="1-D-signal"><a href="#1-D-signal" class="headerlink" title="1-D signal"></a>1-D signal</h3><h3 id="2-D-signal"><a href="#2-D-signal" class="headerlink" title="2-D signal"></a>2-D signal</h3><ul>
+<li>how to do Fourier/wavelet transform on 2-d signals?</li>
+</ul>
+<h1 id="Overcomplete-Dictionary"><a href="#Overcomplete-Dictionary" class="headerlink" title="Overcomplete Dictionary"></a>Overcomplete Dictionary</h1><h2 id="Key-idea-1"><a href="#Key-idea-1" class="headerlink" title="Key idea"></a>Key idea</h2><p>do sparse coding by using a very large dictionary. Try to find the optimally <strong>sparse</strong> encoding for all the data.</p>
+<ul>
+<li>why to encode sparsely? The advantage of doing so?<ul>
+<li>maybe find clusters? Like, four clusters nodes in 3-D. They are sprayed into four clusters. If we use 4-D vectors to encode these points, the encoded vectors will be quite sparse. For example, in the original 3-D coding, we use 1-256 for each dimension, totally, we need 256*3 bits. But in the 4-D coding, we use 0,1 for each dimension, we need 2*4 bits. That makes sense.</li>
+</ul>
+</li>
+<li>how to do this?<ul>
+<li>pick atoms from <strong>a union</strong> of bases, (not just one set of orthogonal basis), each one responsible for one characteristic.</li>
+</ul>
+</li>
+<li>Compared to the former method, the bases are <strong>no</strong> longer linearly independent. <ul>
+<li>the representation of $x$ in terms of  $u_1,u_2,\cdots, u_l$is <strong>not unique</strong>.</li>
+</ul>
+</li>
+</ul>
+<p>Goal: want to find sparse representation $z$ of $x$​<br>$$<br>z^\ast\in\arg\min_{z\in R^l}|z|_0<br>$$<br>where $Uz=x, U=[u_1|u_2|\cdots|u_n]$ . Here  $|z|_0$ counts the number of non-zero elements.</p>
+<p>This is a NP-hard problem.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="Gabor-wavelet"><a href="#Gabor-wavelet" class="headerlink" title="Gabor wavelet"></a>Gabor wavelet</h3><ul>
+<li>have a look of this.</li>
+</ul>
+<h2 id="Coherence"><a href="#Coherence" class="headerlink" title="Coherence"></a>Coherence</h2><h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p>$$<br>m(U)=\max_{i,j,i\neq j}|u_i^\top u_j|<br>$$</p>
+<p>it measures the linear dependency for a dictionary</p>
+<h3 id="Property"><a href="#Property" class="headerlink" title="Property"></a>Property</h3><ul>
+<li>why a new atom $u$ added to orthogonal B, will lead to the coherence increasing at least $\frac{1}{\sqrt{D}}$</li>
+</ul>
+<h2 id="Reconstruction"><a href="#Reconstruction" class="headerlink" title="Reconstruction"></a>Reconstruction</h2><ul>
+<li>what is the object of signal reconstruction? $X$ or $Z$? To reconstruct the original signal $X$? Or represent $X$ by $Z$? Find $X$ or find $Z$?</li>
+<li>how to solve for the general dictionary?</li>
+</ul>
+<h3 id="Methods-1"><a href="#Methods-1" class="headerlink" title="Methods"></a>Methods</h3><h4 id="Matching-pursuit"><a href="#Matching-pursuit" class="headerlink" title="Matching pursuit"></a>Matching pursuit</h4><ul>
+<li>procedure<ol>
+<li>initialize: residual $r_0\leftarrow x$​ and approximation $\hat{x}_0=0$</li>
+<li>repeat:<ol>
+<li>find $j^\ast=\arg\max_j|\langle r_i, u_j\rangle|$</li>
+<li>compute better approximation$\hat{x}<em>{i+1}\leftarrow \hat{x}<em>i +\langle r_i, u</em>{j^\ast} \rangle u</em>{j^\ast}$​ </li>
+<li>update residual $r_{i+1}\leftarrow r_i - \langle r_i, u_{j^\ast}\rangle u_{j^\ast}$</li>
 </ol>
 </li>
-<li>model-free RL:<ul>
-<li>jump the transition probabilities, or reward function, but directly to estimate, what we need to learn to make a policy, <em>the value function</em></li>
-<li>policy gradient methods: constraint to some specific families of policy. Turn into an optimization problem.</li>
-<li>actor-critic methods: combine both of them: create values, limit to some families of policies.</li>
-</ul>
-</li>
-</ul>
-<h2 id="Model-based"><a href="#Model-based" class="headerlink" title="Model-based"></a>Model-based</h2><p>The data set looks like: $x_1,a_1,r_1,x_2,a_2,r_2,\cdots$  given an observation $x_i$, take an action $a_i$ and get a reward $r_i$, which leads to the next observation $x_{i+1}$.</p>
-<p>Elements: $(x_i,a_i,r_i,x_{i+1})$ are independent from each other.</p>
-<p>$D = {(x_i,a_i,r_i,x_{i+1})},$ expressed in this way, we can do counting on the elements.</p>
-<p>MDP can be viewed as controlled Markov chain. </p>
-<ul>
-<li><p>estimate transitions MLE:</p>
-<p> $$<br> \Pr[X_{t+1}|X_t,A]\simeq\frac{Count(X_{t+1},X_t,A)}{Count(X_t,A)}<br> $$</p>
-</li>
-<li><p>estimate rewards:</p>
-<p> $$<br> r(x,a)\simeq\frac{1}{N_{x,a}}\sum_{t:X_t=   x,A_t=   a}R_t<br> $$</p>
-</li>
-</ul>
-<p>How accurate could the estimation be? More data will give more accurate estimations.</p>
-<h3 id="Trade-off-exploration-and-exploitation"><a href="#Trade-off-exploration-and-exploitation" class="headerlink" title="Trade-off exploration and exploitation"></a>Trade-off exploration and exploitation</h3><ul>
-<li><p>pick a random action</p>
-<ul>
-<li>exploration: will eventually correctly estimate all probabilities and rewards.</li>
-<li>exploitation: may do extremely poorly in terms of rewards. Because each action is independent from others, not a “good” policy</li>
-</ul>
-</li>
-<li><p>pick the currently “best” action</p>
-<ul>
-<li>exploration: can get stuck in suboptimal actions, local best</li>
-<li>exploitation: can yield some reward.</li>
-</ul>
-</li>
-<li><p>combination these two, using <strong>randomized</strong> strategies, called epsilon-greedy.</p>
-<ul>
-<li>with probability epsilon: pick a random action</li>
-<li>with probability 1-epsilon: pick the best action.</li>
-</ul>
-<p>If epsilon satisfies some condition, it will converge to optimal policy with probability 1.</p>
-<p>Condition: <strong>Robbins Monro condition</strong> </p>
-<ul>
-<li>Potential issue: the random action doesn’t rule out purely bad actions.</li>
-</ul>
-</li>
-<li><p>The Rmax algorithm: the principle is <em>optimism in the face of uncertainty</em>. When an action is unknown, try it!</p>
-<p>Assume the reward has a upper bound Rmax</p>
-<ul>
-<li>if you don’t know $r(x,a)$: set it to Rmax. That means try this action.</li>
-<li>if you don’t know $P(x’|x,a)$: set $P(x’|x,a)=1$. That means explore a new state.</li>
-</ul>
-</li>
-</ul>
-<h3 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h3><ul>
-<li>memory:  store $P(x’|x,a)\Rightarrow O(|x|^2|A|)$, store $r(x,a)\Rightarrow O(|X||A|)$</li>
-<li>time: solving once MDP requires $poly(|X|,|A|,1/\epsilon,\log(1/delta)$. Need to do this often. </li>
-</ul>
-<h2 id="Model-free"><a href="#Model-free" class="headerlink" title="Model-free"></a>Model-free</h2><p>According to Theorem Bellman, once we have the optimal value function, we can get a greedy policy, which is optimal.</p>
-<p>$Q^{\pi}(x,a)$​ : the expected reward of a policy $\pi$​, given the state and action pair $(x,a)$</p>
-<p>$$<br>Q^{\pi}(x,a)=   r(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V^{\pi}(x’)<br>$$<br>For the optimal policy $\pi^\ast$: It holds  </p>
-<p>$$<br>V^*(x)=   \max_a Q^*(x,a)<br>$$<br>The key idea is to estimate $Q^\ast(x,a)$ from samples.</p>
-<h3 id="Q-learning"><a href="#Q-learning" class="headerlink" title="Q-learning"></a>Q-learning</h3><p>To estimate the best policy’s Q function, which is  </p>
-<p>$$<br>Q^*(x,a)=   r(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V^*(x’)<br>$$<br>instead of using transition probability to get the exact expectation, we estimate from on instance $(x,a,x’)$.<br>$$<br>Q(x,a)\gets r(x,a)+\gamma V^*(x’)=   r(x,a)+\gamma\max_{a’} Q(x’,a’)<br>$$</p>
-<p>To trade-off huge variance from just one sample, we weight this update by alpha</p>
-<p>$$<br>Q(x,a)\gets (1-\alpha_t)Q(x,a)+\alpha_t(r(x,a)+\gamma\max_{a’} Q(x’,a’))<br>$$<br>$\alpha$: usually decrease along the time. means: at the beginning we put much weight on a new sample. Later, we put less and less.</p>
-<h4 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h4><p>Random version</p>
-<ol>
-<li>have initial estimate of $Q(x,a)$</li>
-<li>observe transition $x,a,x’$ with reward $r$. Update $Q(x,a)$ for long enough times.</li>
 </ol>
-<p>Optimistic algorithm, similar to $R_{\max}$:</p>
-<p>starting with an optimistic initialization. But only $R_{\max}$ is not enough, have to consider the discount effect and weight effect.</p>
-<ol>
-<li>initialize $Q(x,a)\gets\frac{R_{max}}{1-\gamma}\prod_{t=   1}^{T_{init}}(1-\alpha_t)^{-1}$</li>
-</ol>
-<h4 id="Convergence"><a href="#Convergence" class="headerlink" title="Convergence"></a>Convergence</h4><p><strong>Theorem</strong> for random: If learning rate alpha satisfies:</p>
-<ul>
-<li>never stops updating: $ \sum_t\alpha_t=   \infty$</li>
-<li>later samples have smaller weights: $\sum_t\alpha_t^2&lt;\infty$</li>
-<li>and actions are chosen at random</li>
-</ul>
-<p>Then</p>
-<p>$Q$ learning converges to optimal $Q^\ast$ with probability 1.</p>
-<p><strong>Theorem</strong> for optimistic: With probability $1-\delta$, optimistic Q-learning obtains an $\epsilon$​-approximation policy after a number of time steps that is polynomial in $|X|,|A|, 1/\epsilon$ and $\log(1/\delta)$.</p>
-<h4 id="Complexity-1"><a href="#Complexity-1" class="headerlink" title="Complexity"></a>Complexity</h4><ul>
-<li>memory: store the Q-table: $Q(x,a): O(|X||A|)$</li>
-<li>time: <ul>
-<li>update per sample: find the action which gives the maximum $Q(x’,a’)$, $O(|A|)$ </li>
-<li>iterations: polynomial in $|X|,|A|, 1/\epsilon$ and $\log(1/\delta)$</li>
+</li>
+<li>Convergence: is the $\hat{x}_i\to x$ ?<ul>
+<li>Yes, it is. We can prove that by proving $|r_i|_2^2\to 0$</li>
+<li>we can prove that by proving $\frac{|r_{i+1}|_2^2}{|r_i|_2^2}\leq \gamma. \exists\gamma &lt; 1$ </li>
+<li>the last condition can be satisfied when $u$ span $\mathbb{R}^n$</li>
 </ul>
 </li>
+<li>Residual minimization<ul>
+<li>matching pursuit greedily reduces the residual energy at every iteration.</li>
+<li>it can be proved that minimize the residual equals to maximize the parameters with the condition of orthogonal.<ul>
+<li>the orthogonal only aims at the current selected atom. The residual is orthogonal to this atom, but may not be orthogonal to other atoms. The basis atoms don’t need to be orthogonal to each other.</li>
 </ul>
-<h4 id="Parametric-Q-function-approximation"><a href="#Parametric-Q-function-approximation" class="headerlink" title="Parametric Q-function approximation"></a>Parametric Q-function approximation</h4><p>The general idea is that we don’t update the entries of $Q$ table one by one in the update, but use some parameters to calculate the the entries and update the parameters in each step. In this way, we turn the question into an optimization problem and can solve it by approximation. Also, this approach allows us to go from the finite tabular $Q$ to infinite $Q$.</p>
-<p>At convergence, we want:</p>
-<p>$$<br>Q(x,a)=   \mathbb{E}<em>{(r,x’)|x,a}(r+\gamma\max</em>{a’}Q(x’,a’))<br>$$</p>
-<p>$$<br>\Rightarrow\mathbb{E}<em>{(r,x’,x,a)}(Q(x,a)-r-\gamma\max</em>{a’}Q(x’,a’))=   0<br>$$</p>
-<p>$$<br>\Rightarrow\min_{\theta}\mathbb{E}<em>{(r,x’,x,a)}[Q(x,a)-r-\gamma\max</em>{a’}Q(x’,a’)]^2<br>$$</p>
-<p>In this way, we can use mean to approximate expectation.</p>
-<p>Example of parametric $q$-function: linear function approximation: $Q(x,a;\theta)=   \theta^T\phi(x,a)$ </p>
-<p>Fit parameters to data: define the loss function on parameters as:</p>
-<p>$$<br>L(\theta)=   \sum_{(x,a,r,x’)\in D}(r+\gamma\max_{a’}Q(x’,a’;\theta^{old})-Q(x,a;\theta))^2<br>$$</p>
-<p>So, the goal is to find parameters to minimize the loss function:</p>
-<p>$$<br>\theta^*=   \arg_{\theta}\min L(\theta)<br>$$</p>
-<ul>
-<li>label: the estimation of Q entry given the observed sample:$r+\gamma\max_{a’}Q(x’,a’;\theta^{old})$</li>
-<li>prediction given theta: $ Q(x,a;\theta))$</li>
-</ul>
-<h4 id="Deep-learning"><a href="#Deep-learning" class="headerlink" title="Deep learning"></a>Deep learning</h4><p>Recall what deep learning does: deep learning is a tool to solve the loss minimization problem, given data:</p>
-<p>$$<br>w^*=   \arg_w\min \sum_{i=   1}^N l(y_i,f(x_i;w))<br>$$<br>by fitting nested nonlinear function of $f(x;w)$</p>
-<h4 id="Deep-Q-Networks"><a href="#Deep-Q-Networks" class="headerlink" title="Deep Q Networks"></a>Deep Q Networks</h4><p>this is a variant of Q-learning:</p>
-<ul>
-<li>use convolutional neural nets to approximate Q function</li>
-<li>important empirical insights:<ul>
-<li><p>maintain constant “target” values across episodes. save the initial labels as y, and use these ys throughout training, instead of calculating new label in each iteration.</p>
-</li>
-<li><p>double DQN: two networks, use old parameters to evaluate Q function, but new parameters for action selection. Want to use old parameters to calculate the value to avoid oscillations. Current parameters are more closed to the policy would do.</p>
-<p> $$<br>L(\theta)=   \sum_{(x,a,r,x’)\in D}(r+\gamma Q(x’,\hat{a}(x,\theta);\theta^{old})-Q(x,a;\theta))^2<br>$$<br>where $ \hat{a}(x,\theta)=   \arg_{a’}\max Q(x,a’,\theta)$</p>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="Policy-search-methods"><a href="#Policy-search-methods" class="headerlink" title="Policy search methods"></a>Policy search methods</h3><p>Learning a policy without the detour of learning a value function.</p>
-<p>Given a policy, do forward sampling on the controlled Markov chain and evaluate this policy $J(\theta)$. Then, adjust the parameters by gradient descent or other methods to get a new policy.</p>
-<h4 id="Bayesian-Learning-for-policy-search"><a href="#Bayesian-Learning-for-policy-search" class="headerlink" title="Bayesian Learning for policy search"></a>Bayesian Learning for policy search</h4><p>Go beyond point estimation, but the whole distribution.</p>
-<p>Using the Bayesian, on the data domain, find which part we are not certain about and which part we are certain about and then guide the samples drawing procedure.</p>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>Model-based MDP and model-free RL are polynomial in $|A|$​​ and $|X|$​​. However, structured domains $(|A|,|X|$​​ exponential in Nr. agents $)$​ and continuous domains $(|A|$​ and $|X|$​​ are infinite$)$ are not applicable.</p>
-<h1 id="Outlook"><a href="#Outlook" class="headerlink" title="Outlook"></a>Outlook</h1><h2 id="Bayesian-Deep-RL"><a href="#Bayesian-Deep-RL" class="headerlink" title="Bayesian Deep RL"></a>Bayesian Deep RL</h2><p>Express the uncertainty of the model itself, by maintaining multiple models, ensemble of models.</p>
-<p>How to go beyond point estimate’s uncertainty?</p>
-<h2 id="Improving-action-selection-by-planning"><a href="#Improving-action-selection-by-planning" class="headerlink" title="Improving action selection by planning"></a>Improving action selection by planning</h2><p>Beyond one-step transitions, multiple steps forward to plan. </p>
-<h2 id="Risk-in-exploration"><a href="#Risk-in-exploration" class="headerlink" title="Risk in exploration"></a>Risk in exploration</h2><h3 id="Safe-Bayesian-optimization"><a href="#Safe-Bayesian-optimization" class="headerlink" title="Safe Bayesian optimization"></a>Safe Bayesian optimization</h3><p>not only consider the reward, but also maintains safety constraints. Try to never violate these constraints. Formally, $\max f(x), s.t. g(x)\geq\tau)$</p>
-<p>One challenge is that none of $f(x), g(x)$ are given in closed form, access only via noisy black box.</p>
-<p>Approach: </p>
-<ol>
-<li>find a safe start point</li>
-<li>go to reachable optimal points, instead of global optimal.</li>
-</ol>
+<h4 id="Convex-optimization"><a href="#Convex-optimization" class="headerlink" title="Convex optimization"></a>Convex optimization</h4><ul>
+<li>try to find under which condition of U, can this two problem, 0-norm and 1-norm, be equivalent?</li>
+</ul>
 
             </div>
             <hr/>
@@ -720,16 +637,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../tags/AI/">
-                                    <span class="chip bg-color">AI</span>
-                                </a>
-                            
-                                <a href="../tags/Reinforcement-Learning/">
-                                    <span class="chip bg-color">Reinforcement Learning</span>
-                                </a>
-                            
-                                <a href="../tags/Bayesian/">
-                                    <span class="chip bg-color">Bayesian</span>
+                                <a href="../tags/Machine-Learning/">
+                                    <span class="chip bg-color">Machine Learning</span>
                                 </a>
                             
                         </div>
@@ -900,7 +809,7 @@
         repo: 'fuguigui.github.io',
         owner: 'fuguigui',
         admin: ["fuguigui"],
-        id: '2020-01-29T00-00-00',
+        id: '2019-07-22T00-00-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1191,13 +1100,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="../sysml-ti-qian-kan/">
+                <a href="../cn07/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/4.jpeg" class="responsive-img" alt="SysML提前看">
+                        <img src="../medias/featureimages/12.jpeg" class="responsive-img" alt="CN7 Scale-Free Network and limitations of Ensemble Studies">
                         
-                        <span class="card-title">SysML提前看</span>
+                        <span class="card-title">CN7 Scale-Free Network and limitations of Ensemble Studies</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1208,14 +1117,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-24
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-07-23
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../categories/Reading-Summary/" class="post-category">
-                                    Reading Summary
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
                                 </a>
                             
                             
@@ -1225,20 +1134,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/System/">
-                        <span class="chip bg-color">System</span>
+                    <a href="../tags/Graph/">
+                        <span class="chip bg-color">Graph</span>
                     </a>
                     
-                    <a href="../tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine Learning</span>
-                    </a>
-                    
-                    <a href="../tags/Security/">
-                        <span class="chip bg-color">Security</span>
-                    </a>
-                    
-                    <a href="../tags/Privacy/">
-                        <span class="chip bg-color">Privacy</span>
+                    <a href="../tags/Complex-System/">
+                        <span class="chip bg-color">Complex System</span>
                     </a>
                     
                 </div>
@@ -1252,13 +1153,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../pai-05/">
+                <a href="../cn06/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/9.jpeg" class="responsive-img" alt="Reasoning over Time">
+                        <img src="../medias/featureimages/8.jpeg" class="responsive-img" alt="CN6 Generating function applications">
                         
-                        <span class="card-title">Reasoning over Time</span>
+                        <span class="card-title">CN6 Generating function applications</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1269,7 +1170,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-07-19
                             </span>
                         <span class="publish-author">
                             
@@ -1286,20 +1187,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../tags/AI/">
-                        <span class="chip bg-color">AI</span>
+                    <a href="../tags/Graph/">
+                        <span class="chip bg-color">Graph</span>
                     </a>
                     
-                    <a href="../tags/Reinforcement-Learning/">
-                        <span class="chip bg-color">Reinforcement Learning</span>
-                    </a>
-                    
-                    <a href="../tags/Bayesian/">
-                        <span class="chip bg-color">Bayesian</span>
-                    </a>
-                    
-                    <a href="../tags/Markov/">
-                        <span class="chip bg-color">Markov</span>
+                    <a href="../tags/Complex-System/">
+                        <span class="chip bg-color">Complex System</span>
                     </a>
                     
                 </div>

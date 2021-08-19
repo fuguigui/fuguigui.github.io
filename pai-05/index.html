@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Reasoning over Time, Travling,Coding,Food,Learning">
+    <meta name="keywords" content="PAI5 Probabilistic Planning, Travling,Coding,Food,Learning">
     <meta name="description" content="Warning! You accidentally rushed into Lulu&#39;s secret garden. Here, everything is created by heart.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Reasoning over Time | Fululu</title>
+    <title>PAI5 Probabilistic Planning | Fululu</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="../medias/logo_fu.ico">
 
     <link rel="stylesheet" type="text/css" href="../libs/awesome/css/all.css">
@@ -291,12 +291,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/9.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/5.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Reasoning over Time</h1>
+                    <h1 class="description center-align post-title">PAI5 Probabilistic Planning</h1>
                 </div>
             </div>
         </div>
@@ -428,10 +428,6 @@
                                 <span class="chip tag-color">Reinforcement Learning</span>
                             </a>
                         
-                            <a href="../tags/Bayesian/">
-                                <span class="chip tag-color">Bayesian</span>
-                            </a>
-                        
                             <a href="../tags/Markov/">
                                 <span class="chip tag-color">Markov</span>
                             </a>
@@ -468,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    4 Min
+                    9 Min
                 </div>
                 
 
@@ -483,68 +479,173 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Before, we talk about static models, which means variables don’t change possible values. For temporal models, in which variables’ value states can change over time, approaches are generated from static model:</p>
-<p>The basic idea is to create “copies” of variables, one per time step.</p>
-<p>??? How should we model dependence over time? That is the dependence between variables.</p>
-<p>A very natural kind of model is Markov chain. </p>
-<p>Markov chain can have orders: k-order means the current event depends only on the previous k events. k-order Markov chain can be easily reduced into 1-order Markov chain by creating k-length vectors.</p>
-<h1 id="Inference-Tasks"><a href="#Inference-Tasks" class="headerlink" title="Inference Tasks"></a>Inference Tasks</h1><p>Settings:</p>
+                <p>How do we use inference we keep tracking over time in order to act? </p>
+<h1 id="Markov-Decision-Process"><a href="#Markov-Decision-Process" class="headerlink" title="Markov Decision Process"></a>Markov Decision Process</h1><p>An essential model studied in the context of decision making under uncertainty. The most basic model in making inference is Markov chain. MDP is the most basic model in making decisions, which is controlled Markov chain.</p>
+<p>An MDP is specified by:</p>
 <ul>
-<li>$X_1,X_2,\cdots,X_T$: unobserved or hidden variables, called states change over time.</li>
-<li>$Y_1, Y_2,\cdots,Y_T$: observations</li>
+<li>a set of states $X={1, 2, \cdots, n}$</li>
+<li>a set of actions $A={1,2,\cdots,m}$</li>
+<li>Transition probabilities: the next state not only depends on the current state, but also on the taken actions. $P(x’|x,a)=\Pr(\text{Next state} = x’|\text{Action } a \text{ in state } x)$​</li>
+<li>A reward function $r(x,a)$: objective: state and action pair. <ul>
+<li>where does the reward come from? An engineering choice. Many works on how to define a good reward function. For instance, reverse reinforcement learning, where I have an ideal series of actions, I want to define a kind of reward to make this series come true.</li>
+<li>This reward function could be deterministic or random. If it is random, we look its expected value.</li>
 </ul>
-<p>Tasks:</p>
-<ul>
-<li>Filtering: given the observations till now, what is the current state? $P(X_t|y_{1:t})$</li>
-<li>Prediction: given the observations, predict the ne$X_t$ state: $P(X_{t+\delta}|y_{1:t})$​</li>
-<li>Smoothing: what is the probability of some event happened before given what are known now.$P(X_t|y_{1:T})$ for $1\leq t\leq T$</li>
-<li>MPE: $\arg \max_{X_{1:T}} P(X_{1:T}|y_{1:T})$. Observing something, what is the most likely path?</li>
+</li>
 </ul>
-<p>These tasks can be solved by previously learned methods, e.g. variable elimination/belief propagation. But one problem is if we want to calculate for $t$, we need to start from the beginning. The complexity grows with time. Therefore, we want some model much efficient. </p>
-<h1 id="State-space-models"><a href="#State-space-models" class="headerlink" title="State space models"></a>State space models</h1><p>In general, a family of models that behave some Markovian process but not directly observed. We only observe some noisy estimates. Some examples: Hidden Markov model, Kalman Filter.</p>
-<p>Particularly, we assume:</p>
+<p>The problem is how to choose actions to maximize rewards. </p>
+<h2 id="Planning-in-MDPs"><a href="#Planning-in-MDPs" class="headerlink" title="Planning in MDPs"></a>Planning in MDPs</h2><p>Currently, assuming that $r$ reward function and $P$ transition are known.</p>
+<p><strong>Policy</strong> is a function from states to actions. It could be deterministic or stochastic. </p>
+<p>How to compare policies? According to the reward function. Several strategies to use the reward function</p>
 <ul>
-<li><p>Markov property holds over time: the current states only depends on the previous one, not the much older ones.</p>
+<li>sum up the rewards and fix a certain number of future steps. <ul>
+<li>if not fixing a certain step number, the summation could diverge, cannot be compared.</li>
+<li>This is a generalization of naive greedy. Question: what is the certain number? why others?</li>
+</ul>
 </li>
-<li><p>conditional independence: $y_t$ only depends on $x_t$, not the older $x_s$. </p>
-</li>
-<li><p>stationary: the transition probability </p>
+<li>count more on the current step than those in future. Discount calculation. How to make discounts?<br>$$<br>\mathbb{E}[r(X_0,\pi(X_0))+\gamma r(X_1,\pi(X_1))+\gamma^2r(X_2,\pi(X_2))+\cdots]<br>$$</li>
+</ul>
+<p>Assuming that, we have a strategy to score policy, then, what is the optimal policy?</p>
+<h3 id="Value-function"><a href="#Value-function" class="headerlink" title="Value function"></a>Value function</h3><p>Given the starting state x, try to evaluate a policy from a long term view:</p>
+<p>$$<br>V^{\pi}(x)=J(\pi|X_0=x)=\mathbb{E}[\sum_{t=0}^{\infty}\gamma^t r(X_t,\pi(X_t))|X_0=x]<br>$$<br>This is a function on the state. Each state is mapped to one value.</p>
+<p>It has <strong>recursive relation</strong>. What is recursion? </p>
+<p>$$<br>V^{\pi}(x)=r(x,\pi(x))+\gamma\sum_{x’}\Pr[x’|x,\pi(x)]V^{\pi}(x’)<br>$$</p>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>How to solve this function?</p>
+<p>Supposing there are finite states with n states. Then, this is a group of n linear functions with n unknown variables, which have a unique solution when $\gamma&lt;1$. </p>
+<ul>
+<li>for any given start state, we can have the value of the policy</li>
+<li>if the start state is random, we can take the expectation of the policy’s value.</li>
+</ul>
+<h3 id="Policy-finding"><a href="#Policy-finding" class="headerlink" title="Policy finding"></a>Policy finding</h3><p>So far, we know given a policy how to evaluate it. Then, how to find the best policy?</p>
+<ul>
+<li><p>A simple algorithm</p>
 <ol>
-<li><p>$X_i$ to $X_{i+1}$ not dependent on $i$, and </p>
+<li>for every policy pi compute $J(\pi)=\sum_x\Pr[X_0=x]V^{\pi}(x)$  </li>
+<li>pick the policy with the maximum expected value.</li>
+</ol>
+<p>The complexity is linear to the number of polices, which is the number of actions exponential to the number of states $O(m^n)$</p>
 </li>
-<li><p>$X_t$​ to $Y_t$​, not dependent on $t$</p>
-<p>is the same over the time. </p>
+<li><p>A more efficient algorithm. Consider a new setting, we have been told the value of each state, which action to take? An intuition is greedy maximizing the trade-off between the immediate action and the future states. In this way, we achieve a “best” policy. Best under the meaning of our maximize standard.</p>
+<p> $$<br>a^*\in\arg_a\max r(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V(x’)<br>$$</p>
+<ul>
+<li>the <strong>greedy police</strong> is with respect to the value of state.</li>
+</ul>
 </li>
+</ul>
+<p><strong>Theorem</strong> Bellman: A policy is optimal $\Leftrightarrow$ The greedy policy w.r.t its induced value function is itself.</p>
+<p>How to use this theorem to find optimal policy?</p>
+<h4 id="Policy-iteration"><a href="#Policy-iteration" class="headerlink" title="Policy iteration"></a>Policy iteration</h4><p>This is an intuitive way to perform the cycle in the theorem</p>
+<ol>
+<li>Start with an arbitrary, e.g. random policy $\pi$</li>
+<li>until converge, do:<ol>
+<li>compute value function $V^{\pi}(x)$</li>
+<li>compute greedy policy  $\pi_G  w.r.tV^{\pi}$</li>
+<li>set $ \pi\gets\pi_G$</li>
 </ol>
 </li>
-</ul>
-<p>discrete HMM: $X_i$​ categorical, $Y_i$ can be an$Y_t$hing</p>
-<p>continuous Kalman Filters: $X_i, Y_i$: continuous, follow Gaussian distributions</p>
-<h2 id="HMM"><a href="#HMM" class="headerlink" title="HMM"></a>HMM</h2><h3 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h3><h4 id="Filtering"><a href="#Filtering" class="headerlink" title="Filtering"></a>Filtering</h4><p>Answer the question that how to efficiently update our belief of states given the previous states. Formally,</p>
-<p>Given $P(X_t|y_{1\cdots t-1})$ and $y_t$, compute $P(X_t|y{1\cdots t})$</p>
-<p>$$<br>\Pr[X_t|y_{1:t}]=\frac{1}{Z}\Pr[X_t|y_{1:t-1}]\Pr[y_t|X_t,y_{1:t-1}] =\frac{1}{Z}\Pr[X_t|y_{1:t-1}]\Pr[y_t|X_t]<br>$$</p>
-<p>with $ Z=\sum_x\Pr[X_t=x|y_{1:t-1}]\Pr[y_t|X_t=x]$</p>
-<h4 id="Smoothing"><a href="#Smoothing" class="headerlink" title="Smoothing"></a>Smoothing</h4><p>Run sum product to calculate the interested marginals.</p>
-<h4 id="Prediction"><a href="#Prediction" class="headerlink" title="Prediction"></a>Prediction</h4><p>$$<br>\Pr[X_{t+1}|y_{1:t}]=\sum_x\Pr[X_t=x,X_{t+1}|y_{1:t}]=\sum_x \Pr[X_t=x|y_{1:t}]\Pr[X_{t+1}|X_t=x,y_{1:t}]<br>$$</p>
-<p>$$<br>=\sum_x\Pr[X_t=x|y_{1:t}]\Pr[X_{t+1}|X_t=x]<br>$$</p>
-<p>The computation complexity of condition and prediction doesn’t grow with $t$. Reuse what are computed before.</p>
-<h2 id="Kalman-Filter"><a href="#Kalman-Filter" class="headerlink" title="Kalman Filter"></a>Kalman Filter</h2><p>Employing Gaussian properties, encode two stuffs:</p>
+</ol>
+<p>Remark: it only converges to values, not actions. Because there could be several policies with an optimal value.</p>
+<p>Guarantee:</p>
 <ul>
-<li>transition between $X_{t+1}$ and $X_t$​ , Motion model, linear</li>
-<li>transition between $Y_t$ and $X_t$​ , Sensor model, linear</li>
+<li>monotonically improve</li>
+<li>converge to an exact optimal policy <ul>
+<li>in polynomial iterations $O(n^2m/(1-\gamma))$</li>
+<li>in every iteration, the complexity is $  O(n^2\cdot (n+m))$<ul>
+<li>needs to solve a linear system in the number of states $n^2$ for each state n, which is expensive  $O(n^2\cdot n)$ </li>
+<li>Also, for each state $n$, for each action $m$, needs to calculate the value $n$, which is $O(n^2\cdot m)$​</li>
+<li>this complexity can be reduced if a state just reaches some of other states, called sparse MDPS</li>
 </ul>
-<h3 id="Gaussian"><a href="#Gaussian" class="headerlink" title="Gaussian"></a>Gaussian</h3><p>Properties: </p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Value-iteration"><a href="#Value-iteration" class="headerlink" title="Value iteration"></a>Value iteration</h4><p>An alternative approach is to find the value of optimal policy first and then use the greedy policy. For the optimal policy $\pi\ast i_t$ holds</p>
+<p>$$<br>V^*(x)=\max_a r(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V^*(x’)<br>$$</p>
+<p>we can compute $\pi\ast$ using dynamic programming:</p>
+<p>define $V_t(x)$: the maximum expected reward when starting in state $x$ and world ends in $t$ time steps</p>
 <ul>
-<li>marginalization: for Gaussian distribution, marginalization is nothing but indexing/selection.</li>
-<li>conditioning: conditions of Gaussian’s are still Gaussian. The new mean is the original mean, linearly corrected by observations. The new variance is also the original variance, corrected by the covariance and the variance of observations. It shrinks. <em>Variance can only decrease</em>.</li>
-<li>multiplication: a Gaussian random vector multiplied by a constant matrix is still Gaussian.</li>
-<li>summation: sums of Gaussian are Gaussian. New mean: the sum of means. New variance: the sum of variances.</li>
+<li><p>$V_0(x)=\max_ar(x,a)$</p>
+</li>
+<li><p>$V_1(x)=\max_ar(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V_0(x’)$</p>
+</li>
+<li><p>$V_{t+1}(x)=\max_ar(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V_t(x’)$</p>
+</li>
 </ul>
-<h3 id="Inference-1"><a href="#Inference-1" class="headerlink" title="Inference"></a>Inference</h3><h4 id="Filtering-1"><a href="#Filtering-1" class="headerlink" title="Filtering"></a>Filtering</h4><p>How to do filtering fast? </p>
-<p>Similar to HMM, because we utilize the Markov chain structure, which is not changed, change the summation to integral.</p>
-<h4 id="Smoothing-1"><a href="#Smoothing-1" class="headerlink" title="Smoothing"></a>Smoothing</h4><h4 id="Prediction-1"><a href="#Prediction-1" class="headerlink" title="Prediction"></a>Prediction</h4><h4 id="MPE"><a href="#MPE" class="headerlink" title="MPE"></a>MPE</h4><h1 id="Dynamic-Bayesian-Networks"><a href="#Dynamic-Bayesian-Networks" class="headerlink" title="Dynamic Bayesian Networks"></a>Dynamic Bayesian Networks</h1><p>????</p>
-<p>Generalized from state space models, now there are more than one variable in each time step. Also, one variable in the current time can be influenced by several variables previously.</p>
-<h2 id="Particle-filtering"><a href="#Particle-filtering" class="headerlink" title="Particle filtering"></a>Particle filtering</h2><h2 id="Assumed-density-filtering"><a href="#Assumed-density-filtering" class="headerlink" title="Assumed density filtering"></a>Assumed density filtering</h2><p>The key idea is similar to variational inference, that is projecting marginals to simple ones.</p>
+<p>Iterate until convergence.</p>
+<p>Algorithm:</p>
+<ol>
+<li>initialize $V_0(x)=\max_ar(x,a)$</li>
+<li>For $t=1, \cdots, \infty$:<ol>
+<li>For each $x, a$, let $Q_t(x,a)=r(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V_{t-1}(x’)$</li>
+<li>For each $x$ let $V_t(x)=\max_a Q_t(x,a)$</li>
+<li>Break if $ ||V_t-V_{t-1}||<em>{\infty}=\max_x|V_t(x)-V</em>{t-1}(x)|\leq\epsilon$</li>
+</ol>
+</li>
+</ol>
+<p>Guarantee:</p>
+<ul>
+<li><p>converge to $\epsilon$​-optimal policy. The proof is Bellman update, using $V_t$ to update $V_{t+1}$,  is a contraction.<br>$$<br>B:\mathbb{R}^n\to\mathbb{R}^n, B:V\to BV. (BV)(x)=\max_ar(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V(x’)<br>$$<br>There is a theorem:<br>$$<br>\forall V,V’\in\mathbb{R}^n, ||BV-BV’||<em>{\infty}\leq\gamma||V-V’||</em>{\infty}<br>$$<br>A contraction has two important properties:</p>
+<ul>
+<li>existence of a unique fixed point</li>
+<li>convergence to the fixed point</li>
+</ul>
+<p>Convergence rate:</p>
+<ul>
+<li>number of iterations: depends a lot on initial  policy and epsilon.</li>
+<li>in each iteration:  the complexity is $O(n^2\cdot m)$</li>
+</ul>
+</li>
+<li><p><strong>no</strong> monotonical property.</p>
+</li>
+</ul>
+<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><p>In practice, which one is better depends on the application. Can combine both of them. Like take one greedy policy in some step of policy iteration as the initial policy for value iteration.</p>
+<h1 id="POMDP"><a href="#POMDP" class="headerlink" title="POMDP"></a>POMDP</h1><p>Partially observed markov decision process = controlled HMM = Belief-state MDP</p>
+<p>We have a series of observations $Y_1,\cdots,Y_t$. The key idea is the last belief $X_t$, including all information from the previous observations. In other words, if we have $X_t$, we can forget all of $Y_1,\cdots,Y_t$. Instead of solving markov decision process over the state space, we are going to solve MDP over the belief of state space. </p>
+<p>Key idea: interpret POMDP as an MDP with enlarged state space: new states correspond to beliefs $P(X_t|y_{1:t})$ in the original POMDP.</p>
+<p>Once we have the newest observation $Y_{t+1}$, applying Bayesian filtering, a deterministic function, to update on the observations</p>
+<h2 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h2><ul>
+<li>the set of state space: $X_1,X_2,\cdots,X_n$</li>
+<li>the set of action space: $A_1,A_2,\cdots A_m$</li>
+<li>the set of observation space: $Y_1,Y_2,\cdots Y_k$</li>
+<li>Transition probability: $P(X_{t+1}|X_t,A_t)$</li>
+<li>observation probability: $P(Y_t|X_t)$</li>
+</ul>
+<p>Consider at time $t$, </p>
+<ul>
+<li>we have the belief $B_t=b_t$​, where $b_t$​ is an instance of $n$-dimension probability vector.</li>
+<li>Suppose we take the action at </li>
+<li>and observe $y_{t+1}$.</li>
+</ul>
+<p>In this way,</p>
+<p>$$<br>b_{t+1}(x)=\Pr[X_{t+1}=x|y_{1:t+1},a_{1:t}]<br>$$</p>
+<p>$$<br>=\frac{1}{Z}\sum_{x’}\Pr[X_t=x’|y_{1:t},a_{1:t-1}]\Pr[X_{t+1}=x|X_t=x’,a_t]\Pr[Y_{t+1}=y_{t+1}|x]<br>$$</p>
+<p>That means $  b_{t+1}=f(b_t,a_t,y_{t+1})$</p>
+<h2 id="Transformation"><a href="#Transformation" class="headerlink" title="Transformation"></a>Transformation</h2><p>Transform into a new MDP problem:</p>
+<ul>
+<li><p>states: beliefs over states for original POMDP: $\mathcal{B}={b:{1,2,\cdots,n}\to[0,1],\sum_xb(x)=1}$</p>
+</li>
+<li><p>actions: same as original MDP</p>
+</li>
+<li><p>Transition model: </p>
+<ul>
+<li>stochastic observations: the observation of the next time only depends on our belief of the current time and the action we take. $\Pr[Y_{t+1}=y|b_t,a_t]=\sum_x b_t(x)\Pr[Y_{t+1}=y|X_t=x,a_t]$</li>
+<li>state update Bayesian filtering: Given $b_t$, $a_t$, $y_{t+1}$: $b_{t+1}(x’)=\frac{1}{Z}\sum_x b_t(x)\Pr[X_{t+1}=x’|X_t=x,a_t]\Pr[y_{t+1}|x’]$​</li>
+</ul>
+</li>
+<li><p>Reward function: $r(b_t,a_t)=\sum_x b_t(x)r(x,a_t)$</p>
+<p>If we can solve the new MDP, we can solve the original MDP.</p>
+</li>
+</ul>
+<h2 id="Approximate-solutions"><a href="#Approximate-solutions" class="headerlink" title="Approximate solutions"></a>Approximate solutions</h2><p>The belief state space could be exponential. We need some approximate solutions.</p>
+<p>The key idea: most belief states never reached, we want to limit the belief space, approaches like:</p>
+<ul>
+<li>discretize the belief space by sampling</li>
+<li>dimension reduction</li>
+</ul>
+<h3 id="Policy-gradient-method"><a href="#Policy-gradient-method" class="headerlink" title="Policy gradient method"></a>Policy gradient method</h3><p>Limit the policy space to some parametric family. Then transform the problem into an optimization problem.</p>
+<h2 id="Planning"><a href="#Planning" class="headerlink" title="Planning"></a>Planning</h2><ul>
+<li>use the inference model to do planning</li>
+<li>condition not only on the past, but also on the future, find the action to lead me to that future. </li>
+</ul>
 
             </div>
             <hr/>
@@ -614,10 +715,6 @@
                             
                                 <a href="../tags/Reinforcement-Learning/">
                                     <span class="chip bg-color">Reinforcement Learning</span>
-                                </a>
-                            
-                                <a href="../tags/Bayesian/">
-                                    <span class="chip bg-color">Bayesian</span>
                                 </a>
                             
                                 <a href="../tags/Markov/">
@@ -1083,13 +1180,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="../pai-08/">
+                <a href="../pai-04/">
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/5.jpeg" class="responsive-img" alt="Reinforcement Learning">
+                        <img src="../medias/featureimages/9.jpeg" class="responsive-img" alt="PAI4 Reasoning over Time">
                         
-                        <span class="card-title">Reinforcement Learning</span>
+                        <span class="card-title">PAI4 Reasoning over Time</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1100,7 +1197,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-28
                         </span>
                         <span class="publish-author">
                             
@@ -1129,6 +1226,10 @@
                         <span class="chip bg-color">Bayesian</span>
                     </a>
                     
+                    <a href="../tags/Markov/">
+                        <span class="chip bg-color">Markov</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1144,9 +1245,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="../medias/featureimages/2.jpeg" class="responsive-img" alt="Probabilistic Planning">
+                        <img src="../medias/featureimages/6.jpeg" class="responsive-img" alt="PAI6 Learning">
                         
-                        <span class="card-title">Probabilistic Planning</span>
+                        <span class="card-title">PAI6 Learning</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1182,8 +1283,8 @@
                         <span class="chip bg-color">Reinforcement Learning</span>
                     </a>
                     
-                    <a href="../tags/Markov/">
-                        <span class="chip bg-color">Markov</span>
+                    <a href="../tags/Bayesian/">
+                        <span class="chip bg-color">Bayesian</span>
                     </a>
                     
                 </div>
