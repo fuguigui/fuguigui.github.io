@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    14 Min
+                    15 Min
                 </div>
                 
 
@@ -714,7 +714,7 @@ Demo: self-defined post content
 <ul>
 <li><p>Clean: <code>hexo clean</code>。该命令会删除整个<code>***.github.io/public/</code>文件夹</p>
 </li>
-<li><p>Generate: <code>hexo generate</code>或者简写为<code>hexo g</code>。该命令会生成静态文件，也就是从markdown到网页文件html等的转换操作</p>
+<li><p>Generate: <code>hexo generate</code>或者简写为<code>hexo g</code>。该命令会生成静态文件夹<code>public/</code>，也就是从markdown到网页文件html等的转换操作</p>
 </li>
 <li><p>Server: 启动服务器常用的是<code>hexo server</code>或者简写为<code>hexo s</code>。</p>
 <ul>
@@ -734,8 +734,15 @@ Demo: self-defined post content
 </ul>
 </li>
 <li>hexo有个特别便利的地方！<ul>
-<li>在本地预览时，你仍可以更改markdown文件中一般的文字内容，然后直接在浏览器端刷新页面，就能看到实时更改的效果，而不需要再执行一次<code>hexo g;hexo s</code>，节省很多时间。常用于预览过程中进行微调操作。我的测试表明，此时更改文章的<code>categories, tags</code>等Front-Matter的属性的话，也可以动态刷新，很神奇。</li>
-<li>但是，有些涉及到更深层次的操作，比如利用到themes文件里的js函数，css样式，文件链接等，可能无法实时更新。此时仍需要重新generate才可以预览最新效果。同理，如果你更改了themes文件夹下面的css文件, ejs文件, yml文件等，通常也需要重新渲染</li>
+<li><p>在本地预览时，你仍可以更改markdown文件中一般的文字内容，然后直接在浏览器端刷新页面，就能看到实时更改的效果，而不需要再执行一次<code>hexo g;hexo s</code>，节省很多时间。常用于预览过程中进行微调操作。我的测试表明，此时更改文章的<code>categories, tags</code>等Front-Matter的属性的话，也可以动态刷新，很神奇。</p>
+</li>
+<li><p>但是，有些涉及到更深层次的操作，比如利用到themes文件里的js函数，css样式，文件链接等，可能无法实时更新。此时仍需要重新generate才可以预览最新效果。同理，如果你更改了themes文件夹下面的css文件, ejs文件, yml文件等，通常也需要重新渲染。</p>
+</li>
+<li><p>注意：在执行<code>hexo s</code>之后，想要中断操作，使用的是<code>control + C</code>快捷键。我老会习惯性地使用<code>con trol + Z</code>的快捷键。此时，可能出现端口被占用的错误。解决办法是：1. 找到被占用端口4000的进程号pid，2. kill掉这个进程。</p>
+<pre><code>lsof -i:4000
+kill -9 pid
+</code></pre>
+</li>
 </ul>
 </li>
 <li>如果你采用两个分支的git部署方式。使用<code>hexo d</code>只是更新了其中的一个分支，此时仍需要进行常规的git仓库更新操作<code>git add ... git commit ... git push</code>这一系列来更新另一分支。</li>
