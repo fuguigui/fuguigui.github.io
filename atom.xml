@@ -6,7 +6,7 @@
   <link href="https://fuguigui.github.io/atom.xml" rel="self"/>
   
   <link href="https://fuguigui.github.io/"/>
-  <updated>2021-12-19T14:47:46.670Z</updated>
+  <updated>2021-12-27T13:38:01.309Z</updated>
   <id>https://fuguigui.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Weekly summary</title>
+    <link href="https://fuguigui.github.io/y2021wd2-summary/"/>
+    <id>https://fuguigui.github.io/y2021wd2-summary/</id>
+    <published>2021-12-25T16:00:00.000Z</published>
+    <updated>2021-12-27T13:38:01.309Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="计划回顾"><a href="#计划回顾" class="headerlink" title="计划回顾"></a>计划回顾</h1><ul><li><p><input disabled="" type="checkbox">  工作技能</p><ul><li><input disabled="" type="checkbox"> 继续总结《秒懂设计模式》（没做）</li><li><input checked="" disabled="" type="checkbox"> 周二C++学习继续</li><li><input checked="" disabled="" type="checkbox"> 《黑客与画家》看完两章</li></ul><p>养生/健身：</p><ul><li><input disabled="" type="checkbox"> 控制住核桃的食用量哦，每天不超过6颗好吧（超过了。。。嘤）</li><li><input checked="" disabled="" type="checkbox"> 周一：复习舞蹈</li><li><input checked="" disabled="" type="checkbox"> 周二：body combat</li><li><input checked="" disabled="" type="checkbox"> 周四：T25 gamma4</li><li><input checked="" disabled="" type="checkbox"> 周五：T25 gamma 5</li><li><input checked="" disabled="" type="checkbox"> 周日：House-&gt;改成了一节Hiphop和Locking</li></ul><p>影视</p><ul><li><input checked="" disabled="" type="checkbox"> 《社交网络》-〉改成了东方列车谋杀案</li></ul><p>写作：</p><ul><li><input checked="" disabled="" type="checkbox"> 在罗马的第一天</li></ul><p>德语：</p><ul><li><input checked="" disabled="" type="checkbox"> 第五篇</li><li><input checked="" disabled="" type="checkbox"> 第六篇</li></ul></li></ul><h1 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h1><p>本周没有大的事件。在工作上，所做的产品在接下来的一年可能面临着重大定位变革，所以最近在忙于总结性的工作。挺享受这样的过程的，一直忙碌反而没时间从大局上看看自己都干了什么，停下来总结下，反而有利于自己对工作的整体把握。</p><p>早起，真的觉得一天都变长了。可以干很多的事情。清了清自己的喜马拉雅，发现一个收藏了很久的听书节目《改变世界的九大算法》，内容很棒，我居然一直没听，差点错过。周六是圣诞节，约了几个小伙伴来家里玩耍，新室友也在这一天搬了进来，相处得很愉快。豆包最近在姨妈期，很是敏感，不再是原来的小可爱了。</p><p>这周看了《东方列车谋杀案》，一个典型的剧本杀式电影，我觉得比较有意思的一点是，车上来自欧洲不同国家的人说话的口音。</p><p>又快到年底了，我最喜欢的整理和立flag时间又到啦！回顾了下自己这几个月跳的舞，发现上的街舞课没有想象中的多，但是进步是很明显滴！这一点让我非常开心。要把自己学习街舞的过程记录下来哇～</p><h1 id="下周计划"><a href="#下周计划" class="headerlink" title="下周计划"></a>下周计划</h1><p>工作技能</p><ul><li><input disabled="" type="checkbox"> 继续总结《秒懂设计模式》</li><li><input disabled="" type="checkbox"> 《黑客与画家》看完第五章《另一条路》和第六章《如何创造财富》</li></ul><p>养生/健身：</p><ul><li><input disabled="" type="checkbox"> 控制住核桃的食用量哦，每天不超过6颗好吧</li><li><input disabled="" type="checkbox"> 周一：T25 gamma上半身阻力训练</li><li><input disabled="" type="checkbox"> 周二：T25gamma极限循环+body combat</li><li><input disabled="" type="checkbox"> 周三：T25gamma速度训练3.0House</li><li><input disabled="" type="checkbox"> 周四：Locking学习</li><li><input disabled="" type="checkbox"> 周五：T25 gamma金字塔训练</li></ul><p>影视</p><ul><li><input disabled="" type="checkbox"> 《搏击俱乐部》</li></ul><p>写作：</p><ul><li><input disabled="" type="checkbox"> 在罗马的第一天继续</li></ul><p>德语：</p><ul><li><input disabled="" type="checkbox"> 第七篇</li><li><input disabled="" type="checkbox"> 第八篇</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;计划回顾&quot;&gt;&lt;a href=&quot;#计划回顾&quot; class=&quot;headerlink&quot; title=&quot;计划回顾&quot;&gt;&lt;/a&gt;计划回顾&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&gt;  工作技能&lt;/p&gt;
+&lt;ul&gt;
+&lt;l</summary>
+      
+    
+    
+    
+    <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
+    
+    
+    <category term="Life" scheme="https://fuguigui.github.io/tags/Life/"/>
+    
+    <category term="Work" scheme="https://fuguigui.github.io/tags/Work/"/>
+    
+  </entry>
   
   <entry>
     <title>Weekly summary</title>
@@ -530,34 +559,6 @@
     <category term="Thesis" scheme="https://fuguigui.github.io/tags/Thesis/"/>
     
     <category term="Life" scheme="https://fuguigui.github.io/tags/Life/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Weekly summary</title>
-    <link href="https://fuguigui.github.io/y2020w44-summary/"/>
-    <id>https://fuguigui.github.io/y2020w44-summary/</id>
-    <published>2020-10-31T16:00:00.000Z</published>
-    <updated>2021-08-07T07:53:35.062Z</updated>
-    
-    <content type="html"><![CDATA[<p>十月过去啦，马上就是十一月二日美国大选了！万众瞩目，坐等更新。这一周发生了蛮多事情的。今天借住的好朋友搬走了，又回到了一个人的卧室。法国的宗教暴力事件让人害怕。欧洲疫情的第二波高峰汹汹来袭，瑞士的每日新增人数达到了前所未有的高峰，这个八百万人口的国家，每日新增已经破九千了。学校健身房再次关门，所有课程改为线上。国家新政策：赴华旅客需要出示双阴性证明。（国外的检测效率和国内是没得比的）还有据说今年双十一的排场很大，各大卫视都在这两天搞起了晚会庆祝双十一。。。我置身事外，无动于衷。在周围众女生的安利下，种草了几款电视节目：梦想改造家，演员请就位，脱口秀大会。以后，工作之余可以用它们打发打发时间了。此外，秋招各大厂开奖了。美团很壕气，听说已经超越字节。算法岗“白菜价”为二三十万。</p><p>同屋室友走后，我真的要开始减肥了。</p><h1 id="计划回顾"><a href="#计划回顾" class="headerlink" title="计划回顾"></a>计划回顾</h1><p>上周计划的完成情况：</p><p>Mathematical Optimization: 80%. Incomplete tasks:</p><ul><li>Script: 18-37 (10.28)</li></ul><p>Graph Papers: 0%</p><p>Life: 72%. Incomplete tasks:</p><ul><li>Guitar: 七月上</li><li>Deutsch lernen: Episode 3</li><li>开始玩 我的世界</li></ul><p>总结：</p><p>想为自己的计划未完成找个借口，就是好朋友同住一屋，没办法严格根据自己的routine来。很多情况下，需要协调两个人的生活节奏。比如：早起之后，我不能在房间里运动，会打扰她睡觉。吃饭时间运动时间聊天时间玩耍时间都要相互协调。包括吃什么玩什么聊什么也不能完全顺遂自己的心意。晚饭之后，时间几乎都和她一起看综艺，玩游戏聊天唱歌了。不是说这样不好，在和同伴在一起的时候，很珍惜这些时光。不过，没有同伴时，自我独处的时间也很令人享受，能对自己行驶最大的控制权。</p><p>需要反思的是：为什么我额外的paper都没看呢？我还没在生活中养成一个看paper的习惯，没有这么一个时间，让我去浏览最新的paper。这个时间段应该安排在哪里？不如就晚饭后？下周试运行一下。</p><h1 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h1><p>上周尝试了很多新鲜的东西。第一次做了发糕，好好吃哇。</p><p><img src="20201101-4.jpeg" alt="cake"></p><p><img src="20201101-5.jpeg" alt="cake2"></p><p>周六和好闺蜜一起做了手工：一个插头收纳盒和一个衣物收纳架。我还是蛮嫌弃她的剪裁的，略粗糙。。。在精修之后，手工作品们已经投入使用。以后再慢慢包装它们。</p><p><img src="20201101-1.jpeg" alt="box"></p><p><img src="20201101-2.jpeg" alt="box2"></p><p><img src="20201101-6.jpeg" alt="box3"></p><p>近一年没拿过毛笔，今天小练了一哈。</p><p><img src="20201101-3.jpeg" alt="ca"></p><p>计划表里列在life中的任务，几乎都是周六周日在做了<span class="github-emoji"><span>😂</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p><p>额外收获：第一次自制蛋黄酱，沙拉的享受程度提升了好几个level。</p><h1 id="下周计划"><a href="#下周计划" class="headerlink" title="下周计划"></a>下周计划</h1><h2 id="Mathematical-Optimization"><a href="#Mathematical-Optimization" class="headerlink" title="Mathematical Optimization"></a>Mathematical Optimization</h2><p>这门课是11学分，课程内容还是很多的。加上我之前落下了将近一个月的进度，补课任务安排得还是蛮紧凑的。如果顺利按照进度走，再有两周就能把课补回来。在这之后，要好好地做作业。</p><ul><li><input checked="" disabled="" type="checkbox"> Video: 2020-10-19 (11.2)</li><li><input checked="" disabled="" type="checkbox"> Video: 2020-10-22 (11.3)</li><li><input checked="" disabled="" type="checkbox"> Video: 2020-10-26 (11.5)</li><li><input checked="" disabled="" type="checkbox"> Video: 2020-10-29 (11.6)</li><li><input disabled="" type="checkbox"> Script: 18-57 (11.4)</li></ul><h2 id="Thesis"><a href="#Thesis" class="headerlink" title="Thesis"></a>Thesis</h2><p>毕设的任务来得比我想象中的多。一起合作的博后idea来的很快，paper给的也很快，讨论的也很频繁。我原先读paper的方法需要进行的改善，来适应现在的节奏。如何跟上节奏，是接下来一周需要好好思考的议题。</p><p>需要阅读的paper list</p><ul><li><input disabled="" type="checkbox"> <a href="https://malllabiisc.github.io/publications/papers/nhp_cikm20.pdf">NHP</a></li><li><input disabled="" type="checkbox"> <a href="https://arxiv.org/pdf/1809.09401.pdf">hypergraph neural networks</a></li><li><input disabled="" type="checkbox"> <span class="github-emoji"><span>⭐</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span><a href="https://arxiv.org/pdf/1907.11577.pdf">Topological </a></li><li><input checked="" disabled="" type="checkbox"> Simplicial neural network</li><li><input checked="" disabled="" type="checkbox"> random walk on normalized hodge-1 laplacian</li><li><input disabled="" type="checkbox"> Hodge-1 Laplacian and HodgeNet they only use Hodge-1 Laplacian, but we can define a new wavelet transform using geometric scattering and random walk matrix, check eq. 2 in <a href="https://arxiv.org/pdf/1810.03068.pdf">https://arxiv.org/pdf/1810.03068.pdf</a></li><li><input disabled="" type="checkbox"> 以及他们最新的改进 <a href="https://arxiv.org/pdf/2010.15010.pdf">https://arxiv.org/pdf/2010.15010.pdf</a></li></ul><p>任务：</p><ul><li><input checked="" disabled="" type="checkbox"> 写一个proposal，concrete一些。加一些图，具体落地。</li><li><input disabled="" type="checkbox"> 把每篇paper写个摘要</li><li><input disabled="" type="checkbox"> 是否可以在simplicial complexes去尝试新的idea</li><li><input checked="" disabled="" type="checkbox"> 找一下smooth gradient flow 的来源</li></ul><h2 id="Life"><a href="#Life" class="headerlink" title="Life"></a>Life</h2><ul><li><input disabled="" type="checkbox"> Game of throne. Season 6<ul><li><input disabled="" type="checkbox"> Episode 9</li><li><input disabled="" type="checkbox"> Episode 10</li></ul></li><li><input disabled="" type="checkbox"> Deutsch Vokabel: Everyday</li><li><input disabled="" type="checkbox"> Deutsch lernen: 2 episodes</li><li><input checked="" disabled="" type="checkbox"> Running: every 2 day</li><li><input disabled="" type="checkbox"> Bodycombat：2 times</li><li><input checked="" disabled="" type="checkbox"> Food: <ul><li><input checked="" disabled="" type="checkbox"> 栗子泥</li><li><input checked="" disabled="" type="checkbox"> 三汁焖锅</li></ul></li><li><input disabled="" type="checkbox"> Fit：减重一公斤</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;十月过去啦，马上就是十一月二日美国大选了！万众瞩目，坐等更新。这一周发生了蛮多事情的。今天借住的好朋友搬走了，又回到了一个人的卧室。法国的宗教暴力事件让人害怕。欧洲疫情的第二波高峰汹汹来袭，瑞士的每日新增人数达到了前所未有的高峰，这个八百万人口的国家，每日新增已经破九千了。</summary>
-      
-    
-    
-    
-    <category term="Diary" scheme="https://fuguigui.github.io/categories/Diary/"/>
-    
-    
-    <category term="Thesis" scheme="https://fuguigui.github.io/tags/Thesis/"/>
-    
-    <category term="Life" scheme="https://fuguigui.github.io/tags/Life/"/>
-    
-    <category term="Food" scheme="https://fuguigui.github.io/tags/Food/"/>
     
   </entry>
   
