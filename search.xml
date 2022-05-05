@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>刷题</title>
+      <link href="/20220501-shu-ju-jie-gou/"/>
+      <url>/20220501-shu-ju-jie-gou/</url>
+      
+        <content type="html"><![CDATA[<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul><li><p><strong>重点散列表</strong>：总结各种巧妙的应用，以及利用了散列表什么样的特点</p></li><li><p><input disabled="" type="checkbox">  栈和队列的使用，python包的使用</p></li><li><p><input disabled="" type="checkbox">  堆系统性学习</p></li><li><p><input disabled="" type="checkbox">  排序算法总结</p></li><li><p><input disabled="" type="checkbox">  广搜深搜总结错题集</p></li><li><p><input disabled="" type="checkbox">  递归/动态规划，区分不同，以及重点题目总结</p></li><li><p><input disabled="" type="checkbox">  内存作为新知识点进行学习</p></li><li><p><input disabled="" type="checkbox">  位操作的应用实例</p></li><li><p><input disabled="" type="checkbox">  树：实现下，前中后序遍历</p></li><li><p><input disabled="" type="checkbox">  图：实现下</p></li><li><p><input disabled="" type="checkbox">  快速复习基本的数据结构与算法</p></li><li><p><input disabled="" type="checkbox">  各种数据结构：重要的一点是使用：适用于什么场景，时间空间复杂度是什么？典型的应用有哪些。一定要弄清楚什么情况下该使用什么数据结构。</p></li><li><p><input disabled="" type="checkbox">  排序算法，经典算法的要点在于什么？</p></li><li><p><input disabled="" type="checkbox">  不同场景降低时间复杂度的方法有哪些</p></li><li><p><input disabled="" type="checkbox">  谷歌专项刷题</p></li></ul><p>参考资料：</p><ul><li><p><a href="https://books.halfrost.com/leetcode/ChapterTwo/Stack/">LeetCode Cookbook</a>（数据结构+算法）</p></li><li><p><a href="https://github.com/changgyhub/leetcode_101">GitHub - changgyhub/leetcode_101: LeetCode 101：和你一起你轻松刷题（C++）</a>（侧重于算法）</p></li><li><p>程序员面试金典（数据结构+算法）</p></li></ul><p>务必掌握它们的具体用法、实现方法、应用场景以及时间和空间复杂度</p><table><thead><tr><th>数据结构</th><th>算法</th><th>其他</th></tr></thead><tbody><tr><td>链表：双指针</td><td>广度优先搜索</td><td>位操作</td></tr><tr><td>树、二叉树、单词查找树，segment tree</td><td>深度优先搜索</td><td>内存（堆和栈）</td></tr><tr><td>栈和队列</td><td>二分查找</td><td>LRUCache、LFUCache</td></tr><tr><td>堆</td><td>排序：快排，归并，桶</td><td>大o时间和空间</td></tr><tr><td>向量/数组列表/字符串</td><td>分治法</td><td>并查集</td></tr><tr><td>散列表</td><td>滑动窗口</td><td>面向对象设计</td></tr><tr><td>图</td><td>贪心算法</td><td>系统设计与可扩展性</td></tr><tr><td></td><td>动态规划、递归</td><td>线程与锁</td></tr></tbody></table><h1 id="笔记链接"><a href="#笔记链接" class="headerlink" title="笔记链接"></a>笔记链接</h1><p><a href="https://github.com/fuguigui/leetcode-notes/blob/master/%E6%95%A3%E5%88%97%E8%A1%A8Hash.ipynb">散列表</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Sharing </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Algorithm </tag>
+            
+            <tag> Coding </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Weekly summary</title>
       <link href="/y2022w1-summary/"/>
       <url>/y2022w1-summary/</url>
@@ -31,11 +58,24 @@
     
     
     <entry>
+      <title>该长大了</title>
+      <link href="/gai-chang-da-liao/"/>
+      <url>/gai-chang-da-liao/</url>
+      
+        <content type="html"><![CDATA[<p>2022年刚到的那一刻，脑子像被棒槌突然敲了一下。</p><p>我该长大了，在25岁的尾巴上。</p><p>这几天一直在思考自己过去几年的生活，得出的核心结论是：自我是混乱的。我没能准确定位自己想要什么，一直在不停地忙碌，却没有明确的方向。职业上差强人意，情感上一塌糊涂。在两团混乱间，还是先拣小的来理吧。</p><p>职业上差强人意。现在的工作内容，我整体上是满意的。但多多少少有些不甘心。为什么？没有大的title，没有令人满意的时薪，没有大的创造性输出，一直是个打工仔。我想要什么？我想去Google，为什么？工资高，名字响亮，可以去别的国家体验不一样的生活。那就不是打工仔了吗？那就会有更大的创造性了吗？不会，但是会更早地实现经济自由。OK，所以我最终的需求里，更重要的到底是创造性还是经济自由？这两者其实并不矛盾，说到底都是自由，自己支配时间和劳动的自由。我很着急实现这样的自由吗？不见得。虽然马上26岁了，但平心而论，自己的职业技能又有多高呢？我值得我理想中的薪资吗？我的能力和我的愿望匹配吗？</p><p>没有。那就先努力提升自己的能力啊，而不是预先烦恼该选择什么样的工作。等话语权到了自己的手上，再去谈条件。我未来想要什么样的生活？我想要去瑞士生活，贴近大自然和平静。瑞士哪里好？中国的互联网现代化等很多方面，其实远超瑞士。但是瑞士人有闲，有对自我追求的自由。“闲”，应该成为衡量生活的一个标尺吧。</p><p>情感上，从何说起呢？近来最深刻的认知是，“要好好爱自己”。</p><p>说起来是很简单的一句话。我也是最近才深刻地认识到，其实，我一直以来都没认为自己是值得好好疼爱的。这种认知来自于原生家庭。我不是被爸爸宠大的，而是苦大的，导致我内心里认为，吃苦比撒娇更美。这一点，在整个社会的衡量体系里，或许是被认可鼓励的。但是，从女人自身的角度，绝不是。当我静下心来，观察周围人的情感生活时，才发现人世间的幸与不幸竟有天壤之别。互相滋养的爱情是多么令人渴求，而多少人又陷入了无休止的双婚姻损耗中。去年这一年，经历了很多人事变故。同学的妈妈意外去世，疼爱我的舅妈情况恶化，妈妈的身体也出了诸多毛病。有多少是个人原因，又有多少是生活的消磨。</p><p>老话说，女孩要富养。这不是说，养女孩就是要培养一个个娇气的小公主。而是，让女孩不要太轻易被别人的示好所感动，要聪明，要知道如何考察一个人。</p><p>你是什么样的人，决定了你会遇到什么样的人。</p><p>此言甚是。我遇到的感情很好地契合了我的气质。而当我逐渐发现，自我损耗不断进行时，不是对方的错，而是自我的定位问题。如果我不改变自己的认知，就永远跳不出自我消耗的怪圈。</p><p>醒醒吧，该长大了。</p><p>2022，最大的愿望，是爱自己，从重塑自己开始。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Weekly summary</title>
       <link href="/y2021wd2-summary/"/>
       <url>/y2021wd2-summary/</url>
       
-        <content type="html"><![CDATA[<h1 id="计划回顾"><a href="#计划回顾" class="headerlink" title="计划回顾"></a>计划回顾</h1><ul><li><p><input disabled="" type="checkbox">  工作技能</p><ul><li><input disabled="" type="checkbox"> 继续总结《秒懂设计模式》（没做）</li><li><input checked="" disabled="" type="checkbox"> 周二C++学习继续</li><li><input checked="" disabled="" type="checkbox"> 《黑客与画家》看完两章</li></ul><p>养生/健身：</p><ul><li><input disabled="" type="checkbox"> 控制住核桃的食用量哦，每天不超过6颗好吧（超过了。。。嘤）</li><li><input checked="" disabled="" type="checkbox"> 周一：复习舞蹈</li><li><input checked="" disabled="" type="checkbox"> 周二：body combat</li><li><input checked="" disabled="" type="checkbox"> 周四：T25 gamma4</li><li><input checked="" disabled="" type="checkbox"> 周五：T25 gamma 5</li><li><input checked="" disabled="" type="checkbox"> 周日：House-&gt;改成了一节Hiphop和Locking</li></ul><p>影视</p><ul><li><input checked="" disabled="" type="checkbox"> 《社交网络》-〉改成了东方列车谋杀案</li></ul><p>写作：</p><ul><li><input checked="" disabled="" type="checkbox"> 在罗马的第一天</li></ul><p>德语：</p><ul><li><input checked="" disabled="" type="checkbox"> 第五篇</li><li><input checked="" disabled="" type="checkbox"> 第六篇</li></ul></li></ul><h1 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h1><p>本周没有大的事件。在工作上，所做的产品在接下来的一年可能面临着重大定位变革，所以最近在忙于总结性的工作。挺享受这样的过程的，一直忙碌反而没时间从大局上看看自己都干了什么，停下来总结下，反而有利于自己对工作的整体把握。</p><p>早起，真的觉得一天都变长了。可以干很多的事情。清了清自己的喜马拉雅，发现一个收藏了很久的听书节目《改变世界的九大算法》，内容很棒，我居然一直没听，差点错过。周六是圣诞节，约了几个小伙伴来家里玩耍，新室友也在这一天搬了进来，相处得很愉快。豆包最近在姨妈期，很是敏感，不再是原来的小可爱了。</p><p>这周看了《东方列车谋杀案》，一个典型的剧本杀式电影，我觉得比较有意思的一点是，车上来自欧洲不同国家的人说话的口音。</p><p>又快到年底了，我最喜欢的整理和立flag时间又到啦！回顾了下自己这几个月跳的舞，发现上的街舞课没有想象中的多，但是进步是很明显滴！这一点让我非常开心。要把自己学习街舞的过程记录下来哇～</p><h1 id="下周计划"><a href="#下周计划" class="headerlink" title="下周计划"></a>下周计划</h1><p>工作技能</p><ul><li><input disabled="" type="checkbox"> 继续总结《秒懂设计模式》</li><li><input disabled="" type="checkbox"> 《黑客与画家》看完第五章《另一条路》和第六章《如何创造财富》</li></ul><p>养生/健身：</p><ul><li><input disabled="" type="checkbox"> 控制住核桃的食用量哦，每天不超过6颗好吧</li><li><input disabled="" type="checkbox"> 周一：T25 gamma上半身阻力训练</li><li><input disabled="" type="checkbox"> 周二：T25gamma极限循环+body combat</li><li><input disabled="" type="checkbox"> 周三：T25gamma速度训练3.0House</li><li><input disabled="" type="checkbox"> 周四：Locking学习</li><li><input disabled="" type="checkbox"> 周五：T25 gamma金字塔训练</li></ul><p>影视</p><ul><li><input disabled="" type="checkbox"> 《搏击俱乐部》</li></ul><p>写作：</p><ul><li><input disabled="" type="checkbox"> 在罗马的第一天继续</li></ul><p>德语：</p><ul><li><input disabled="" type="checkbox"> 第七篇</li><li><input disabled="" type="checkbox"> 第八篇</li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="计划回顾"><a href="#计划回顾" class="headerlink" title="计划回顾"></a>计划回顾</h1><ul><li><input disabled="" type="checkbox"> 工作技能<ul><li><input disabled="" type="checkbox"> 继续总结《秒懂设计模式》（没做）</li><li><input checked="" disabled="" type="checkbox"> 周二C++学习继续</li><li><input checked="" disabled="" type="checkbox"> 《黑客与画家》看完两章</li></ul>养生/健身：<ul><li><input disabled="" type="checkbox"> 控制住核桃的食用量哦，每天不超过6颗好吧（超过了。。。嘤）</li><li><input checked="" disabled="" type="checkbox"> 周一：复习舞蹈</li><li><input checked="" disabled="" type="checkbox"> 周二：body combat</li><li><input checked="" disabled="" type="checkbox"> 周四：T25 gamma4</li><li><input checked="" disabled="" type="checkbox"> 周五：T25 gamma 5</li><li><input checked="" disabled="" type="checkbox"> 周日：House-&gt;改成了一节Hiphop和Locking</li></ul>影视<ul><li><input checked="" disabled="" type="checkbox"> 《社交网络》-〉改成了东方列车谋杀案</li></ul>写作：<ul><li><input checked="" disabled="" type="checkbox"> 在罗马的第一天</li></ul>德语：<ul><li><input checked="" disabled="" type="checkbox"> 第五篇</li><li><input checked="" disabled="" type="checkbox"> 第六篇</li></ul></li></ul><h1 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h1><p>本周没有大的事件。在工作上，所做的产品在接下来的一年可能面临着重大定位变革，所以最近在忙于总结性的工作。挺享受这样的过程的，一直忙碌反而没时间从大局上看看自己都干了什么，停下来总结下，反而有利于自己对工作的整体把握。</p><p>早起，真的觉得一天都变长了。可以干很多的事情。清了清自己的喜马拉雅，发现一个收藏了很久的听书节目《改变世界的九大算法》，内容很棒，我居然一直没听，差点错过。周六是圣诞节，约了几个小伙伴来家里玩耍，新室友也在这一天搬了进来，相处得很愉快。豆包最近在姨妈期，很是敏感，不再是原来的小可爱了。</p><p>这周看了《东方列车谋杀案》，一个典型的剧本杀式电影，我觉得比较有意思的一点是，车上来自欧洲不同国家的人说话的口音。</p><p>又快到年底了，我最喜欢的整理和立flag时间又到啦！回顾了下自己这几个月跳的舞，发现上的街舞课没有想象中的多，但是进步是很明显滴！这一点让我非常开心。要把自己学习街舞的过程记录下来哇～</p><h1 id="下周计划"><a href="#下周计划" class="headerlink" title="下周计划"></a>下周计划</h1><p>工作技能</p><ul><li><input disabled="" type="checkbox"> 继续总结《秒懂设计模式》</li><li><input disabled="" type="checkbox"> 《黑客与画家》看完第五章《另一条路》和第六章《如何创造财富》</li></ul><p>养生/健身：</p><ul><li><input disabled="" type="checkbox"> 控制住核桃的食用量哦，每天不超过6颗好吧</li><li><input disabled="" type="checkbox"> 周一：T25 gamma上半身阻力训练</li><li><input disabled="" type="checkbox"> 周二：T25gamma极限循环+body combat</li><li><input disabled="" type="checkbox"> 周三：T25gamma速度训练3.0House</li><li><input disabled="" type="checkbox"> 周四：Locking学习</li><li><input disabled="" type="checkbox"> 周五：T25 gamma金字塔训练</li></ul><p>影视</p><ul><li><input disabled="" type="checkbox"> 《搏击俱乐部》</li></ul><p>写作：</p><ul><li><input disabled="" type="checkbox"> 在罗马的第一天继续</li></ul><p>德语：</p><ul><li><input disabled="" type="checkbox"> 第七篇</li><li><input disabled="" type="checkbox"> 第八篇</li></ul>]]></content>
       
       
       <categories>
@@ -104,35 +144,6 @@
             <tag> Life </tag>
             
             <tag> Work </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>读书：秒懂设计模式</title>
-      <link href="/du-shu-miao-dong-she-ji-mo-shi/"/>
-      <url>/du-shu-miao-dong-she-ji-mo-shi/</url>
-      
-        <content type="html"><![CDATA[<p>秒懂设计模式</p><p>作者：【中】刘韬</p><p><img src="%E7%A7%92%E6%87%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.png" alt="秒懂设计模式"></p><p>一句话总结：这是一本工具书，主要介绍了软件系统中设计模式的基本原则和常用模式。</p><p>作者首先介绍面向对象基础概念及特性，再举例介绍几种情境下常用的设计模式：创建型、结构型和行为型，最后归纳总结软件设计的原则。对于每一个设计模式，作者都辅以生活中常见的例子和代码实例，最终抽象出设计模式原型，由表及里，易于理解。</p><p>这本书与我有什么关系？这本书覆盖了软件设计中常见的模式，我能先结合工作体会其中的妙处，对于以后独立开发和使用也有帮助，是一本很实用的工具书。再次，书中介绍的原则理念上的东西，不仅仅在软件设计模式范围内适用，在日常生活中、工作学习安排中，也会带来一定的启发。本书值得总结归纳。</p><p>面向对象</p><table><thead><tr><th></th><th>目的</th><th>定义</th><th>代码/举例</th><th>其他</th></tr></thead><tbody><tr><td>封装</td><td>对功能的整合，使用上进行简化</td><td>把类的各种属性和行为包裹起来，外部无法看到内部的构造及运转机制，只能访问暴露出来的属性或方法。</td><td>类，比如：private声明内部私有化对象</td><td></td></tr><tr><td>继承</td><td>对统一功能/属性的抽象，减少冗余和资源浪费，方便代码的维护</td><td>子类拥有分类的属性和方法，不需要重复定义，并且子类可以通过重写来修改继承而来的方法</td><td>class Child extends Father</td><td></td></tr><tr><td>多态</td><td>增加功能的扩展</td><td>对于父类定义的引用只能指向本类或者其子类实例化而来的对象。</td><td></td><td></td></tr><tr><td>单例</td><td></td><td>一个类只存在一个实例，同时提供集中、统一的访问接口。</td><td>private:</td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>]]></content>
-      
-      
-      <categories>
-          
-          <category> Reading Summary </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Book </tag>
-            
-            <tag> Softare Engineer </tag>
-            
-            <tag> Coding </tag>
             
         </tags>
       
