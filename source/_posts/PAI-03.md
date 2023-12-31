@@ -1,185 +1,451 @@
 ---
-title: Bayesian Network 1 - Basic
-date: 2020-01-23
+title: PAI3 Bayesian Network 2Inference
+date: 2020-01-26
 tags: [AI, Reinforcement Learning, Bayesian]
 categories: [Learning Notes]
 mathjax: true
 ---
-# Questions
-- why to say the conditional independence is weaker than independence?
-- what are the properties of conditional independence? How to compare them with independence?
-- what is the definition of bayesian network? 
-- what is the relation between conditional independence and bayesian network?
-- what are the advantages of bayesian network?
 
-# Keywords
-conditional independence, naive bayes models, bayesian networks
+# Inference
 
-# Conditional independence
+## Typical queries
 
-Using independence in formula will greatly decrease the number of parameters from $O(2^n)$  to some smaller numbers, even $O(n)$ 
+- What are these typical queries for?
+- what kinds of typical queries?
+  - conditional/marginal query: Given conditional variable $s$' value, what is the probability of the objective variable $s$? $\Pr[X_i|X_S=x_s]=?$​
+  - MPE, most probable explanation: a special case of MAP. given the values for some variables, compute most likely assignment to all remaining variables: $\arg\max x_{\bar{s}} \Pr[X_{\bar{s}}=x_{\bar{s}}|X_s=x_s]$
+  - MAP, maximum a posterior: compute most likely assignment to some variables.  Two kinds of queries: 1. the arg giving the maximum, 2. just the maximum value $\arg\max_{x_a}\Pr[X_A=x_a|X_B=x_b]$
 
-## Definition
+Formally, any probabilistic inference system is to compute the posterior probability distribution for a set of query variables, given some observed event, that is some assignment of values to a set of evidence variables.
 
-$A$ and $B$, two random variables, are conditional independence given $C$ iff for all $a,b,c$
-$$
-\text{Pr}(A=a\cap B=b|C=c) = \text{Pr}(A=a|C=c)\text{Pr}(B=b|C=c)$​
-$$
+Define three types of variables:
 
-- $\Pr[Y=y|Z=z]>0, \Pr[X=x|Y=y,Z=z]=\Pr[X=x|Z=z]$
+- evidence variables: the set of variables give the observed event, denoted as $E$
+- query variables, denoted as $X$
+- hidden variables: all the variables except for evidence or query variables, denoted as $Y$
 
-It is denoted as$(X\perp Y) | Z$
+## Methods
 
-## Properties
+- exact: exploit structure/conditional independence to efficiently perform exact inference. Variable elimination, factor graph
 
-Claim: all of the following properties should have non-conditional version
+- approximation: loopy factor graph
 
-- symmetry: $(X\perp Y)|Z \Leftrightarrow (Y\perp X)|Z$
+### Variable elimination
 
-  - The proof is trivial
+It is called variable elimination because it eliminates one by one variables which are irrelevant for the query.
 
-- decomposition: Given Z, X is conditional independent from Y and W. We can conclude that X is conditional independent from Y and X is conditional independent from W specifically. 
+It lies on some **basic operations** on a class of functions known as **factors**.
+
+It uses an algorithmic technique called **dynamic programming**.
+
+The general idea:
+
+- push sums through products as far as possible
+- create new factor by summing out variables, intermediate solutions are distributions on fewer variables.
+
+
+#### Factor
+**Factor** is a function over a set of variables. It maps each instantiation of these variables to a real number. For instance, CPT(conditional probability table)s  are factors. In other words, a factor is a matrix indexed by the values of its argument variables. It has three operations:
+
+- product: the variables are the *union* of two factors' variables, the result is the product of two factors.
   $$
-  (X\perp (Y,W))|Z \Leftrightarrow (X\perp Y)|Z \wedge  (X\perp W)|Z
+  f(X_1,X_2,\cdots,X_n,Y_1,Y_2,\cdots,Y_k,Z_1,Z_2,\cdots,Z_m)
   $$
 
-  - Proof left to right: Since Y and W are symmetric, I only prove for $Y$ in discrete version. The continuous version is similar
-    $$
-    (X\perp (Y,W))|Z\Leftrightarrow  P((XYW)|Z)=P((X(YW))|Z)
-    $$
+  $$
+  =f_1(X_1,X_2,\cdots,X_n,Y_1,Y_2,\cdots,Y_k)\cdot f_2(Y_1,Y_2,\cdots,Y_k,Z_1,Z_2,\cdots,Z_m)
+  $$
 
-    $$
-     = P(X|Z)P((YW)|Z)
-    $$
+- marginalization: $f(B,C)=\sum_{a}f(A=a,B,C)$
 
-    $$
-    \Rightarrow P((XY)|Z) = \sum_W P((XYW)|Z) = \sum_W P(X|Z)P((YW)|Z)
-    $$
+#### Algorithm
 
-    $$
-    = P(X|Z)\sum_W P((YW)|Z) = P(X|Z)P(Y|Z)
-    $$
+Case: marginal variables
 
-    $$
-    \Rightarrow (X\perp Y)|Z
-    $$
+Given BN and Query $P(X|E)$
 
-  - Proof  right to left: I **don't know** how to prove it. ?????maybe it is not true??
+1. choose an ordering of $X_1,\cdots,X_n$ for all elements in $Y$.
+2. set up initial factors: $f_i=P(X_i|Pa_i), Pa_i,$ the set of nodes who have edges pointing to $X_i$
+3. For $i=1:n, X_i\in Y$
+   1. collect and multiply all factors that include $X_i$
+   2. generate new factor by marginalizing out $X_i$, $g=\sum_{x_i}\prod_j f_j$
+   3. add $g$ to the set of factors.
+4. renormalize $P(X,E)$ to get $P(X|E)$
 
-- Contraction: $((X\perp Y)|Z)\wedge (X\perp W|(YZ))\Rightarrow (X\perp (WY))|Z$
+Case: maximum arguments, similar to the former algorithm
 
-- weak union: $(X\perp (YW))|Z\Rightarrow (X\perp Y)|(ZW)$
+Given BN and evidence $E=e$
 
-- intersection:$(X\perp Y)|(WZ)\wedge (X\perp W)|(YZ)\Rightarrow (X\perp(YW))|Z$
+1. choose an ordering of $X_1,\cdots,X_n$​ for all elements in $Y$.
 
-## Application
+2. set up initial factors: $f_i=P(X_i|Pa_i), Pa_i,$​ the minimum parent  set subsetting to the set of ancestors of given variable $X_i$. Like the definition in the building BN algorithm
 
-Example: In a naive bayes model, where: $Y$​ is the cause variable, $X_1,\cdots,X_n$​ are the effects variables. ![A naive Bayes model example](chap201.jpg)
+3. For $i=1:n, X_i\in Y$
 
-We can give a conditional independence assertion: 
+   1. collect and multiply all factors that include $X_i$
+   2. generate new factor by marginalizing out $X_i$,  $g=\max_{x_i}\prod_j f_j$
+   3. add g to the set of factors.
 
-$$
-X_A\perp X_{\bar{A}}|Y,\forall A\subset\{1,2,\cdots,n\}
-$$
-Where$ A=\{i_1,\cdots,i_k\}\subset\{1,2,\cdots,n\}$ and $\bar{A}=\{1,2,\cdots,n\}$ $A, X_A=\{X_{i_1},\cdots,X_{i_k}\}$
+4. For $i = n:\-1:1, X_i\in Y$
 
-In general, conditional independence can be used to transfer **joint parameterization** into **conditional parameterization**. In this way, we can greatly reduce the number of parameters. Formally,
-
-$$
-\Pr[X_{1:n}]=\prod_{i=1}^n\Pr[X_i|parents(X_i)]
-$$
+   $$
+   \hat{x_i}=\arg\max_{x_i}g_i(x_i,\hat{x}_{i+1:n})
+   $$
 
 
-The number of parameters change: $\prod_{i=1}^n |X_i|\to \sum_{i=1}^n |X_i|^{\prod_{X_j\in parents(X_i)}|X_j|}$
+#### Order
+**The order matters**! But how does it matter?
 
-# Bayesian Network
+In general, the time and space requirements of variable elimination are dominated by the size of the largest factor constructed during the operation of the algorithm. It turns out to be intractable to determine the optimal ordering, but several good heuristics are available.
 
-- Bayesian: uses the Bayes' theorem, which specifies an event's probability given some conditions.
-- network: represented by directed graph, as a network.
+- eliminate whichever variable minimizes the size of the next factor to be constructed. In general, we can remove any leaf node that is not a query variable or an evidence variable.$\to$ every variable that is not an ancestor of a query variable or evidence variable is irrelevant to the query.
 
-### Definition
+#### Complexity
 
-A Bayesian Network is a *directed acyclic graph* in which:
+- polytree: linear in the size of the network. The size is defined as the number of  CPT entries.
+  - if the number of parents of each node is bounded by a constant, then the complexity will also be linear in the number of nodes.
 
-- node:
-  - each node corresponds to a random *variable*
-  - numeric parameters: each node has a *conditional* probability distribution $P(x|\text{parents}(x))$
-- links:
-  - a link from node $X$ to node $Y, X$ is said to be a *parent* of $Y$.
-  - intuitive meaning: $X$ is a *parent* of $Y\to X$ has a *direct impact* on $Y$. Causes should be parents of effects.
-- No directed cycles. It is a DAG
+**polytree**: a DAG, dropping edge directions is a tree.
 
-#### Semantics
+- multiply connected networks: has exponential time and space complexity in the worst case, even when the number of parents per node is bounded. ???? Example???
 
-Two ways to understand the semantics of Bayesian Network:
+Special case of the Algorithm for a polytree:
 
-1. as a representation of the joint probability distribution
-2. as an encoding of a collection of conditional independence statements.
+1. pick a root within Y
+2. orient edges in the undirected tree towards root.
+3. eliminate in topological order bottom up: first all the children, then the parent
 
-#### Structures
+All intermediate factors will contain at most $1+\max|Pa_i|$ variables.
 
-$$
-X\perp Z|Y,\neg X\perp Z
-$$
+### Factor graphs
 
+Why we need factor graph?
 
+what advantages of it?
 
-- $x\leftarrow y\to z$: common cause
-- $x\leftarrow y\leftarrow z$: indirect evidential effect
-- $x\to y\to z$: indirect causal effect
+[from the wiki](https://en.wikipedia.org/wiki/Factor_graph)
+
+#### Definition
+a factor graph is a *bipartite graph* representing the *factorization* of a function. Given a function and its factorization:
 
 $$
- \neg X\perp Z|Y, X\perp Z
+g(X_1,X_2,\cdots,X_n)=\prod_{j}f_j(S_j), S_j\subset\{X_1,X_2,\cdots,X_n\},\forall j\in[m]
 $$
 
 
+The corresponding factor graph: $G=(X,F,E)$
 
-- $x\to y \leftarrow z$: common effect
+- $X$: the set of variables. One variable node for each variable.
+- $F: f_1,f_2,...f_m$, the set of factors. One factor node for each factor.
+- $E$: *undirected edge* between a factor vertex $f_j$ and a variable vertex $X_i$ iff $X_i\in S_j$
 
-## Usage
+#### Message passing
 
-### Build algorithm
-1. Nodes: 
-   1. determine the set of variables that are required to model the domain.
-   2. Order them $\{X_1,\cdots,X_n\}$. **Any order will work**. But the resulting network will be more compact if the variables are ordered such that causes precede effects.
+Messages are real-valued *functions*. It contains the "influence" that one variable ,not a factor, exerts on others. There are two kinds of message: 
 
-2. Links: For each $X_i$ do:
-   1. find the *minimal parent subset A* from $\{1,2,\cdots,i-1\}$​, s.t. $P(X_i|{1,2,\cdots,i-1})=P(X_i|A)$​ 
-      - in some way, minimal means direct influence.  For example, some variable in $\{1,2,\cdots,i-1\}$ may have indirect influence on $X_i$, through a variable $X_k$. Then, if we include $X_k$, they are excluded.
-   2. for each parent $X_k$ in A, insert a link from $X_k$ to $X_i$ 
-   3. write down the conditional probability table.
+1. message from a variable to a factor and
+
+2. message from a factor to a variable. 
+
+   Messages are always denoted by variables, not factors. That is $\mu_{v\to u}(x_v) , \mu_{u\to v}(x_v)$.  All uses $x_v$.
+
+- message from a variable v to a factor u: the product of all message this variable receives from its neighbors/factors except for the one it sends to.
+
+  $$
+  \mu_{v\to u}(x_v)=\prod_{u'\in N(v)\setminus\{u\}}\mu_{u'\to v}(x_v)
+  $$
+  
+
+  Upon convergence if convergence happened, the estimated *marginal  distribution of each variable* is proportional to the product of all messages from adjoining factors missing the normalization constant:
+  $$
+  \Pr[X_v=x_v]\propto \prod_{u\in N(v)} \mu_{u\to v}(x_v)
+  $$
+  
+
+  In other words, 
+  $$
+  \Pr[X_v=x_v]\propto \mu_{u\to v}(x_v)\mu_{v\to u}(x_v)
+  $$
+
+- message from a factor to a variable: 
+
+  - the product of all message this factor receives from its neighbors variables except for the one it sends to 
+
+  - weighted by the value of the factor, fixed the objective variable.
+
+    $$
+    \mu_{u\to v}(x_v)=\sum_{x_u\sim x_v}f_u(x_u)\prod_{v'\in N(u)\setminus\{v\}}\mu_{v'\to u}(x_{v'})
+    $$
+    
+    
+    Max version, to get the arg of max, also needs to store the arg information for each factor.
+    
+    $$
+    \mu_{u\to v}(x_v)=\max_{x_u\sim x_v}f_u(x_u)\prod_{v'\in N(u)\setminus\{v\}}\mu_{v'\to u}(x_{v'})
+    $$
+    
+    
+    Likewise, the estimated joint marginal distribution of the set of  variables belonging to *one factor* is proportional to the product of the factor and the messages from the variables:
+  
+  $$
+  \Pr[X_f=x_f]\propto f_f(x_f)\prod_{v\in N(f)} \mu_{v\to f}(x_v)
+  $$
+
+#### Algorithm
+
+- Exact algorithm for trees:
+
+**Sum-product (also called belief propagation) algorithm**. It computes the functions on edges. [A detailed introduction](https://www.doc.ic.ac.uk/~mpd37/teaching/ml_tutorials/2016-11-09-Svensson-BP.pdf) and [a demo](http://mlg.eng.cam.ac.uk/teaching/4f13/1920/factor%20graphs.pdf)
+
+Given a factor graph, choose one node as root.
+
+There are three phases.
+
+1. Initialization. Void product is set as 1. 
+2. message passing. Compute outgoing messages when incoming messages are available.
+3. termination. A marginal distribution is the product of the incoming messages to the variable node.
+
+- approximate algorithms for loops
+
+1. initialize all messages as uniform distribution, instead of void product as 1
+2. until converged to
+   1. pick some ordering on the factor graph edges +directions, because of loops
+   2. update messages according to this ordering
+   3. break once all messages change by at most epsilon
 
 
 
-### Identification of conditional independence
+Remarks:
 
-Not independent/dependent can transmit conditions. That means if we know some condition, all variables not independent of it are known or partially known.
+- Does loopy BP always converge?
 
-Given a Bayesian network, how to find the independence relationship between variables from the network structures?
+  - No. The more "deterministic" of the initial distribution, the less likely that this algorithm will converge.
 
-An important theorem says:
+- If it converges, is it closed to the true value?
+
+  - This convergence may **not** always equal to the true marginals. It is often **overconfident**, having a posterior bigger than the true posterior.
+
+#### Application
+
+Factor graph can be used to compute **marginal** probability with low computation complexity.
+
+### Variational inference
+
+Compared to factor graphs, this method always converges.
+
+#### Settings
+
+Given unnormalized distribution P with the form of the product of factors, the idea is to try to find a "simple" (tractable distribution Q that approximates P well. Then, compute marginals under Q* instead of P
+
+- $\Pr[X_{1:n}]=\frac{1}{Z}\prod_{j=1}^m \Phi_j(X_{A_j})$
+
+- $Q^*\in\arg\min_{Q\in\mathcal{Q}}KL(Q||P)$
+
+- Q is chosen from a distribution family. A simple instance: independent distributions: $\mathcal{Q}=\{Q:Q(X_{1:n})=\prod_{i=1}^n Q_i(X_i)\}$
+
+
+A key question is when to do this? On the prior? Or on the posterior? 
+Typically, the distribution of prior may be terrible, hard to catch, could be a lot configurations to capture, but once you have evidence, the "localized probability" posterior is somehow simplified. Then, the approximation of the posterior is hopeful. *Posterior often much better approximated by simple distribution*. That means the posterior only needs to capture features on a very very limited, much smaller space.
+
+#### KL Divergence
 
 $$
-\text{d-sep}(X;Y|Z)\Rightarrow (X\perp Y)|Z
+KL(Q||P)=\sum_x Q(x)\log\frac{Q(x)}{P(x)}=\sum_xQ(x)\log Q(x)-\sum_xQ(x)\log P(x)
 $$
-converse does not hold in general, but for "almost" all distributions.
 
-#### d-separation
+Not a distance: not satisfying: (1)symmetricity, (2) triangle inequality.
 
- This term describes a structural relation between variables in a given network. We can connect this structural relation with independence relation.
+**Entropy** of a distribution:
 
-Given observed variables $O$​, any variables Xi and Xj for which there is **no active trail** are called *d-separated* by $O$​.  Written as $\text{d-sep}(X_i;X_j|O) $​
+$$
+H(Q)=-\sum_xQ(x)\log Q(x)
+$$
+Entropy of a product distribution, where $Q(X_{1:n})=\prod_i Q_i(X_i),H(Q)=\sum_i H(Q_i)$
 
-- active trail: an undirected path in BN structure G is called active trail for observed variables $O\subset\{X_1,X_2,\cdots,X_n\}$​, if for every consecutive triple of vars $X,Y,Z$ on the path
-  - $X\to Y\to Z,Y\notin O$
-  - $ X\gets Y\gets Z,Y\notin O$
-  - $ X\gets Y\to Z,Y\notin O$
-  - $X\to Y\gets Z$, and $Y$ or any of $Y$'s descendants is observed.
+A proof ketch:
 
-- linear time algorithm for d-separation: find all nodes active trail reachable from $X$
+$$
+ H(Q)=-\sum_x\prod_i Q_i(X_i)\log\prod_i Q_i(X_i)
+$$
 
-  1. mark $Z$ and its ancestors
+$$
+=-\sum_{x_j}Q_j(X_j)\sum_{x_k,k\neq j}\prod_{k\neq j}Q_k(X_k)\sum_{i}\log Q_i(X_i)
+$$
 
-  2. do breath-first search starting from $X$; stop if path is blocked
+$$
+=-\sum_{x_j}Q_j(X_j)\log Q_j(X_j)\cdot 1+\sum_{x_j}Q_j(X_j)H(Q_{-j})
+$$
 
-     
+$$
+=H(Q_j)+H(Q_{-j})
+$$
+
+#### ELBO
+
+evidence lower bound
+
+$$
+\arg\min_{Q\in\mathcal{Q}}KL(Q||P)=\arg\max_{Q\in\mathcal{Q}}\sum_{i=1}^nH(Q_i)+\sum_{i=1}^m\sum_{x_{A_i}}\prod_{j\in A_i} Q_j(x_j)\log\Phi(x_{A_i})
+$$
+Want to optimize this objective according to Q. Methods:
+
+- gradient-based
+- mean-field algorithm, also called coordinate ascent. The idea is to optimize one variable at a time.
+
+**Mean-filed algorithm**
+
+1. initialize. Start with a guess, e.g. uniform distribution for each variable: $Q^{(0)}$
+2. Operate until convergence:
+   1. cycle throughout variables and update one each time. 
+
+### Marginal as Expectations
+
+Before, there are all *deterministic* algorithms, now we turn to randomized algorithms. Using randomness to get a trade-off between computation time and accuracy.  The core idea is treat marginals as expectations and approximate expectation by sampling. 
+
+#### Convergence
+
+The law of large numbers, valid on independent samples, gives a hope of convergence.
+$$
+\mathbb{E}_P[f(X)]=\sum_x P(x)f(x), \int P(x)f(x)\mathrm{d}x
+$$
+examples: 
+
+- marginals: $\Pr[X_i=x]=\mathbb{E}_P[[X_i=x]]$
+
+#### Sampling methods
+
+How to sample from structured models, e.g. a Bayesian network?
+
+- forward sampling Monte Carlo sampling, using the structure to sample step by step. Proceed according to the topological order.
+  - algorithm:
+    1. sort variables in topological ordering $X_1,\cdots,X_n$
+    2. For $i = 1$ to n do
+       1. sample $x_i$ according to the probability $P(X_i|X_1=x_1,...,X_{i-1}=x_{i-1})$
+  - estimation of marginal: the mean of count of $X_i = x_i$
+  - conditional: the joint divided by the marginal. one count divides another. **Rejection sampling**. Also, this algorithm can be *problematic* if the denominator event is very rare, could be 0 after sampling. 
+- sampling directly from posterior distribution to avoid the rare events effect, the case that the denominator almost 0, MCMC: ingenious idea: using some dependent variables to sample.
+
+#### Complexity
+
+How many samples do we need?
+
+- Hoeffding's inequality: bound the relation between an estimation's distance from the true expectation and its probability. 
+
+We have two kinds of errors. Suppose $C=1$,
+
+- absolute error: $\Pr[\hat{P}(x)\notin[P(x)-\epsilon, P(x)+\epsilon]]\leq 2\exp(-2N\epsilon^2)$
+
+- relative error: $\Pr[\hat{P}(x)\notin P(x)(1\pm\epsilon)]\leq 2\exp(-NP(x)\epsilon^2/3)$
+
+
+### MCMC
+
+The idea of MCMC is to directly sample from posterior distribution. Forward sampling couldn't do this. Assuming that given evidences appear later than some variables according to the topological order, if we do forward sampling, we start from root/parents and may get only few of these samples with observed variables as the observed values. Forward sampling uses likelihood to sample, while MCMC uses posterior to sample.
+
+#### Settings
+
+Given unnormalized distribution $Q(x)$, we want to sample from the normalized version $P(X) = Q(X)/Z$. For example, given $P(A,B,C)$ but we want to sample from $P(A|B,C)=P(A,B,C)/Z$, $Z$ is an unknown constant.
+
+The solution is to create Markov chain from $Q(X)$, which has the stationary distribution $P(X)$ which we want to sample from.
+
+An important statement: an
+
+- *ergodic* 
+- *Markov Chain* 
+has a 
+- unique 
+- and positive stationary distribution $\pi(X)>0$, such that for all $x$,$\lim_{t\to\infty}\Pr[X_t=x]=\pi(x)$
+
+#### Detailed Balance
+
+Detailed balance equation: $Q(x)P(x'|x)=Q(x')P(x|x')$ 
+
+In the our application, it builds the transfer from likelihood probability to posterior by the replacement in conditional distribution. The equation is 
+$$
+Q(X_t=x)P(X_{t+1}=x'|X_t=x)=Q(X_{t+1}=x')P(X_t=x|X_{t+1}=x')
+$$
+
+
+#### Algorithm
+
+a framework
+
+1. provide a proposal distribution $R(X'|X)$​, this is chosen by ourselves. Performance of the algorithm will strongly depend on $R$. 
+
+   What does the performance mean? Convergence? Complexity?
+
+   - bad proposal may cause alpha never been accepted. The state seldom moves.
+
+2. acceptance distribution:
+
+   1. suppose $X_t=x$
+   2. accept the transition from R with probability $\alpha=\min\{1,\frac{Q(x')R(x|x')}{Q(x)R(x'|x)}\}$
+
+Remarks:
+
+- in the case that $R(x|x')$ is symmetric, alpha is decided by $Q(x')/Q(x)$. It means it will definitely transit to a value with higher probability $Q(x')>Q(x)$​. For a value with lower probability, it has some chance to transit to that $Q(x')/Q(x)$.
+
+Theorem: the stationary distribution is $Z^{-1}Q(X).$
+
+How to design the proposal? Why this proposal needs to satisfy the detailed balance equation?
+
+##### Gibbs sampling
+
+Algorithm:
+
+1. start with initial assignment $x(0)$ to all variables
+2. fix observed variables $X_E$ to their observed values $x_E$
+3. For t = 1 to infty do:
+   1. set $x^{(t)}=x^{(t-1)}$
+   2. For each variable $X_i$ (not in E)
+      1. set $v_i$=values of all $x^{(t)}$ except $x_i$
+      2. sample $x^{(t)}_i$ from $P(X_i|v_i)$
+
+In Gibbs sampling, we still use an unknown conditional distribution $P(X_i|v_i)$. Good news is this special type of conditional distribution, which conditions on everything except one variable, could be calculated efficiently.  Because when calculating the denominator, we focus on a small space where only the aimed variable takes different values. The space is $|V|$. The whole space's size is $|V|^n$, hard to calculate.
+
+Advantage:
+
+- can do update parallel. 
+
+Algorithm via Gibbs sampling
+
+1. use Gibbs sampling to obtain samples, $X^{(1)},\cdots, X^{(T)}$
+
+2. ignore the first $t_0$ samples in "burn in" stage, and approximate
+
+   $$
+   \mathbb{E}_{x_E}[f(X)]\simeq\frac{1}{T-t_0}\sum_{\tau=t_0+1}^T f(X^{(\tau)}
+   $$
+
+#### Convergence
+
+We want to use MCMC to answer the question, what is the expectation of some function $f(X)$ given the probability distribution. In the former, the law of large numbers works on the independent samples. Here, all of our samples are $x^{(t)}$​, sample at time t depends on sample at time $t-1$. How to calculate $E_p[f(X)]$ now?
+
+Hopefully, we have **ergodic theorem**. This is a strong law of large numbers for Markov chain. 
+
+Ergodic theorem: 
+
+- suppose $X_1,X_2,\cdots,X_N, \cdots$ is an ergodic Markov chain 
+- over a finite state space D, 
+- with stationary distribution $\pi$. 
+- $f$ is a function on D.
+
+Then, we have
+
+$$
+\lim_{N\to\infty}\frac{1}{N}\sum_{i=1}^N f(x_i)=\sum_{x\in D}\pi(x)f(x)=\mathbb{E}_{x\sim\pi}[f(x)]
+$$
+
+
+- how about the convergence rate?
+  - Establishing convergence rates generally very difficult. No Hoeffding for it
+
+# Summary
+
+| methods               | Deterministic? | applicable cases              | advantages                                   | disadvantages                                     |
+| --------------------- | -------------- | ----------------------------- | -------------------------------------------- | ------------------------------------------------- |
+| variable elimination  | Yes            | tree-structured bayes net     | exact marginals                              | not scalable to general models                    |
+| belief propagation    | Yes            | tree-structed, loopy networks | efficiently compute all marginals            | may not converge on loopy networks                |
+| variational inference | Yes            | tree, loopy                   | fast, converge, good if having a lot of data | but the convergence may not be the exact solution |
+| gibbs sampling        | No             | tree, loopy                   | converges to exact marginals                 | may take a long time                              |
+

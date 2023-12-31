@@ -1,10 +1,9 @@
 ---
-title: CN review notes
+title: Complex Network review notes
 author: Guirong Fu
 date: 2019-08-18
 tags: [Complex System, Graph]
 categories: [Sharing]
-top: true
 ---
 
 Here are my review notes of course Complex Network opened by [Professor Frank Schweitze](https://www.sg.ethz.ch/team/frank_schweitzer/), Chair of Systems Design, ETH Zurich, 2019 Spring.

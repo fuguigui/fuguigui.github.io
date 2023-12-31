@@ -2,14 +2,14 @@ theme:
   Matery
 
 title: Fululu
-subtitle: Always Remeber
-description: Warning! You accidentally rushed into Lulu's secret garden. Here, everything is created by heart.
+subtitle: Keep Growing
+description: The only unchanged is keeping changing.
 author: Lulu
 keywords:
-  - Travling
-  - Coding
-  - Food
-  - Learning
+  - Traveling
+  - Building
+  - Creative
+  - Output
 language: 
   - en
   - zh-CN
@@ -80,7 +80,7 @@ default_category: uncategorized
 category_map:
 tag_map:
 
-per_page: 10
+per_page: 12
 pagination_dir: page
 
 # Include / Exclude file(s)

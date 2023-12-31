@@ -1,5 +1,5 @@
 ---
-title: Matrix Completion
+title: CIL2 Matrix Completion
 date: 2019-07-05
 tags: [Machine Learning]
 categories: [Learning Notes]

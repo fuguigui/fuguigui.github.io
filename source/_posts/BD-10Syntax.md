@@ -1,5 +1,5 @@
 ---
-title: Syntax
+title: BD10 Syntax
 date: 2019-01-26
 tags: [System, Big Data]
 categories: [Learning Notes]

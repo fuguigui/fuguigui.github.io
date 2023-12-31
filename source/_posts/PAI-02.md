@@ -1,263 +1,185 @@
 ---
-title: Foundamention
+title: PAI2 Bayesian Network 1Basic
 date: 2020-01-23
-tags: [AI, Reinforcement Learning, Probability Theory]
+tags: [AI, Reinforcement Learning, Bayesian]
 categories: [Learning Notes]
 mathjax: true
 ---
+# Questions
+- why to say the conditional independence is weaker than independence?
+- what are the properties of conditional independence? How to compare them with independence?
+- what is the definition of bayesian network? 
+- what is the relation between conditional independence and bayesian network?
+- what are the advantages of bayesian network?
 
-## Fundamental Settings
+# Keywords
+conditional independence, naive bayes models, bayesian networks
 
-Use Agent-environment model to represent all tasks.
+# Conditional independence
 
-### Agent
+Using independence in formula will greatly decrease the number of parameters from $O(2^n)$  to some smaller numbers, even $O(n)$ 
 
-has a set $A$​ and a function $f$.
+## Definition
 
-- $A$: the elements in $A$ are called actions.
-- $f$: map sequence of percepts to action $f: P\to A$
-
-### Environment
-
-has a set $P$, a function $f$, a measure function $R$.
-
-- $P$: the elements in $P$ are called percepts or environment states.
-- $f$: map sequence of actions to percept  $f:A\to P$
-- $R$: evaluates any given sequence of environment states: $R:S^\ast \to \mathbb{R}$ 
-
-We want to design an agent to be rational, doing the right thing. How to define "right"?  Based on the evaluation of **environment** states. 
-
-**A rational agent** is defined as: for each possible percept sequence, a rational agent should select an action that is expected to maximize its performance measure, given
-
-- the evidence provided by the percept sequence 
-- and whatever built-in knowledge the agent has.
-- ? how to show this formally? How to mathematically evaluate the performance measurement related to agent's built-in knowledge
-
-# Probability Review
-
-## Basic concepts
-
-- Probability space: three elements: atomic events space Omega, can be continuous, sigma-algebra which is closed under complement and unions and probability measure. $\{\Omega, F, P\}, F \subseteq 2^{\Omega}, P:F\to [0,1]$ 
-- probability axioms: 
-  - normalization, making the probability of the whole set is 1: $\text{Pr}(\Omega)=1$ 
-  
-  - non-negativity, all the probability is larger than 0: $\Pr[A]\geq 0,\forall A\in F$ 
-  
-  - "add operation" sigma-additivity, the probability of the union of disjoint sets are the sum of the probability of each set:
-    $$
-    \Pr[\bigcup_{i=1}A_i]=\sum_{i=1}\Pr[A_i],\forall A_i\in F \text{ and } A_i\cap A_j=\phi, i\neq j
-    $$
-    
-    - this axiom builds the relation between the "add" operation in the algebra and the "union" operation in the set theory.
-    
-  - From the three axioms, we can deduct:
-    - "minus" operation: $\Pr[\Omega-A]=1-\Pr[A]$ 
-    - "empty": $\Pr[\phi]=0$ 
-    - "minus" operation: $5CPr[A-B]=\Pr[A]-\Pr[A\cap B]$ since $A-B$ and $A\cap B$​ are disjoint. All minus operations are from add operations
-    - "inclusion-exclusion principle" $\Pr[A\cup B]=\Pr[A]+\Pr[B]-\Pr[A\cap B]$​
-    - "inequality": $A\subset B\Rightarrow\Pr[A]\leq\Pr[B]$ 
-
-## Derivatives
-
-Based on the basic definitions, we can define more advanced concepts, such as independent events, conditional probability
-
-### Independence
-
-- independent events: two random events A, A' are independent iff $P(A\cap A')=P(A)P(A')$ 
-  - event is a subset of the sample space Omega.
-  - the left side means the probability of the joint of two sets
-  - the right side means the multiplication of two probabilities
-  - this definition connects the calculation of sets with the calculation of numbers. In some way, map the "joint" operation to the "multiplication" operation. 
-  
-- random variable: **A random variable is a mapping.** Denote it as $X$. Given a set  D, $X: \Omega\to D$ . How to define probability for the element(s) in $D$? Based on the corresponding elements in $\Omega$​​. That is 
-  $$
-  x\in D, \Pr[X=x]=\Pr[\{w: X(w)=x, w\in\Omega\}]
-  $$
-  
-  - the left side is the probability definition on a new set $D$
-  - the right side is the corresponding probability on the on the original whole set $\Omega $​.
-  - I would call the left side is a symbol for representation while right side is the essence. 
-  - ??? Does it mean all elements in $\Omega $​ must have a corresponding element in $D$​? 
-    - Yes!!! $X$ is defined on the **whole** $\Omega $. That implies $\sum_{x} \Pr[X=x]=1$
-  - ??? Does it mean X must be deterministic???
-  -  How to interpret that in continuous settings? In continuous distribution, no "good" definition of the probability of a point.
-    - From [this wiki](https://en.wikipedia.org/wiki/Elementary_event), "in a continuous distribution, individual elementary events must all have a probability  of zero because there are infinitely many of them— then non-zero  probabilities can only be assigned to non-elementary events."
-    - I think the definition may comes from a more advanced concept [Borel-algebra](https://en.wikipedia.org/wiki/Borel_set). Also in the first chapter in this book [Foundations of Modern Probability](https://books.google.ch/books?id=uL7UBwAAQBAJ&pg=PA1&hl=zh-CN&source=gbs_toc_r&cad=4#v=onepage&q&f=false), it says something about the Borel-algebra, which is beyond my understanding. But it convinces me that this kind definition of probability works.
-    
-  
-- independent random variable: two random variables are independent iff $P(xy)=P(x)P(y),\forall x\in X(\cdot), y\in Y(\cdot)$ 
-
-  - different from independent events, which could be represented easily be the set (Vien graph), independent random variables are not straightforward in the Vien, because both of them work on the whole sample space. But we can show the Vien graph of their specific values.
-
-  -  use $X\perp Y$​ to denote $X$​ and $Y$​ are independent. This notation is very descriptive. Taking the algebra  view, $X$​ and $Y$​ are "orthogonal" to each other. For instance, supposing the sample space Omega is a cube. $X$ maps it to the $z$ axis, and $Y$ maps it to the $y$ axis. Then for any pair of $(x,y), P(xy)$ , shown in the Vien graph is a rectangle in surface y-z,  is exactly $P(x)P(y)$, which are two orthogonal rectangles with an overlapped rectangle.
-
-    
-### Joint distributions
-Instead of random variable, using random vector of several variables. 
-
-$X=[X_1(w),X_2(w),\cdots, X_n(w)]$ and $\Pr[X=v_n]=\Pr[X_1(w)=v_1,X_2(w)=v_2,\cdots, X_n(w)=v_n]$
-
-- Interpreted from the set theory view: supposing the Omega has high dimension and we use a n-dimension lense to inspect it to find the aimed subspace.
-
-- note that each item is a random variable, that means $\sum_{x} \Pr[X_i=x]<1$, we cannot have $\sum_{x} \Pr[X_i=x,Y]=\Pr[Y]$
-
-  
-### Conditional probability
-Define a new operator "|" in the probability theory
+$A$ and $B$, two random variables, are conditional independence given $C$ iff for all $a,b,c$
 $$
-\Pr[A|B]=\frac{\Pr[A\cap B]}{\Pr[B]},\Pr[B]>0
+\text{Pr}(A=a\cap B=b|C=c) = \text{Pr}(A=a|C=c)\text{Pr}(B=b|C=c)$​
 $$
 
-- Observation of the left-side (set theory view): it actually changes the event space to the set of $B$ from the original set $\Omega.$
-- calculation view: introduce the division in the probability theory.
+- $\Pr[Y=y|Z=z]>0, \Pr[X=x|Y=y,Z=z]=\Pr[X=x|Z=z]$
 
-## Sum rule and product rule
+It is denoted as$(X\perp Y) | Z$
 
-- sum rule marginalization: an application of the add-operation of disjoint sets
+## Properties
+
+Claim: all of the following properties should have non-conditional version
+
+- symmetry: $(X\perp Y)|Z \Leftrightarrow (Y\perp X)|Z$
+
+  - The proof is trivial
+
+- decomposition: Given Z, X is conditional independent from Y and W. We can conclude that X is conditional independent from Y and X is conditional independent from W specifically. 
   $$
-  \Pr[X_{1: i-1}，X_{i+1: n}]=\sum_{x_i}\Pr[X_{1:i-1},x_i,X_{i+1: n}]
+  (X\perp (Y,W))|Z \Leftrightarrow (X\perp Y)|Z \wedge  (X\perp W)|Z
   $$
 
-- product rule chain rule: an application of the definition of conditional probability.
-  $$
-  \Pr[X_{1:n}]=\Pr[X_n|X_{1:n-1}]\cdots\Pr[X_3|X_1X_2]\Pr[X_2|X_1]\Pr[X_1]
-  $$
-
-- Application: Bayes' Rule: from the prior $P(X)$ and likelihood $P(Y|X)$ to compute the posterior $P(X|Y)$
-
-  $$
-  \Pr[X|Y]=\frac{\Pr[X]\Pr[Y|X]}{\sum_x\Pr[X]\Pr[Y|X]}
-  $$
-  
-  
-  - the nominator: product rule
-  - the denominator: sum rule, then product rule
-
-## Operations in Probability
-
-### Operators
-
-- and: $\cap$​  or $,$  or missed, e.g. $P(A\cap B) = P(A,B) = P(AB) $​
-- or: $\cup$, e.g. $P(A\cup B),P(A\cup B) = P(A) + P(B)-P(A\cap B)$​
-- conditional: $|$, e.g. $P(A| B)=\frac{P(AB)}{P(B)}$
-  - this operator is a little bit tricky, cause if considering the sample space, "and" and "or" operators are in the original sample space but "conditional" operator **changes** the sample space !!!
-- conditional independence: $\perp$,e.g.$P((A\perp B)|C) = P(A|C)P(B|C)$
-
-Priorities from lowest to highest: $| < \perp < \cap, \cup$
-
-For example, $P(A,B|C) = P((A,B)|C)\neq P(A,(B|C))$
-
-- "and" could be viewed as "multiply" $\ast$​ in algebra operations in some way
-
-  - exchangeable: $P(A\cap B)= P(B\cap A)$
-
-- "conditional" could be viewed as "plus" $+$, always the lowest
-
-  - but it is **not exchangeable**, that means $P(A| B)\neq P(B|A)$
-
-  - it is **ordered**. I am not sure which order it exactly is. Just from my own understanding, the order should be from right to left,  which means $P(A|B|C) = P(A|(B|C))\neq P((A|B)|C)$
-
-    My explanation is as follows:
-
-    - suppose$P(A|B|C) = P(A|(B|C))$ We will have 
-      $$
-      P(A|(B|C)) = \frac{P(A,(B|C))}{P(B|C)} = \frac{P((AB)|C)}{P(B|C)}
-      $$
-    
-      $$
-      =\frac{P(ABC)P(C)}{P(C)P(BC)}=\frac{P(ABC)}{P(BC)}=P(A|(BC))
-      $$
-    
-      
-    
-      - the second equality uses the "reducing rule", explained in the next block.
-    
-      - this directly gives us the conclusion that $P(A|B|C) =P(A|(BC))$
-    
-      - generate it to the n cases, we will have 
-    
-        $$
-        P(A_n|A_{n-1}|\cdots|A_1) = P(A_n|(A_{n-1}(\cdots |A_1))) 
-        $$
-        
-        $$
-        = P(A_n|(A_{n-1}\cdots A_1))
-        $$
-        
-        
-        
-        The proof is ignored here. Using induction will easily prove it.
-    
-    - suppose $P(A|B|C) = P((A|B)|C)$​ We will have 
-      $$
-      P((A|B)|C)=\frac{P((A|B),C)}{P(C)}=\frac{P(C(A|B))}{P(C)}
-      $$
-      
-      $$
-      =\frac{P((AC)|B)}{P(C)}=\frac{P(ABC)}{P(B)P(C)}
-      $$
-      
-      
-      
-      - also, the third equality uses the "reducing rule"
-      - well, I couldn't find error in the algebra calculation but from the definition of probability, using $P(B)P(C)$ as the denominator, I don't know what the sample space becomes. Based on this aspect, I will refuse this assumption and take the former one.
-
-### Rules
-
-This part is based on my own deduction, I am not sure if they are true. Please contact me if you have other ideas! I would greatly appreciate it.
-
-- "reducing rule": $P(A(B|C)) = P((AB)|C)$
-
-  - just like the "conditional" operator, this rule is also tricky, cause $A$ and $B|C$ are in the different sample space. Here, I would reduce the larger sample space to the smaller sample space. That is reducing $A$ to $A|C$ actually.  By doing this, We will have 
+  - Proof left to right: Since Y and W are symmetric, I only prove for $Y$ in discrete version. The continuous version is similar
+    $$
+    (X\perp (Y,W))|Z\Leftrightarrow  P((XYW)|Z)=P((X(YW))|Z)
+    $$
 
     $$
-    P(A(B|C))=P((A|C)(B|C))=P((AB)|C)
+     = P(X|Z)P((YW)|Z)
     $$
-    
 
-- "association rule": $P(A(BC)) = P((AB)C)=P(ABC)$
+    $$
+    \Rightarrow P((XY)|Z) = \sum_W P((XYW)|Z) = \sum_W P(X|Z)P((YW)|Z)
+    $$
 
-  - from the set view, the proof is trivial.
+    $$
+    = P(X|Z)\sum_W P((YW)|Z) = P(X|Z)P(Y|Z)
+    $$
+
+    $$
+    \Rightarrow (X\perp Y)|Z
+    $$
+
+  - Proof  right to left: I **don't know** how to prove it. ?????maybe it is not true??
+
+- Contraction: $((X\perp Y)|Z)\wedge (X\perp W|(YZ))\Rightarrow (X\perp (WY))|Z$
+
+- weak union: $(X\perp (YW))|Z\Rightarrow (X\perp Y)|(ZW)$
+
+- intersection:$(X\perp Y)|(WZ)\wedge (X\perp W)|(YZ)\Rightarrow (X\perp(YW))|Z$
+
+## Application
+
+Example: In a naive bayes model, where: $Y$​ is the cause variable, $X_1,\cdots,X_n$​ are the effects variables. ![A naive Bayes model example](chap201.jpg)
+
+We can give a conditional independence assertion: 
+
+$$
+X_A\perp X_{\bar{A}}|Y,\forall A\subset\{1,2,\cdots,n\}
+$$
+Where$ A=\{i_1,\cdots,i_k\}\subset\{1,2,\cdots,n\}$ and $\bar{A}=\{1,2,\cdots,n\}$ $A, X_A=\{X_{i_1},\cdots,X_{i_k}\}$
+
+In general, conditional independence can be used to transfer **joint parameterization** into **conditional parameterization**. In this way, we can greatly reduce the number of parameters. Formally,
+
+$$
+\Pr[X_{1:n}]=\prod_{i=1}^n\Pr[X_i|parents(X_i)]
+$$
 
 
-# Probabilistic propositional logic
+The number of parameters change: $\prod_{i=1}^n |X_i|\to \sum_{i=1}^n |X_i|^{\prod_{X_j\in parents(X_i)}|X_j|}$
 
-So far, we define the "probability" from the set theory view and so for the operations, which could be interpreted as the set operations.
+# Bayesian Network
 
-How to express uncertainty about logical propositions?
+- Bayesian: uses the Bayes' theorem, which specifies an event's probability given some conditions.
+- network: represented by directed graph, as a network.
 
-The probability of a proposition is the probability mass of all **models** of it.
+### Definition
 
-- model: all **events** that make the proposition true
-- event: encode assignment to all propositional symbols.
+A Bayesian Network is a *directed acyclic graph* in which:
 
-In the paper [probability, logic and probability logic](https://faculty.arts.ubc.ca/pbartha/p520w07/comp_logic.pdf), there is a definition of probability theory from the logic theory view.
+- node:
+  - each node corresponds to a random *variable*
+  - numeric parameters: each node has a *conditional* probability distribution $P(x|\text{parents}(x))$
+- links:
+  - a link from node $X$ to node $Y, X$ is said to be a *parent* of $Y$.
+  - intuitive meaning: $X$ is a *parent* of $Y\to X$ has a *direct impact* on $Y$. Causes should be parents of effects.
+- No directed cycles. It is a DAG
 
-S: a collection of sentences of a language, closed under finite truth-functional combinations, with the following axiomatization:
+#### Semantics
 
-- normalization $\text{Pr}(T)=1$, If $T$ is a tautology
-- non-negativity: $\Pr[A]\geq 0,\forall A\in S$
-- "add operation":  $\Pr[A\lor B]=\Pr[A]+\Pr[B]$ for all $A$ and $B$ in $S$, such that $A$ and $B$ are logically incompatible.
+Two ways to understand the semantics of Bayesian Network:
 
-### Examples given in the lecture
+1. as a representation of the joint probability distribution
+2. as an encoding of a collection of conditional independence statements.
 
-The method is:
+#### Structures
 
-1. degrade the logical operations, e.g. imply,  to the most basic three operations: and, or and not
-2. go to the set theory, find the corresponding set of the logical expression and calculate the probability of the set
+$$
+X\perp Z|Y,\neg X\perp Z
+$$
 
-|           | Toothache | Toothache | no toothache | no toothache |
-| --------- | --------- | --------- | ------------ | ------------ |
-| -         | catch     | no catch  | catch        | no catch     |
-| cavity    | 0.108     | 0.012     | 0.072        | 0.008        |
-| no cavity | 0.016     | 0.064     | 0.144        | 0.576        |
 
-$P(toothache)$​​​? find the corresponding set  the left two columns $P(toothache)=0.108+0.016+0.012+0.064=0.2$
 
-$P(toothache=>cavity)$?
+- $x\leftarrow y\to z$: common cause
+- $x\leftarrow y\leftarrow z$: indirect evidential effect
+- $x\to y\to z$: indirect causal effect
 
-1. degrade into and, or and not: $A\Rightarrow B\Leftrightarrow \lnot A\vee B$
+$$
+ \neg X\perp Z|Y, X\perp Z
+$$
 
-2. not toothache correspondents to the right two columnes, cavity correspondents to the first row. Then take the union of them.
 
-   $= 0.108+0.012+0.072+0.008+0.144+0.576=0.92$
+
+- $x\to y \leftarrow z$: common effect
+
+## Usage
+
+### Build algorithm
+1. Nodes: 
+   1. determine the set of variables that are required to model the domain.
+   2. Order them $\{X_1,\cdots,X_n\}$. **Any order will work**. But the resulting network will be more compact if the variables are ordered such that causes precede effects.
+
+2. Links: For each $X_i$ do:
+   1. find the *minimal parent subset A* from $\{1,2,\cdots,i-1\}$​, s.t. $P(X_i|{1,2,\cdots,i-1})=P(X_i|A)$​ 
+      - in some way, minimal means direct influence.  For example, some variable in $\{1,2,\cdots,i-1\}$ may have indirect influence on $X_i$, through a variable $X_k$. Then, if we include $X_k$, they are excluded.
+   2. for each parent $X_k$ in A, insert a link from $X_k$ to $X_i$ 
+   3. write down the conditional probability table.
+
+
+
+### Identification of conditional independence
+
+Not independent/dependent can transmit conditions. That means if we know some condition, all variables not independent of it are known or partially known.
+
+Given a Bayesian network, how to find the independence relationship between variables from the network structures?
+
+An important theorem says:
+
+$$
+\text{d-sep}(X;Y|Z)\Rightarrow (X\perp Y)|Z
+$$
+converse does not hold in general, but for "almost" all distributions.
+
+#### d-separation
+
+ This term describes a structural relation between variables in a given network. We can connect this structural relation with independence relation.
+
+Given observed variables $O$​, any variables Xi and Xj for which there is **no active trail** are called *d-separated* by $O$​.  Written as $\text{d-sep}(X_i;X_j|O) $​
+
+- active trail: an undirected path in BN structure G is called active trail for observed variables $O\subset\{X_1,X_2,\cdots,X_n\}$​, if for every consecutive triple of vars $X,Y,Z$ on the path
+  - $X\to Y\to Z,Y\notin O$
+  - $ X\gets Y\gets Z,Y\notin O$
+  - $ X\gets Y\to Z,Y\notin O$
+  - $X\to Y\gets Z$, and $Y$ or any of $Y$'s descendants is observed.
+
+- linear time algorithm for d-separation: find all nodes active trail reachable from $X$
+
+  1. mark $Z$ and its ancestors
+
+  2. do breath-first search starting from $X$; stop if path is blocked
+
+     

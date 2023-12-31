@@ -1,200 +1,291 @@
 ---
-title: Learning
-date: 2020-01-28
-tags: [AI, Reinforcement Learning, Baysian]
+title: PAI7 Reinforcement Learning
+date: 2020-01-29
+tags: [AI, Reinforcement Learning, Bayesian]
 categories: [Learning Notes]
 mathjax: true
 ---
 
-So far, we talk about how to use a given model to do some tasks, e.g. inference, planning. But where do these models come from? Now, we turn attention to learn models from training data.
+The data is assumed to be drawn from some distributions. In reinforcement learning, we learn by interacting with environment. For example, one agent could perform some actions, and these actions will give him different rewards. He wants to learn how to take actions. One big issue is that the reward is based on a sequence of actions, not only one action. Considering the case that a sequence of actions leads to some reward, how to figure out exactly which action is responsible for this reward. Generally, it is impossible. We need some assumptions.
 
-# Learning BN from data
+# Background
 
-What to learn?
+RL = planning in unknown MDPs. 
 
-- the structure of BN
-- the parameters: conditional probability distributions
+- not know the transition probability
+- not know the rewards
+- may not even know the states.
 
-Different case: 
+In this way, how to come up a policy to react?
 
-- all variables are observed
-- only part of variables can be observed.
+A central object is the value function. In order to solve MDPs, we need to solve the value function.
 
+Difference from supervised learning:
 
+- in RL, the data we get depends on what we did. The data is not i.i.d.
+- what we do will affect what we learn
+- have rewards. Not only achieve to learn a good model, but also a good policy to how to act to get a good reward.
 
-1. first assume the structure is given, to learn the parameters
-2. learn the structure as well
+Main tasks:
 
-## Parameter learning
+- explore: how to act to get more knowledge of the world?
+- exploit: once knowing the world, how to act to get a good reward?
 
-### MLE
+Types:
 
-A very basic estimation is MLE, maximum likelihood estimation.
+- on-policy RL: agents have full control over which actions to pick
+- off-policy RL: agents have no control over actions, only gets observational data. 
+
+# Assumptions
+
+- Markovian: the actions only depend on the current state, instead of past states.
+
+- finite states
+- finite actions
+
+# Approaches
+
+- model-based RL:
+  1. learn the MDP
+     - estimate the transition probabilities $P(x'|x,a)$
+     - estimate reward function $r(x,a)$
+  2. optimize policy based on estimated MDP
+- model-free RL:
+  - jump the transition probabilities, or reward function, but directly to estimate, what we need to learn to make a policy, *the value function*
+  - policy gradient methods: constraint to some specific families of policy. Turn into an optimization problem.
+  - actor-critic methods: combine both of them: create values, limit to some families of policies.
+
+## Model-based
+
+The data set looks like: $x_1,a_1,r_1,x_2,a_2,r_2,\cdots$  given an observation $x_i$, take an action $a_i$ and get a reward $r_i$, which leads to the next observation $x_{i+1}$.
+
+Elements: $(x_i,a_i,r_i,x_{i+1})$ are independent from each other.
+
+$D = \{(x_i,a_i,r_i,x_{i+1})\},$ expressed in this way, we can do counting on the elements.
+
+MDP can be viewed as controlled Markov chain. 
+
+- estimate transitions MLE:
+
+   $$
+   \Pr[X_{t+1}|X_t,A]\simeq\frac{Count(X_{t+1},X_t,A)}{Count(X_t,A)}
+   $$
+
+- estimate rewards:
+
+   $$
+   r(x,a)\simeq\frac{1}{N_{x,a}}\sum_{t:X_t=   x,A_t=   a}R_t
+   $$
+
+How accurate could the estimation be? More data will give more accurate estimations.
+
+### Trade-off exploration and exploitation
+
+- pick a random action
+  - exploration: will eventually correctly estimate all probabilities and rewards.
+  - exploitation: may do extremely poorly in terms of rewards. Because each action is independent from others, not a "good" policy
+- pick the currently "best" action
+  - exploration: can get stuck in suboptimal actions, local best
+  - exploitation: can yield some reward.
+
+- combination these two, using **randomized** strategies, called epsilon-greedy.
+
+  - with probability epsilon: pick a random action
+  - with probability 1-epsilon: pick the best action.
+
+  If epsilon satisfies some condition, it will converge to optimal policy with probability 1.
+
+  Condition: **Robbins Monro condition** 
+
+  - Potential issue: the random action doesn't rule out purely bad actions.
+
+- The Rmax algorithm: the principle is *optimism in the face of uncertainty*. When an action is unknown, try it!
+
+  Assume the reward has a upper bound Rmax
+
+  - if you don't know $r(x,a)$: set it to Rmax. That means try this action.
+  - if you don't know $P(x'|x,a)$: set $P(x'|x,a)=1$. That means explore a new state.
+
+### Complexity
+
+- memory:  store $P(x'|x,a)\Rightarrow O(|x|^2|A|)$, store $r(x,a)\Rightarrow O(|X||A|)$
+- time: solving once MDP requires $poly(|X|,|A|,1/\epsilon,\log(1/delta)$. Need to do this often. 
+
+## Model-free
+
+According to Theorem Bellman, once we have the optimal value function, we can get a greedy policy, which is optimal.
+
+$Q^{\pi}(x,a)$​ : the expected reward of a policy $\pi$​, given the state and action pair $(x,a)$
 
 $$
-\theta^* = \arg_{\theta}\max\sum_{j=1}^n\sum_{i=1}^N\log\Pr[X_j^{(i)}|X_{Pa_j}^{(i)},\theta_{j|Pa_j}]
+Q^{\pi}(x,a)=   r(x,a)+\gamma\sum_{x'}\Pr[x'|x,a]V^{\pi}(x')
+$$
+For the optimal policy $\pi^\ast$: It holds  
+
+$$
+V^*(x)=   \max_a Q^*(x,a)
+$$
+The key idea is to estimate $Q^\ast(x,a)$ from samples.
+
+### Q-learning
+
+To estimate the best policy's Q function, which is  
+
+$$
+Q^*(x,a)=   r(x,a)+\gamma\sum_{x'}\Pr[x'|x,a]V^*(x')
+$$
+instead of using transition probability to get the exact expectation, we estimate from on instance $(x,a,x')$.
+$$
+Q(x,a)\gets r(x,a)+\gamma V^*(x')=   r(x,a)+\gamma\max_{a'} Q(x',a')
 $$
 
 
-We divide the whole parameters to individual sets on each variable. Global optimization can be composed of local optimization. Formally,
+To trade-off huge variance from just one sample, we weight this update by alpha
 
 $$
-\theta^*_{j|Pa_j} = \arg_{\theta}\max L_j(\theta_j|Pa_j)\Rightarrow\theta^*_{j|Pa_j}=\frac{Count(X_j,X_{Pa_j})}{Count(X_{Pa_j})}
+Q(x,a)\gets (1-\alpha_t)Q(x,a)+\alpha_t(r(x,a)+\gamma\max_{a'} Q(x',a'))
 $$
-When $X_j$ follows Bernoulli distribution.
+$\alpha$: usually decrease along the time. means: at the beginning we put much weight on a new sample. Later, we put less and less.
 
-This strategy requires complete data, all variables are observable.
+#### Algorithm
 
-- If there are unobserved variables: EM-algorithm
+Random version
 
-- if the count is small, the estimation could be imprecise. In this case, we can use **pseudo-counts**: make prior assumptions about parameters to correct the estimated parameters.
+1. have initial estimate of $Q(x,a)$
+2. observe transition $x,a,x'$ with reward $r$. Update $Q(x,a)$ for long enough times.
 
-  - for Bernoulli distribution, the prior is equivalent to make Beta prior over parameters. For instance, 
-    $$
-    \theta\sim Beta(\alpha_c,\alpha_l) = \frac{1}{B(\alpha_c,\alpha_l)}\theta^{\alpha_c-1}(1-\theta)^{\alpha_l-1}
-    $$
-    
-  - Then observe $n_c$ and $n_l$ counts specifically,
-    $$
-    \Pr[\theta|n_c,n_l]=\frac{1}{Z}\frac{Beta(\alpha_c,\alpha_l)}\theta^{\alpha_c-1}(1-\theta)^{\alpha_l-1}\theta^{n_c}(1-\theta)^{n_l}\sim Beta(\alpha_c+n_c,\alpha_l+n_;)
-    $$
-    
+Optimistic algorithm, similar to $R_{\max}$:
 
-### MAP
+starting with an optimistic initialization. But only $R_{\max}$ is not enough, have to consider the discount effect and weight effect.
 
-Another view is to treat the parameters as shared variables. They are prior. Given data, which can be treated as evidence, we want to find which values of these variables are most possible. Solve via MAP.
+1. initialize $Q(x,a)\gets\frac{R_{max}}{1-\gamma}\prod_{t=   1}^{T_{init}}(1-\alpha_t)^{-1}$
 
-$$
-\hat{\theta}\in\arg_{\theta}\max\Pr[\theta|f^{(i)},w^{(i)}]
-$$
-In this way, if we want to query the conditional probability given data, we can use the MAP estimation to do that. For instance, $F,W$ are variables, $D$ are the dataset.
+#### Convergence
 
-$$
-\Pr[F|W=w,D]\simeq\Pr[F|w,\hat{\theta}]
-$$
+**Theorem** for random: If learning rate alpha satisfies:
 
-### Bayesian learning
+- never stops updating: $ \sum_t\alpha_t=   \infty$
+- later samples have smaller weights: $\sum_t\alpha_t^2<\infty$
+- and actions are chosen at random
 
-Instead of learning the unknown parameters, just marginalize them, sum them out.
+Then
 
-$$
-\Pr[F|W=w,D]=\int\Pr[F,\theta|w,D]\mathrm{d}\theta=\int \Pr[F|w,\theta]\Pr[\theta|w,D]\mathrm{d}\theta
-$$
+$Q$ learning converges to optimal $Q^\ast$ with probability 1.
 
+**Theorem** for optimistic: With probability $1-\delta$, optimistic Q-learning obtains an $\epsilon$​-approximation policy after a number of time steps that is polynomial in $|X|,|A|, 1/\epsilon$ and $\log(1/\delta)$.
 
-## Structure learning
+#### Complexity
 
-### Scoring
+- memory: store the Q-table: $Q(x,a): O(|X||A|)$
+- time: 
+  - update per sample: find the action which gives the maximum $Q(x',a')$, $O(|A|)$ 
+  - iterations: polynomial in $|X|,|A|, 1/\epsilon$ and $\log(1/\delta)$
 
-How to score a graph structure?
+#### Parametric Q-function approximation
 
-Given a scoring strategy, how to find the "optimal" structure?
+The general idea is that we don't update the entries of $Q$ table one by one in the update, but use some parameters to calculate the the entries and update the parameters in each step. In this way, we turn the question into an optimization problem and can solve it by approximation. Also, this approach allows us to go from the finite tabular $Q$ to infinite $Q$.
 
-### MLE
-
-Only mle will cause the children fully-connected to all of its parents $\to$Overfit
-
-#### Regularization
-
-- BIC
-- special family of graphs
-
-### MAP
-
-The general idea is to condition on what we have, the dataset, and find the most probable explanation for the unknown variables, W.
-
-Placing a prior distribution $P(W)$ on the parameters W
+At convergence, we want:
 
 $$
-\hat{w}=\arg_w\max\Pr[w|x_{1:n},y_{1:n}]=\arg_w\min-\log(\Pr[w])-\sum_{i=1}^N\log\Pr[y_i|x_i,w]
+Q(x,a)=   \mathbb{E}_{(r,x')|x,a}(r+\gamma\max_{a'}Q(x',a'))
 $$
 
-- mini-batch SGD for MAP estimation to accelerate. The algorithm:
+$$
+\Rightarrow\mathbb{E}_{(r,x',x,a)}(Q(x,a)-r-\gamma\max_{a'}Q(x',a'))=   0
+$$
 
-  1. initialize $w_0$
+$$
+\Rightarrow\min_{\theta}\mathbb{E}_{(r,x',x,a)}[Q(x,a)-r-\gamma\max_{a'}Q(x',a')]^2
+$$
 
-  2. For $t=0,1,2,\cdots$ 
+In this way, we can use mean to approximate expectation.
 
-     $$
-      w_{t+1}=w_t-\frac{\epsilon_t}{2}(\nabla\log\Pr[w_t]+\frac{N}{k}\sum_{i=1}^k\nabla\log\Pr[y_{t,i}|x_{t,i},w_t])
-     $$
-     
+
+
+Example of parametric $q$-function: linear function approximation: $Q(x,a;\theta)=   \theta^T\phi(x,a)$ 
+
+Fit parameters to data: define the loss function on parameters as:
+
+$$
+L(\theta)=   \sum_{(x,a,r,x')\in D}(r+\gamma\max_{a'}Q(x',a';\theta^{old})-Q(x,a;\theta))^2
+$$
+
+
+So, the goal is to find parameters to minimize the loss function:
+
+$$
+\theta^*=   \arg_{\theta}\min L(\theta)
+$$
+
+- label: the estimation of Q entry given the observed sample:$r+\gamma\max_{a'}Q(x',a';\theta^{old})$
+- prediction given theta: $ Q(x,a;\theta))$
+
+#### Deep learning
+
+Recall what deep learning does: deep learning is a tool to solve the loss minimization problem, given data:
+
+$$
+w^*=   \arg_w\min \sum_{i=   1}^N l(y_i,f(x_i;w))
+$$
+by fitting nested nonlinear function of $f(x;w)$
+
+#### Deep Q Networks
+
+this is a variant of Q-learning:
+
+- use convolutional neural nets to approximate Q function
+- important empirical insights:
   
-  - $(x_{t,i},y_{t,i})$ is the $i$-th data point in the $t$-th mini-batch of $k$ points
-  - learning rate satisfies $\sum_t\epsilon_t\to\infty,\sum_t\epsilon_t^2:\infty$
-
-# Bayesian learning
-
-Different from MAP, Bayesian learning turns attention to prediction. Skip the unknown parameters and use them directly. That means given a new data point $x'$, what is the probability of $Y(x')$? To perform this task, we sum out whatever we don't know:
-
-$$
-\Pr[Y|x',x_{1:N},y_{1:N}]=\int \Pr[w|x_{1:N},y_{1:N}]\Pr[Y|w,x']\mathrm{d}w
-$$
-
-- the first item on the right side: calculate how likely of a model given our data
-- the second item: how likely is the prediction given the model and the new data point.
-- this model not only considers the most likely weight, which MAP chooses, but also all the other weights.
-- However, estimate the whole weight space may be undoable.
-
-Several algorithms can make this task doable.
-
-## Bayesian learning with Gaussian process
-
-### Gaussian process
-
-It is a normal distribution over functions
-
-Pin on these functions finite points and these finite marginals are multivariate Gaussians.
-
-Particularly, the prediction of one data point follows one-dimension Gaussian distribution. We need to learn the mu function and kernel function.
-
-$$
-\Pr[f(x)]\sim \mathcal{N}(f(x);\mu(x),\sigma^2(x))
-$$
-
-
-#### kernel(covariance) functions
-
-  - symmetric: $k(x,x')=k(x',x)$ for all $x,x'$
-
-  - positive semi-definite: for all A, Sigma_{AA} is positive semi-definite matrix $\Leftrightarrow$ all eigenvalues of 
-
-    $$
-    \Sigma_{AA}\geq 0\Leftrightarrow \forall x, x\sum_{AA}x\geq 0
-    $$
-
-  - Examples:
-
-    - squared exponential kernel: $\mathcal{K}(x,x')=\exp(-||x-x'||_2^2/h^2))$ when $x=x'$, the covariance is 1. h smaller $\to$​ more punish on distance $\to$ more fluctuation
-
-    - exponential kernel: $\mathcal{K}(x,x')=\exp(-||x-x'||_1/h^2)$    very unsmooth.
-
-    - linear kernel, Bayesian linear regression: 
-
-      $$
-       \mathcal{K}(x,x')=x^Tx'
-      $$
-      
-
-This kind of models gives us the ability to predict for the uncertainty. How much uncertain on some data points, estimate the variance.
-
-## Bayesian deep learning
-
-work on high-dimension data.
-
-- SGLD: generate from mini-batch SGD, with a more random noise item:
-  $$
-  w_{t+1}=w_t-\frac{\epsilon_t}{2}(\nabla\log\Pr[w_t]+\frac{N}{k}\sum_{i=1}^k\nabla\log\Pr[y_{t,i}|x_{t,i},w_t])+\eta_t)
-  $$
-  where $\eta\sim\mathcal{N}(0,\epsilon^2)$
+  - maintain constant "target" values across episodes. save the initial labels as y, and use these ys throughout training, instead of calculating new label in each iteration.
   
-  To avoid being stuck on some local areas.
+  - double DQN: two networks, use old parameters to evaluate Q function, but new parameters for action selection. Want to use old parameters to calculate the value to avoid oscillations. Current parameters are more closed to the policy would do.
+  
+     $$
+    L(\theta)=   \sum_{(x,a,r,x')\in D}(r+\gamma Q(x',\hat{a}(x,\theta);\theta^{old})-Q(x,a;\theta))^2
+    $$
+    where $ \hat{a}(x,\theta)=   \arg_{a'}\max Q(x,a',\theta)$
+  
 
 
-## Summary
 
-Why Bayesian learning are so popular? Because it captures two kinds of uncertainty:
+### Policy search methods
 
-- aleatoric uncertainty: noise in observations given perfect knowledge of the model. For instance, flipping a coin, even we know the coin is fair, the result is still uncertain.
-- epistemic uncertainty: uncertainty about parameters due to the lack of data. For instance, I don't know what kind of coin I have when flipping it.
+Learning a policy without the detour of learning a value function.
 
+Given a policy, do forward sampling on the controlled Markov chain and evaluate this policy $J(\theta)$. Then, adjust the parameters by gradient descent or other methods to get a new policy.
+
+#### Bayesian Learning for policy search
+
+Go beyond point estimation, but the whole distribution.
+
+Using the Bayesian, on the data domain, find which part we are not certain about and which part we are certain about and then guide the samples drawing procedure.
+
+### Summary
+
+Model-based MDP and model-free RL are polynomial in $|A|$​​ and $|X|$​​. However, structured domains $(|A|,|X|$​​ exponential in Nr. agents $)$​ and continuous domains $(|A|$​ and $|X|$​​ are infinite$)$ are not applicable.
+
+# Outlook
+
+## Bayesian Deep RL
+
+Express the uncertainty of the model itself, by maintaining multiple models, ensemble of models.
+
+How to go beyond point estimate's uncertainty?
+
+## Improving action selection by planning
+
+Beyond one-step transitions, multiple steps forward to plan. 
+
+## Risk in exploration
+
+### Safe Bayesian optimization
+
+not only consider the reward, but also maintains safety constraints. Try to never violate these constraints. Formally, $\max f(x), s.t. g(x)\geq\tau)$
+
+One challenge is that none of $f(x), g(x)$ are given in closed form, access only via noisy black box.
+
+Approach: 
+
+1. find a safe start point
+2. go to reachable optimal points, instead of global optimal.

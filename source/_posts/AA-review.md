@@ -3,7 +3,6 @@ title: Advanced algorithms review notes
 date: 2020-01-22
 tags: [Algorithm]
 categories: [Sharing]
-top: true
 ---
 
 

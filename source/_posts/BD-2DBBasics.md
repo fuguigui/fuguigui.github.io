@@ -1,5 +1,5 @@
 ---
-title: Database Basics
+title: BD2 Database Basics
 date: 2019-01-22
 tags: [System, Big Data]
 categories: [Learning Notes]

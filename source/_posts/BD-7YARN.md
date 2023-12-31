@@ -1,5 +1,5 @@
 ---
-title: YARN
+title: BD7 YARN
 date: 2019-01-25
 tags: [System, Big Data]
 categories: [Learning Notes]

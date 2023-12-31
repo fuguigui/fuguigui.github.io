@@ -3,7 +3,6 @@ title: Big Data course notes
 date: 2019-03-01
 tags: [System, Big Data]
 categories: [Sharing]
-top: true
 ---
 
 I took the course Big Data in the autumen semester 2018, opened by [Dr. Ghislain Fourny](http://people.inf.ethz.ch/gfourny/), Department Information ETH Zurich. 

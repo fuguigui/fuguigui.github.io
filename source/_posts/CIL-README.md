@@ -1,7 +1,6 @@
 ---
 title: CIL review notes
 date: 2019-08-26
-top: true
 tags: [Machine Learning]
 categories: [Sharing]
 mathjax: true
@@ -19,30 +18,30 @@ The values of these notes are my questions and thoughts. I believe question is t
 
 ## Autoencoder
 
-- [Linear autoencoder](../cil-1la/index.html)
-- [Matrix completion](../cil-2mc/index.html)
-- [Non-negative matrix factorization](../cil-3tm/index.html)
+- [Linear autoencoder](../CIL-1LA/index.html)
+- [Matrix completion](../CIL-2MC/index.html)
+- [Non-negative matrix factorization](../CIL-3TM/index.html)
 
 ## Word Embedding
 
-- [Word Embedding](../cil-5we/index.html)
+- [Word Embedding](../CIL-4WE/index.html)
 
 ## Data Clustering
 
-- [Clustering](../cil-6mm/index.html)
+- [Clustering](../CIL-5MM/index.html)
 
 ## Neural Network
 
-- [Neural Network](../cil-7cnn/index.html)
+- [Neural Network](../CIL-6CNN/index.html)
 
 ## Generative Model
 
-- [Generative Model](../cil-8gm/index.html)
+- [Generative Model](../CIL-7GM/index.html)
 
 ## Sparse Learning
 
-- [Sparse coding](../cil-9sc/index.html)
-- [Dictionary learning](../cil-10dl/index.html)
+- [Sparse coding](../CIL-8SC/index.html)
+- [Dictionary learning](../CIL-9DL/index.html)
 
 
 

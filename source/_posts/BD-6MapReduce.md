@@ -1,5 +1,5 @@
 ---
-title: Map reduce
+title: BD6 Map reduce
 date: 2019-01-25
 tags: [System, Big Data]
 categories: [Learning Notes]

@@ -3,6 +3,13 @@ title: Update log
 Date: 2021-08-06
 ---
 
+# 2021-08-07
+
+- all the categories:
+  - Learning Notes, Sharing, Reading Summary
+- all the tags:
+  - Machine Learning, System, Privacy
+
 # 2021-08-06
 
 - RSS无法有效使用
@@ -37,7 +44,7 @@ Date: 2021-08-06
 
 - 去掉update date的显示
 
-- 无法正常显示latex公式。在文章开头添加`mathjax: true
+- 无法正常显示latex公式。在文章开头添加`mathjax: true`
 
 - 增加admin功能
 

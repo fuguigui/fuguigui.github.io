@@ -1,5 +1,5 @@
 ---
-title: Wide Column Store
+title: BD5 Wide Column Store
 date: 2019-01-24
 tags: [System, Big Data]
 categories: [Learning Notes]

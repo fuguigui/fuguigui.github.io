@@ -1,5 +1,5 @@
 ---
-title: Topic Model
+title: CIL3 Topic Model
 date: 2019-07-09
 tags: [Machine Learning]
 categories: [Learning Notes]

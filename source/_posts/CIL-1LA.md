@@ -1,5 +1,5 @@
 ---
-title: Linear Autoencoder
+title: CIL1 Linear Autoencoder
 author: Lulu
 date: 2019-07-04
 tags: [Machine Learning]

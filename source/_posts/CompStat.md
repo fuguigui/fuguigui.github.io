@@ -1,7 +1,6 @@
 ---
 title: Computational Statistics course notes
 date: 2019-08-22
-top: true
 tags: [Statistics]
 categories: [Sharing]
 ---
@@ -13,8 +12,6 @@ Here are my review notes of course Computational Statistics opened by [Dr. Marlo
 {% pdf notes.pdf %}
 
 <br>
-
-
 
 <br>
 
