@@ -10,8 +10,6 @@ lsof -i:4000
 kill -9 pid
 ```
 
-
-
 # Hexo
 
 [插件](https://www.dazhuanlan.com/geekgirl0201/topics/1011999)
