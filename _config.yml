@@ -1,16 +1,17 @@
 theme:
-  Matery
+  hexo-theme-matery
 
 title: Fululu
 subtitle: Keep Growing
-description: The only unchanged is keeping changing.
-author: Lulu
+description: Since 2024-09-02, this blog has been stopped to be updated. For newer contents, please go to fuguirong.de.
+author: Fululu
 keywords:
   - Traveling
   - Building
   - Creative
   - Output
-language: 
+language:
+  - default
   - en
   - zh-CN
   - zh-HK
