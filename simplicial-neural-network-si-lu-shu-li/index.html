@@ -1,0 +1,1261 @@
+<!DOCTYPE HTML>
+<html lang="en,zh-CN,zh-HK,de,default">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Simplicial neural network思路梳理, Traveling,Building,Creative,Output">
+    <meta name="description" content="我在准备master thesis的时候，第一个选题是希望利用simplicial complex结合GNN在hypergraph领域做些理论突破。现回顾梳理在GNN中使用simplicial相关理论的研究思路和代表性工作。
+本文按照“明确">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Simplicial neural network思路梳理 | Fululu</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="../libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="../libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="../libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="../libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="../libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="../css/matery.css">
+<link rel="stylesheet" type="text/css" href="../css/my.css">
+<link rel="stylesheet" type="text/css" href="../css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="../libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="../css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="../css/reward.css">
+    
+
+
+
+    <script src="../libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="atom.xml" title="Fululu" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-coy.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="../index.html" class="waves-effect waves-light">
+                    
+                    <img src="../medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Fululu</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../index.html" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="../medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Fululu</div>
+        <div class="logo-desc">
+            
+            Since 2024-09-02, a new personal blog, fuguirong.de, has been born.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="../index.html" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Simplicial neural network思路梳理</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="../tags/GNN/">
+                                <span class="chip bg-color">GNN</span>
+                            </a>
+                        
+                            <a href="../tags/High-order-graph/">
+                                <span class="chip bg-color">High-order graph</span>
+                            </a>
+                        
+                            <a href="../tags/Simplicial-complex/">
+                                <span class="chip bg-color">Simplicial complex</span>
+                            </a>
+                        
+                            <a href="../tags/thesis/">
+                                <span class="chip bg-color">thesis</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="../categories/Sharing/" class="post-category">
+                                Sharing
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-08-16
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>我在准备master thesis的时候，第一个选题是希望利用simplicial complex结合GNN在hypergraph领域做些理论突破。现回顾梳理在GNN中使用simplicial相关理论的研究思路和代表性工作。</p>
+<p>本文按照“明确问题——理论方案——实践”结构展开：</p>
+<ul>
+<li>明确问题：传统的图结构有什么不足，什么是高阶图？</li>
+<li>理论方案：<ul>
+<li>在高阶图上的解决思路有哪些？</li>
+<li>用通俗的语言介绍simplicial complex理论</li>
+<li>其他可能的方案：subgraph</li>
+</ul>
+</li>
+<li>实践：简要介绍simplicial complex与neural network结合的代表性研究者/工作</li>
+</ul>
+<h1 id="问题：高阶图"><a href="#问题：高阶图" class="headerlink" title="问题：高阶图"></a>问题：高阶图</h1><p>GNN是当红的在图结构上进行深度学习的工具，而simplicial complex的引用主要是为了解决<strong>高阶图</strong>上的深度学习问题。</p>
+<p>传统的Graph（图）是由点和边组成的结构。“一条边连接两个端点”，这就局限了传统的图只能直接捕捉<strong>pairwise relationship</strong>（成对的关系）。举例来说，假设A，B，C是一个学校社交图中的三名学生（看成该图中的三个点），我们把边定义为“好朋友”关系。</p>
+<ul>
+<li><p>我们可以很容易地刻画A和B是好朋友，在A点和B点间连一条边即可，这就是pairwise relationship，涉及两个人。</p>
+</li>
+<li><p>但是如果我们想描述A，B和C是一个好朋友团体，他们仨总是玩在一起，那该怎么表示？此时的关系涉及三个人，超过了pairwise，有的文章里将其称之为<strong>higher-order relationship（高阶的关系）</strong>。</p>
+<p>利用传统的点-边图结构，会有这么种表示方法，一共连三条边，A和B之间一条，B和C之间一条，A和C之间一条。但其实，这种方法并不能很准确地表示“他们仨这个小团体”，也可以被诠释为，A和B，B和C，A和C互为好朋友，然而A和B在上午玩在一起，B和C在下午玩在一起，A和C却在晚上玩在一起。当然，在这种传统图结构上，人们也想出各种其他的方法来描述这种higher-order relationship，比如引入不同类型的点，引入“好朋友”类型的点，A，B和C三个“人”类型的点（可以用圆形点表示），都和一个“好朋友”类型的点（可以用正方形的点表示）相连，就能表示三个人的团体关系了。（例子可以类比于图1中的A图）这里不过多赘述。</p>
+</li>
+</ul>
+<p>这里我们清楚了了要解决的问题：<em>是希望在包含<strong>higher-order  relationship高阶图（又叫hypergraph）</strong>上搭建神经网络模型</em>。超越成对关系的高阶图其实相当普遍，比如社交网络中的‘群组“概念，生态系统中物种之间的互动关系，化学反应中的多种物质共同作用等。对高阶图感兴趣的读者可以参考一篇综述<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.01764">1. Networks beyond pairwise interactions: structure and dynamics</a>。</p>
+<p><img src="affiliations.png" alt="图1：Pairwise representation VS Hyperedge representation。图片来自于Networks beyond pairwise interactions: structure and dynamics"></p>
+<h1 id="理论方案"><a href="#理论方案" class="headerlink" title="理论方案"></a>理论方案</h1><p>那么要如何解决这个问题呢？既然问题的根源出在“点-边”这种传统的图结构上，就必须寻求一种新的结构来刻画高阶关系。这里介绍两种具有代表性的新结构：1. hyperedge和2. simplicial complex。也有学者从subgraph的角度切入做研究，我表示好奇，还在观察中。</p>
+<h2 id="Hyperedge（超边）"><a href="#Hyperedge（超边）" class="headerlink" title="Hyperedge（超边）"></a>Hyperedge（超边）</h2><p><strong>Hyperedge（超边）</strong>这种想法非常直观。传统图的限制在哪儿，在边，因为一条边只能有两个端点。Ok，那就打破这种限制，让一条边可以有三个甚至更多的端点，问题不就解决了吗？这样的边就叫做<strong>hyperedge（超边）</strong>。比如我们想表示Sarah, Ross, Allison都去了Party1这件事，我们就构造一条超边叫做Party1，它包含了三个点Sarah, Ross, Allison。形象的表示出来例如图1中的B，其中黄色的圈就是Party1这条超边，它圈住了三个点sarah, Ross和Allison。</p>
+<p>还可以从集合论的角度来理解超边。在传统的无向图定义中，将一条边规定为包含两个点的集合，那么超边就可以定义为不限数量的点的集合。</p>
+<p>已有一批学者尝试将超边的概念和GNN结合起来，代表工作有：</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1809.09401">2. HGNN: Hypergraph neural networks</a></p>
+<p><a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/2019/hash/1efa39bcaec6f3900149160693694536-Abstract.html">3. HyperGCN</a></p>
+<p><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3340531.3411870">4. NHP</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/abs/pii/S0031320320304404?via=ihub">5. Hypergraph Convolution and Hypergraph Attention</a></p>
+<p>这些工作的思路主要是沿着图神经网络里的<strong>基于谱方法的图卷积</strong>（网上很多资源介绍，可参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/78466344">知乎：从源头探讨GCN的行文思路</a>）分支走，尝试定义Hypergraph上的Laplacian矩阵，进而定义图卷积。</p>
+<h2 id="Simplicial-complex"><a href="#Simplicial-complex" class="headerlink" title="Simplicial complex"></a>Simplicial complex</h2><p>另一种理论解决方案呢，则是寻求在数学上已经进行相当长时间的研究，且和我们的问题非常契合的理论工具：<a target="_blank" rel="noopener" href="https://encyclopediaofmath.org/index.php?title=Simplicial_complex">simplicial complex</a>。</p>
+<p>什么是simplicial complex？</p>
+<p>一句话从集合的角度来描述simplicial complex，就是，首先有一个集合，集合里的每个元素叫做vertices（点），这个集合中<em>满足一定性质的</em>子集就叫做simplex。这里一定的性质，是子集封闭，也就是一个simplex的任何一个子集都得是一个simplex，最基本的，一个点是一个simplex。如果你把边看做是包含两个点的子集，那么边就是一种simplex。接着便很容易拓展到包含更多元素的simplex。图2的第一行就展示了什么是simplex，</p>
+<ul>
+<li>左上角的是边，也就是包含两个点的1-simplex。每一个点都是一个0-simplex</li>
+<li>中间是包含三个点的2-simplex，其中每一条边都是一个1-simplex。</li>
+<li>右边是包含四个点的3-simplex，<ul>
+<li>它有四个包含3个点的子集，每一个子集都是一个2-simplex。</li>
+<li>有6个包含2个点的子集（边），每一个子集都是一个1-simplex</li>
+<li>有4个包含1个点的子集（也就是一个点），每一个子集都是一个0-simplex</li>
+</ul>
+</li>
+</ul>
+<p>第二行是hyperedge与simplex表示的对比。</p>
+<p><img src="simplex.png" alt="图2:What is simplex?图片来自于Networks beyond pairwise interactions: structure and dynamics"></p>
+<p>这个理论工具乍看很复杂，为什么要使用它呢？</p>
+<p>我的理解是，一是hodge laplacian不局限于信号在点与点之间的传播，可以拓展到边与边之间，三角形与三角形之间等等，二是simplicial complex的理论研究成果丰富，应用起来有理论上的保障，能进行有良好定义的数学运算，其中的<strong>Hodge Laplacian</strong>是graph Laplacian的高阶拓展，而这也正是我们需要的。simplicial complex及hodge laplacian的理论涉及到很多数学知识，可能比较劝退。这里贴出两个偏科普类型的资源，较浅显易懂，感兴趣的小伙伴可以看看。</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=rlI1KOo1gp4">YouTube: Simplicial Complexes</a></p>
+</li>
+<li><p>:+1: <a target="_blank" rel="noopener" href="https://www.stat.uchicago.edu/~lekheng/work/psapm.pdf">Hodge Laplacian on Graphs</a>（虽然很数学，但讲得尽可能浅显）</p>
+</li>
+</ul>
+<h3 id="Hodge-Laplacian"><a href="#Hodge-Laplacian" class="headerlink" title="Hodge Laplacian"></a>Hodge Laplacian</h3><p>将simplicial complex应用于高阶图的<strong>关键点就在于Hodge Laplacian</strong>。这里对Hodge Laplacian背后的intuition做介绍，尽量少地涉及公式。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/350259325">图拉普拉斯矩阵</a></p>
+<p><em>首先，Laplacian是什么？</em></p>
+<p>教科书上的定义是：Laplacian是梯度的散度the divergence of the gradient of a function。重点，它是一种<strong>散度divergence</strong>。<strong>散度</strong>这个中文看起来可能会比较陌生，想想它的英文<strong>divergence</strong>, diverge分散，会更容易理解。考虑某种属性（对应到数学语言，就是某个函数），如果一个点倾向于把该属性分散出去，这个点的散度就是positive正的，否则就是负的。这里有个视频<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=rB83DpBJQsE&amp;t=341s">YouTube: divergence and curl</a>很形象地描述了散度是什么。Laplacian是什么的散度，它是梯度的散度。梯度又是什么？是Gradient，倾斜度，变化度，表明了一种向周围变化的方向和大小。想象河里的水流，河里某一个点上的梯度就是说，此刻这个点上的水会向哪个方向，以多快的速度进行流动。那么散度，就是把这个点周围很小的范围内的所有的水流都考虑进来，看看这个点到底是个源头（向周围增加水流）还是个sink（吸收周围的水流），又或是块平地（流进的水流和流出的水流一样多）。再推荐一个视频<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EW08rD-GFh0&amp;list=RDCMUC4a-Gbdw7vOaccHmFo40b9g&amp;start_radio=1&amp;rv=EW08rD-GFh0&amp;t=297">YouTube: Laplacian</a>简要介绍了Laplacian。</p>
+<p>一句话总结，Laplacian是一种散度算子，描述一个点上的某种属性（对应到函数f）向周围邻居的分散程度。</p>
+<p><em>那么，什么是Graph Laplacian？</em></p>
+<p>类比过来，这是针对<strong>图上的点</strong>刻画某种属性（对应到函数f）分散程度divergence的一种算子operator。这篇文章<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/368878987">知乎：GNN入门之路</a>给出了详细的公式和推导。这里的intuition有以下要素：</p>
+<ul>
+<li>针对图上的点</li>
+<li>某种属性</li>
+<li>分散程度</li>
+<li>一种算子</li>
+</ul>
+<p>举个例子就很好理解了。假如有一个图，图上有5个点，代表5个幼儿园的小朋友。某种属性是：我给各个小朋友不同数量的巧克力。我的巧克力分配方式就可以看做一个函数，输入一个小朋友，经过我的一番思考，输出一个数字。分散程度，代表了巧克力的分散程度，也就是任给一个小朋友，他手里的巧克力是可能被同伴抢走还是他从同伴手里抢来更多的巧克力。一种算子，就是输入一个小朋友，计算这种分散程度的大小。</p>
+<p>假如这五个小朋友叫A, B, C, D, E，我分别给他们1，2，3，4，5颗巧克力。他们不知道别人有多少巧克力，只有和对方见面后（给图上的点之间连边），才知道别人的巧克力数量。如果一个小朋友的巧克力少于对方的巧克力，他就会倾向于抢走对方的巧克力，反之，对方就会想要抢走他的巧克力。这种抢走的意愿程度和巧克力的数量差成正比。</p>
+<p>现假设AB，AC，AE，BE，CD和DE见过面。那么A的巧克力分散程度就是(1-2) + (1-3) + (1-5)=-7，同理B是(2-1)+(2-5) = -2, C是(3-1)+(3-4)=1，D是(4-3)+(4-5)=0，E是(5-1)+(5-4)=5。简言之，E的巧克力更可能分散，A更可能聚集巧克力。</p>
+<p>这里的计算思路就是站在每一个点的立场上，计算它的属性值和所有的邻居的属性值之间的差异。这就是Graph Laplacian的意义。数学推导后的公式就是$L = D- A$，L是Laplacian矩阵，D是度对角矩阵，A是邻接矩阵。更进一步，对L进行正则化normalize，就和上述“梯度的散度”的数学公式如出一辙了。（graph里的求和和连续的Laplacian里的求导，都可以看成是聚合信息的一种方式。对L进行normalize之后，求和和求导就更类似了。）</p>
+<p>为了顺利过渡到Hodge Laplacian，现在从关系矩阵incidence matrix的角度来理解$L$。</p>
+<p>关于图Laplacian有个性质是$L = BB^\top = D-A$，这里的$B\in V\times E$是incidence matrix。它的数学定义是：刻画点和边的关系，为边定义了方向，从出发节点到到达节点。行是节点，列是边；项是0，1或-1。一条边的出发节点为1，到达节点为-1。（有的地方也用转置了的定义，差别不大）</p>
+<p>我不展开数学公式推理，而是从直观的角度理解$LX=BB^\top X$，还是拿上面小朋友中的A举例，原来的计算方式是A直接看到B，C和E手里有多少巧克力，而现在相当于引入了一个中介：边。A不是直接看到B，而是看到他和B之间有一条边AB，他告诉了AB他手里有多少巧克力。同样的，A告诉了所有他看到的边AC和AE。第一轮是所有点告诉所有与之相连的中介（边），然后每条边都有了自己的汇总信息$B^\top X$。第二轮是所有的边再把汇总后的信息转达给与之相连的点$B(B^\top X)$，比如A又从AB, AC和AE这三条边上获取汇总后的信息，计算出他的分散程度。</p>
+<p>至于为什么incidence matrix里要为边定义方向，你可以理解为是一个边对它的两个点的不同“暗号”（编解码方式）。拿一条边AC举例，这条边分别从A和C处收集信息知道A有1个巧克力，C有3个巧克力，AC这条边关注的是差值。假如A对应的是1，C对应的是-1，那么AC汇总后的信息就是1-3=-2。对于这个-2，点A和点C也要以不同的方式来解读，点A用$1*(-2)=-2$，得到它的分散程度是负的，点C则用它的$-1*(-2)=2$，得到正的分散程度。这就是预先规定方向的必要性。</p>
+<p><em>从Graph Laplacian到Hodge Laplacian</em></p>
+<p>先给出Hodge Laplacian的数学定义<br>$$<br>L_0 = B_1B_1^\top<br>$$</p>
+<p>$$<br>L_k = B_k^\top B_k + B_{k+1}B_{k+1}^\top, k = 1,\cdots, K-1<br>$$</p>
+<p>$$<br>L_K = B_K^\top B_K<br>$$</p>
+<p>这里的$L_k$表示不同度数的simplex对应的Laplacian矩阵，比如$L_0$对应0-simplex（点）也就是传统的Graph Laplacian，$L_1$对应以1-simplex（边）为对象的Laplacian。</p>
+<p>$B_k$代表$k$-simplex和$k-1$-simplex之间的incidence matrix。</p>
+<p>重点介绍如何理解$L_1$，其他度数的simplex很容易类推。</p>
+<p>依然坚持Laplacian的理解要点“一个点的某种属性向周围邻居的分散程度”。这里的“点”，不再局限于图中的点vertices，而是拓展为一个对象unit，比如在超图中，$L_1$表示我们将从边的角度，关注信号是如何在边之间传播的，那这里的unit就是边，而不是vertices。</p>
+<p>第二个要点是“中介”的思想。站在边1-simplex的角度上，信号在边与边之间传播，需要哪些中介呢？答案是点0-simplex和三角形2-simplex。</p>
+<p>正如信号在点与点之间传播，其实是借助点和点之间相连的边来实现的，点0-simplex和三角形2-simplex是边们1-simplex之间相互连接的方式。一个点在所有以它为端点的边之间建立起了联系，一个三角形2-simplex包含三条边，这三条边之间也因为这个三角形建立起了关系。</p>
+<ul>
+<li>边通过点之间进行信号传播，又被定义为$L^{down}=B_k^\top B_k$</li>
+<li>边通过三角形之间进行信号传播，又被定义为$L^{up}=B_{k+1} B_{k+1}^\top$</li>
+</ul>
+<p>综上，就是hodge laplacian在边上的定义$L_1$。以此拓展出去，可以得到信号在三角形之间传播的laplacian等等。</p>
+<h1 id="Simplicial-complex的工作实践"><a href="#Simplicial-complex的工作实践" class="headerlink" title="Simplicial complex的工作实践"></a>Simplicial complex的工作实践</h1><p>目前在超图领域，simplicial cimplex主要被用于解决以下问题：预测点、边、三角形上的缺失信号，特别是流（边）上的信号。</p>
+<p>代表论文有：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://arxiv.org/abs/2010.03633">simplicial neural networks</a></li>
+<li><a target="_blank" rel="noopener" href="http://arxiv.org/abs/1912.02354">HodgeNet: Graph Neural Networks for Edge Data</a></li>
+<li><a target="_blank" rel="noopener" href="http://arxiv.org/abs/1807.05044">Random Walks on Simplicial Complexes and the normalized Hodge 1-Laplacian</a></li>
+<li><a target="_blank" rel="noopener" href="http://arxiv.org/abs/1802.06916">Simplicial Closure and higher-order link prediction</a></li>
+<li><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/9244649">Topological Signal Processing: Making Sense of Data Building on Multiway Relations</a></li>
+</ul>
+<p>我在thesis的准备阶段探索体会是，simplicial complex虽然有很好的理论基础，但仍有相当多的局限性：</p>
+<ul>
+<li>目前为止，缺少良好定义的任务和数据集</li>
+<li>从理论上讲，simplicial complex：<ul>
+<li>对数据的“整齐度”要求很大，考察对象为同类型的simplex间的信号传播，比如0-simplex之间，1-simplex之间，2-simplex之间。而这么整齐的数据局限在特定领域中。像社交网络中的群组常常拥有不同的规模。</li>
+<li>当k很大时，数据量太大。由于simplicial complex对任一子集的封闭要求，假如考察10-simplex之间的信号传播，每一个10-simplex都要求它的$\binom {11} {2}=55$个1-simplex，$\binom {11} {4}=330$个3-simplex必须存在。这在计算量的角度很不友好。</li>
+</ul>
+</li>
+</ul>
+<p>这个领域比较小众。以上分享均为个人见解，欢迎提出讨论和批评指正。</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
+<li><strong>Networks beyond pairwise interactions: Structure and dynamics</strong>, <em>Battiston, Federico and Cencetti, Giulia and Iacopini, Iacopo and Latora, Vito and Lucas, Maxime and Patania, Alice and Young, Jean-Gabriel and Petri, Giovanni</em>, 2020</li>
+<li><strong>Hypergraph Neural Networks</strong>, <em>Yifan Feng, Haoxuan You, Zizhao Zhang, Rongrong Ji, Yue Gao</em>, 2019</li>
+<li><strong>HyperGCN: A New Method For Training Graph Convolutional Networks on Hypergraphs</strong>, <em>Naganand Yadati, Madhav Nimishakavi, Prateek Yadav, Vikram Nitin, Anand Louis, Partha Talukdar,</em> NIPS2019</li>
+<li><strong>NHP: Neural Hypergraph Link Prediction</strong>, <em>Yadati, Naganand and Nitin, Vikram and Nimishakavi, Madhav and Yadav, Prateek and Louis, Anand and Talukdar, Partha,</em> CIKM2020</li>
+<li><strong>Hypergraph convolution and hypergraph attention</strong>,  <em>Song Bai, Feihu Zhang , Philip H. S. Torr,</em> 2019</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/78466344">知乎：从源头探讨GCN的行文思路</a></li>
+<li><a target="_blank" rel="noopener" href="https://encyclopediaofmath.org/index.php?title=Simplicial_complex">Encyclopedia: simplicial complex</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=rlI1KOo1gp4">YouTube: Simplicial Complexes</a></li>
+<li><strong>Hodge Laplacian on Graphs,</strong> <em>Lek-Heng Lim</em>, 2019</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/350259325">知乎：图拉普拉斯矩阵</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=rB83DpBJQsE&amp;t=341s">YouTube: divergence and curl</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EW08rD-GFh0&amp;list=RDCMUC4a-Gbdw7vOaccHmFo40b9g&amp;start_radio=1&amp;rv=EW08rD-GFh0&amp;t=297">YouTube: Laplacian</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/368878987">知乎：GNN入门之路</a></li>
+<li><strong>Simplicial Neural Networks,</strong>  <em>Stefania Ebli and Michael Defferrard, Gard Spreemann</em>. CoRR 2020.</li>
+<li><strong>HodgeNet: Graph Neural Networks for Edge Data,</strong> <em>T. Mitchell Roddenberry and Santiago Segarra,</em> 2019</li>
+<li><strong>Random Walks on Simplicial Complexes and the normalized Hodge 1-Laplacian,</strong>  <em>Michael T. Schaub, Austin R. Benson, Paul Horn , Gabor Lippner and  Ali Jadbabaie</em>, CoRR2018</li>
+<li><strong>Simplicial Closure and higher-order link prediction,</strong> <em>Austin R. Benson, Rediet Abebe, Michael T. Schaub, Ali Jadbabaie, Jon Kleinberg,</em> CoRR2018</li>
+<li><strong>Topological Signal Processing: Making Sense of Data Building on Multiway Relations,</strong> <em>Barbarossa, Sergio and Sardellitti, Stefania,</em> IEEE2020</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="../about" rel="external nofollow noreferrer">Fululu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://fuguigui.github.io">https://fuguigui.github.io</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="../about" target="_blank">Fululu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="../tags/GNN/">
+                                    <span class="chip bg-color">GNN</span>
+                                </a>
+                            
+                                <a href="../tags/High-order-graph/">
+                                    <span class="chip bg-color">High-order graph</span>
+                                </a>
+                            
+                                <a href="../tags/Simplicial-complex/">
+                                    <span class="chip bg-color">Simplicial complex</span>
+                                </a>
+                            
+                                <a href="../tags/thesis/">
+                                    <span class="chip bg-color">thesis</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="../libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="../libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="../index.html" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="../index.html" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="../hexo2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="../medias/featureimages/4.jpg" class="responsive-img" alt="一次完整的Hexo写作流程">
+                        
+                        <span class="card-title">一次完整的Hexo写作流程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="../categories/Sharing/" class="post-category">
+                                    Sharing
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="../hua-hua-xi-lu-xu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="../medias/featureimages/7.jpg" class="responsive-img" alt="花花西陆·序">
+                        
+                        <span class="card-title">花花西陆·序</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="../categories/Literature/" class="post-category">
+                                    Literature
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../tags/Travel/">
+                        <span class="chip bg-color">Travel</span>
+                    </a>
+                    
+                    <a href="../tags/Europe/">
+                        <span class="chip bg-color">Europe</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="../libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="../libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="../libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="../libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="../libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="../libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="../libs/aplayer/APlayer.min.js"></script>
+<script src="../libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2024</span>
+            
+            <a href="../about" target="_blank">Fululu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/fuguigui" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:fugr0122@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="../atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('../search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="../libs/materialize/materialize.min.js"></script>
+    <script src="../libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="../libs/aos/aos.js"></script>
+    <script src="../libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="../libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="../js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="../libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="../libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="../libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="../libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1295 @@
+<!DOCTYPE HTML>
+<html lang="en,zh-CN,zh-HK,de,default">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Advanced algorithms review notes, Traveling,Building,Creative,Output">
+    <meta name="description" content="PrefaceIn 2019 fall semester, I took part in the course Advanced algorithms, opened by Mohsen Ghaffari, ETH Zurich. Mohs">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Advanced algorithms review notes | Fululu</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="../libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="../libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="../libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="../libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="../libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="../css/matery.css">
+<link rel="stylesheet" type="text/css" href="../css/my.css">
+<link rel="stylesheet" type="text/css" href="../css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="../libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="../css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="../css/reward.css">
+    
+
+
+
+    <script src="../libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="atom.xml" title="Fululu" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-coy.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="../index.html" class="waves-effect waves-light">
+                    
+                    <img src="../medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Fululu</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../index.html" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="../medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Fululu</div>
+        <div class="logo-desc">
+            
+            Since 2024-09-02, a new personal blog, fuguirong.de, has been born.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="../index.html" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Advanced algorithms review notes</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="../tags/Algorithm/">
+                                <span class="chip bg-color">Algorithm</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="../categories/Sharing/" class="post-category">
+                                Sharing
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-01-22
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>In 2019 fall semester, I took part in the course <a target="_blank" rel="noopener" href="https://people.inf.ethz.ch/gmohsen/AA19/">Advanced algorithms</a>, opened by <a target="_blank" rel="noopener" href="https://people.inf.ethz.ch/gmohsen/">Mohsen Ghaffari</a>, ETH Zurich. Mohsen is a genius professor and he gives us a lot of help on this course outside the lectures. Honestly, this course is challenging for me but I have indeed learned a lot from that. Lecture notes, tutorials, graded homework and the programming projects all bring me a lot of fun. The feeling of taking this course is like playing a series of puzzles, both struggling and addictive. Eureka is a gift for brain storming. Thanks for professor Mohsen, the tutors and my colleagues David, Karolis and Rok. They make me enjoy this period very much. </p>
+<p>This review generally gives a summary of important methodologies of each part of this course, covering few details. Although technical details matter a lot of an algorithm, methodologies work as a guide to create concrete algorithms.  From my experience, the order of creating an algorithm is contrary to the presentation in the notes, which prove each claim first then give the last conclusion. The real birth process of an algorithm could be: I want something, how to get it? If it satisfies these, I gonna make the algorithm. How to satisfy these conditions, we design this, this that… It is motivated by some methodology. </p>
+<p>The order of this review follows the lecture notes, and parts are divided basically following the notes. Helpful references are also included.</p>
+<p>There are totally four parts:</p>
+<ul>
+<li>approximation algorithms</li>
+<li>streaming and sketching algorithms</li>
+<li>graph sparsification</li>
+<li>online algorithms and competitive analysis</li>
+</ul>
+<h1 id="Approximation-algorithms"><a href="#Approximation-algorithms" class="headerlink" title="Approximation algorithms"></a>Approximation algorithms</h1><h2 id="Greedy-algorithms"><a href="#Greedy-algorithms" class="headerlink" title="Greedy algorithms"></a>Greedy algorithms</h2><p>Mohsen’s summary:</p>
+<p>from the first lecture, you should take away some idea about </p>
+<ul>
+<li>how to approach computational problems using natural “greedy” ideas and more importantly, </li>
+<li>how to analyze the performance of your idea by comparing it to the best possible solution, even though we don’t know the latter. This often involves </li>
+<li>understanding some structure of the problem and lower bounding the performance of OPT, by basic observations, </li>
+<li>and relating your algorithm’s performance to these simple bounds on OPT.</li>
+</ul>
+<p>For me, I learn to know</p>
+<ul>
+<li>the meaning of “approximation algorithm” when dealing with hard problems, e.g. NP-hard problems. </li>
+<li>how to design the algorithm: usually very intuitive. Greedy approach means local optimal, the best strategy for each step.</li>
+<li>how to analyze the approximation ratio of the designed algorithm:<ul>
+<li>formally write the objective function</li>
+<li>build inequality (lower bound/upper bound) from the designed algorithm and the property of question for OPT and the designed algorithm</li>
+<li>relates c(ALG) to c(OPT)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Approximation-schemes"><a href="#Approximation-schemes" class="headerlink" title="Approximation schemes"></a>Approximation schemes</h2><p>Mohsen’s summary: </p>
+<p>from the PTAS, FPTAS lectures, you take away the idea that,</p>
+<ul>
+<li> sometimes, by slightly changing the parameters of the problem (e.g., by rounding the input data), you can </li>
+<li>turn the problem into a much easier one—computationally—</li>
+<li>while still not sacrificing too much in the quality of the<br>solution. </li>
+<li> Designing such schemes usually involves understanding what kind of instances are easier computationally (e.g., by building a corresponding Dynamic Programming) as well as</li>
+<li> getting a feeling for the parameters that can be changed without introducing too much error — for instance, recall the intuitive discussion in the class about soft constraints and hard constraints.</li>
+</ul>
+<p>For me, I learn to:</p>
+<ul>
+<li><p>the framework of PTAS(FPTAS): transfer from an exact solution of a special problem to an approximate algorithm of a more general problem.</p>
+<ol>
+<li>design an exact solution of a special case</li>
+<li>analyze the time complexity, find which part is computational expensive, beyond polynomial in other words</li>
+<li>round the general problem to the special case to deal with expensive parts, may involve classifying the instances and process each of them by different approaches.</li>
+</ol>
+</li>
+<li><p>Creative points lie on the round strategy. That is how to round to trade off the computational complexity and the precision. For instance, to deal with the minimum makespan problem, inspired by the 4/3-approximation algorithm, we get a general method:</p>
+<ul>
+<li>split the whole jobs as short jobs and long jobs<ul>
+<li>for long jobs: we compute the optimal schedule for them</li>
+<li>for short jobs: we extend that partial schedule by using FirstFit algorithm.</li>
+<li>In this way, we trade off between the number of long jobs and the quality of solutions.</li>
+</ul>
+</li>
+<li>bound the “polynomial” property on m: the key idea is that we didn’t really need the schedule for the long jobs to be optimal. We use the optimality of the schedule for the long jobs only when the last job to finish was a long job. If we have found a schedule for the long jobs that have makespan at most 1+1/k times the optimal value, that clearly would have been sufficient.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Randomized-approximation-schemes"><a href="#Randomized-approximation-schemes" class="headerlink" title="Randomized approximation schemes"></a>Randomized approximation schemes</h2><p>Mohsen’s summary:</p>
+<p>from the FPRAS lectures, you should </p>
+<ul>
+<li>recall the idea of Monte Cato sampling for estimating various problems. </li>
+<li>Moreover, you can get an understanding of why this natural and frequently used idea, on its own, might be insufficient for some problems, when the quantity that is to be estimated is only a tiny fraction of the whole (sampling) space. </li>
+<li>Then, we saw some schemes that allow us to view the target quantity as a simple function of other quantities that can be computed/estimated more efficiently. For instance, for DNF counting, the number of satisfying assignments for each clause is easy to compute and we saw how to estimate the total number of satisfying assignments of the whole formula by, roughly speaking, estimating for each clause the fraction of satisfying assignments for which this clause can take the credit (i.e., is the first satisfied clause), weighted by the number of satisfying assignments for each clause.</li>
+</ul>
+<p>For me, I learn:</p>
+<ul>
+<li>the sampling trick when the whole space is “much larger” (e.g. in exponential level) than the goal space<ul>
+<li>redefine the whole space with some properties.</li>
+<li>sample step by step </li>
+</ul>
+</li>
+<li>express the objective by newly defined random variable to make the expectation of this expression as our objective.</li>
+<li>design sampling times to satisfy the approximation requirement.</li>
+</ul>
+<h2 id="Rounding-ILPs"><a href="#Rounding-ILPs" class="headerlink" title="Rounding ILPs"></a>Rounding ILPs</h2><p>Mohsen’s summary:</p>
+<p>from the LP rounding lecture, you should take away the idea of </p>
+<ul>
+<li>how to formulate some optimization problems as a linear programs (with a linear objective function and linear constraints<br>on your variables) </li>
+<li>and how you can transform a fractional solution of this LP to an integral solutions by, e.g., randomized rounding. </li>
+<li>You should also start building an intuition for when just<br>a deterministic rounding suffices-e.g., think about the minimum-weight vertex cover problem, and</li>
+<li>moreover, how to use probabilistic analysis to argue about the performance of your randomly rounded integral solutions, in comparison with the corresponding fractional solution.</li>
+</ul>
+<p>For me, I also learn:</p>
+<ul>
+<li>the way to round back the integer solution to the original problem, by virtue of probability interpretation of the solution.</li>
+</ul>
+<h2 id="Tree-Embedding"><a href="#Tree-Embedding" class="headerlink" title="Tree Embedding"></a>Tree Embedding</h2><p>Mohsen’s summary:</p>
+<p>from the tree imbedding lectures you can take away </p>
+<ul>
+<li>the existence of a tree that “approximates” distances in a general graph (actually, a random tree or formally a probability distribution over a collection of trees) and </li>
+<li>how this enables us to build approximation algorithm for some graph problems, by <ul>
+<li>first transforming the input graph to a tree—via tree embeddings—, </li>
+<li>then solving the problem on that tree, </li>
+<li>and finally projecting the solution back to the original graph.</li>
+</ul>
+</li>
+<li>We then have to argue about the quality of the solution. Often, we just lose an O(logn) factor in the approximation, because of how much the tree stretches the distances, in expectation.</li>
+</ul>
+<p>The summary is enough for me.</p>
+<h1 id="Streaming-and-sketching-algorithms"><a href="#Streaming-and-sketching-algorithms" class="headerlink" title="Streaming and sketching algorithms"></a>Streaming and sketching algorithms</h1><p>In this chapter, we discuss the algorithms under the “streaming data” situation, where exact and deterministic algorithms may not work. I have learnt how to save memory space by randomization and  how to build proper data summary with limited size to approximate the objective, and some tricks to increase the success probability. </p>
+<h2 id="Streaming-algorithms"><a href="#Streaming-algorithms" class="headerlink" title="Streaming algorithms"></a>Streaming algorithms</h2><p>The general framework for the streaming algorithms:</p>
+<ul>
+<li>randomize the “original” expression (the  trick is called “<strong>random projection</strong>“ )and update summary when some condition satisfied. For instance<ul>
+<li>in estimating the zero-th moment, each number is uniformly hashed to an unary expression</li>
+<li>in estimating the first moment, we take a uniform distributed variable for each element (not number)</li>
+<li>in estimating the second moment, each number is mapped randomly to a predefined label {+1,-1}.</li>
+</ul>
+</li>
+<li>design a summary whose expectation is our objective</li>
+<li>make the probability of being away from the objective is smaller than a “big enough” number (e.g. any little constant is enough)</li>
+<li>increase the success probability by some trick:<ul>
+<li>mean trick: to reduce the variance. If we can limit the probability of the variable being away from the expectation by using Chebyshev inequality (involving variance in the proof process), we can make it very low. Make new X’ as the mean of T independent X. If we want the probability less than \delta, T = O(1/\sqrt{\delta})</li>
+<li>median trick: if one single event’s success probability is larger than 0.5, we can take the median of T independent events, whose success probability could be as large as we want. T = O(log 1/\delta)</li>
+</ul>
+</li>
+<li>A useful trick: logarithmic trick.  For some upper bound M, consider the sequence (1+\epsilon), (1+\epsilon)^2, \cdots, (1+\epsilon)^{log_{1+\epsilon}M}. We can approximate by log M turns of experiment instead of M turns.</li>
+</ul>
+<h2 id="Graph-sketching"><a href="#Graph-sketching" class="headerlink" title="Graph sketching"></a>Graph sketching</h2><p>In this lecture, we learn to use limited-memory algorithms to store graph information presented by an edge stream and to keep some desired properties.</p>
+<p>From the survey <a target="_blank" rel="noopener" href="http://alpha.luc.ac.be/~lucg5503/sr/mcg.pdf">Graph Stream Algorithms: A Surve</a>, the algorithms of graph streaming data must do the following things:</p>
+<ul>
+<li>process the input stream in the order it arrives</li>
+<li>use a limited amount memory</li>
+</ul>
+<p>In other words, these algorithms should solve the following questions:</p>
+<ul>
+<li>how to trade-off size and accuracy when constructing data summaries</li>
+<li>how to quickly update these summaries</li>
+</ul>
+<p>A classic algorithm is called “semi-streaming model”, which uses O(n polylogn) memory to store the graph.</p>
+<p>The common framework is to </p>
+<ol>
+<li>find a trivial algorithm on the offline whole graph</li>
+<li>represent the graph using suitable trick and apply the algorithm on newly representations.</li>
+</ol>
+<h1 id="Graph-Sparsification"><a href="#Graph-Sparsification" class="headerlink" title="Graph Sparsification"></a>Graph Sparsification</h1><p>The learning objective is to sparsify a graph with fewer edges but still keep the distance between pairs of nodes not very long. Different approaches are applied corresponding to different constraint of lengths.</p>
+<ul>
+<li>multiplicative constraint: use a family of graph with girth larger than a constant k. Such a graph has the property of trade-off between girth and edge numbers. The approach is to build such a graph from the original graph.</li>
+<li>additive constraint: classify the nodes as light nodes and heavy nodes according to their degree. <ul>
+<li>Light nodes could not have too many edges </li>
+<li>For heavy nodes, we can do some sampling on nodes and add BFS tree (promise the distance between the root and other nodes) rooted at sampled nodes. Since they are heavy, they have a large probability of having a sampled neighbor. </li>
+</ul>
+</li>
+</ul>
+<h1 id="Online-algorithms-and-competitive-analysis"><a href="#Online-algorithms-and-competitive-analysis" class="headerlink" title="Online algorithms and competitive analysis"></a>Online algorithms and competitive analysis</h1><p>In this chapter, we learn to design algorithms with incomplete information, how to compare its performance with algorithms with complete information and how to design adversary against an online algorithm to prove the competitive ratio.  There are several important concepts/ideas in this chapter, basically refered from <a target="_blank" rel="noopener" href="https://www.icsi.berkeley.edu/pubs/techreports/TR-92-044.pdf">on-line algorithms versus off-line algorithms: how much is it worth to know the future?</a>.</p>
+<h2 id="Online-VS-offline-algorithms"><a href="#Online-VS-offline-algorithms" class="headerlink" title="Online VS offline algorithms:"></a>Online VS offline algorithms:</h2><ul>
+<li>online: <ul>
+<li>receive a sequence of requests</li>
+<li>perform an immediate action in response to each request</li>
+</ul>
+</li>
+<li>offline:<ul>
+<li>receive the entire sequence of requests in advance</li>
+<li>take an action in response to each request, but the choice of each action can be based on the entire sequence of requests.</li>
+</ul>
+</li>
+</ul>
+<p>Deterministic online algorithms: suppose there is a function f from the sequence of requests to an action, such that the function is deterministic. Then the algorithm A(r=r1r2…rt) = f(r1)f(r1r2)…f(r1r2…rt) is a deterministic online algorithm.</p>
+<h2 id="Competitive-analysis"><a href="#Competitive-analysis" class="headerlink" title="Competitive analysis"></a>Competitive analysis</h2><p>It is a method to analyze the performance of an online algorithm compared with the optimal offline algorithm</p>
+<p>Bounds the ratio between the worst case behavior of the algorithm on a problem instance and the behavior of the optimal algorithm (not necessarily well defined) on the same problem instance.</p>
+<ul>
+<li>competitive ratio of an algorithm: the worst case ratio of its cost divided by the optimal cost over all possible inputs</li>
+<li>competitive ratio of an online problem: the best competitive ratio achieved by an online algorithm</li>
+</ul>
+<h3 id="Potential-function"><a href="#Potential-function" class="headerlink" title="Potential function"></a>Potential function</h3><p>It is used to do competitive analysis. Where does it come from? We want to compare the performance between the designed algorithm and the optimal. We want to quantify the potential of the OPT to outperform the online algorithm.</p>
+<p>There are two cases for the performances of OPT and the online algorithm:</p>
+<ul>
+<li>at a step in which the algorithm’s actions sequence coincide with the optimal action sequence, the two will have the same cost</li>
+<li>when these two take different actions, the OPT has the potential to outperform the online algorithm. So, it is usually defined related to the difference between the OPT and the online one.</li>
+</ul>
+<p>Potential function is defined to measure the extent to which the two sequences differ, and hence the potential for OPT to outperform the online algorithm.</p>
+<h2 id="Adversary-constructions"><a href="#Adversary-constructions" class="headerlink" title="Adversary constructions"></a>Adversary constructions</h2><p>It is a main approach to prove the lower bounds on the competitive ratio achievable of an online deterministic algorithm for a given problem. The framework:</p>
+<ul>
+<li>given any deterministic online algorithm as input</li>
+<li>produce an infinite family R of request sequences such that as the length of the sequence r\in R increases, the ratio c(A(r))/c(OPT(r)) eventually exceeds every number less than k (a constant, the lower bound of the competitive ratio)</li>
+</ul>
+<p>There are three types of adversary. They can be used to test if a randomized online algorithm could be better than a deterministic online algorithm. In other words, to test if randomization could bring any advantage. These three have the same power to a deterministic algorithm but may have different power to a randomized algorithm. So, when speaking the competitivity of a randomized algorithm, we should point out which kind of adversary is used.</p>
+<p>Three types of adversary:</p>
+<ul>
+<li>oblivious</li>
+<li>adaptive</li>
+<li>fully adaptive</li>
+</ul>
+<p>Two important theorems:</p>
+<ul>
+<li>if there is a C-competitive randomized algorithm against fully adaptive adversary, then there is a C-competitive deterministic algorithm. In other words, there is no advantage to randomize when playing against fully adaptive adversaries.</li>
+<li>If there is a C-competitive randomized algorithm against oblivious adversaries and a D-competitive randomized algorithm against adaptive adversaries, then there is a  CD-competitive deterministic algorithm. It follows that the competitive ratio achievable by a randomized algorithm against adaptive online adversary is at least the square root of the best competitive ratio achievable by a deterministic algorithm.</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="../about" rel="external nofollow noreferrer">Fululu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://fuguigui.github.io">https://fuguigui.github.io</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="../about" target="_blank">Fululu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="../tags/Algorithm/">
+                                    <span class="chip bg-color">Algorithm</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="../libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="../libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="../index.html" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="../index.html" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="../pai-readme/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="../medias/featureimages/4.jpg" class="responsive-img" alt="PAI course notes">
+                        
+                        <span class="card-title">PAI course notes</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="../categories/Sharing/" class="post-category">
+                                    Sharing
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../tags/AI/">
+                        <span class="chip bg-color">AI</span>
+                    </a>
+                    
+                    <a href="../tags/Reinforcement-Learning/">
+                        <span class="chip bg-color">Reinforcement Learning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="../cil-readme/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="../medias/featureimages/13.jpg" class="responsive-img" alt="CIL review notes">
+                        
+                        <span class="card-title">CIL review notes</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="../categories/Sharing/" class="post-category">
+                                    Sharing
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="../libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="../libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="../libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="../libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="../libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="../libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="../libs/aplayer/APlayer.min.js"></script>
+<script src="../libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2024</span>
+            
+            <a href="../about" target="_blank">Fululu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/fuguigui" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:fugr0122@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="../atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('../search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="../libs/materialize/materialize.min.js"></script>
+    <script src="../libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="../libs/aos/aos.js"></script>
+    <script src="../libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="../libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="../js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="../libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="../libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="../libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="../libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

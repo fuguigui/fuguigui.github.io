@@ -1,0 +1,1320 @@
+<!DOCTYPE HTML>
+<html lang="en,zh-CN,zh-HK,de,default">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="PAI7 Reinforcement Learning, Traveling,Building,Creative,Output">
+    <meta name="description" content="The data is assumed to be drawn from some distributions. In reinforcement learning, we learn by interacting with environ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>PAI7 Reinforcement Learning | Fululu</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="../libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="../libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="../libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="../libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="../libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="../css/matery.css">
+<link rel="stylesheet" type="text/css" href="../css/my.css">
+<link rel="stylesheet" type="text/css" href="../css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="../libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="../css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="../css/reward.css">
+    
+
+
+
+    <script src="../libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="atom.xml" title="Fululu" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-coy.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="../index.html" class="waves-effect waves-light">
+                    
+                    <img src="../medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Fululu</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../index.html" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="../medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Fululu</div>
+        <div class="logo-desc">
+            
+            Since 2024-09-02, a new personal blog, fuguirong.de, has been born.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="../index.html" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('../medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">PAI7 Reinforcement Learning</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="../tags/AI/">
+                                <span class="chip bg-color">AI</span>
+                            </a>
+                        
+                            <a href="../tags/Reinforcement-Learning/">
+                                <span class="chip bg-color">Reinforcement Learning</span>
+                            </a>
+                        
+                            <a href="../tags/Bayesian/">
+                                <span class="chip bg-color">Bayesian</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                Learning Notes
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-01-29
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>The data is assumed to be drawn from some distributions. In reinforcement learning, we learn by interacting with environment. For example, one agent could perform some actions, and these actions will give him different rewards. He wants to learn how to take actions. One big issue is that the reward is based on a sequence of actions, not only one action. Considering the case that a sequence of actions leads to some reward, how to figure out exactly which action is responsible for this reward. Generally, it is impossible. We need some assumptions.</p>
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>RL = planning in unknown MDPs. </p>
+<ul>
+<li>not know the transition probability</li>
+<li>not know the rewards</li>
+<li>may not even know the states.</li>
+</ul>
+<p>In this way, how to come up a policy to react?</p>
+<p>A central object is the value function. In order to solve MDPs, we need to solve the value function.</p>
+<p>Difference from supervised learning:</p>
+<ul>
+<li>in RL, the data we get depends on what we did. The data is not i.i.d.</li>
+<li>what we do will affect what we learn</li>
+<li>have rewards. Not only achieve to learn a good model, but also a good policy to how to act to get a good reward.</li>
+</ul>
+<p>Main tasks:</p>
+<ul>
+<li>explore: how to act to get more knowledge of the world?</li>
+<li>exploit: once knowing the world, how to act to get a good reward?</li>
+</ul>
+<p>Types:</p>
+<ul>
+<li>on-policy RL: agents have full control over which actions to pick</li>
+<li>off-policy RL: agents have no control over actions, only gets observational data. </li>
+</ul>
+<h1 id="Assumptions"><a href="#Assumptions" class="headerlink" title="Assumptions"></a>Assumptions</h1><ul>
+<li><p>Markovian: the actions only depend on the current state, instead of past states.</p>
+</li>
+<li><p>finite states</p>
+</li>
+<li><p>finite actions</p>
+</li>
+</ul>
+<h1 id="Approaches"><a href="#Approaches" class="headerlink" title="Approaches"></a>Approaches</h1><ul>
+<li>model-based RL:<ol>
+<li>learn the MDP<ul>
+<li>estimate the transition probabilities $P(x’|x,a)$</li>
+<li>estimate reward function $r(x,a)$</li>
+</ul>
+</li>
+<li>optimize policy based on estimated MDP</li>
+</ol>
+</li>
+<li>model-free RL:<ul>
+<li>jump the transition probabilities, or reward function, but directly to estimate, what we need to learn to make a policy, <em>the value function</em></li>
+<li>policy gradient methods: constraint to some specific families of policy. Turn into an optimization problem.</li>
+<li>actor-critic methods: combine both of them: create values, limit to some families of policies.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Model-based"><a href="#Model-based" class="headerlink" title="Model-based"></a>Model-based</h2><p>The data set looks like: $x_1,a_1,r_1,x_2,a_2,r_2,\cdots$  given an observation $x_i$, take an action $a_i$ and get a reward $r_i$, which leads to the next observation $x_{i+1}$.</p>
+<p>Elements: $(x_i,a_i,r_i,x_{i+1})$ are independent from each other.</p>
+<p>$D = {(x_i,a_i,r_i,x_{i+1})},$ expressed in this way, we can do counting on the elements.</p>
+<p>MDP can be viewed as controlled Markov chain. </p>
+<ul>
+<li><p>estimate transitions MLE:</p>
+<p> $$<br> \Pr[X_{t+1}|X_t,A]\simeq\frac{Count(X_{t+1},X_t,A)}{Count(X_t,A)}<br> $$</p>
+</li>
+<li><p>estimate rewards:</p>
+<p> $$<br> r(x,a)\simeq\frac{1}{N_{x,a}}\sum_{t:X_t=   x,A_t=   a}R_t<br> $$</p>
+</li>
+</ul>
+<p>How accurate could the estimation be? More data will give more accurate estimations.</p>
+<h3 id="Trade-off-exploration-and-exploitation"><a href="#Trade-off-exploration-and-exploitation" class="headerlink" title="Trade-off exploration and exploitation"></a>Trade-off exploration and exploitation</h3><ul>
+<li><p>pick a random action</p>
+<ul>
+<li>exploration: will eventually correctly estimate all probabilities and rewards.</li>
+<li>exploitation: may do extremely poorly in terms of rewards. Because each action is independent from others, not a “good” policy</li>
+</ul>
+</li>
+<li><p>pick the currently “best” action</p>
+<ul>
+<li>exploration: can get stuck in suboptimal actions, local best</li>
+<li>exploitation: can yield some reward.</li>
+</ul>
+</li>
+<li><p>combination these two, using <strong>randomized</strong> strategies, called epsilon-greedy.</p>
+<ul>
+<li>with probability epsilon: pick a random action</li>
+<li>with probability 1-epsilon: pick the best action.</li>
+</ul>
+<p>If epsilon satisfies some condition, it will converge to optimal policy with probability 1.</p>
+<p>Condition: <strong>Robbins Monro condition</strong> </p>
+<ul>
+<li>Potential issue: the random action doesn’t rule out purely bad actions.</li>
+</ul>
+</li>
+<li><p>The Rmax algorithm: the principle is <em>optimism in the face of uncertainty</em>. When an action is unknown, try it!</p>
+<p>Assume the reward has a upper bound Rmax</p>
+<ul>
+<li>if you don’t know $r(x,a)$: set it to Rmax. That means try this action.</li>
+<li>if you don’t know $P(x’|x,a)$: set $P(x’|x,a)=1$. That means explore a new state.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h3><ul>
+<li>memory:  store $P(x’|x,a)\Rightarrow O(|x|^2|A|)$, store $r(x,a)\Rightarrow O(|X||A|)$</li>
+<li>time: solving once MDP requires $poly(|X|,|A|,1/\epsilon,\log(1/delta)$. Need to do this often. </li>
+</ul>
+<h2 id="Model-free"><a href="#Model-free" class="headerlink" title="Model-free"></a>Model-free</h2><p>According to Theorem Bellman, once we have the optimal value function, we can get a greedy policy, which is optimal.</p>
+<p>$Q^{\pi}(x,a)$​ : the expected reward of a policy $\pi$​, given the state and action pair $(x,a)$</p>
+<p>$$<br>Q^{\pi}(x,a)=   r(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V^{\pi}(x’)<br>$$<br>For the optimal policy $\pi^\ast$: It holds  </p>
+<p>$$<br>V^*(x)=   \max_a Q^*(x,a)<br>$$<br>The key idea is to estimate $Q^\ast(x,a)$ from samples.</p>
+<h3 id="Q-learning"><a href="#Q-learning" class="headerlink" title="Q-learning"></a>Q-learning</h3><p>To estimate the best policy’s Q function, which is  </p>
+<p>$$<br>Q^*(x,a)=   r(x,a)+\gamma\sum_{x’}\Pr[x’|x,a]V^*(x’)<br>$$<br>instead of using transition probability to get the exact expectation, we estimate from on instance $(x,a,x’)$.<br>$$<br>Q(x,a)\gets r(x,a)+\gamma V^*(x’)=   r(x,a)+\gamma\max_{a’} Q(x’,a’)<br>$$</p>
+<p>To trade-off huge variance from just one sample, we weight this update by alpha</p>
+<p>$$<br>Q(x,a)\gets (1-\alpha_t)Q(x,a)+\alpha_t(r(x,a)+\gamma\max_{a’} Q(x’,a’))<br>$$<br>$\alpha$: usually decrease along the time. means: at the beginning we put much weight on a new sample. Later, we put less and less.</p>
+<h4 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h4><p>Random version</p>
+<ol>
+<li>have initial estimate of $Q(x,a)$</li>
+<li>observe transition $x,a,x’$ with reward $r$. Update $Q(x,a)$ for long enough times.</li>
+</ol>
+<p>Optimistic algorithm, similar to $R_{\max}$:</p>
+<p>starting with an optimistic initialization. But only $R_{\max}$ is not enough, have to consider the discount effect and weight effect.</p>
+<ol>
+<li>initialize $Q(x,a)\gets\frac{R_{max}}{1-\gamma}\prod_{t=   1}^{T_{init}}(1-\alpha_t)^{-1}$</li>
+</ol>
+<h4 id="Convergence"><a href="#Convergence" class="headerlink" title="Convergence"></a>Convergence</h4><p><strong>Theorem</strong> for random: If learning rate alpha satisfies:</p>
+<ul>
+<li>never stops updating: $ \sum_t\alpha_t=   \infty$</li>
+<li>later samples have smaller weights: $\sum_t\alpha_t^2&lt;\infty$</li>
+<li>and actions are chosen at random</li>
+</ul>
+<p>Then</p>
+<p>$Q$ learning converges to optimal $Q^\ast$ with probability 1.</p>
+<p><strong>Theorem</strong> for optimistic: With probability $1-\delta$, optimistic Q-learning obtains an $\epsilon$​-approximation policy after a number of time steps that is polynomial in $|X|,|A|, 1/\epsilon$ and $\log(1/\delta)$.</p>
+<h4 id="Complexity-1"><a href="#Complexity-1" class="headerlink" title="Complexity"></a>Complexity</h4><ul>
+<li>memory: store the Q-table: $Q(x,a): O(|X||A|)$</li>
+<li>time: <ul>
+<li>update per sample: find the action which gives the maximum $Q(x’,a’)$, $O(|A|)$ </li>
+<li>iterations: polynomial in $|X|,|A|, 1/\epsilon$ and $\log(1/\delta)$</li>
+</ul>
+</li>
+</ul>
+<h4 id="Parametric-Q-function-approximation"><a href="#Parametric-Q-function-approximation" class="headerlink" title="Parametric Q-function approximation"></a>Parametric Q-function approximation</h4><p>The general idea is that we don’t update the entries of $Q$ table one by one in the update, but use some parameters to calculate the the entries and update the parameters in each step. In this way, we turn the question into an optimization problem and can solve it by approximation. Also, this approach allows us to go from the finite tabular $Q$ to infinite $Q$.</p>
+<p>At convergence, we want:</p>
+<p>$$<br>Q(x,a)=   \mathbb{E}<em>{(r,x’)|x,a}(r+\gamma\max</em>{a’}Q(x’,a’))<br>$$</p>
+<p>$$<br>\Rightarrow\mathbb{E}<em>{(r,x’,x,a)}(Q(x,a)-r-\gamma\max</em>{a’}Q(x’,a’))=   0<br>$$</p>
+<p>$$<br>\Rightarrow\min_{\theta}\mathbb{E}<em>{(r,x’,x,a)}[Q(x,a)-r-\gamma\max</em>{a’}Q(x’,a’)]^2<br>$$</p>
+<p>In this way, we can use mean to approximate expectation.</p>
+<p>Example of parametric $q$-function: linear function approximation: $Q(x,a;\theta)=   \theta^T\phi(x,a)$ </p>
+<p>Fit parameters to data: define the loss function on parameters as:</p>
+<p>$$<br>L(\theta)=   \sum_{(x,a,r,x’)\in D}(r+\gamma\max_{a’}Q(x’,a’;\theta^{old})-Q(x,a;\theta))^2<br>$$</p>
+<p>So, the goal is to find parameters to minimize the loss function:</p>
+<p>$$<br>\theta^*=   \arg_{\theta}\min L(\theta)<br>$$</p>
+<ul>
+<li>label: the estimation of Q entry given the observed sample:$r+\gamma\max_{a’}Q(x’,a’;\theta^{old})$</li>
+<li>prediction given theta: $ Q(x,a;\theta))$</li>
+</ul>
+<h4 id="Deep-learning"><a href="#Deep-learning" class="headerlink" title="Deep learning"></a>Deep learning</h4><p>Recall what deep learning does: deep learning is a tool to solve the loss minimization problem, given data:</p>
+<p>$$<br>w^*=   \arg_w\min \sum_{i=   1}^N l(y_i,f(x_i;w))<br>$$<br>by fitting nested nonlinear function of $f(x;w)$</p>
+<h4 id="Deep-Q-Networks"><a href="#Deep-Q-Networks" class="headerlink" title="Deep Q Networks"></a>Deep Q Networks</h4><p>this is a variant of Q-learning:</p>
+<ul>
+<li>use convolutional neural nets to approximate Q function</li>
+<li>important empirical insights:<ul>
+<li><p>maintain constant “target” values across episodes. save the initial labels as y, and use these ys throughout training, instead of calculating new label in each iteration.</p>
+</li>
+<li><p>double DQN: two networks, use old parameters to evaluate Q function, but new parameters for action selection. Want to use old parameters to calculate the value to avoid oscillations. Current parameters are more closed to the policy would do.</p>
+<p> $$<br>L(\theta)=   \sum_{(x,a,r,x’)\in D}(r+\gamma Q(x’,\hat{a}(x,\theta);\theta^{old})-Q(x,a;\theta))^2<br>$$<br>where $ \hat{a}(x,\theta)=   \arg_{a’}\max Q(x,a’,\theta)$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Policy-search-methods"><a href="#Policy-search-methods" class="headerlink" title="Policy search methods"></a>Policy search methods</h3><p>Learning a policy without the detour of learning a value function.</p>
+<p>Given a policy, do forward sampling on the controlled Markov chain and evaluate this policy $J(\theta)$. Then, adjust the parameters by gradient descent or other methods to get a new policy.</p>
+<h4 id="Bayesian-Learning-for-policy-search"><a href="#Bayesian-Learning-for-policy-search" class="headerlink" title="Bayesian Learning for policy search"></a>Bayesian Learning for policy search</h4><p>Go beyond point estimation, but the whole distribution.</p>
+<p>Using the Bayesian, on the data domain, find which part we are not certain about and which part we are certain about and then guide the samples drawing procedure.</p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>Model-based MDP and model-free RL are polynomial in $|A|$​​ and $|X|$​​. However, structured domains $(|A|,|X|$​​ exponential in Nr. agents $)$​ and continuous domains $(|A|$​ and $|X|$​​ are infinite$)$ are not applicable.</p>
+<h1 id="Outlook"><a href="#Outlook" class="headerlink" title="Outlook"></a>Outlook</h1><h2 id="Bayesian-Deep-RL"><a href="#Bayesian-Deep-RL" class="headerlink" title="Bayesian Deep RL"></a>Bayesian Deep RL</h2><p>Express the uncertainty of the model itself, by maintaining multiple models, ensemble of models.</p>
+<p>How to go beyond point estimate’s uncertainty?</p>
+<h2 id="Improving-action-selection-by-planning"><a href="#Improving-action-selection-by-planning" class="headerlink" title="Improving action selection by planning"></a>Improving action selection by planning</h2><p>Beyond one-step transitions, multiple steps forward to plan. </p>
+<h2 id="Risk-in-exploration"><a href="#Risk-in-exploration" class="headerlink" title="Risk in exploration"></a>Risk in exploration</h2><h3 id="Safe-Bayesian-optimization"><a href="#Safe-Bayesian-optimization" class="headerlink" title="Safe Bayesian optimization"></a>Safe Bayesian optimization</h3><p>not only consider the reward, but also maintains safety constraints. Try to never violate these constraints. Formally, $\max f(x), s.t. g(x)\geq\tau)$</p>
+<p>One challenge is that none of $f(x), g(x)$ are given in closed form, access only via noisy black box.</p>
+<p>Approach: </p>
+<ol>
+<li>find a safe start point</li>
+<li>go to reachable optimal points, instead of global optimal.</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="../about" rel="external nofollow noreferrer">Fululu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://fuguigui.github.io">https://fuguigui.github.io</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="../about" target="_blank">Fululu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="../tags/AI/">
+                                    <span class="chip bg-color">AI</span>
+                                </a>
+                            
+                                <a href="../tags/Reinforcement-Learning/">
+                                    <span class="chip bg-color">Reinforcement Learning</span>
+                                </a>
+                            
+                                <a href="../tags/Bayesian/">
+                                    <span class="chip bg-color">Bayesian</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="../libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="../libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="../index.html" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="../index.html" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="../sysml-ti-qian-kan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="../medias/featureimages/10.jpg" class="responsive-img" alt="SysML提前看">
+                        
+                        <span class="card-title">SysML提前看</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="../categories/Reading-Summary/" class="post-category">
+                                    Reading Summary
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../tags/System/">
+                        <span class="chip bg-color">System</span>
+                    </a>
+                    
+                    <a href="../tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
+                    </a>
+                    
+                    <a href="../tags/Security/">
+                        <span class="chip bg-color">Security</span>
+                    </a>
+                    
+                    <a href="../tags/Privacy/">
+                        <span class="chip bg-color">Privacy</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="../pai-04/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="../medias/featureimages/3.jpg" class="responsive-img" alt="PAI4 Reasoning over Time">
+                        
+                        <span class="card-title">PAI4 Reasoning over Time</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="../categories/Learning-Notes/" class="post-category">
+                                    Learning Notes
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../tags/AI/">
+                        <span class="chip bg-color">AI</span>
+                    </a>
+                    
+                    <a href="../tags/Reinforcement-Learning/">
+                        <span class="chip bg-color">Reinforcement Learning</span>
+                    </a>
+                    
+                    <a href="../tags/Bayesian/">
+                        <span class="chip bg-color">Bayesian</span>
+                    </a>
+                    
+                    <a href="../tags/Markov/">
+                        <span class="chip bg-color">Markov</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="../libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="../libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="../libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="../libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="../libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="../libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="../libs/aplayer/APlayer.min.js"></script>
+<script src="../libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2024</span>
+            
+            <a href="../about" target="_blank">Fululu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/fuguigui" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:fugr0122@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="../atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('../search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="../libs/materialize/materialize.min.js"></script>
+    <script src="../libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="../libs/aos/aos.js"></script>
+    <script src="../libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="../libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="../js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="../libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="../libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="../libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="../libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
